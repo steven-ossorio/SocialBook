@@ -17,10 +17,13 @@
     "redux-thunk": "^2.2.0",
     "webpack": "^3.8.1"
   },
-
+  "engine": {
+    "npm": "3.10.8",
+    "node": "6.9.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "webpack",
-    "webpack": "webpack --watch"
+    "webpack": "webpack --watch",
+    "postinstall": "webpack"
   }
 }
