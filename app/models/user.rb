@@ -7,11 +7,11 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(email, password)
-    user = User.fine_by(email: email)
+    user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil
   end
 
-  def generate_session_token
+  def self.generate_session_token
     SecureRandom.urlsafe_base64
   end
 
