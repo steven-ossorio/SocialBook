@@ -33,14 +33,20 @@ class SessionForm extends Component {
   }
 
   render() {
-
+    const errors = this.props.errors.map( (error, idx) => {
+      return <li key={ idx }>{error}</li>;
+    });
     return (
       <div>
-        <form>
-          <input onChange={ this.update('email') } ></input>
-          <input onChange={ this.update('password')}></input>
-          <button onClick={ this.submit }>Log In</button>
-        </form>
+        <nav>
+          <h1 className="logo">Socialbook</h1>
+          <form className="login-form">
+            { errors }
+            <input className="login-email" onChange={ this.update('email') } ></input>
+            <input className="login-password" onChange={ this.update('password')}></input>
+            <button className="login-button" onClick={ this.submit }>Log In</button>
+          </form>
+        </nav>
       </div>
     );
   }

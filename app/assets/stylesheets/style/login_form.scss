@@ -1,0 +1,22 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0550FF;
+}
+
+.logo {
+  color: white;
+  margin-left: 100px;
+}
+
+.login-form {
+  margin: 20px;
+}
+
+.login-form > input {
+  margin: 5px;
+}
+
+.login-button {
+  margin-right: 100px;
+}
