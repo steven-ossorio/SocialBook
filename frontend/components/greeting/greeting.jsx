@@ -19,10 +19,6 @@ class Greeting extends Component {
     } else {
       return (
         <div>
-          <h1>Please login</h1>;
-          <Link to='#'>Login</Link>
-          <h1>Or sign UP!</h1>
-          <Link to='#'>Sign Up</Link>
         </div>
       );
     }
