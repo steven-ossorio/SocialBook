@@ -68,7 +68,7 @@ class SignUpForm extends Component {
 
   errorsEmail(propName) {
     if (this.props.errors[propName]) {
-      return <div className="signup-form-email-error">{ this.props.errors[propName] }</div>;
+      return <div className="signup-form-email-error">Email { this.props.errors[propName] }</div>;
     }
   }
 
