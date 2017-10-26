@@ -85,7 +85,7 @@ class SignUpForm extends Component {
       <div>
         <div className="form-background">
           <section>
-            hello
+            <img src={ "<%= asset_path('image1.png') %>" }></img>
           </section>
           <main className="signup-form-layout">
             <section className="info">
