@@ -1,3 +1,29 @@
+.signup-form-layout {
+  display: flex;
+  width: 980px;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.info {
+  flex-direction: column;
+  width: 400px;
+  float: right;
+}
+
+.signup-text {
+  font-size: 35px;
+  margin-top: 20px;
+}
+
+.signup-text-two {
+  font-size: 25px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+
 .form-background {
   background-color: #EEF0F5;
   display: flex;
@@ -6,6 +32,7 @@
 .signup-form {
   width: 400px;
   float: right;
+  height: 300px;
 }
 
 .signup-first-name, .signup-last-name {

@@ -87,9 +87,11 @@ class SignUpForm extends Component {
           <section>
             hello
           </section>
-          <main className="landing-page">
-            <p>Sign Up</p>
-            <p>It's free and always will be.</p>
+          <main className="signup-form-layout">
+            <section className="info">
+              <h1 className="signup-text">Sign Up</h1>
+              <h2 className="signup-text-two">It's free and always will be.</h2>
+            </section>
             <form className="signup-form">
               <input className="signup-first-name" type="text" onChange={ this.update("firstName") } placeholder="First name"></input>
               <input className="signup-last-name" type="text" onChange={ this.update("lastName") } placeholder="Last name"></input>
