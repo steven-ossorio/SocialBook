@@ -83,6 +83,7 @@ class SignUpForm extends Component {
 
     return(
       <div>
+        <div className="form-background">
         <main className="landing-page">
           <form className="signup-form">
             <input className="signup-first-name" type="text" onChange={ this.update("firstName") } placeholder="First Name"></input>
@@ -109,6 +110,7 @@ class SignUpForm extends Component {
                 <button onClick={ this.submit }>Create Account</button>
               </form>
         </main>
+      </div>
       </div>
     );
   }
