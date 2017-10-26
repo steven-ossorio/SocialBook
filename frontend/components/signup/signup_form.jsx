@@ -51,7 +51,7 @@ class SignUpForm extends Component {
     let months = ['Month', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     months = months.map( (month, idx) => {
       if (new Date().toDateString().slice(4, 7) === month) {
-        return <option key={idx} ></option>;
+        return <option key={idx} >{ month }</option>;
       }
       return <option key={idx}>{month}</option>;
     });
