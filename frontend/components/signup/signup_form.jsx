@@ -86,18 +86,18 @@ class SignUpForm extends Component {
         <div className="form-background">
         <main className="landing-page">
           <form className="signup-form">
-            <input className="signup-first-name" type="text" onChange={ this.update("firstName") } placeholder="First Name"></input>
-            <input className="signup-last-name" type="text" onChange={ this.update("lastName") } placeholder="Last Name"></input>
+            <input className="signup-first-name" type="text" onChange={ this.update("firstName") } placeholder="First name"></input>
+            <input className="signup-last-name" type="text" onChange={ this.update("lastName") } placeholder="Last name"></input>
             <input className="signup-email" type="text" onChange={ this.update("email") } placeholder="email"></input>
             <input className="signup-password" type="password" onChange={ this.update("password") } placeholder="New password"></input>
-            Birthday
-            <select value={ this.state.month } onChange={ this.update('month') } >
+            <p className="signup-birthday-text">Birthday</p>
+            <select className="signup-birthday" value={ this.state.month } onChange={ this.update('month') } >
               { months }
             </select>
-            <select value={ this.state.day } onChange={ this.update('day') }>
+            <select className="signup-birthday" value={ this.state.day } onChange={ this.update('day') }>
               { days }
             </select>
-            <select value={ this.state.year } onChange={ this.update('year') }>
+            <select className="signup-birthday" value={ this.state.year } onChange={ this.update('year') }>
               { years }
             </select>
 
@@ -107,7 +107,7 @@ class SignUpForm extends Component {
               <label>
                 <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'male'} value='male' ></input> Male
                 </label>
-                <button onClick={ this.submit }>Create Account</button>
+                <button className="signup-button" onClick={ this.submit }>Create Account</button>
               </form>
         </main>
       </div>

@@ -1,18 +1,20 @@
 .form-background {
-  background-color: lightgrey;
+  background-color: #EEF0F5;
 }
 
 .signup-form {
-  width: 370px;
+  width: 400px;
   float: right;
 }
 
 .signup-first-name, .signup-last-name {
   font-size: 15px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  height: 25px;
-  padding-left: 5px;
+  height: 20px;
+  padding: 5px;
   margin: 5px 0px;
+  width: 180px;
 }
 
 .signup-last-name {
@@ -22,8 +24,29 @@
 .signup-email, .signup-password {
   border-radius: 5px;
   font-size: 15px;
-  width: 350px;
+  width: 400px;
   height: 25px;
   padding-left: 10px;
   margin: 5px 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.signup-birthday-text {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.signup-birthday {
+  font-size: 10px;
+  height: 25px;
+}
+
+.signup-button {
+  color: white;
+  background-color: green;
+  width: 180px;
+  font-size: 15px;
+  height: 40px;
+  border-radius: 5px;
 }
