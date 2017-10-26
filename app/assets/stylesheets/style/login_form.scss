@@ -1,6 +1,7 @@
 .nav-background {
   background-color: #385996;
   margin: 0;
+  height: 80px;
 }
 
 nav {
@@ -11,8 +12,25 @@ nav {
 
 .logo {
   color: white;
-  font-size: 30px;
+  font-size: 40px;
   margin: 0;
   padding: 25px;
+  padding-left: 0px;
   padding-bottom: 0px;
+}
+
+.login-form {
+  padding-top: 30px;
+}
+
+.login-email {
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  height: 18px;
+}
+
+.login-password {
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  height: 18px;
 }
