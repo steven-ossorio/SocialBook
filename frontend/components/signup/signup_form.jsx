@@ -74,7 +74,7 @@ class SignUpForm extends Component {
 
   errorsPassword(propName) {
     if (this.props.errors[propName]) {
-      return <div className="signup-form-password-error">{ this.props.errors[propName] }</div>;
+      return <div className="signup-form-password-error">Password { this.props.errors[propName] }</div>;
     }
   }
 
