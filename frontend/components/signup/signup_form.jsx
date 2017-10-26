@@ -115,15 +115,18 @@ class SignUpForm extends Component {
               <input className="signup-email" type="text" onChange={ this.update("email") } placeholder="email"></input>
               <input className="signup-password" type="password" onChange={ this.update("password") } placeholder="New password"></input>
               <p className="signup-birthday-text">Birthday</p>
-              <select className="signup-birthday" value={ this.state.month } onChange={ this.update('month') } >
-                { months }
-              </select>
-              <select className="signup-birthday" value={ this.state.day } onChange={ this.update('day') }>
-                { days }
-              </select>
-              <select className="signup-birthday" value={ this.state.year } onChange={ this.update('year') }>
-                { years }
-              </select>
+              <div className="signup-birthday-section">
+                <select className="signup-birthday" value={ this.state.month } onChange={ this.update('month') } >
+                  { months }
+                </select>
+                <select className="signup-birthday" value={ this.state.day } onChange={ this.update('day') }>
+                  { days }
+                </select>
+                <select className="signup-birthday" value={ this.state.year } onChange={ this.update('year') }>
+                  { years }
+                </select>
+                <p className="birthday-requiremenr">Why do I need to provide my birthday?</p>
+              </div>
               <br />
               <label>
                 <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'female'} value='female' ></input> Female
@@ -132,6 +135,10 @@ class SignUpForm extends Component {
                 <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'male'} value='male' ></input> Male
               </label>
               <br />
+              <div className="terms-to-agree">
+                <p>By clicking Create Account, you agree to our Terms and that you have read our Data Policy, including our Cookie Use.
+                  You may receive SMS Notifications from Facebook and can opt out at any time.</p>
+              </div>
               <button className="signup-button" onClick={ this.submit }>Create Account</button>
               <hr />
             </form>
