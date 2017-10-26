@@ -1,5 +1,6 @@
 .form-background {
   background-color: #EEF0F5;
+  display: flex;
 }
 
 .signup-form {
@@ -15,6 +16,7 @@
   padding: 5px;
   margin: 5px 0px;
   width: 180px;
+  font-size: 18px;
 }
 
 .signup-last-name {
@@ -30,6 +32,7 @@
   margin: 5px 0px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 18px;
 }
 
 .signup-birthday-text {
@@ -49,4 +52,5 @@
   font-size: 15px;
   height: 40px;
   border-radius: 5px;
+  margin: 10px 0px;
 }
