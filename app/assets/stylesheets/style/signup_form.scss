@@ -72,6 +72,10 @@
   height: 300px;
 }
 
+.signup-form-name {
+  display: flex;
+}
+
 .signup-first-name, .signup-last-name {
   font-size: 15px;
   border: 1px solid #ccc;
@@ -81,6 +85,34 @@
   margin: 5px 0px;
   width: 160px;
   font-size: 18px;
+}
+
+.signup-first-name-container {
+  position: relative;
+}
+
+.signup-form-first-name-error {
+  position: absolute;
+  left: -125px;
+  top: 5px;
+  background-color: #990000;
+  padding: 10px;
+  border-radius: 5%;
+  color: white;
+}
+
+.signup-last-name-container {
+  position: relative;
+}
+
+.signup-form-last-name-error {
+  position: absolute;
+  top: -40px;
+  left: 60px;
+  background-color: #990000;
+  padding: 10px;
+  border-radius: 5%;
+  color: white;
 }
 
 .signup-last-name {
