@@ -43,8 +43,8 @@ class SessionForm extends Component {
             <h1 className="logo">Socialbook</h1>
             <form className="login-form">
               { errors }
-              <input className="login-email" onChange={ this.update('email') } ></input>
-              <input className="login-password" onChange={ this.update('password')}></input>
+              <input type="text" className="login-email" onChange={ this.update('email') } ></input>
+              <input type="password" className="login-password" onChange={ this.update('password')}></input>
               <button className="login-button" onClick={ this.submit }>Log In</button>
             </form>
           </nav>
