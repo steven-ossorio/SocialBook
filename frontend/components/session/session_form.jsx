@@ -33,9 +33,6 @@ class SessionForm extends Component {
   }
 
   render() {
-    const errors = this.props.errors.map( (error, idx) => {
-      return <li key={ idx }>{error}</li>;
-    });
     return (
       <div>
         <main className="nav-background">

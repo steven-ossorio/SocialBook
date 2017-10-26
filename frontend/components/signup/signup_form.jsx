@@ -13,10 +13,12 @@ class SignUpForm extends Component {
       month: new Date().toDateString().slice(4, 7),
       day: new Date().getDate(),
       year: new Date().getFullYear() - 18,
-      sex: ""
+      sex: "",
+      errors: Object.assign({}, this.props.errors)
     };
     this.update = this.update.bind(this);
     this.submit = this.submit.bind(this);
+    this.errorsFirstName = this.errorsFirstName.bind(this);
   }
 
   update(field) {
@@ -46,12 +48,22 @@ class SignUpForm extends Component {
     this.props.signup(user);
   }
 
+  // errorsString(propName) {
+  //   if (this.props.errors[propName]) {
+  //     return <div>{`${propName} ${this.props.errors[propName]}`}</div>
+  //   }
+  // }
+
+  errorsFirstName(propName) {
+    if (this.props.errors[propName]) {
+      return <div className="signup-form-first-name-error">{ this.props.errors[propName] }</div>;
+    }
+  }
+
   render() {
     // Errors
-    const errors = this.props.errors.map( (error, idx) => {
-      return <li key={ idx }>{error}</li>;
-    });
-
+    const errors = this.props.errors;
+    console.log(errors.first_name);
     // Months
     let months = ['Month', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     months = months.map( (month, idx) => {
@@ -86,6 +98,7 @@ class SignUpForm extends Component {
       return <option key={idx}>{ year }</option>;
     });
 
+
     return(
       <div>
         <div className="form-background">
@@ -115,9 +128,10 @@ class SignUpForm extends Component {
               <h2 className="signup-text-two">It's free and always will be.</h2>
             </section>
             <form className="signup-form">
-              { errors }
+              <span className="">{ errors.first_name }</span>
+              { errorsFirstName('first_name') }
               <input className="signup-first-name" type="text" onChange={ this.update("firstName") } placeholder="First name"></input>
-              <input className="signup-last-name" type="text" onChange={ this.update("lastName") } placeholder="Last name"></input>
+              <input className="signup-last-name" type="text" onChange={ this.update("lastName") } placeholder="Last name">{ this.state.errors.last_name }</input>
               <input className="signup-email" type="text" onChange={ this.update("email") } placeholder="email"></input>
               <input className="signup-password" type="password" onChange={ this.update("password") } placeholder="New password"></input>
               <p className="signup-birthday-text">Birthday</p>

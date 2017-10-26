@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       login(@user)
       render :show
-    elsif
+    else
       render json: @user.errors.messages, status: 401
     end
   end
