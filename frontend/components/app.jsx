@@ -10,6 +10,7 @@ const App = () => (
     <div>
       <header>
         <HomeContainer />
+        <Route path="/users/:userId" component={HomeContainer}/>
         <AuthRoute path="/" component={SessionFormContainer} />
         <AuthRoute path="/" component={SignUpFormContainer} />
       </header>
