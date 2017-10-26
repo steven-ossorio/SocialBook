@@ -56,7 +56,7 @@ class SignUpForm extends Component {
 
   errorsFirstName(propName) {
     if (this.props.errors[propName]) {
-      return <div className="signup-form-first-name-error">{ this.props.errors[propName] }</div>;
+      return <div className="signup-form-first-name-error"> First name { this.props.errors[propName] }</div>;
     }
   }
 
@@ -69,6 +69,18 @@ class SignUpForm extends Component {
   errorsEmail(propName) {
     if (this.props.errors[propName]) {
       return <div className="signup-form-email-error">{ this.props.errors[propName] }</div>;
+    }
+  }
+
+  errorsPassword(propName) {
+    if (this.props.errors[propName]) {
+      return <div className="signup-form-password-error">{ this.props.errors[propName] }</div>;
+    }
+  }
+
+  errorsSex(propName) {
+    if (this.props.errors[propName]) {
+      return <div className="signup-form-sex-error">{ this.props.errors[propName] }</div>;
     }
   }
 
@@ -154,7 +166,10 @@ class SignUpForm extends Component {
                 { this.errorsEmail('email') }
                 <input className="signup-email" type="text" onChange={ this.update("email") } placeholder="email"></input>
               </div>
-              <input className="signup-password" type="password" onChange={ this.update("password") } placeholder="New password"></input>
+              <div className="signup-password-container">
+                { this.errorsPassword('password') }
+                <input className="signup-password" type="password" onChange={ this.update("password") } placeholder="New password"></input>
+              </div>
               <p className="signup-birthday-text">Birthday</p>
               <div className="signup-birthday-section">
                 <select className="signup-birthday" value={ this.state.month } onChange={ this.update('month') } >
@@ -169,12 +184,15 @@ class SignUpForm extends Component {
                 <p className="birthday-requiremenr">Why do I need to provide my birthday?</p>
               </div>
               <br />
-              <label>
-                <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'female'} value='female' ></input> Female
+              <div className="signup-sex-container">
+                { this.errorsSex('sex') }
+                <label>
+                  <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'female'} value='female' ></input> Female
                 </label>
-              <label>
-                <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'male'} value='male' ></input> Male
-              </label>
+                <label>
+                  <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'male'} value='male' ></input> Male
+                </label>
+              </div>
               <br />
               <div className="terms-to-agree">
                 <p>By clicking Create Account, you agree to our Terms and that you have read our Data Policy, including our Cookie Use.

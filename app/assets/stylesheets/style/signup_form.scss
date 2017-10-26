@@ -91,28 +91,20 @@
   position: relative;
 }
 
-.signup-form-first-name-error {
-  position: absolute;
-  left: -125px;
-  top: 5px;
-  background-color: #990000;
-  padding: 10px;
-  border-radius: 5%;
-  color: white;
-}
-
 .signup-last-name-container {
   position: relative;
 }
 
-.signup-form-last-name-error {
-  position: absolute;
-  top: -40px;
-  left: 60px;
-  background-color: #990000;
-  padding: 10px;
-  border-radius: 5%;
-  color: white;
+.signup-email-container {
+  position: relative;
+}
+
+.signup-password-container {
+  position: relative;
+}
+
+.signup-sex-container {
+  position: relative;
 }
 
 .signup-last-name {
@@ -172,5 +164,56 @@
 .errors-first-name {
   padding: 15px;
   background-color: red;
+  color: white;
+}
+
+.signup-form-first-name-error {
+  position: absolute;
+  top: -40px;
+  left: 60px;
+  background-color: #990000;
+  padding: 10px;
+  border-radius: 5%;
+  color: white;
+  width: 122px;
+  font-size: 12px;
+}
+
+.signup-form-last-name-error {
+  position: absolute;
+  top: -40px;
+  left: 60px;
+  background-color: #990000;
+  padding: 10px;
+  border-radius: 5%;
+  color: white;
+}
+
+.signup-form-email-error {
+  position: absolute;
+  left: -120px;
+  background-color: #990000;
+  padding: 10px;
+  border-radius: 5%;
+  color: white;
+}
+
+.signup-form-password-error {
+  position: absolute;
+  top: 40px;
+  left: 80px;
+  background-color: #990000;
+  padding: 10px;
+  border-radius: 5%;
+  color: white;
+}
+
+.signup-form-sex-error {
+  position: absolute;
+  top: -10px;
+  left: -120px;
+  background-color: #990000;
+  padding: 10px;
+  border-radius: 5%;
   color: white;
 }
