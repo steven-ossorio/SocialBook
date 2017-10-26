@@ -38,15 +38,17 @@ class SessionForm extends Component {
     });
     return (
       <div>
-        <nav>
-          <h1 className="logo">Socialbook</h1>
-          <form className="login-form">
-            { errors }
-            <input className="login-email" onChange={ this.update('email') } ></input>
-            <input className="login-password" onChange={ this.update('password')}></input>
-            <button className="login-button" onClick={ this.submit }>Log In</button>
-          </form>
-        </nav>
+        <main className="nav-background">
+          <nav className="landing-page">
+            <h1 className="logo">Socialbook</h1>
+            <form className="login-form">
+              { errors }
+              <input className="login-email" onChange={ this.update('email') } ></input>
+              <input className="login-password" onChange={ this.update('password')}></input>
+              <button className="login-button" onClick={ this.submit }>Log In</button>
+            </form>
+          </nav>
+        </main>
       </div>
     );
   }

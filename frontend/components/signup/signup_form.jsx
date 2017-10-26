@@ -83,30 +83,32 @@ class SignUpForm extends Component {
 
     return(
       <div>
-        <form>
-          <input type="text" onChange={ this.update("firstName") } placeholder="First Name"></input>
-          <input type="text" onChange={ this.update("lastName") } placeholder="Last Name"></input>
-          <input type="text" onChange={ this.update("email") } placeholder="email"></input>
-          <input type="password" onChange={ this.update("password") } placeholder="New password"></input>
-          Birthday
-          <select value={ this.state.month } onChange={ this.update('month') } >
-            { months }
-          </select>
-          <select value={ this.state.day } onChange={ this.update('day') }>
-            { days }
-          </select>
-          <select value={ this.state.year } onChange={ this.update('year') }>
-            { years }
-          </select>
+        <main className="landing-page">
+          <form className="signup-form">
+            <input className="signup-first-name" type="text" onChange={ this.update("firstName") } placeholder="First Name"></input>
+            <input className="signup-last-name" type="text" onChange={ this.update("lastName") } placeholder="Last Name"></input>
+            <input className="signup-email" type="text" onChange={ this.update("email") } placeholder="email"></input>
+            <input className="signup-password" type="password" onChange={ this.update("password") } placeholder="New password"></input>
+            Birthday
+            <select value={ this.state.month } onChange={ this.update('month') } >
+              { months }
+            </select>
+            <select value={ this.state.day } onChange={ this.update('day') }>
+              { days }
+            </select>
+            <select value={ this.state.year } onChange={ this.update('year') }>
+              { years }
+            </select>
 
-          <label>
-            <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'female'} value='female' ></input> Female
-          </label>
-          <label>
-            <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'male'} value='male' ></input> Male
-          </label>
-          <button onClick={ this.submit }>Create Account</button>
-        </form>
+            <label>
+              <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'female'} value='female' ></input> Female
+              </label>
+              <label>
+                <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'male'} value='male' ></input> Male
+                </label>
+                <button onClick={ this.submit }>Create Account</button>
+              </form>
+        </main>
       </div>
     );
   }

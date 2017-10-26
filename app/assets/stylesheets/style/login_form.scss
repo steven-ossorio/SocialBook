@@ -1,3 +1,8 @@
+.nav-background {
+  background-color: #0550FF;
+  margin: 0;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -6,11 +11,10 @@ nav {
 
 .logo {
   color: white;
-  margin-left: 100px;
-}
-
-.login-form {
-  margin: 20px;
+  font-size: 30px;
+  margin: 0;
+  padding: 25px;
+  padding-bottom: 0px;
 }
 
 .login-form > input {
@@ -18,5 +22,4 @@ nav {
 }
 
 .login-button {
-  margin-right: 100px;
 }
