@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
+
 
   def create
     @user = User.new(user_params)
@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
       login(@user)
       render :show
     elsif
-      render json: @user.errors.full_messages, status: 401
+      render json: @user.errors.messages, status: 401
     end
   end
 

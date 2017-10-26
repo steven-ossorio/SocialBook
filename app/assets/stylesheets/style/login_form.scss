@@ -21,6 +21,7 @@ nav {
 
 .login-form {
   padding-top: 30px;
+  display: flex;
 }
 
 .login-email {
@@ -43,4 +44,5 @@ nav {
 
 .login-password-label {
   position: absolute;
+  margin-top: -20px;
 }

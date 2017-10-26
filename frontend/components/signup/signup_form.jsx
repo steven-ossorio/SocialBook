@@ -47,6 +47,11 @@ class SignUpForm extends Component {
   }
 
   render() {
+    // Errors
+    const errors = this.props.errors.map( (error, idx) => {
+      return <li key={ idx }>{error}</li>;
+    });
+
     // Months
     let months = ['Month', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     months = months.map( (month, idx) => {
@@ -110,6 +115,7 @@ class SignUpForm extends Component {
               <h2 className="signup-text-two">It's free and always will be.</h2>
             </section>
             <form className="signup-form">
+              { errors }
               <input className="signup-first-name" type="text" onChange={ this.update("firstName") } placeholder="First name"></input>
               <input className="signup-last-name" type="text" onChange={ this.update("lastName") } placeholder="Last name"></input>
               <input className="signup-email" type="text" onChange={ this.update("email") } placeholder="email"></input>
