@@ -42,9 +42,15 @@ class SessionForm extends Component {
           <nav className="landing-page">
             <h1 className="logo">Socialbook</h1>
             <form className="login-form">
-              { errors }
-              <input type="text" className="login-email" onChange={ this.update('email') } ></input>
-              <input type="password" className="login-password" onChange={ this.update('password')}></input>
+              <div>
+                <label className="login-email-label">Email</label>
+                <input type="text" className="login-email" onChange={ this.update('email') } ></input>
+              </div>
+              <div>
+                <label>Password</label>
+                <input type="password" className="login-password" onChange={ this.update('password')}></input>
+                <Link to="/">Forgot account?</Link>
+              </div>
               <button className="login-button" onClick={ this.submit }>Log In</button>
             </form>
           </nav>

@@ -27,10 +27,20 @@ nav {
   margin-right: 5px;
   border: 1px solid #ccc;
   height: 18px;
+  position: relative;
+}
+
+.login-email-label {
+  position: absolute;
+  margin-top: -20px;
 }
 
 .login-password {
   margin-right: 5px;
   border: 1px solid #ccc;
   height: 18px;
+}
+
+.login-password-label {
+  position: absolute;
 }
