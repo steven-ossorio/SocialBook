@@ -22,6 +22,7 @@ nav {
 .login-form {
   padding-top: 30px;
   display: flex;
+  position: relative;
 }
 
 .login-email {
@@ -45,4 +46,18 @@ nav {
 .login-password-label {
   position: absolute;
   margin-top: -20px;
+}
+
+// Errors
+
+.login-error {
+  position: absolute;
+  top: 25px;
+  left: -140px;
+  background-color: #990000;
+  padding: 10px;
+  border-radius: 5%;
+  color: white;
+  width: 95px;
+  font-size: 12px;
 }

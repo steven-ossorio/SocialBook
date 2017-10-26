@@ -19,6 +19,10 @@ class SignUpForm extends Component {
     this.update = this.update.bind(this);
     this.submit = this.submit.bind(this);
     this.errorsFirstName = this.errorsFirstName.bind(this);
+    this.errorsLastName = this.errorsLastName.bind(this);
+    this.errorsEmail = this.errorsEmail.bind(this);
+    this.errorsPassword = this.errorsPassword.bind(this);
+    this.errorsSex = this.errorsSex.bind(this);
   }
 
   update(field) {

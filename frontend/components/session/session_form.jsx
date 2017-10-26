@@ -10,6 +10,7 @@ class SessionForm extends Component {
     };
     this.update = this.update.bind(this);
     this.submit = this.submit.bind(this);
+    this.errorsCredentials = this.errorsCredentials.bind(this);
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -32,13 +33,22 @@ class SessionForm extends Component {
     this.props.login(user);
   }
 
+  errorsCredentials() {
+    if (this.props.errors.length > 0) {
+      return <div className="login-error">{ this.props.errors[0] }</div>;
+    }
+  }
+
   render() {
+    console.log(this.props.errors.length);
+    const errors = this.props.errros;
     return (
       <div>
         <main className="nav-background">
           <nav className="landing-page">
             <h1 className="logo">Socialbook</h1>
             <form className="login-form">
+              { this.errorsCredentials() }
               <div>
                 <label className="login-email-label">Email</label>
                 <input type="text" className="login-email" onChange={ this.update('email') } ></input>
