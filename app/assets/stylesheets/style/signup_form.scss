@@ -169,8 +169,8 @@
 
 .signup-form-first-name-error {
   position: absolute;
-  top: -40px;
-  left: 60px;
+  top: 5px;
+  left: -150px;
   background-color: #990000;
   padding: 10px;
   border-radius: 5%;
@@ -182,7 +182,7 @@
 .signup-form-last-name-error {
   position: absolute;
   top: -40px;
-  left: 60px;
+  left: 10px;
   background-color: #990000;
   padding: 10px;
   border-radius: 5%;
@@ -193,7 +193,8 @@
 
 .signup-form-email-error {
   position: absolute;
-  left: -120px;
+  top: 5px;
+  left: -150px;
   background-color: #990000;
   padding: 10px;
   border-radius: 5%;
@@ -217,9 +218,11 @@
 .signup-form-sex-error {
   position: absolute;
   top: -10px;
-  left: -120px;
+  left: -150px;
   background-color: #990000;
   padding: 10px;
   border-radius: 5%;
   color: white;
+  width: 122px;
+  font-size: 12px;
 }

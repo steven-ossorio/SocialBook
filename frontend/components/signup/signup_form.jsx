@@ -80,7 +80,7 @@ class SignUpForm extends Component {
 
   errorsSex(propName) {
     if (this.props.errors[propName]) {
-      return <div className="signup-form-sex-error">{ this.props.errors[propName] }</div>;
+      return <div className="signup-form-sex-error">Selection { this.props.errors[propName] }</div>;
     }
   }
 
