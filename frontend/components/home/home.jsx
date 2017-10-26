@@ -30,6 +30,7 @@ class Home extends Component {
           </main>
           <h1>Welcome back, { this.props.currentUser.firstName }</h1>
           <Link to={`/users/${ this.props.currentUser.id}`}>Profile</Link>
+          <img src={ this.props.currentUser.image_url }></img>
           <button onClick={ this.props.logout }>Logout</button>
         </div>
       );
