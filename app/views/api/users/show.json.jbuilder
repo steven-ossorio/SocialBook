@@ -4,3 +4,4 @@ json.firstName @user.first_name
 json.lastName @user.last_name
 json.dob @user.dob
 json.sex @user.sex
+json.image_url asset_path(@user.image.url)

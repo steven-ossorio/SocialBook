@@ -6,6 +6,12 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "image1.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  has_attached_file :cover_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "image1.png"
+  validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\z/
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil
