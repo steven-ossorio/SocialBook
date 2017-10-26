@@ -84,13 +84,28 @@ class SignUpForm extends Component {
     return(
       <div>
         <div className="form-background">
-          <section>
-            <div className="photo-icon"></div>
-            <div className="share-icon"></div>
-            <div className="search-icon"></div>
+          <section className="landing-page-left-section">
+            <div className="company-goal-message">
+              <p>Connect with friends and the world around you on Facebook.</p>
+            </div>
+            <div className="photo-icon-description">
+              <div className="photo-icon"></div>
+              <p>See photos and updates</p>
+              <p> from friends in News Feed.</p>
+            </div>
+            <div className="photo-icon-description">
+              <div className="share-icon"></div>
+              <p>Share what's new</p>
+              <p>in your life on your Timeline.</p>
+            </div>
+            <div className="photo-icon-description">
+              <div className="search-icon"></div>
+              <p>Find more</p>
+              <p>of what you're looking for with Facebook Search.</p>
+            </div>
           </section>
           <main className="signup-form-layout">
-            <section className="info">
+            <section className="form-heading">
               <h1 className="signup-text">Sign Up</h1>
               <h2 className="signup-text-two">It's free and always will be.</h2>
             </section>
