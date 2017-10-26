@@ -83,30 +83,41 @@ class SignUpForm extends Component {
 
     return(
       <div>
-        <form>
-          <input type="text" onChange={ this.update("firstName") } placeholder="First Name"></input>
-          <input type="text" onChange={ this.update("lastName") } placeholder="Last Name"></input>
-          <input type="text" onChange={ this.update("email") } placeholder="email"></input>
-          <input type="password" onChange={ this.update("password") } placeholder="New password"></input>
-          Birthday
-          <select value={ this.state.month } onChange={ this.update('month') } >
-            { months }
-          </select>
-          <select value={ this.state.day } onChange={ this.update('day') }>
-            { days }
-          </select>
-          <select value={ this.state.year } onChange={ this.update('year') }>
-            { years }
-          </select>
-
-          <label>
-            <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'female'} value='female' ></input> Female
-          </label>
-          <label>
-            <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'male'} value='male' ></input> Male
-          </label>
-          <button onClick={ this.submit }>Create Account</button>
-        </form>
+        <div className="form-background">
+          <section>
+            hello
+          </section>
+          <main className="landing-page">
+            <p>Sign Up</p>
+            <p>It's free and always will be.</p>
+            <form className="signup-form">
+              <input className="signup-first-name" type="text" onChange={ this.update("firstName") } placeholder="First name"></input>
+              <input className="signup-last-name" type="text" onChange={ this.update("lastName") } placeholder="Last name"></input>
+              <input className="signup-email" type="text" onChange={ this.update("email") } placeholder="email"></input>
+              <input className="signup-password" type="password" onChange={ this.update("password") } placeholder="New password"></input>
+              <p className="signup-birthday-text">Birthday</p>
+              <select className="signup-birthday" value={ this.state.month } onChange={ this.update('month') } >
+                { months }
+              </select>
+              <select className="signup-birthday" value={ this.state.day } onChange={ this.update('day') }>
+                { days }
+              </select>
+              <select className="signup-birthday" value={ this.state.year } onChange={ this.update('year') }>
+                { years }
+              </select>
+              <br />
+              <label>
+                <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'female'} value='female' ></input> Female
+                </label>
+              <label>
+                <input type="radio" onChange={ this.update('sex') } checked={ this.state.sex === 'male'} value='male' ></input> Male
+              </label>
+              <br />
+              <button className="signup-button" onClick={ this.submit }>Create Account</button>
+              <hr />
+            </form>
+          </main>
+        </div>
       </div>
     );
   }
