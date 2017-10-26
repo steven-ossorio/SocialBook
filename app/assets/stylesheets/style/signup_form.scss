@@ -79,7 +79,7 @@
   height: 20px;
   padding: 5px;
   margin: 5px 0px;
-  width: 180px;
+  width: 160px;
   font-size: 18px;
 }
 
@@ -90,7 +90,7 @@
 .signup-email, .signup-password {
   border-radius: 5px;
   font-size: 15px;
-  width: 400px;
+  width: 342px;
   height: 25px;
   padding-left: 10px;
   margin: 5px 0px;
@@ -101,12 +101,28 @@
 
 .signup-birthday-text {
   font-size: 20px;
-  margin-top: 10px;
+  margin: 10px 0px;;
+}
+
+.signup-birthday-section {
+  display: flex;
+}
+
+.signup-birthday-section > p {
+  font-size: 12px;
+  width: 150px;
+  margin-left: 8px;
 }
 
 .signup-birthday {
   font-size: 10px;
   height: 25px;
+}
+
+.terms-to-agree {
+  font-size: 10px;
+  margin: 15px 0px;
+  width: 250px;
 }
 
 .signup-button {
