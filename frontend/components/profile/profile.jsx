@@ -8,7 +8,6 @@ class Profile extends Component {
   }
 
   render(){
-    console.log(this.props.currentUser);
     if (this.props.currentUser) {
       return(
         <div className="profile-page-top">

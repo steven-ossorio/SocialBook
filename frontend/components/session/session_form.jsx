@@ -12,7 +12,7 @@ class SessionForm extends Component {
     this.submit = this.submit.bind(this);
     this.errorsCredentials = this.errorsCredentials.bind(this);
   }
-  // 
+  //
   // componentWillReceiveProps(nextProps) {
   //   if (nextProps.loggedIn) {
   //     this.props.history.push('/');
@@ -40,7 +40,6 @@ class SessionForm extends Component {
   }
 
   render() {
-    console.log(this.props.errors.length);
     const errors = this.props.errros;
     return (
       <div>

@@ -91,7 +91,6 @@ class SignUpForm extends Component {
   render() {
     // Errors
     const errors = this.props.errors;
-    console.log(errors.first_name);
     // Months
     let months = ['Month', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     months = months.map( (month, idx) => {

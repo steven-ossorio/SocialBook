@@ -10,7 +10,6 @@ class Home extends Component {
   }
 
   render(){
-    console.log(this.props.currentUser);
     if (this.props.currentUser) {
       return(
         <div>
