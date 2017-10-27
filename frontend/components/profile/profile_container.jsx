@@ -4,7 +4,7 @@ import Profile from './profile';
 import About from './about';
 
 const mapStateToProps = ({ session }) => {
-  console.log(session.currentUser)
+  console.log(session.currentUser.posts)
   return {
     currentUser: session.currentUser
   }
