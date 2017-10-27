@@ -1,6 +1,7 @@
 import { logout } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 import Profile from './profile';
+import About from './about';
 
 const mapStateToProps = ({ session }) => {
   console.log(session.currentUser)

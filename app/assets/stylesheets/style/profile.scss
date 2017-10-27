@@ -25,7 +25,7 @@
 .profile-cover-image {
   width: 800px;
   position: absolute;
-  top: -179px;
+  top: -189px;
   z-index: -1;
 }
 
@@ -44,15 +44,10 @@
 }
 
 .profile-pages > li {
-  padding: 15px;
+  padding: 10px;
   border-left: 1px solid;
 }
 
 .profile-pages > li:last-child {
   border-right: 1px solid;
-}
-
-.profile-pages > a {
-  text-decoration: none;
-  color: black;
 }
