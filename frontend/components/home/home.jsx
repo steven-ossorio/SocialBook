@@ -12,21 +12,22 @@ class Home extends Component {
     if (this.props.currentUser) {
       return(
         <div>
-          <main className="nav-background">
-            <nav className="landing-page">
-              <h1 className="logo">Socialbook</h1>
-              <form className="login-form">
-                <div>
-                  <label className="login-email-label">Email</label>
-                  <input type="text" className="login-email" ></input>
-                </div>
-                <div>
-                  <label className="login-password-label">Password</label>
-                  <input type="password" className="login-password"></input>
-                  <button className="login-button">Log In</button>
-                </div>
-              </form>
-            </nav>
+          <main className="newsfeed-nav-container">
+            <div className="newsfeed-nav-items">
+              <h1 className="logo"><Link to="/"><i className="fa fa-facebook-official"></i></Link></h1>
+              <ul className="navbar-items">
+                <li>
+                  <img className="nav-profile-image" src={ this.props.currentUser.image_url }></img>
+                  <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.currentUser.firstName }</Link>
+                </li>
+                <li>Home</li>
+                <li><i className="fa fa-users"></i></li>
+                <li><i className="fa fa-comments"></i></li>
+                <li><i className="fa fa-globe"></i></li>
+                <li><i className="fa fa-question-circle"></i></li>
+                <li><i className="fa fa-arrow-circle-down"></i></li>
+              </ul>
+            </div>
           </main>
           <h1>Welcome back, { this.props.currentUser.firstName }</h1>
           <Link to={`/users/${ this.props.currentUser.id}` }>Profile</Link>

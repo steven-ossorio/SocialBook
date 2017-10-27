@@ -1,0 +1,41 @@
+.newsfeed-nav-container {
+  height: 40px;
+  background-color: #385996;
+}
+
+.newsfeed-nav-items {
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 auto;
+}
+
+.nav-profile-image {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-bottom: -8px;
+  margin-top: -4px
+}
+
+.navbar-items {
+  margin-top: 10px;
+  display: flex;
+  font-size: 20px;
+}
+
+.navbar-items > li {
+  margin-left: 10px;
+}
+
+.fa-facebook-official {
+  position: absolute;
+  top: 0px;
+  font-size: 35px;
+}
+
+a {
+  text-decoration: none;
+  color: white
+}
