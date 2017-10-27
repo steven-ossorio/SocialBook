@@ -29,9 +29,20 @@ class Profile extends Component {
               </ul>
             </div>
           </main>
-          <div className="top-profile-portion">
-            <img className="profile-cover-image" src={ this.props.currentUser.cover_image_url }></img>
-            <img className="profile-image" src={ this.props.currentUser.image_url }></img>
+          <div className="top-profile-portion-container">
+            <div className="top-profile-portion">
+              <img className="profile-cover-image" src={ this.props.currentUser.cover_image_url }></img>
+              <img className="profile-image" src={ this.props.currentUser.image_url }></img>
+              <div className="profile-pages-container">
+                <ul className="profile-pages">
+                  <li className="profile-timeline">Timeline</li>
+                  <li className="profile-about"><Link to={`/users/${ this.props.currentUser.id}/about`}>About</Link></li>
+                  <li className="profile-friends">Friends</li>
+                  <li className="profile-photos">Photos</li>
+                  <li className="profile-more">More</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <button onClick={ this.props.logout }>Logout</button>
         </div>

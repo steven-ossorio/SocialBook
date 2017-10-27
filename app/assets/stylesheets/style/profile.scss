@@ -1,10 +1,15 @@
-.profile-page-top {
-  position: relative;
+.top-profile-portion-container {
+  height: 0px;
+  left: 50%;
+  top: 0px;
+  position: absolute;
 }
 
+
 .top-profile-portion {
-  width: 900px;
-  margin: 0 auto;
+  width: 800px;
+  position: relative;
+  left: -57%;
 }
 
 .profile-image {
@@ -20,6 +25,34 @@
 .profile-cover-image {
   width: 800px;
   position: absolute;
-  top: -125px;
+  top: -179px;
   z-index: -1;
+}
+
+.profile-pages-container {
+  background-color: white;
+  top: 375px;
+  position: absolute;
+  width: 800px;
+  z-index: -1;
+}
+
+.profile-pages {
+  display: flex;
+  margin: 0 auto;
+  width: 360px;
+}
+
+.profile-pages > li {
+  padding: 15px;
+  border-left: 1px solid;
+}
+
+.profile-pages > li:last-child {
+  border-right: 1px solid;
+}
+
+.profile-pages > a {
+  text-decoration: none;
+  color: black;
 }
