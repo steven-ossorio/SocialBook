@@ -13,7 +13,7 @@ class Profile extends Component {
         <div className="profile-page-top">
           <main className="newsfeed-nav-container">
             <div className="newsfeed-nav-items">
-              <h1 className="logo"><Link to="/"><i className="fa fa-facebook-official"></i></Link></h1>
+              <Link to="/"><h1 className="logo"><i className="fa fa-facebook-official"></i></h1></Link>
               <ul className="navbar-items">
                 <li>
                   <img className="nav-profile-image" src={ this.props.currentUser.image_url }></img>
