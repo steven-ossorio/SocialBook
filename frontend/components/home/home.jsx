@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import SessionFormContainer from '../session/session_form_container';
+import SignUpFormContainer from '../signup/signup_form_container';
 
 class Home extends Component {
   constructor(props){
@@ -38,6 +40,8 @@ class Home extends Component {
     } else {
       return (
         <div>
+          <SessionFormContainer />
+          <SignUpFormContainer />
         </div>
       );
     }
