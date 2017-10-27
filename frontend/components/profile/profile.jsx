@@ -29,7 +29,10 @@ class Profile extends Component {
               </ul>
             </div>
           </main>
-          { this.props.currentUser.image_url }
+          <div className="top-profile-portion">    
+            <img src={ this.props.currentUser.cover_image_url }></img>
+            <img src={ this.props.currentUser.image_url }></img>
+          </div>
           <button onClick={ this.props.logout }>Logout</button>
         </div>
       );
