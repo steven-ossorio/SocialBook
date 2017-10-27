@@ -14,24 +14,32 @@ export const fetchPosts = () => dispatch => {
 export const fetchPost = id => dispatch => {
   return PostAPIUtil.fetchPost(id).then( post => {
     return dispatch(receivePost(post));
+  }, errors => {
+    return dispatch(receiveErrors(errors));
   });
 };
 
 export const createPost = post => dispatch => {
   return PostAPIUtil.createPost(post).then( post => {
     return dispatch(receivePost(post));
+  }, errors => {
+    return dispatch(receiveErrors(errors));
   });
 };
 
 export const updatePost = post => dispatch => {
   return PostAPIUtil.updatePost(post).then( post => {
     return dispatch(receivePost(post));
+  }, errors => {
+    return dispatch(receiveErrors(errors));
   });
 };
 
 export const deletePost = id => dispatch => {
   return PostAPIUtil.deletePost(id).then( post => {
     return dispatch(removePost(post.id));
+  }, errors => {
+    return dispatch(receiveErrors(errors));
   });
 };
 
@@ -53,5 +61,12 @@ const removePost = postId => {
   return {
     type: REMOVE_POST,
     postId
+  };
+};
+
+const receiveErrors = errors => {
+  return {
+    type: RECEIVE_POST_ERRORS,
+    errors
   };
 };
