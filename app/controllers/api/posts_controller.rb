@@ -7,7 +7,7 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.owner_id = current_user
     if @post.save
-      render :back
+      render '/api/users/show'
     else
       render json: @post.errors.messages
     end
