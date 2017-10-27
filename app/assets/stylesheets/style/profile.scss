@@ -1,16 +1,25 @@
+.profile-page-top {
+  position: relative;
+}
+
 .top-profile-portion {
   width: 900px;
   margin: 0 auto;
-  position: relative;
 }
 
 .profile-image {
   background-color: #fff;
   padding: 4px;
   position: relative;
+  top: 200px;
+  left: 20px;
+  height: 180px;
+  width: 180px;
 }
 
 .profile-cover-image {
   width: 800px;
   position: absolute;
+  top: -125px;
+  z-index: -1;
 }

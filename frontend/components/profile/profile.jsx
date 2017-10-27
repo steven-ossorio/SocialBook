@@ -11,7 +11,7 @@ class Profile extends Component {
     console.log(this.props.currentUser);
     if (this.props.currentUser) {
       return(
-        <div>
+        <div className="profile-page-top">
           <main className="newsfeed-nav-container">
             <div className="newsfeed-nav-items">
               <h1 className="logo"><Link to="/"><i className="fa fa-facebook-official"></i></Link></h1>
