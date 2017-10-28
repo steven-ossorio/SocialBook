@@ -6,13 +6,31 @@ class PostForm extends Component {
     super(props);
     console.log(props);
     this.state = this.props.post;
+    this.onSubmit = this.onSubmit.bind(this);
+    console.log(this.state);
+  }
+
+  update(field) {
+    return e => {
+      this.setState({
+        [field]: e.target.value
+      });
+    };
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    this.props.createPost(this.state);
   }
 
   render(){
     if (this.props.currentUser) {
       return(
         <div>
-          <h1>Posting form</h1>
+          <form>
+            <input type="text" onChange={ this.update('text') }></input>
+            <button onClick={ this.onSubmit }>Create</button>
+          </form>
         </div>
       );
     } else {
