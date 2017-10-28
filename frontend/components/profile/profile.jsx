@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PostFormContainer from '../post/post_form_container';
 
 class Profile extends Component {
   constructor(props){
@@ -43,6 +44,7 @@ class Profile extends Component {
               </div>
             </div>
           </div>
+          <PostFormContainer />
           <button onClick={ this.props.logout }>Logout</button>
         </div>
       );
