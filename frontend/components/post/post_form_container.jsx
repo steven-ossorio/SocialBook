@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import PostForm from './post_form';
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     currentUser: state.session.currentUser,
-    post: state.post,
+    post: state.posts,
     errors: state.errors
   };
 };

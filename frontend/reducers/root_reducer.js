@@ -6,7 +6,7 @@ import ErrorsReducer from './errors_reducer';
 const RootReducer = combineReducers({
   session: SessionReducer,
   errors: ErrorsReducer,
-  post: PostReducer
+  posts: PostReducer
 });
 
 export default RootReducer;
