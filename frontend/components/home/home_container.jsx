@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Home from './home';
 
 const mapStateToProps = ({ session }) => {
+  console.log(session);
   return {
     currentUser: session.currentUser
   }
