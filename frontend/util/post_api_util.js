@@ -16,7 +16,7 @@ export const createPost = post => {
   return $.ajax({
     method: 'post',
     url: `api/posts`,
-    data: { posts }
+    data: { post }
   });
 };
 
