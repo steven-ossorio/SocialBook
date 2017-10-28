@@ -16,10 +16,6 @@ class Profile extends Component {
         <div>
           <ProfileTopSection currentUser={ this.props.currentUser } />
           <button onClick={ this.props.logout }>Logout</button>
-          <div className="feed">
-          <PostFormContainer />
-          <PostIndexContainer />
-        </div>
         </div>
       );
     } else {
