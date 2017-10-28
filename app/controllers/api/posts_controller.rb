@@ -5,9 +5,9 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.owner_id = current_user
+    @post.owner_id = current_user.id
     if @post.save
-      render '/api/users/show'
+      render :show
     else
       render json: @post.errors.messages
     end
@@ -33,5 +33,11 @@ class Api::PostsController < ApplicationController
   def destroy
     @post = current_user.posts.find(params[:id])
     @post.destroy
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:text)
   end
 end

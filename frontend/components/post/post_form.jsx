@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 class PostForm extends Component {
   constructor(props){
     super(props);
-    console.log(props);
-    this.state = this.props.post;
+    console.log(this.props);
+    this.state = Object.assign({}, this.props.post);
     this.onSubmit = this.onSubmit.bind(this);
+    this.update = this.update.bind(this);
     console.log(this.state);
   }
 
   update(field) {
+    console.log(this.state);
     return e => {
       this.setState({
         [field]: e.target.value
