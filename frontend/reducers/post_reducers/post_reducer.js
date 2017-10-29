@@ -1,13 +1,13 @@
 import React from 'react';
-import merge from 'lodash';
+import { merge, omit } from 'lodash';
 
 import { RECEIVE_ALL_POSTS, RECEIVE_POST, REMOVE_POST } from '../../actions/post_actions';
 
-const originalState = {
-  text: ""
-};
+// const originalState = {
+//   text: ""
+// };
 
-const PostReducer = (state = originalState, action) => {
+const PostReducer = (state = {}, action) => {
   let newState;
   Object.freeze(state);
   switch (action.type) {
@@ -16,9 +16,8 @@ const PostReducer = (state = originalState, action) => {
     case RECEIVE_POST:
       return merge({}, state, { [action.post.id]: action.post });
     case REMOVE_POST:
-      nextState = merge({}, state);
-      delete nextState[action.postId];
-      return nextState;
+      newState = merge({}, state);
+      return omit(newState, action.postId);
     default:
       return state;
   }

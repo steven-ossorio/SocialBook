@@ -2,9 +2,9 @@ import { fetchPosts, deletePost } from '../../actions/post_actions';
 import { connect } from 'react-redux';
 import PostIndex from './post_index';
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ posts }) => {
   return {
-    posts: state.posts
+    posts
   };
 };
 
