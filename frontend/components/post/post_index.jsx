@@ -4,29 +4,34 @@ class PostIndex extends Component {
   constructor(props) {
     super(props);
     console.log(this.props);
+    this.renderPosts = this.renderPosts.bind(this);
+    this.deletePost = this.deletePost.bind(this);
   }
 
   componentWillMount(){
     this.props.fetchPosts();
   }
 
-  render() {
-    console.log(Object.values(this.props.posts));
-    let arrayObj = Object.values(this.props.posts);
-    console.log(arrayObj);
-    let arr = [];
-    arrayObj.forEach( (k, v) => {
-      console.log(k.text);
-      arr.push(k.text);
-    });
+  deletePost(idx){
+    const that = this;
+    return () => that.props.deletePost(idx);
+  }
 
-    console.log(arr);
-    let posts = arr.map( post => {
-      return <li>{post}</li>;
+  renderPosts() {
+    return Object.values(this.props.posts).map( (post, idx) => {
+      return (
+        <li key={ `${post.id}` }>
+          <p>{ post.text }</p>,
+          <button onClick={ this.deletePost(post.id) }>Delete Post</button>
+        </li>
+      );
     });
+  }
+
+  render() {
     return (
       <div>
-        { posts }
+        { this.renderPosts() }
         <h1>Hello there</h1>
       </div>
     );
