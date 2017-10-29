@@ -1,0 +1,32 @@
+.posts-container {
+  display: flex;
+  flex-direction: column;
+}
+.post-form-container {
+  width: 510px;
+  // float: right;
+}
+
+.make-a-post {
+
+}
+
+.post-inner-container {
+  display: flex;
+  position: relative;
+  background-color: white;
+}
+
+.post-form-image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.posts-input-field {
+  background-color: white;
+}
+
+.post-submit-button {
+
+}
