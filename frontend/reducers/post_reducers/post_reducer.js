@@ -3,10 +3,6 @@ import { merge, omit } from 'lodash';
 
 import { RECEIVE_ALL_POSTS, RECEIVE_POST, REMOVE_POST } from '../../actions/post_actions';
 
-// const originalState = {
-//   text: ""
-// };
-
 const PostReducer = (state = {}, action) => {
   let newState;
   Object.freeze(state);

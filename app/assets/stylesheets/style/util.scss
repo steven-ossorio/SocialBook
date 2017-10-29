@@ -1,0 +1,25 @@
+// // variables
+// $grey = #ccc;
+//
+// // placeholders
+// %flex-container {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100vh;
+//
+//   h1 {
+//     font-size: 24px;
+//   }
+// }
+//
+// @mixin pad($top, $bottom, $left, $right) {
+//   padding-top: $top;
+//   padding-bottom: $bottom;
+//   padding-left: $left;
+//   padding-right: $right;
+// }
+//
+// .profile-page {
+//   @extend %flex-container;
+//   @include pad(5px, 5px, 10px, 10px)
+// }
