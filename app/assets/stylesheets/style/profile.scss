@@ -40,7 +40,6 @@
 
 .profile-pages-container {
   background-color: white;
-  width: 800px;
 }
 
 .profile-pages {
@@ -50,10 +49,16 @@
 }
 
 .profile-pages > li {
-  padding: 10px;
-  border-left: 1px solid;
+  color: #0800ee;
+  text-decoration: underline;
+  font-weight: bold;
+  height: 43px;
+  line-height: 3.05;
+  padding: 0 17px;
+  font-size: 14px;
+  border-left: 1px solid #e9eaed;
 }
 
 .profile-pages > li:last-child {
-  border-right: 1px solid;
+  border-right: 1px solid #e9eaed;
 }
