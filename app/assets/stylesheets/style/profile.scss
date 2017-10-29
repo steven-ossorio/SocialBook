@@ -1,40 +1,46 @@
 .top-profile-portion-container {
-  height: 0px;
-  left: 50%;
-  top: 0px;
-  position: absolute;
+  position: relative;
+  width: 900px;
+  margin: 0 auto;
 }
 
-.top-profile-portion {
-  width: 800px;
-  position: relative;
-  left: -57%;
-  z-index: -1;
+.profile-image-container {
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  position: absolute;
+  background-color: white;
+  margin: 4px;
+}
+
+.profile-image-second-container {
+  height: 168px;
+  width: 168px;
+  position: absolute;
+  top: 175px;
+  left: 20px;
+  background-color: white;
 }
 
 .profile-image {
+  width: 100%;
   background-color: #fff;
-  padding: 4px;
-  position: relative;
-  top: 200px;
-  left: 20px;
-  height: 180px;
-  width: 180px;
+}
+
+.profile-cover-container {
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 315px;
 }
 
 .profile-cover-image {
-  width: 800px;
-  position: absolute;
-  top: -189px;
-  z-index: -1;
+  width: 100%;
 }
 
 .profile-pages-container {
   background-color: white;
-  top: 375px;
-  position: absolute;
   width: 800px;
-  z-index: -1;
 }
 
 .profile-pages {
