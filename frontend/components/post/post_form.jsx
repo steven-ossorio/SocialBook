@@ -4,15 +4,14 @@ import { Link } from 'react-router-dom';
 class PostForm extends Component {
   constructor(props){
     super(props);
-    // console.log(this.props);
-    this.state = Object.assign({}, this.props.post);
+    this.state = {
+      text: ""
+    };
     this.onSubmit = this.onSubmit.bind(this);
     this.update = this.update.bind(this);
-    // console.log(this.state);
   }
 
   update(field) {
-    // console.log(this.state);
     return e => {
       this.setState({
         [field]: e.target.value
@@ -22,7 +21,12 @@ class PostForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.props.createPost(this.state);
+    const post = this.state;
+    this.setState({
+      text: ""
+    }, () => {
+      this.props.createPost(post);
+    });
   }
 
   render(){
@@ -30,7 +34,7 @@ class PostForm extends Component {
       return(
         <div>
           <form>
-            <input type="text" onChange={ this.update('text') }></input>
+            <input type="text" onChange={ this.update('text') } value={ this.state.text }></input>
             <button onClick={ this.onSubmit }>Create</button>
           </form>
         </div>
