@@ -15,8 +15,15 @@ class Profile extends Component {
       return(
         <div>
           <ProfileTopSection currentUser={ this.props.currentUser } />
-          <PostFormContainer />
-          <PostIndexContainer />
+          <div className="profile-page-container" >
+            <div>
+              left portion
+            </div>
+            <div className="posts-container">
+              <PostFormContainer />
+              <PostIndexContainer />
+            </div>
+          </div>
           <button onClick={ this.props.logout }>Logout</button>
         </div>
       );
