@@ -5,7 +5,10 @@ import ProfileNav from './profile_nav';
 class ProfileTopSection extends Component {
   constructor(props){
     super(props);
+  }
 
+  updateFile(e) {
+    let file = e.currentTarget.files[0];
   }
 
   render(){

@@ -4,7 +4,6 @@ import moment from 'moment';
 class PostIndex extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.renderPosts = this.renderPosts.bind(this);
     this.deletePost = this.deletePost.bind(this);
   }
@@ -30,8 +29,8 @@ class PostIndex extends Component {
                     <img className="post-form-image" src={ this.props.currentUser.image_url }></img>
                   </div>
                   <div className="post-name-container">
-                    <li>{ this.props.currentUser.firstName }</li>
-                    <li>{ moment(post.created_at).format("LL").slice(0, 10) }</li>
+                    <div>{ this.props.currentUser.firstName }</div>
+                    <div>{ moment(post.created_at).format("LL").slice(0, 10) }</div>
                   </div>
                 </div>
                 <button onClick={ this.deletePost(post.id) }>Delete Post</button>

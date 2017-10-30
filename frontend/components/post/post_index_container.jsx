@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PostIndex from './post_index';
 
 const mapStateToProps = ({ posts, session }) => {
-  console.log(session);
   return {
     posts,
     currentUser: session.currentUser
