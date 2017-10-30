@@ -35,13 +35,16 @@ class PostForm extends Component {
         <div>
           <form>
             <div className="post-form-container">
-              <p className="make-a-post">Make Post</p>
+              <div className="post-form-option-container">
+                <p className="make-a-post">Make Post</p>
+              </div>
               <div className="post-inner-container">
                 <img className="post-form-image" src={ this.props.currentUser.image_url }></img>
-                <input className="post-input-field" type="text" onChange={ this.update('text') } value={ this.state.text } placeholder="What's on your mind?"></input>
+                <textarea className="post-input-field" onChange={ this.update('text') } value={ this.state.text } placeholder="What's on your mind?"></textarea>
               </div>
-
-              <button className="post-submit-button" onClick={ this.onSubmit }>Create</button>
+              <div className="post-form-button-container">
+                <button className="post-submit-button" onClick={ this.onSubmit }>Post</button>
+              </div>
             </div>
 
           </form>
