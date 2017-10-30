@@ -1,0 +1,37 @@
+li {
+  list-style: none;
+}
+.post-list {
+  margin-top: 20px;
+}
+
+.post-list-text {
+  line-height: 1.2;
+  padding: 10px;
+}
+
+.post-list-container {
+  width: 510px;
+  background-color: white;
+  height: auto;
+}
+
+.entire-top-container {
+  justify-content: space-between;
+}
+
+.post-top-container {
+  // @extend %markup;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.post-top-left-container {
+  display: flex;
+}
+
+.post-name-container {
+  display: flex;
+  flex-direction: column;
+}
