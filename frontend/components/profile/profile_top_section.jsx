@@ -5,6 +5,7 @@ import ProfileNav from './profile_nav';
 class ProfileTopSection extends Component {
   constructor(props){
     super(props);
+    console.log(props);
   }
 
   updateFile(e) {
@@ -14,14 +15,14 @@ class ProfileTopSection extends Component {
   render(){
     return(
       <div>
-        <ProfileNav currentUser={ this.props.currentUser } />
+        <ProfileNav currentUser={ this.props.currentUser } user={ this.props.user } />
         <div className="profile-page-top">
           <div className="top-profile-portion-container">
             <div className="profile-cover-container">
-              <img className="profile-cover-image" src={ this.props.currentUser.cover_image_url }></img>
+              <img className="profile-cover-image" src={ this.props.user.cover_image_url }></img>
             </div>
             <div className="profile-image-second-container">
-              <div className="profile-image-container" style={{ backgroundImage: `url(${this.props.currentUser.image_url})`}}>
+              <div className="profile-image-container" style={{ backgroundImage: `url(${this.props.user.image_url})`}}>
               </div>
             </div>
             <div className="profile-pages-container">

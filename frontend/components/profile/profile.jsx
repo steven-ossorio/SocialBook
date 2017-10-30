@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { merge } from 'lodash';
 import PostFormContainer from '../post/post_form_container';
 import PostIndexContainer from '../post/post_index_container';
 import ProfileTopSection from './profile_top_section';
@@ -9,26 +10,26 @@ class Profile extends Component {
     super(props);
   }
 
-  componentWillMount() {
-    this.props.fetchUser(this.props.currentUser.id);
+  componentDidMount() {
+    this.props.fetchUser(this.props.match.params.userId);
+  }
+
+  componentWillReceiveProps(nextProps, nextState) {
+    console.log(nextProps);
+    console.log(nextState);
   }
 
   render(){
-    // console.log(this.props.users);
-    // console.log(Object.values(this.props.users));
-    if (this.props.currentUser) {
-      let test = Object.values(this.props.users);
-      console.log(test[0]);
-      let test2 = test[0];
-      if (test2) {
-        console.log(test2.id);
-      }
+    // console.log("user", this.props.user);
+    // console.log("state", this.state);
+    if (this.props.user) {
 
       return(
         <div>
-          <ProfileTopSection currentUser={ this.props.currentUser } />
+          <ProfileTopSection currentUser={ this.props.currentUser } user={ this.props.user } />
           <div className="profile-page-container" >
             <div>
+              { this.props.user.firstName }
               left portion
             </div>
             <div className="posts-container">
@@ -42,6 +43,7 @@ class Profile extends Component {
     } else {
       return (
         <div>
+          // <h1>hello</h1>
         </div>
       );
     }

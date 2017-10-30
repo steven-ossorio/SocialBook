@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import Profile from './profile';
 import About from './about';
 
-const mapStateToProps = ({ session, users }) => {
+const mapStateToProps = ({ session, users }, ownProps) => {
+  console.log(users);
   console.log(session);
   return {
     currentUser: session.currentUser,
-    users
+    user: users[ownProps.match.params.userId]
   };
 };
 
