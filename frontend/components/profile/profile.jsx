@@ -18,9 +18,6 @@ class Profile extends Component {
     if (nextProps.match.params.userId !== this.props.match.params.userId) {
       this.props.fetchUser(nextProps.match.params.userId);
     }
-    console.log(this.props);
-    console.log("nextprops", nextProps);
-    console.log("nexrtstate", nextState);
   }
 
   render(){
@@ -37,7 +34,7 @@ class Profile extends Component {
               left portion
             </div>
             <div className="posts-container">
-              <PostFormContainer />
+              <PostFormContainer props={ this.props} user={ this.props.user }/>
               <PostIndexContainer />
             </div>
           </div>
