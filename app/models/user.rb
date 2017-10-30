@@ -11,10 +11,10 @@ class User < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :Post
 
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "image1.png"
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "default.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
-  has_attached_file :cover_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "image1.png"
+  has_attached_file :cover_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "default_cover.png"
   validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\z/
 
   def self.find_by_credentials(email, password)
