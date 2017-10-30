@@ -1,8 +1,9 @@
 import { fetchPost, createPost } from '../../actions/post_actions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import PostForm from './post_form';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser,
     post: state.posts,

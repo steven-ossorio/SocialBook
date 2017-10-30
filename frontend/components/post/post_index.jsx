@@ -8,9 +8,19 @@ class PostIndex extends Component {
     this.deletePost = this.deletePost.bind(this);
   }
 
-  componentWillMount(){
-    this.props.fetchPosts();
-  }
+  // componentDidMount(){
+  //   if (this.props.currentUser.id === this.props.match.params.userId) {
+  //     this.props.fetchPosts();
+  //   }
+  //   debugger
+  // }
+  //
+  // componentWillReceiveProps(nextProps, nextState) {
+  //   // if (this.props.currentUser.id !== nextProps.match.params.userId) {
+  //   //   this.props.fetchPosts();
+  //   // }
+  //   debugger
+  // }
 
   deletePost(idx){
     const that = this;
@@ -26,10 +36,10 @@ class PostIndex extends Component {
               <div className="post-top-container">
                 <div className="post-top-left-container">
                   <div>
-                    <img className="post-form-image" src={ this.props.currentUser.image_url }></img>
+                    <img className="post-form-image" src={ this.props.user.image_url }></img>
                   </div>
                   <div className="post-name-container">
-                    <div>{ this.props.currentUser.firstName }</div>
+                    <div>{ this.props.user.firstName }</div>
                     <div>{ moment(post.created_at).format("LL").slice(0, 10) }</div>
                   </div>
                 </div>
