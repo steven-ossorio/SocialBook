@@ -5,6 +5,7 @@ import Profile from './profile';
 import About from './about';
 
 const mapStateToProps = ({ session, users }, ownProps) => {
+
   console.log(users);
   console.log(session);
   return {
