@@ -4,29 +4,59 @@
 }
 .post-form-container {
   width: 510px;
+  background-color: white;
+  height: 194px;
   // float: right;
 }
 
-.make-a-post {
+.post-form-option-container {
+  background-color: #f6f7f9
+}
 
+.make-a-post {
+  padding: 8px;
+  font-size: 12px;
+  color: #4b4f56;
 }
 
 .post-inner-container {
   display: flex;
   position: relative;
-  background-color: white;
+  height: 120px;
 }
 
 .post-form-image {
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  padding: 10px;
 }
 
-.posts-input-field {
-  background-color: white;
+.post-input-field {
+  resize: none;
+  height: 120px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  padding: 20px 5px;
+}
+
+.post-form-button-container {
+  height: 41px;
+  border-top: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .post-submit-button {
-
+  color: white;
+  font-weight: bold;
+  background-color: #4368b1;
+  height: 24px;
+  width: 60px;
+  margin-top: 5px;
+  margin-right: 5px;
 }
