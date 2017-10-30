@@ -2,9 +2,11 @@ import { fetchPosts, deletePost } from '../../actions/post_actions';
 import { connect } from 'react-redux';
 import PostIndex from './post_index';
 
-const mapStateToProps = ({ posts }) => {
+const mapStateToProps = ({ posts, session }) => {
+  console.log(session);
   return {
-    posts
+    posts,
+    currentUser: session.currentUser
   };
 };
 
