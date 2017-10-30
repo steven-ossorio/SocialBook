@@ -23,3 +23,15 @@
 //   @extend %flex-container;
 //   @include pad(5px, 5px, 10px, 10px)
 // }
+
+%markup {
+  border: 2px solid orchid;
+
+  div, h1, h2, h3, h4, h5, h6, input, p, a, li, ul, ol, img, button, span, textarea {
+    border: 1px solid red;
+
+    div, h1, h2, h3, h4, h5, h6, input, p, a, li, ul, ol, img, button, span, textarea {
+      border: 1px solid red;
+    }
+  }
+}
