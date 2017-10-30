@@ -1,5 +1,5 @@
 import React from 'react';
-import merge from 'lodash';
+import { merge } from 'lodash';
 
 import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
 
