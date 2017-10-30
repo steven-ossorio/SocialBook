@@ -15,8 +15,12 @@ class Profile extends Component {
   }
 
   componentWillReceiveProps(nextProps, nextState) {
-    console.log(nextProps);
-    console.log(nextState);
+    if (nextProps.match.params.userId !== this.props.match.params.userId) {
+      this.props.fetchUser(nextProps.match.params.userId);
+    }
+    console.log(this.props);
+    console.log("nextprops", nextProps);
+    console.log("nexrtstate", nextState);
   }
 
   render(){
