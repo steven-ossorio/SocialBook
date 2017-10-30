@@ -15,7 +15,7 @@ class ProfileTopSection extends Component {
   render(){
     return(
       <div>
-        <ProfileNav currentUser={ this.props.currentUser } user={ this.props.user } />
+        <ProfileNav currentUser={ this.props.currentUser } />
         <div className="profile-page-top">
           <div className="top-profile-portion-container">
             <div className="profile-cover-container">
