@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 class PostIndex extends Component {
   constructor(props) {
@@ -20,9 +21,24 @@ class PostIndex extends Component {
   renderPosts() {
     return Object.values(this.props.posts).map( (post, idx) => {
       return (
-        <li key={ `${post.id}` }>
-          <p>{ post.text }</p>,
-          <button onClick={ this.deletePost(post.id) }>Delete Post</button>
+        <li className="post-list" key={ `${post.id}` }>
+          <div className="post-list-container">
+            <div className="entire-top-container">
+              <div className="post-top-container">
+                <div className="post-top-left-container">
+                  <div>
+                    <img className="post-form-image" src={ this.props.currentUser.image_url }></img>
+                  </div>
+                  <div className="post-name-container">
+                    <li>{ this.props.currentUser.firstName }</li>
+                    <li>{ moment(post.created_at).format("LL").slice(0, 10) }</li>
+                  </div>
+                </div>
+                <button onClick={ this.deletePost(post.id) }>Delete Post</button>
+              </div>
+            </div>
+            <p className="post-list-text">{ post.text }</p>
+          </div>
         </li>
       );
     });
