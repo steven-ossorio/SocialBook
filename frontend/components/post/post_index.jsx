@@ -48,7 +48,6 @@ class PostIndex extends Component {
     return (
       <div>
         { this.renderPosts() }
-        <h1>Hello there</h1>
       </div>
     );
   }
