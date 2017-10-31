@@ -19,3 +19,6 @@ export const updateUser = user => {
     data: { user }
   });
 };
+
+// user.friendIds.map((id) => state.users[id])
+// user.postIds.map((id) => state.posts[id])
