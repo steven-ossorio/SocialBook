@@ -10,8 +10,5 @@ class Friend < ApplicationRecord
   foreign_key: :friendee_id,
   class_name: :User
 
-  def accepted
-    
-  end
 
 end

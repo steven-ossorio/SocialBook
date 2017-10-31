@@ -16,11 +16,18 @@ class User < ApplicationRecord
   foreign_key: :friender_id,
   class_name: :Friend
 
+  has_many :out_friends,
+    through: :requester,
+    source: :friend
+
   has_many :requestee,
   primary_key: :id,
   foreign_key: :friendee_id,
   class_name: :Friend
 
+  has_many :in_friends,
+    through: :requestee,
+    source: :user
 
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "default.jpeg"
@@ -55,5 +62,15 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= User.generate_session_token
+  end
+
+  def friends
+    @friends ||= self.in_friends.where("friends.status = 'Accepted'") + self.out_friends.where("friends.status = 'Accepted'")
+    # @friends ||= Friend.where("(friends.friender_id = ? OR friends.friendee_id = ?)
+    # AND friends.status = 'Accepted'", self.id, self.id)
+  end
+
+  def friend_requests
+    @friend_requests ||= self.requestee.where(status: "Pending")
   end
 end
