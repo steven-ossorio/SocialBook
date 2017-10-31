@@ -10,8 +10,9 @@ json.user do
   json.postsIds(@user.posts.pluck(:id))
   json.friendIds @user.friends.pluck(:id)
 end
-
 json.friends @user.friends
+
+
 json.posts do
   @user.posts.each do |post|
     json.set! post.id, post
