@@ -34,10 +34,13 @@ const receiveAllUsers = users => {
   };
 };
 
-const receiveUser = user => {
+const receiveUser = ({user, posts, friends, friend_requests}) => {
   return {
     type: RECEIVE_USER,
-    user
+    user,
+    posts,
+    friends,
+    friend_requests
   };
 };
 
