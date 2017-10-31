@@ -7,8 +7,9 @@ json.user do
   json.sex @user.sex
   json.image_url asset_path(@user.image.url)
   json.cover_image_url asset_path(@user.cover_image.url)
-  json.postsIds(@user.posts.pluck(:id))
+  json.postsIds @user.posts.pluck(:id)
   json.friendIds @user.friends.pluck(:id)
+  json.profilePostsId @user.profile_posts.pluck(:id)
 end
 json.friends @user.friends
 
