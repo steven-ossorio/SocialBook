@@ -28,7 +28,11 @@ class PostIndex extends Component {
   }
 
   renderPosts() {
-    return Object.values(this.props.posts).map( (post, idx) => {
+
+    let posts = this.props.profilePostsId.map( id => {
+      return this.props.posts[id];
+    });
+    return posts.map( (post, idx) => {
       return (
         <li className="post-list" key={ `${post.id}` }>
           <div className="post-list-container">

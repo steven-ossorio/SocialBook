@@ -5,10 +5,12 @@ import { withRouter } from 'react-router-dom';
 import PostIndex from './post_index';
 
 const mapStateToProps = (state, ownProps) => {
+  let user = state.users[ownProps.match.params.userId];
   return {
     posts: state.posts,
     currentUser: state.session.currentUser,
-    user: state.users[ownProps.match.params.userId]
+    user,
+    profilePostsId: user.profilePostsId
   };
 };
 

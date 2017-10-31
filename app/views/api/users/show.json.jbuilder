@@ -11,7 +11,7 @@ json.user do
   json.friendIds @user.friends.pluck(:id)
   json.profilePostsId @user.profile_posts.pluck(:id)
 end
-json.friends @user.friends
+# json.friends @user.friends
 
 
 json.posts do
@@ -19,5 +19,11 @@ json.posts do
     json.set! post.id, post
   end
 end
-json.friend_requests @user.friend_requests
+
+json.profilePosts do
+  @user.profile_posts.each do |post|
+    json.set! post.id, post
+  end
+end
+# json.friend_requests @user.friend_requests
 # different post methods for feed and profile
