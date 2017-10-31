@@ -11,6 +11,18 @@ class User < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :Post
 
+  has_many :requests,
+  primary_key: :id,
+  foreign_key: :friender_id,
+  class_name: :Friend
+
+  has_many :friends,
+  primary_key: :id,
+  foreign_key: :friendee_id,
+  class_name: :Friend
+
+
+
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "default.jpeg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
