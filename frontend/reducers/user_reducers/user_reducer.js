@@ -4,6 +4,7 @@ import { merge, omit } from 'lodash';
 import { RECEIVE_ALL_USERS, RECEIVE_USER } from '../../actions/user_actions';
 
 const UserReducer = (state = {}, action) => {
+  debugger
   let newState;
   Object.freeze(state);
   switch (action.type) {
