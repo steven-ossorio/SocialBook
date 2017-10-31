@@ -11,6 +11,11 @@ class User < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :Post
 
+  has_many :profile_posts,
+  primary_key: :id,
+  foreign_key: :profile_id,
+  class_name: :Post
+
   has_many :requester,
   primary_key: :id,
   foreign_key: :friender_id,
