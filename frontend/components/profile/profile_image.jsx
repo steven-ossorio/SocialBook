@@ -15,6 +15,7 @@ class ProfileImage extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.updateFile = this.updateFile.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.cancelUpload = this.cancelUpload.bind(this);
   }
 
 
@@ -27,7 +28,7 @@ class ProfileImage extends Component {
   }
 
   updateFile(e) {
-    debugger
+    // debugger
     let fileReader = new FileReader();
     let file = e.currentTarget.files[0];
     fileReader.onloadend = () => {
@@ -47,15 +48,27 @@ class ProfileImage extends Component {
     }
   }
 
+  cancelUpload(e){
+    e.preventDefault();
+    this.setState({
+      imageFile: null,
+      imageUrl: null
+    });
+  }
+
   onSubmit(e){
-    // let uploadImage = Object.assign({}, this.state);
-    // delete uploadImage.modalIsOpen;
-    // uploadImage.id = this.props.currentUser.id;
-    this.props.updateUser(uploadImage);
+    let file = this.state.imageFile;
+    const formData = new FormData();
+    formData.append("user[id]", this.props.currentUser.id);
+    if (file) {
+      formData.append("user[image]", file);
+    }
+
+    this.props.updateUser(formData, this.resetForm);
   }
 
   render(){
-    debugger
+    // debugger
     if (this.props.currentUser.id === parseInt(this.props.match.params.userId) && this.state.imageFile === null) {
       return (
         <div>
@@ -70,6 +83,8 @@ class ProfileImage extends Component {
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}
             contentLabel="Example Modal"
+            overlayClassName="modal-background"
+            shouldCloseOnOverlayClick={false}
             >
             <div className="modal-heading">
               <h2>Update Profile Picture</h2>
@@ -83,6 +98,40 @@ class ProfileImage extends Component {
                 </label>
                 <input onChange={ this.updateFile } id="profile-image" type="file" />
               </div>
+            </div>
+
+          </Modal>
+        </div>
+      );
+    } else if (true) {
+      return (
+        <div>
+          <div onClick={ this.openModal } className="upload-image-container">
+            <div className="upload-image-hover">
+              <span><i className="fa fa-camera"></i></span>
+              <span>Update Profile Image</span>
+            </div>
+          </div>
+          <Modal
+            className="modal-image"
+            isOpen={this.state.modalIsOpen}
+            onRequestClose={this.closeModal}
+            shouldCloseOnOverlayClick={false}
+            contentLabel="Example Modal"
+            overlayClassName="modal-background"
+            >
+            <div className="modal-heading">
+              <h2>Create Profile Picture</h2>
+              <h2 className="modal-close-button" onClick={ this.closeModal }>X</h2>
+            </div>
+            <div className="modal-image-container">
+              <div className="modal-image-body">
+                <img className="modal-image-view" src={ this.state.imageUrl }></img>
+              </div>
+            </div>
+            <div className="modal-image-footer">
+              <button onClick={ this.cancelUpload } className="image-cancel-button">Cancel</button>
+              <button onClick={ this.onSubmit } className="image-save-button">Save</button>
             </div>
 
           </Modal>

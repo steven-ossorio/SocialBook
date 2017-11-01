@@ -151,3 +151,49 @@
     display: none;
   }
 }
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(140, 141, 143, .4);
+}
+
+.modal-image-body {
+  text-align: center;
+  background-color: #f2f2f2;
+}
+
+.modal-image-view {
+  max-width: 60%;
+  max-height: 60%;
+  object-fit: contain;
+  padding: 30px;
+}
+
+.modal-image {
+  padding: 0px;
+  width: 775px;
+  background-color: #f2f2f2;
+  margin: 0 auto;
+  margin-top: 35px;
+}
+
+.modal-image-footer {
+  border-top: 1px solid #dddfe2;
+  height: 42px;
+  display: flex;
+  justify-content: flex-end;
+
+  .image-cancel-button {
+    cursor: pointer;
+  }
+
+  .image-save-button {
+    margin-left: 4px;
+    background-color: #4267b2;
+    cursor: pointer;
+  }
+}
