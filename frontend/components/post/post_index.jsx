@@ -35,11 +35,10 @@ class PostIndex extends Component {
 
   renderPosts() {
 
-    let posts = this.props.profilePostsId.map( id => {
+    let posts = this.props.profilePostsId.reverse().map( id => {
       return this.props.posts[id];
     });
     return posts.map( (post, idx) => {
-      debugger
       return (
         <li className="post-list" key={ `${post.id}` }>
           <div className="post-list-container">

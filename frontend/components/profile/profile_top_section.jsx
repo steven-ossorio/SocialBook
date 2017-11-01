@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ProfileNav from './profile_nav';
-import ImageContainer from '../../components/images/image_container';
+import ProfileImage from './profile_image';
+
 
 class ProfileTopSection extends Component {
   constructor(props){
     super(props);
-    console.log(props);
-  }
-
-  updateFile(e) {
-    let file = e.currentTarget.files[0];
   }
 
   render(){
@@ -21,15 +17,14 @@ class ProfileTopSection extends Component {
           <div className="top-profile-portion-container">
             <div className="profile-cover-container">
               <img className="profile-cover-image" src={ this.props.user.cover_image_url }></img>
-              <ImageContainer />
             </div>
             <div className="profile-image-second-container">
               <div className="profile-image-container" style={{ backgroundImage: `url(${this.props.user.image_url})`}}>
+                <ProfileImage currentUser={ this.props.currentUser} updateUser={ this.props.updateUser } match={ this.props.match }/>
               </div>
             </div>
             <div className="profile-pages-container">
               <ul className="profile-pages">
-                <ImageContainer />
                 <li className="profile-timeline">Timeline</li>
                 <li className="profile-about">About</li>
                 <li className="profile-friends">Friends</li>

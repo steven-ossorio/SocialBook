@@ -27,7 +27,7 @@ class Profile extends Component {
 
       return(
         <div>
-          <ProfileTopSection currentUser={ this.props.currentUser } user={ this.props.user } />
+          <ProfileTopSection match={ this.props.match } updateUser={ this.props.updateUser } currentUser={ this.props.currentUser } user={ this.props.user } />
           <div className="profile-page-container" >
             <div>
               { this.props.user.firstName }
