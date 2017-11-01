@@ -20,7 +20,10 @@ class PostIndex extends Component {
 
   componentWillReceiveProps(nextProps, nextState) {
     if (Object.keys(this.props.posts).length < Object.keys(nextProps.posts).length) {
-      debugger
+      this.props.fetchUser(nextProps.match.params.userId);
+    }
+
+    if (Object.keys(this.props.posts).length > Object.keys(nextProps.posts).length) {
       this.props.fetchUser(nextProps.match.params.userId);
     }
   }
@@ -36,7 +39,7 @@ class PostIndex extends Component {
       return this.props.posts[id];
     });
     return posts.map( (post, idx) => {
-
+      debugger
       return (
         <li className="post-list" key={ `${post.id}` }>
           <div className="post-list-container">

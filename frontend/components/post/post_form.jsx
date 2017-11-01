@@ -6,7 +6,7 @@ class PostForm extends Component {
     super(props);
     this.state = {
       text: "",
-      profile_id: parseInt(this.props.match.params.userId)
+      // profile_id: parseInt(this.props.match.params.userId)
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -23,13 +23,18 @@ class PostForm extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const post = this.state;
-    this.setState({
-      text: "",
-      profile_id: null
-    }, () => {
-      this.props.createPost(post);
+    const post = Object.assign({}, this.state);
+    post.profile_id = this.props.match.params.userId;
+    this.props.createPost(post).then( () => {
+      this.setState({
+        text: ""
+      });
     });
+    // this.setState({
+    //   text: ""
+    // }, () => {
+    //   this.props.createPost(post);
+    // });
   }
 
   render(){

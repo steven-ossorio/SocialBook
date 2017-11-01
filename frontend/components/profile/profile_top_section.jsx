@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ProfileNav from './profile_nav';
+import ImageContainer from '../../components/images/image_container';
 
 class ProfileTopSection extends Component {
   constructor(props){
@@ -20,6 +21,7 @@ class ProfileTopSection extends Component {
           <div className="top-profile-portion-container">
             <div className="profile-cover-container">
               <img className="profile-cover-image" src={ this.props.user.cover_image_url }></img>
+              <ImageContainer />
             </div>
             <div className="profile-image-second-container">
               <div className="profile-image-container" style={{ backgroundImage: `url(${this.props.user.image_url})`}}>
@@ -27,6 +29,7 @@ class ProfileTopSection extends Component {
             </div>
             <div className="profile-pages-container">
               <ul className="profile-pages">
+                <ImageContainer />
                 <li className="profile-timeline">Timeline</li>
                 <li className="profile-about">About</li>
                 <li className="profile-friends">Friends</li>
