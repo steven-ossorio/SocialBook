@@ -35,6 +35,32 @@
   background-color: #fff;
 }
 
+.upload-image-container {
+  width: 100%;
+}
+
+.profile-image-hover-text {
+
+}
+
+.upload-image-hover {
+  position: absolute;
+  bottom: 0;
+  color: transparent;
+  width: 100%;
+  display: flex;
+}
+
+.upload-image-hover:hover {
+  position: absolute;
+  background-color: black;
+  height: 52px;
+  width: 100%;
+  bottom: 0px;
+  color: white;
+  font-size: 12px;
+}
+
 .profile-cover-container {
   width: 900px;
   margin: 0 auto;
@@ -69,4 +95,59 @@
 
 .profile-pages > li:last-child {
   border-right: 1px solid #e9eaed;
+}
+
+// Modal Profile Image
+
+.modal-heading {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 5px;
+  height: 40px;
+  background-color: #f6f7f9;
+  h2 {
+    padding: 15px;
+  }
+}
+
+.modal-close-button {
+  cursor: pointer;
+}
+
+.modal{
+  padding: 0px;
+  width: 775px;
+  // height: 601px;
+  height: 320px;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 35px;
+}
+
+.modal-body-container {
+  width: 100%;
+}
+
+.modal-body {
+  display: flex;
+  cursor: pointer;
+  font-size: 26px;
+  height: 270px;
+
+  i {
+    margin-right: 15px;
+  }
+
+  .modal-body-label {
+    padding: 120px;
+    padding-left: 300px;
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  #profile-image {
+    display: none;
+  }
 }
