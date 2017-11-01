@@ -48,8 +48,7 @@ class ProfileImage extends Component {
     }
   }
 
-  cancelUpload(e){
-    e.preventDefault();
+  cancelUpload(){
     this.setState({
       imageFile: null,
       imageUrl: null
@@ -59,12 +58,16 @@ class ProfileImage extends Component {
   onSubmit(e){
     let file = this.state.imageFile;
     const formData = new FormData();
-    formData.append("user[id]", this.props.currentUser.id);
     if (file) {
       formData.append("user[image]", file);
     }
-
-    this.props.updateUser(formData, this.resetForm);
+    this.props.updateUser(formData, this.props.currentUser.id).then( () => {
+      this.setState({
+        modalIsOpen: false,
+        imageFile: null,
+        imageUrl: null
+      });
+    });
   }
 
   render(){

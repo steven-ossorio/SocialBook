@@ -12,14 +12,14 @@ export const fetchUser = id => {
   });
 };
 
-export const updateUser = formData => {
+export const updateUser = (formData, id) => {
   return $.ajax({
     method: "patch",
     processData: false,
     contentType: false,
     dataType: 'json',
-    url: `/api/users/${formData.id}/edit`,
-    data: { formData }
+    url: `/api/users/${id}`,
+    data: formData
   });
 };
 
