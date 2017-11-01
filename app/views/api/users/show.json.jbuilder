@@ -7,7 +7,7 @@ json.user do
   json.sex @user.sex
   json.image_url asset_path(@user.image.url)
   json.cover_image_url asset_path(@user.cover_image.url)
-  json.postsIds @user.posts.pluck(:id)
+  # json.postsIds @user.posts.pluck(:id)
   json.friendIds @user.friends.pluck(:id)
   json.profilePostsId @user.profile_posts.pluck(:id)
 end
@@ -15,8 +15,14 @@ end
 
 
 json.posts do
-  @user.posts.each do |post|
-    json.set! post.id, post
+  @user.profile_posts.each do |post|
+    json.set! post.id do
+      json.extract! post.owner, :first_name, :last_name, :image
+      json.id post.id
+      json.created_at post.created_at
+      json.text post.text
+      json.profile_id post.profile_id
+    end
   end
 end
 

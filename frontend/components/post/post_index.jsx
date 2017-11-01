@@ -4,23 +4,26 @@ import moment from 'moment';
 class PostIndex extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      profilePostsId: this.props.profilePostsId
+    };
     this.renderPosts = this.renderPosts.bind(this);
     this.deletePost = this.deletePost.bind(this);
   }
 
   // componentDidMount(){
-  //   if (this.props.currentUser.id === this.props.match.params.userId) {
+  //   // if (this.props.currentUser.id === this.props.match.params.userId) {
   //     this.props.fetchPosts();
-  //   }
-  //   debugger
-  // }
-  //
-  // componentWillReceiveProps(nextProps, nextState) {
-  //   // if (this.props.currentUser.id !== nextProps.match.params.userId) {
-  //   //   this.props.fetchPosts();
   //   // }
   //   debugger
   // }
+
+  componentWillReceiveProps(nextProps, nextState) {
+    if (Object.keys(this.props.posts).length < Object.keys(nextProps.posts).length) {
+      debugger
+      this.props.fetchUser(nextProps.match.params.userId);
+    }
+  }
 
   deletePost(idx){
     const that = this;
@@ -33,6 +36,7 @@ class PostIndex extends Component {
       return this.props.posts[id];
     });
     return posts.map( (post, idx) => {
+
       return (
         <li className="post-list" key={ `${post.id}` }>
           <div className="post-list-container">
@@ -40,10 +44,10 @@ class PostIndex extends Component {
               <div className="post-top-container">
                 <div className="post-top-left-container">
                   <div>
-                    <img className="post-form-image" src={ this.props.user.image_url }></img>
+                    <img className="post-form-image" src={ post.image }></img>
                   </div>
                   <div className="post-name-container">
-                    <div>{ this.props.user.firstName }</div>
+                    <div>{ post.first_name }</div>
                     <div>{ moment(post.created_at).format("LL").slice(0, 10) }</div>
                   </div>
                 </div>
