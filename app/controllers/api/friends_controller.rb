@@ -4,10 +4,10 @@ class Api::FriendsController < ApplicationController
   end
 
   def create
-    friend = User.find(params[:friendee_id])
+    friend = User.find(params[:friend])
     @pending_friend = Friend.new(
       friender_id: current_user.id,
-      friendee_id: friend
+      friendee_id: friend.id
     )
 
     if @pending_friend.save
