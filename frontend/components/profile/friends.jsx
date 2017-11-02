@@ -8,6 +8,7 @@ class Friends extends Component {
   }
 
   render(){
+    let count = 0;
     let friendsCount = Object.values(this.props.friends).length;
     let friends = Object.values(this.props.friends).map( friend => {
       return (
