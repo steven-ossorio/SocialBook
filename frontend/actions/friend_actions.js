@@ -5,6 +5,7 @@ export const REMOVE_FRIEND = 'REMOVE_FRIEND';
 export const RECEIVE_FRIEND_ERRORS = 'RECEIVE_FRIEND_ERRORS';
 
 export const createFriendship = friend => dispatch => {
+  debugger
   return FriendAPIUtil.createFriendship(friend).then( friend => {
     return dispatch(receiveFriend(friend));
   }, errors => {
@@ -20,10 +21,10 @@ export const deleteFriendship = id => dispatch => {
   });
 };
 
-const receiveFriend = id => {
+const receiveFriend = friend => {
   return {
     type: RECEIVE_FRIEND,
-    id
+    friend
   };
 };
 
