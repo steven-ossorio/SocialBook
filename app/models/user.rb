@@ -75,7 +75,11 @@ class User < ApplicationRecord
     # AND friends.status = 'Accepted'", self.id, self.id)
   end
 
-  def friend_requests
+  def requests
     @friend_requests ||= self.requestee.where(status: "Pending")
+  end
+
+  def pending
+    @pending ||= self.requester.where(status: "Pending") + self.requestee.where(status: "Pending")
   end
 end
