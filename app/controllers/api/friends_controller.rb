@@ -11,7 +11,7 @@ class Api::FriendsController < ApplicationController
     )
 
     if @pending_friend.save
-      render 'api/friends/index'
+      render 'api/friends/show'
     else
       render json: @pending_friend.errors.messages
     end
