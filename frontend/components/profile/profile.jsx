@@ -4,10 +4,13 @@ import { merge } from 'lodash';
 import PostFormContainer from '../post/post_form_container';
 import PostIndexContainer from '../post/post_index_container';
 import ProfileTopSection from './profile_top_section';
+import Friends from './friends';
+import Intro from './intro';
 
 class Profile extends Component {
   constructor(props){
     super(props);
+    this.createFriendship = this.createFriendship.bind(this);
   }
 
   componentDidMount() {
@@ -20,18 +23,26 @@ class Profile extends Component {
     }
   }
 
+  createFriendship() {
+    if (this.props.match.params.userId !== this.props.currentUser.id) {
+      return <button onClick={ () => this.props.createFriendship(this.props.user.id) }>Add Friend</button>;
+
+    } else {
+      <h1>it works!</h1>;
+    }
+  }
+
   render(){
     // console.log("user", this.props.user);
     // console.log("state", this.state);
     if (this.props.user) {
-
       return(
         <div>
           <ProfileTopSection match={ this.props.match } updateUser={ this.props.updateUser } currentUser={ this.props.currentUser } user={ this.props.user } />
           <div className="profile-page-container" >
-            <div>
-              { this.props.user.firstName }
-              left portion
+            <div className="profile-left-section">
+              <Intro />
+              <Friends friends={ this.props.friends } />
             </div>
             <div className="posts-container">
               <PostFormContainer props={ this.props} user={ this.props.user }/>
