@@ -11,7 +11,7 @@ class Api::FriendsController < ApplicationController
     )
 
     if @pending_friend.save
-      render 'api/friends/show'
+      render json: @pending_friend
     else
       render json: @pending_friend.errors.messages
     end
@@ -19,6 +19,10 @@ class Api::FriendsController < ApplicationController
 
   def edit
 
+  end
+
+  def show
+    @pending_friend = Friend.find(params[:id])
   end
 
   def update
