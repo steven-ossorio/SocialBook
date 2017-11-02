@@ -28,7 +28,6 @@ class ProfileImage extends Component {
   }
 
   updateFile(e) {
-    // debugger
     let fileReader = new FileReader();
     let file = e.currentTarget.files[0];
     fileReader.onloadend = () => {
@@ -71,7 +70,6 @@ class ProfileImage extends Component {
   }
 
   render(){
-    // debugger
     if (this.props.currentUser.id === parseInt(this.props.match.params.userId) && this.state.imageFile === null) {
       return (
         <div>

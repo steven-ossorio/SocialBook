@@ -15,12 +15,10 @@ const UserReducer = (state = {}, action) => {
       newState.friends = action.friends || {};
       return newState;
     case RECEIVE_FRIEND:
-    debugger
     let friendee = action.friend.friendee_id;
     newState = merge({}, state);
     newState[friendee].requests.push(action.friend.friender_id);
     return newState;
-    debugger
     default:
       return state;
   }

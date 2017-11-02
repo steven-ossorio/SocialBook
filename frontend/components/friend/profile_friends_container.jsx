@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import ProfileFriends from './profile_friends';
 
 const mapStateToProps = state => {
-  debugger
   return;
 };
 
