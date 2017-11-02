@@ -6,4 +6,4 @@ json.cover_image_url asset_path(user.cover_image.url)
 json.posts(user.posts) do |post|
   json.id post.id
 end
-json.friend_requests user.friend_requests
+# json.friend_requests user.friend_requests
