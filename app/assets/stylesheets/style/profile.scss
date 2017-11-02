@@ -1,3 +1,7 @@
+html {
+  background-color: #e9ebee;
+}
+
 .profile-page-container {
   width: 900px;
   margin: 0 auto;
@@ -19,6 +23,7 @@
   position: absolute;
   background-color: white;
   margin: 4px;
+  background-size: cover;
 }
 
 .profile-image-second-container {
