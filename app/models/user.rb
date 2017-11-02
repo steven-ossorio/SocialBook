@@ -35,10 +35,10 @@ class User < ApplicationRecord
     source: :user
 
 
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "default.jpeg"
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/default.jpeg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
-  has_attached_file :cover_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "default_cover.jpeg"
+  has_attached_file :cover_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/default_cover.jpeg"
   validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*\z/
 
   def self.find_by_credentials(email, password)
