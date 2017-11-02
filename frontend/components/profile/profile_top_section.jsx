@@ -7,9 +7,29 @@ import ProfileImage from './profile_image';
 class ProfileTopSection extends Component {
   constructor(props){
     super(props);
+    this.addingFriend = this.addingFriend.bind(this);
   }
 
+  componentWillReceiveProps(nextProps, nextState) {
+    debugger
+  }
+
+  // addingFriend() {
+  //   this.props.createFriendship(this.props.user.id);
+  //   this.props.fetchUser(this.props.user.id);
+  // }
+
   render(){
+    let addButton = "";
+    if (this.props.user.requests.includes(this.props.currentUser.id)) {
+      addButton = <button className="adding-friend">Pending</button>;
+    } else if (this.props.user.friendIds.includes(this.props.currentUser.id)) {
+      addButton = <button className="adding-friend">Friends</button>;
+    } else if (parseInt(this.props.match.params.userId) !== this.props.currentUser.id) {
+      addButton = <button className="adding-friend" onClick={ () => this.props.createFriendship(this.props.user.id) }>Add Friend</button>;
+    } else {
+      addButton = <button className="adding-friend">Have a nice day</button>;
+    }
     return(
       <div>
         <ProfileNav currentUser={ this.props.currentUser } />
@@ -17,6 +37,7 @@ class ProfileTopSection extends Component {
           <div className="top-profile-portion-container">
             <div className="profile-cover-container">
               <img className="profile-cover-image" src={ this.props.user.cover_image_url }></img>
+              { addButton }
             </div>
             <div className="profile-image-second-container">
               <div className="profile-image-container" style={{ backgroundImage: `url(${this.props.user.image_url})`}}>

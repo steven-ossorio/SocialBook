@@ -10,7 +10,6 @@ import Intro from './intro';
 class Profile extends Component {
   constructor(props){
     super(props);
-    this.createFriendship = this.createFriendship.bind(this);
   }
 
   componentDidMount() {
@@ -23,22 +22,13 @@ class Profile extends Component {
     }
   }
 
-  createFriendship() {
-    if (this.props.match.params.userId !== this.props.currentUser.id) {
-      return <button onClick={ () => this.props.createFriendship(this.props.user.id) }>Add Friend</button>;
-
-    } else {
-      <h1>it works!</h1>;
-    }
-  }
-
   render(){
     // console.log("user", this.props.user);
     // console.log("state", this.state);
     if (this.props.user) {
       return(
         <div>
-          <ProfileTopSection match={ this.props.match } updateUser={ this.props.updateUser } currentUser={ this.props.currentUser } user={ this.props.user } />
+          <ProfileTopSection match={ this.props.match } fetchUser={ this.props.fetchUser } createFriendship={ this.props.createFriendship } updateUser={ this.props.updateUser } currentUser={ this.props.currentUser } user={ this.props.user } />
           <div className="profile-page-container" >
             <div className="profile-left-section">
               <Intro />
