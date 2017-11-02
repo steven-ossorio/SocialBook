@@ -106,7 +106,7 @@ class ProfileImage extends Component {
           </Modal>
         </div>
       );
-    } else if (true) {
+    } else if (this.props.currentUser.id === parseInt(this.props.match.params.userId) && this.state.imageFile !== null) {
       return (
         <div>
           <div onClick={ this.openModal } className="upload-image-container">
