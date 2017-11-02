@@ -25,6 +25,8 @@ class Friends extends Component {
         </div>
       );
     });
+    let nine = friends.slice(0, 9);
+    console.log(nine);
     return(
       <div>
         <div className="profile-friends-container">
