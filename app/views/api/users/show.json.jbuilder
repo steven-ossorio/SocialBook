@@ -13,7 +13,6 @@ json.user do
 end
 # json.friends @user.friends
 
-
 json.posts do
   @user.profile_posts.each do |post|
     json.set! post.id do

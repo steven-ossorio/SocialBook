@@ -12,13 +12,15 @@ class Friends extends Component {
     let friends = Object.values(this.props.friends).map( friend => {
       return (
         <div key={ `${ friend.id }` }>
-          <div className="profile-friend-image" style={{ backgroundImage: `url(${friend.image})`}}>
+          <Link to={ `/users/${friend.id}` }>
+            <div className="profile-friend-image" style={{ backgroundImage: `url(${friend.image})`}}>
 
-            <div className="friend-full-name">
-              <li>{ friend.first_name }</li>
-              <li>{ friend.last_name }</li>
+              <div className="friend-full-name">
+                <li>{ friend.first_name }</li>
+                <li>{ friend.last_name }</li>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       );
     });
@@ -32,7 +34,9 @@ class Friends extends Component {
               </div>
               <p>Friends { friendsCount }</p>
             </div>
-            {friends}
+            <div className="all-friends-profile-container">
+              { friends }
+            </div>
           </div>
         </div>
       </div>

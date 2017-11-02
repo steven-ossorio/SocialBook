@@ -39,7 +39,7 @@
 .profile-friends-container {
   margin-top: 20px;
   width: 340px;
-  height: 450px;
+  height: 400px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -70,6 +70,8 @@
   height: 101px;
   position: relative;
   background-size: cover;
+  margin: 5px;
+  cursor: pointer;
 
   .friend-full-name {
     display: flex;
@@ -85,4 +87,9 @@
       margin: 3px;
     }
   }
+}
+
+.all-friends-profile-container {
+  display: flex;
+  flex-wrap: wrap;
 }
