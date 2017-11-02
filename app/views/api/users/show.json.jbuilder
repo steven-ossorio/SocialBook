@@ -26,10 +26,18 @@ json.posts do
   end
 end
 
-json.profilePosts do
-  @user.profile_posts.each do |post|
-    json.set! post.id, post
+json.friends do
+  @user.friends.each do |friend|
+    json.set! friend.id do
+      json.extract! friend, :id, :first_name, :last_name, :image
+    end
   end
 end
+
+# json.profilePosts do
+#   @user.profile_posts.each do |post|
+#     json.set! post.id, post
+#   end
+# end
 # json.friend_requests @user.friend_requests
 # different post methods for feed and profile
