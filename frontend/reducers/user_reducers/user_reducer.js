@@ -2,6 +2,7 @@ import React from 'react';
 import { merge, omit } from 'lodash';
 
 import { RECEIVE_ALL_USERS, RECEIVE_USER } from '../../actions/user_actions';
+import { RECEIVE_FRIEND } from '../../actions/friend_actions';
 
 const UserReducer = (state = {}, action) => {
   let newState;
@@ -13,6 +14,13 @@ const UserReducer = (state = {}, action) => {
       newState = merge({}, state, { [action.user.id]: action.user });
       newState.friends = action.friends || {};
       return newState;
+    case RECEIVE_FRIEND:
+    debugger
+    let friendee = action.friend.friendee_id;
+    newState = merge({}, state);
+    newState[friendee].requests.push(action.friend.friender_id);
+    return newState;
+    debugger
     default:
       return state;
   }

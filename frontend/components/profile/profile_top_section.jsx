@@ -7,17 +7,7 @@ import ProfileImage from './profile_image';
 class ProfileTopSection extends Component {
   constructor(props){
     super(props);
-    this.addingFriend = this.addingFriend.bind(this);
   }
-
-  componentWillReceiveProps(nextProps, nextState) {
-    debugger
-  }
-
-  // addingFriend() {
-  //   this.props.createFriendship(this.props.user.id);
-  //   this.props.fetchUser(this.props.user.id);
-  // }
 
   render(){
     let addButton = "";
