@@ -37,7 +37,7 @@ cover_images = [
 
 user = []
 
-50.times do |user|
+150.times do |user|
   u = User.create!(
     email: Faker::Internet.email,
     password: 'password',
@@ -48,23 +48,8 @@ user = []
     image: profile_images.sample,
     cover_image: cover_images.sample
   )
+  # debugger
 
-  user.push(u.id)
+  user << u.id
 
-end
-
-
-100.times do |post|
-  first_user = user.sample
-  second_user = user.sample
-
-  until first_user !== second_user
-    second_user = user.sample
-  end
-
-  Post.create!(
-    owner_id: first_user,
-    text: Faker::RickAndMorty.quote,
-    profile_id: second_user
-  )
 end
