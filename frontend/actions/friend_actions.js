@@ -12,9 +12,10 @@ export const createFriendship = friend => dispatch => {
   });
 };
 
-export const deleteFriendship = id => dispatch => {
-  return FriendAPIUtil.deleteFriendship(id).then( () => {
-    return dispatch(removePost(id));
+export const deleteFriendship = friend => dispatch => {
+  // debugger
+  return FriendAPIUtil.deleteFriendship(friend).then( friend => {
+    return dispatch(removeFriend(friend));
   }, errors => {
     return dispatch(receiveErrors(errors));
   });
@@ -27,10 +28,11 @@ const receiveFriend = friend => {
   };
 };
 
-const removeFriend = friendId => {
+const removeFriend = friend => {
+  // debugger
   return {
     type: REMOVE_FRIEND,
-    friendId
+    friend
   };
 };
 
