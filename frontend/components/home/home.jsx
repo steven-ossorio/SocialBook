@@ -14,6 +14,7 @@ class Home extends Component {
   }
 
   render(){
+    debugger
     if (this.props.currentUser) {
       return(
         <div>

@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login(@user)
-      render :show
+      render :index
     else
       render json: @user.errors.messages, status: 422
     end
