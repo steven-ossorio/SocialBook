@@ -38,29 +38,36 @@ class PostIndex extends Component {
     let posts = this.props.profilePostsId.reverse().map( id => {
       return this.props.posts[id];
     });
-    return posts.map( (post, idx) => {
-      return (
-        <li className="post-list" key={ `${post.id}` }>
-          <div className="post-list-container">
-            <div className="entire-top-container">
-              <div className="post-top-container">
-                <div className="post-top-left-container">
-                  <div>
-                    <img className="post-form-image" src={ post.image }></img>
+    if (!posts.includes(undefined)) {
+      return posts.map( (post, idx) => {
+
+        return (
+          <li className="post-list" key={ `${post.id}` }>
+            <div className="post-list-container">
+              <div className="entire-top-container">
+                <div className="post-top-container">
+                  <div className="post-top-left-container">
+                    <div>
+                      <img className="post-form-image" src={ post.image }></img>
+                    </div>
+                    <div className="post-name-container">
+                      <div>{ post.first_name }</div>
+                      <div>{ moment(post.created_at).format("LL").slice(0, 10) }</div>
+                    </div>
                   </div>
-                  <div className="post-name-container">
-                    <div>{ post.first_name }</div>
-                    <div>{ moment(post.created_at).format("LL").slice(0, 10) }</div>
-                  </div>
+                  <button onClick={ this.deletePost(post.id) }>Delete Post</button>
                 </div>
-                <button onClick={ this.deletePost(post.id) }>Delete Post</button>
               </div>
+              <p className="post-list-text">{ post.text }</p>
             </div>
-            <p className="post-list-text">{ post.text }</p>
-          </div>
-        </li>
+          </li>
+        );
+      });
+    } else {
+      return (
+        <div></div>
       );
-    });
+    }
   }
 
   render() {

@@ -10,7 +10,6 @@ class ProfileTopSection extends Component {
   }
 
   render(){
-    debugger
     let addButton = "";
     if (this.props.currentUser !== null) {
 

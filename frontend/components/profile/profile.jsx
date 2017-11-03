@@ -28,7 +28,6 @@ class Profile extends Component {
     if (this.props.user) {
       return(
         <div>
-          <Link to='/' onClick={ this.props.logout }>Logout</Link>
           <ProfileTopSection match={ this.props.match } fetchUser={ this.props.fetchUser } createFriendship={ this.props.createFriendship } updateUser={ this.props.updateUser } currentUser={ this.props.currentUser } user={ this.props.user } logout={ this.props.logout } />
           <div className="profile-page-container" >
             <div className="profile-left-section">
