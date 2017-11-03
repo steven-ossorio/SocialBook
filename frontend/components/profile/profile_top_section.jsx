@@ -10,7 +10,7 @@ class ProfileTopSection extends Component {
   }
 
   render(){
-    // debugger
+    debugger
     let addButton = "";
     if (this.props.currentUser !== null) {
 
@@ -24,7 +24,7 @@ class ProfileTopSection extends Component {
 
       return(
         <div>
-          <ProfileNav currentUser={ this.props.currentUser } />
+          <ProfileNav logout={ this.props.logout } currentUser={ this.props.currentUser } />
           <div className="profile-page-top">
             <div className="top-profile-portion-container">
               <div className="profile-cover-container">

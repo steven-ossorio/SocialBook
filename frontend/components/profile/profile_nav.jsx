@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import DropDown from '../home/dropdown';
 
 class ProfileNav extends Component {
   constructor(props){
@@ -23,7 +24,7 @@ class ProfileNav extends Component {
               <li><i className="fa fa-comments"></i></li>
               <li><i className="fa fa-globe"></i></li>
               <li><i className="fa fa-question-circle"></i></li>
-              <li><i className="fa fa-arrow-circle-down"></i></li>
+              <li><DropDown logout={ this.props.logout } /></li>
             </ul>
           </div>
         </main>
