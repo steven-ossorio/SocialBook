@@ -14,7 +14,7 @@ class Home extends Component {
   }
 
   render(){
-    debugger
+    // debugger
     if (this.props.currentUser) {
       return(
         <div>
@@ -35,10 +35,10 @@ class Home extends Component {
               </ul>
             </div>
           </main>
-          <h1>Welcome back, { this.props.currentUser.firstName }</h1>
-          <Link to={`/users/${ this.props.currentUser.id}` }>Profile</Link>
-          <img src={ this.props.currentUser.image_url }></img>
-          <button onClick={ this.props.logout }>Logout</button>
+          <div className="under-construction">
+            <img src="http://www.hunter.cuny.edu/onestop/financial-aid-images-new/fa-working-draft-images/under-construction.png"></img>
+          </div>
+          <button><Link to='/' onClick={ this.props.logout }>Logout</Link></button>
         </div>
       );
     } else {
