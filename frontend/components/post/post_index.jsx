@@ -38,7 +38,10 @@ class PostIndex extends Component {
     let posts = this.props.profilePostsId.reverse().map( id => {
       return this.props.posts[id];
     });
-    if (!posts.includes(undefined)) {
+    posts = posts.filter(post=>{
+      return post;
+    });
+    // if (!posts.includes(undefined)) {
       return posts.map( (post, idx) => {
 
         return (
@@ -63,11 +66,11 @@ class PostIndex extends Component {
           </li>
         );
       });
-    } else {
-      return (
-        <div></div>
-      );
-    }
+    // else {
+    //   return (
+    //     <div></div>
+    //   );
+    // }
   }
 
   render() {
