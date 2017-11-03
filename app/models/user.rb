@@ -87,7 +87,7 @@ class User < ApplicationRecord
 
 
     friendship = <<-SQL
-      select * from posts join users on posts.owner_id = users.id join friends on (friendee_id = posts.owner_id and friender_id = #{self.id}) or (friender_id = posts.owner_id and friendee_id = #{self.id}) where status = 'accepted';
+      select * from posts join users on posts.profile_id = users.id join friends on (friendee_id = posts.profile_id and friender_id = #{self.id}) or (friender_id = posts.profile_id and friendee_id = #{self.id});
     SQL
 
 

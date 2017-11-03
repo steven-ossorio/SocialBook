@@ -9,6 +9,10 @@ class Home extends Component {
 
   }
 
+  constructorDidMount() {
+
+  }
+
   render(){
     if (this.props.currentUser) {
       return(

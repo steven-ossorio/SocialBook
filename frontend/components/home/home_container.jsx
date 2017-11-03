@@ -2,10 +2,9 @@ import { logout } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 import Home from './home';
 
-const mapStateToProps = (state) => {
-  debugger
+const mapStateToProps = ({ session }) => {
   return {
-    currentUser: state.session.currentUser
+    currentUser: session.currentUser,
   };
 };
 
