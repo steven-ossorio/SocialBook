@@ -20,6 +20,7 @@ const UserReducer = (state = {}, action) => {
       newState[friendee].requests.push(action.friend.friender_id);
       return newState;
     case REMOVE_FRIEND:
+    debugger
     let removeFriend = action.friend.friender_id;
     let newStateArr = state[action.friend.friendee_id].friendIds.filter( id => {
       return id !== removeFriend;

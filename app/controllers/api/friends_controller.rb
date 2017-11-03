@@ -38,10 +38,11 @@ class Api::FriendsController < ApplicationController
   end
 
   def destroy
+    debugger
     friend = User.find(params[:id])
     @cancel_friendship = Friend.find_by(
-      friender_id: current_user.id,
-      friendee_id: friend.id
+      friender_id: friend.id,
+      friendee_id: current_user.id
     )
 
     @cancel_friendship.destroy!

@@ -47,7 +47,7 @@ class RequestDropDown extends Component {
       }
       return (
         <div id = "menu">
-          <i className = "fa fa-arrow-down" onClick = { this.toggleMenu }/>
+          <i className = "fa fa-users" onClick = { this.toggleMenu }/>
           {menu}
       </div>
     );
