@@ -28,6 +28,7 @@ class Profile extends Component {
     if (this.props.user) {
       return(
         <div>
+          <button onClick={ this.props.logout }>Logout</button>
           <ProfileTopSection match={ this.props.match } fetchUser={ this.props.fetchUser } createFriendship={ this.props.createFriendship } updateUser={ this.props.updateUser } currentUser={ this.props.currentUser } user={ this.props.user } />
           <div className="profile-page-container" >
             <div className="profile-left-section">
@@ -39,7 +40,6 @@ class Profile extends Component {
               <PostIndexContainer />
             </div>
           </div>
-          <button onClick={ this.props.logout }>Logout</button>
         </div>
       );
     } else {

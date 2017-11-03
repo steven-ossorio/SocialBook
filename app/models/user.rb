@@ -85,13 +85,13 @@ class User < ApplicationRecord
 
   def all_posts(id)
 
-
-    friendship = <<-SQL
-      select * from posts join users on posts.profile_id = users.id join friends on (friendee_id = posts.profile_id and friender_id = #{self.id}) or (friender_id = posts.profile_id and friendee_id = #{self.id});
-    SQL
-
-
-    records_array = ActiveRecord::Base.connection.execute(friendship)
+    # 
+    # friendship = <<-SQL
+    #   select * from posts join users on posts.profile_id = users.id join friends on (friendee_id = posts.profile_id and friender_id = #{self.id}) or (friender_id = posts.profile_id and friendee_id = #{self.id});
+    # SQL
+    #
+    #
+    # records_array = ActiveRecord::Base.connection.execute(friendship)
     # User.joins(friendship)
     #     .where("users.id = ? AND status = 'accepted'", self.id)
     #
