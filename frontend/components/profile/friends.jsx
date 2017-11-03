@@ -8,7 +8,6 @@ class Friends extends Component {
   }
 
   render(){
-    let count = 0;
     let friendsCount = Object.values(this.props.friends).length;
     let friends = Object.values(this.props.friends).map( friend => {
       return (
@@ -25,8 +24,7 @@ class Friends extends Component {
         </div>
       );
     });
-    let nine = friends.slice(0, 9);
-    console.log(nine);
+    let friendsList = friends.slice(0, 9);
     return(
       <div>
         <div className="profile-friends-container">
@@ -38,7 +36,7 @@ class Friends extends Component {
               <p>Friends { friendsCount }</p>
             </div>
             <div className="all-friends-profile-container">
-              { friends }
+              { friendsList }
             </div>
           </div>
         </div>

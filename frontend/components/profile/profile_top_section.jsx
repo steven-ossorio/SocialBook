@@ -10,7 +10,7 @@ class ProfileTopSection extends Component {
   }
 
   render(){
-    debugger
+    // debugger
     let addButton = "";
     if (this.props.user.requests.includes(this.props.currentUser.id)) {
       addButton = <button className="adding-friend">Pending</button>;
