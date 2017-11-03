@@ -36,9 +36,16 @@ class Home extends Component {
             </div>
           </main>
           <div className="under-construction">
-            <img src="http://www.hunter.cuny.edu/onestop/financial-aid-images-new/fa-working-draft-images/under-construction.png"></img>
+            <div className="under-construction-inner">
+              <img src="http://www.hunter.cuny.edu/onestop/financial-aid-images-new/fa-working-draft-images/under-construction.png"></img>
+            </div>
           </div>
-          <button><Link to='/' onClick={ this.props.logout }>Logout</Link></button>
+
+          <ul>
+            <li>
+              <Link to='/' onClick={ this.props.logout }>Logout</Link>
+            </li>
+          </ul>
         </div>
       );
     } else {
