@@ -6,6 +6,14 @@ export const createFriendship = friend => {
   });
 };
 
+export const updateFriendship = friend => {
+  return $.ajax({
+    method: 'patch',
+    url: `/api/friends/${friend.id}`,
+    data: { friend }
+  });
+};
+
 export const deleteFriendship = id => {
   return $.ajax({
     method: 'delete',

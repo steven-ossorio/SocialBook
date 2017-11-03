@@ -26,7 +26,15 @@ class Api::FriendsController < ApplicationController
   end
 
   def update
+    friend = User.find(params[:friend])
+    friendship = Friend.find_by(
+      friender_id: friend.id,
+      friendee_id: current_user.id
+    )
 
+    friendship.update(status: 'Accepted')
+
+    render json: friendship
   end
 
   def destroy

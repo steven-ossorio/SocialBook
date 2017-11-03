@@ -3,6 +3,7 @@ import * as FriendAPIUtil from '../util/friend_api_util';
 export const RECEIVE_FRIEND = 'RECEIVE_FRIEND';
 export const REMOVE_FRIEND = 'REMOVE_FRIEND';
 export const RECEIVE_FRIEND_ERRORS = 'RECEIVE_FRIEND_ERRORS';
+export const UPDATE_FRIEND = 'UPDATE_FRIEND';
 
 export const createFriendship = friend => dispatch => {
   return FriendAPIUtil.createFriendship(friend).then( friend => {
@@ -12,14 +13,22 @@ export const createFriendship = friend => dispatch => {
   });
 };
 
+export const updateFriendship = friend => dispatch => {
+  return FriendAPIUtil.updateFriendship(friend).then( friend => {
+    return dispatch(updateFriend(friend));
+  }, errors => {
+    return dispatch(receiveErrors(errors));
+  });
+};
+
 export const deleteFriendship = friend => dispatch => {
-  // debugger
   return FriendAPIUtil.deleteFriendship(friend).then( friend => {
     return dispatch(removeFriend(friend));
   }, errors => {
     return dispatch(receiveErrors(errors));
   });
 };
+
 
 const receiveFriend = friend => {
   return {
@@ -28,8 +37,14 @@ const receiveFriend = friend => {
   };
 };
 
+const updateFriend = friend => {
+  return {
+    type: UPDATE_FRIEND,
+    friend
+  };
+};
+
 const removeFriend = friend => {
-  // debugger
   return {
     type: REMOVE_FRIEND,
     friend
