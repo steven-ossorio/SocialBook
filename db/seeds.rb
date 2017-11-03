@@ -35,10 +35,8 @@ cover_images = [
   "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/joker_cover.jpg"
 ]
 
-user = []
-
 150.times do |user|
-  u = User.create!(
+  User.create!(
     email: Faker::Internet.email,
     password: 'password',
     first_name: Faker::Name.first_name,
@@ -48,8 +46,5 @@ user = []
     image: profile_images.sample,
     cover_image: cover_images.sample
   )
-  # debugger
-
-  user << u.id
-
+  
 end
