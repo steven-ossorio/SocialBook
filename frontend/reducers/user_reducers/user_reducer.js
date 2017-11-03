@@ -11,10 +11,12 @@ const UserReducer = (state = {}, action) => {
     case RECEIVE_ALL_USERS:
       return action.users;
     case RECEIVE_USER:
+    debugger
       newState = merge({}, state, { [action.user.id]: action.user });
       newState.friends = action.friends || {};
       return newState;
     case RECEIVE_FRIEND:
+    debugger
     let friendee = action.friend.friendee_id;
     newState = merge({}, state);
     newState[friendee].requests.push(action.friend.friender_id);

@@ -17,9 +17,8 @@ class ProfileTopSection extends Component {
       addButton = <button className="adding-friend">Friends</button>;
     } else if (parseInt(this.props.match.params.userId) !== this.props.currentUser.id) {
       addButton = <button className="adding-friend" onClick={ () => this.props.createFriendship(this.props.user.id) }>Add Friend</button>;
-    } else {
-      addButton = <button className="adding-friend">Have a nice day</button>;
     }
+    
     return(
       <div>
         <ProfileNav currentUser={ this.props.currentUser } />

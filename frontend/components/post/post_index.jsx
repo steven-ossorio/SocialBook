@@ -15,6 +15,7 @@ class PostIndex extends Component {
   //   // if (this.props.currentUser.id === this.props.match.params.userId) {
   //     this.props.fetchPosts();
   //   // }
+  //   debugger
   // }
 
   componentWillReceiveProps(nextProps, nextState) {
