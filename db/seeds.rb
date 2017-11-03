@@ -7,44 +7,64 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-  User.destroy_all
+User.destroy_all
 
-  sex = ["male", "female"]
+sex = ["male", "female"]
 
-  profile_images = [
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/Leia.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/Jeff_Dunham.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cool-people.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/joker.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/jk-rowling.jpg"
-  ]
+profile_images = [
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/Leia.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/Jeff_Dunham.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cool-people.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/joker.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/jk-rowling.jpg"
+]
 
-  cover_images = [
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover1.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover2.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover3.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover4.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover6.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover7.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover8.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover9.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover11.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover12.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover13.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover14.jpg",
-    "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/joker_cover.jpg"
-  ]
+cover_images = [
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover1.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover2.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover3.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover4.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover6.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover7.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover8.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover9.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover11.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover12.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover13.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/cover14.jpg",
+  "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/joker_cover.jpg"
+]
+
+user = []
+
+50.times do |user|
+  u = User.create!(
+    email: Faker::Internet.email,
+    password: 'password',
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    sex: sex.sample,
+    dob: "Oct 20 1999",
+    image: profile_images.sample,
+    cover_image: cover_images.sample
+  )
+
+  user.push(u.id)
+
+end
 
 
-  50.times do |user|
-    User.create!(
-      email: Faker::Internet.email,
-      password: 'password',
-      first_name: Faker::Name.first_name,
-      last_name: Faker::Name.last_name,
-      sex: sex.sample,
-      dob: "Oct 20 1999",
-      image: profile_images.sample,
-      cover_image: cover_images.sample
-    )
+100.times do |post|
+  first_user = user.sample
+  second_user = user.sample
+
+  until first_user !== second_user
+    second_user = user.sample
   end
+
+  Post.create!(
+    owner_id: first_user,
+    text: Faker::RickAndMorty.quote,
+    profile_id: second_user
+  )
+end

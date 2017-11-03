@@ -15,6 +15,7 @@ const UserReducer = (state = {}, action) => {
       newState = merge({}, state, { [action.user.id]: action.user });
       newState.friends = action.friends || {};
       return newState;
+      debugger
     case RECEIVE_FRIEND:
     debugger
     let friendee = action.friend.friendee_id;
