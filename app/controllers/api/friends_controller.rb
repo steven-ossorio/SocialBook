@@ -30,7 +30,15 @@ class Api::FriendsController < ApplicationController
   end
 
   def destroy
+    friend = User.find(params[:id])
+    @cancel_friendship = Friend.find_by(
+      friender_id: current_user.id,
+      friendee_id: friend.id
+    )
 
+    @cancel_friendship.destroy!
+
+    render json: @cancel_friendship
   end
 
   private
