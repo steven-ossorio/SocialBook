@@ -1,6 +1,6 @@
 import { logout } from '../../actions/session_actions';
 import { fetchUser, updateUser } from '../../actions/user_actions';
-import { createFriendship } from '../../actions/friend_actions';
+import { createFriendship, deleteFriendship } from '../../actions/friend_actions';
 import { connect } from 'react-redux';
 import Profile from './profile';
 import About from './about';
@@ -18,7 +18,8 @@ const mapDispatchToProps = dispatch => {
     logout: () => dispatch(logout()),
     fetchUser: id => dispatch(fetchUser(id)),
     updateUser: (user, id) => dispatch(updateUser(user, id)),
-    createFriendship: friend => dispatch(createFriendship(friend))
+    createFriendship: friend => dispatch(createFriendship(friend)),
+    deleteFriendship: id => dispatch(deleteFriendship(id))
   };
 };
 
