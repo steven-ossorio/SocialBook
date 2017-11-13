@@ -24,7 +24,7 @@ class DropDown extends Component {
         menu = <div>
                   <ul className="logout-dropdown">
                     <div className="logout-container">
-                      <li><Link to='/' onClick={ this.props.logout }>Logout</Link></li>
+                      <li><Link to='/' onClick={ this.props.logout } replace >Logout</Link></li>
                     </div>
                   </ul>
                 </div>;

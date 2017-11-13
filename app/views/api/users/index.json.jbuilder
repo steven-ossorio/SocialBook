@@ -14,4 +14,5 @@ json.cover_image_url asset_path(@user.cover_image.url)
 json.posts(@user.posts) do |post|
   json.id post.id
 end
+
 # json.newFeed @user.all_posts(@user.id)
