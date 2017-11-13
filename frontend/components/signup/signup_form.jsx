@@ -127,7 +127,7 @@ class SignUpForm extends Component {
 
 
     return(
-      <div>
+      <div className="login-page-background-color">
         <div className="form-background">
           <section className="landing-page-left-section">
             <div className="company-goal-message">
@@ -140,7 +140,7 @@ class SignUpForm extends Component {
             </div>
             <div className="photo-icon-description">
               <div className="share-icon"></div>
-              <p>Share what's new</p>
+              <p className="bold">Share what's new</p>
               <p>in your life on your Timeline.</p>
             </div>
             <div className="photo-icon-description">

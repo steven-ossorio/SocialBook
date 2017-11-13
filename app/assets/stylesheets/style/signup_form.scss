@@ -8,35 +8,51 @@
 
 .company-goal-message {
   font-size: 25px;
-  margin: 35px 0px
+  margin: 35px 0px;
+
+  p {
+    padding: 42px 0 24px 0;
+    font-size: 28px;
+    line-height: 36px;
+  }
 }
 
 .landing-page-left-section {
-  width: 600px;
+  width: 980px;
 }
 
 .photo-icon {
   size: 15px;
   background-image: asset-url('image1.png');
-  min-width: 100px;
+  min-width: 60px;
   min-height: 100px;
   background-repeat: no-repeat;
+
 }
 
 .photo-icon-description {
   display: flex;
+
+  p:first-of-type {
+    font-weight: bold;
+  }
+
+  p {
+    padding-top: 15px;
+    margin-left: 5px;
+  }
 }
 
 .share-icon {
   background-image: asset-url('image2.png');
-  min-width: 100px;
+  min-width: 60px;
   min-height: 100px;
   background-repeat: no-repeat;
 }
 
 .search-icon {
   background-image: asset-url('image3.png');
-  min-width: 100px;
+  min-width: 60px;
   min-height: 100px;
   background-repeat: no-repeat;
 }
@@ -58,11 +74,14 @@
   margin-bottom: 10px;
 }
 
+.login-page-background-color {
+  background-color: #EEF0F5;
+}
 
 .form-background {
   background-color: #EEF0F5;
   display: flex;
-  width: 900px;
+  width: 980px;
   margin: 0 auto;
 }
 
