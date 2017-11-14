@@ -11,6 +11,13 @@ class Home extends Component {
 
   }
 
+  componentWillReceiveProps(nextProps){
+    if (this.props.currentUser === null && nextProps.currentUser !== null) {
+      debugger
+    }
+    // debugger
+  }
+
   render(){
     if (this.props.currentUser) {
       return(
