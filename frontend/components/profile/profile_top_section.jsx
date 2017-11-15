@@ -18,7 +18,6 @@ class ProfileTopSection extends Component {
         addButton = <button className="adding-friend">Pending</button>;
       } else if (this.props.user.friendIds.includes(this.props.currentUser.id)) {
         // addButton = <button className="adding-friend">Friends</button>;
-        debugger
         secondButton = <button onClick={ () => this.props.deleteFriendship(this.props.user.id) } className="adding-friend">Delete Friend</button>;
       } else if (parseInt(this.props.match.params.userId) !== this.props.currentUser.id) {
         addButton = <button className="adding-friend" onClick={ () => this.props.createFriendship(this.props.user.id) }>Add Friend</button>;

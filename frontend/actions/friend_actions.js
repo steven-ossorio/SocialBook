@@ -22,7 +22,6 @@ export const updateFriendship = friend => dispatch => {
 };
 
 export const deleteFriendship = friend => dispatch => {
-  debugger
   return FriendAPIUtil.deleteFriendship(friend).then( friend => {
     return dispatch(removeFriend(friend));
   }, errors => {

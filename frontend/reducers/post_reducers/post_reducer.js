@@ -10,7 +10,6 @@ const PostReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_USER:
-    debugger
       return merge({}, state, action.posts);
     case RECEIVE_ALL_POSTS:
       return merge({}, action.posts);
