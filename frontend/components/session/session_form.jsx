@@ -22,21 +22,37 @@ class SessionForm extends Component {
   // }
 
   guestLogin(e) {
+    e.preventDefault();
+
+
     let guestInfo = {
       email: 'steven@steven.com',
       password: 'steven'
     };
 
     const userEmail = {
-      strings: "steven@steven.com",
+      strings: ["steven@steven.com"],
+      typeSpeed: 80
+    };
+    const userPassword = {
+      strings: ["steven"],
       typeSpeed: 100
     };
 
-    new Typed('.login-email', userEmail);
-    
-    e.preventDefault();
-    const user = Object.assign({}, guestInfo);
-    this.props.login(user);
+    let typed =  new Typed(".login-email", userEmail);
+
+    const loggedPassword = () => {
+      let typeded =  new Typed(".login-password", userPassword);
+    };
+
+    const func = () => {
+      const user = Object.assign({}, guestInfo);
+      this.props.login(user);
+    };
+
+    setTimeout(loggedPassword, 2000);
+    setTimeout(func, 3200);
+
   }
 
   update(field) {
