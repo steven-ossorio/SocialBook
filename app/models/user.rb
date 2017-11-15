@@ -83,9 +83,9 @@ class User < ApplicationRecord
     @pending ||= self.requester.where(status: "Pending") + self.requestee.where(status: "Pending")
   end
 
-  def all_posts(id)
+  def all_posts
 
-    # 
+
     # friendship = <<-SQL
     #   select * from posts join users on posts.profile_id = users.id join friends on (friendee_id = posts.profile_id and friender_id = #{self.id}) or (friender_id = posts.profile_id and friendee_id = #{self.id});
     # SQL
@@ -94,9 +94,11 @@ class User < ApplicationRecord
     # records_array = ActiveRecord::Base.connection.execute(friendship)
     # User.joins(friendship)
     #     .where("users.id = ? AND status = 'accepted'", self.id)
-    #
-    # # Post.select('*').joins(:users).joins(:friends).where("users.id = #{self.id} AND status = 'accepted'")
-    #
+
+    # Post.select('*').joins(:users).joins(:friends).where("users.id = #{self.id} AND status = 'accepted'")
+
+    # select * from posts join users on posts.profile_id = users.id join friends on (friendee_id = posts.profile_id and friender_id = 923) or (friender_id = posts.profile_id and friendee_id = 923) where status = 'Accepted';
+
 
   end
 end

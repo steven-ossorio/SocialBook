@@ -2,6 +2,7 @@ import React from 'react';
 import { merge, omit } from 'lodash';
 
 import { RECEIVE_ALL_USERS, RECEIVE_USER } from '../../actions/user_actions';
+import { RECEIVE_CURRENT_USER } from '../../actions/session_actions'
 import { RECEIVE_FRIEND, REMOVE_FRIEND, UPDATE_FRIEND } from '../../actions/friend_actions';
 
 const UserReducer = (state = {}, action) => {
@@ -20,7 +21,6 @@ const UserReducer = (state = {}, action) => {
       newState[friendee].requests.push(action.friend.friender_id);
       return newState;
     case REMOVE_FRIEND:
-    debugger
     let removeFriend = action.friend.friender_id;
     let newStateArr = state[action.friend.friendee_id].friendIds.filter( id => {
       return id !== removeFriend;
@@ -28,13 +28,17 @@ const UserReducer = (state = {}, action) => {
 
     newState = merge({}, state);
     newState[action.friend.friendee_id].friendIds = newStateArr;
-
     return newState;
     case UPDATE_FRIEND:
       let requester = action.friend.friender_id;
       newState = merge({}, state);
       newState[action.friend.friendee_id].friendIds.push(requester);
       return newState;
+    case RECEIVE_CURRENT_USER:
+      if (action.users === undefined) {
+        return state;
+      }
+      break;
     default:
       return state;
   }

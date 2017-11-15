@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import MDSpinner from "react-md-spinner";
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import { Dropdown, DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
 import DropDown from './dropdown';
 import SessionFormContainer from '../session/session_form_container';
@@ -13,13 +15,12 @@ class Home extends Component {
 
   componentWillReceiveProps(nextProps){
     if (this.props.currentUser === null && nextProps.currentUser !== null) {
-      debugger
+      this.props.fetchUser(nextProps.currentUser.id);
     }
-    // debugger
   }
 
   render(){
-    if (this.props.currentUser) {
+    if (this.props.user) {
       return(
         <div>
           <main className="newsfeed-nav-container">

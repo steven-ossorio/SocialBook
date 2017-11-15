@@ -11,7 +11,6 @@ json.user do
   json.friendIds @user.friends.pluck(:id)
   json.requests @user.requests.pluck(:friender_id)
   json.profilePostsId @user.profile_posts.pluck(:id)
-  # json.newFeed @user.all_posts(@user.id)
 end
 
 json.posts do
@@ -34,3 +33,14 @@ json.friends do
     end
   end
 end
+
+# json.newsFeed do
+#   @user.all_posts.each do |post|
+#     json.set! post.id do
+#       json.extract! post.owner, :first_name, :last_name, :image
+#       json.id post.id
+#       json.created_at post.created_at
+#       json.text post.text
+#     end
+#   end
+# end
