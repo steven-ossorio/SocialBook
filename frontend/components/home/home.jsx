@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MDSpinner from "react-md-spinner";
+// import MDSpinner from "react-md-spinner";
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { Dropdown, DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
