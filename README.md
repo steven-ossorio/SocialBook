@@ -1,6 +1,6 @@
 # Socialbook
 
-Please check out the site at [Socialbook](www.socialbook.tech)
+Please check out the site at [Socialbook](http://www.socialbook.tech)
 
 Socialbook is an app inspired by Facebook. The app allows a user to login, make friends, post on their personal wall and receive newsfeed regarding their friends posting.
 
@@ -69,4 +69,4 @@ One of the most basic obvious reason is due to React being a core fundamental la
 
 ![Socialbook Login](docs/loginGif.gif)
 
-In order to maintain and catch the errors coming in, we also created an error slice of state. The role of this component  is to make sure the appropriate information is going to the right slice of state. We then use that information that has been saved on the wrong end to appear in the appropriate places. 
+In order to maintain and catch the errors coming in, we also created an error slice of state. The role of this component  is to make sure the appropriate information is going to the right slice of state. We then use that information that has been saved on the wrong end to appear in the appropriate places.
