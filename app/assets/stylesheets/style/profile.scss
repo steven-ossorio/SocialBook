@@ -88,14 +88,17 @@ html {
 }
 
 .profile-pages > li {
-  color: #0800ee;
-  text-decoration: underline;
+  color: #4b4f56;
+  cursor: default;
+  // color: #0800ee;
+  // text-decoration: underline;
   font-weight: bold;
   height: 43px;
   line-height: 3.05;
   padding: 0 17px;
   font-size: 14px;
   border-left: 1px solid #e9eaed;
+  border-right: 1px solid #e9eaed;
 }
 
 .profile-pages > li:last-child {
