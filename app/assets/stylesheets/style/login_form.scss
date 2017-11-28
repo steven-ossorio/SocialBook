@@ -48,6 +48,33 @@ nav {
   margin-top: -20px;
 }
 
+.login-button {
+  letter-spacing: inherit;
+  border-color: #29487d;
+  cursor: pointer;
+  color: white;
+  background: none;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 2px 5px;
+  white-space: nowrap;
+  display: inline-block;
+  border: 0;
+  background-color: #4267b2;
+}
+
+.login-container {
+  position: relative;
+}
+
+.guest-login {
+  height: 19px;
+  position: absolute;
+  right: -50px;
+  top: 32px;
+}
+
 // Errors
 
 .login-error {

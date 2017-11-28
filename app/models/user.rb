@@ -83,8 +83,12 @@ class User < ApplicationRecord
     @pending ||= self.requester.where(status: "Pending") + self.requestee.where(status: "Pending")
   end
 
-  def all_posts
+  def newFeed
+    self.friends
+  end
 
+  def all_posts
+    self.posts.where("profile_id = #{self.id}")
 
     # friendship = <<-SQL
     #   select * from posts join users on posts.profile_id = users.id join friends on (friendee_id = posts.profile_id and friender_id = #{self.id}) or (friender_id = posts.profile_id and friendee_id = #{self.id});

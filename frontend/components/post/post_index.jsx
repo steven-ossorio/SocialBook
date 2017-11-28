@@ -9,6 +9,7 @@ class PostIndex extends Component {
     };
     this.renderPosts = this.renderPosts.bind(this);
     this.deletePost = this.deletePost.bind(this);
+    this.postOwner = this.postOwner.bind(this);
   }
 
   // componentDidMount(){
@@ -31,6 +32,12 @@ class PostIndex extends Component {
   deletePost(idx){
     const that = this;
     return () => that.props.deletePost(idx);
+  }
+
+  postOwner(post) {
+    if (post.owner === this.props.currentUser.id) {
+      return <button onClick={ this.deletePost(post.id) }>Delete Post</button>;
+    }
   }
 
   renderPosts() {
@@ -58,7 +65,7 @@ class PostIndex extends Component {
                       <div>{ moment(post.created_at).format("LL").slice(0, 10) }</div>
                     </div>
                   </div>
-                  <button onClick={ this.deletePost(post.id) }>Delete Post</button>
+                  { this.postOwner(post) }
                 </div>
               </div>
               <p className="post-list-text">{ post.text }</p>

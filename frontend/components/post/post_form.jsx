@@ -44,7 +44,7 @@ class PostForm extends Component {
           <form>
             <div className="post-form-container">
               <div className="post-form-option-container">
-                <p className="make-a-post">Make Post</p>
+                <p className="make-a-post"><i className="fa fa-pencil" aria-hidden="true"></i>Make Post</p>
               </div>
               <div className="post-inner-container">
                 <img className="post-form-image" src={ this.props.currentUser.image_url }></img>

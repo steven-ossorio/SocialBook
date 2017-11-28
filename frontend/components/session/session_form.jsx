@@ -82,21 +82,23 @@ class SessionForm extends Component {
         <main className="nav-background">
           <nav className="landing-page">
             <h1 className="logo">Socialbook</h1>
-            <form className="login-form">
-              { this.errorsCredentials() }
-              <div>
-                <label className="login-email-label">Email</label>
-                <input type="text" className="login-email" onChange={ this.update('email') } ></input>
-              </div>
-              <div>
-                <label className="login-password-label">Password</label>
-                <input type="password" className="login-password" onChange={ this.update('password')}></input>
-                <button className="login-button" onClick={ this.submit }>Log In</button>
-              </div>
-              <div>
-              </div>
-            </form>
-            <button className="guest-login" onClick={ this.guestLogin }>Guest</button>
+            <div className="login-container">
+              <form className="login-form">
+                { this.errorsCredentials() }
+                <div>
+                  <label className="login-email-label">Email</label>
+                  <input type="text" className="login-email" onChange={ this.update('email') } ></input>
+                </div>
+                <div>
+                  <label className="login-password-label">Password</label>
+                  <input type="password" className="login-password" onChange={ this.update('password')}></input>
+                  <button className="login-button" onClick={ this.submit }>Log In</button>
+                </div>
+                <div>
+                </div>
+              </form>
+              <button className="login-button guest-login" onClick={ this.guestLogin }>Guest</button>
+            </div>
           </nav>
         </main>
       </div>

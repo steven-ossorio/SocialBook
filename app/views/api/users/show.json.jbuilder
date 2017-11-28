@@ -20,6 +20,7 @@ json.posts do
       json.id post.id
       json.created_at post.created_at
       json.text post.text
+      json.owner post.owner_id
       json.profile_id post.profile_id
     end
   end
