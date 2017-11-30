@@ -24,10 +24,10 @@ class RequestDropDown extends Component {
         let ids = this.props.user.requests.filter( id => id !== this.props.currentUser.id);
         menu = ids.map( id => {
           return (
-            <div>
-              <ul className="logout-dropdown">
-                <div className="logout-container">
-                  <li><button onClick={ () => this.props.updateFriendship(id) }>Accept</button></li>
+            <div key={id}>
+              <ul className="request-dropdown">
+                <div className="request-options">
+                  <li className="selection-option"><button onClick={ () => this.props.updateFriendship(id) }>Accept</button></li>
                 </div>
               </ul>
             </div>

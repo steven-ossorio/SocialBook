@@ -23,6 +23,9 @@ class ProfileTopSection extends Component {
         addButton = <button className="adding-friend" onClick={ () => this.props.createFriendship(this.props.user.id) }>Add Friend</button>;
       }
 
+      let profileId = this.props.match.params.userId;
+      let fullName = this.props.user.firstName + " " + this.props.user.lastName;
+
       return(
         <div>
           <ProfileNav history={ this.props.history } updateFriendship={ this.props.updateFriendship} logout={ this.props.logout } currentUser={ this.props.currentUser } user={ this.props.user } />
@@ -30,8 +33,10 @@ class ProfileTopSection extends Component {
             <div className="top-profile-portion-container">
               <div className="profile-cover-container">
                 <img className="profile-cover-image" src={ this.props.user.cover_image_url }></img>
+                <div className="user-name">
+                  { fullName }
+                </div>
                 { addButton }
-                // { secondButton }
               </div>
               <div className="profile-image-second-container">
                 <div className="profile-image-container" style={{ backgroundImage: `url(${this.props.user.image_url})`}}>

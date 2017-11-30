@@ -213,3 +213,49 @@ html {
   height: 28px;
   width: 98px;
 }
+
+.request-dropdown {
+  width: 200px;
+  position: absolute;
+  background-color: white;
+  top: 35px;
+  right: 0px;
+  height: 20px;
+  border-radius: 5px;
+  z-index: 2;
+
+  .logout-container {
+    text-align: center;
+    width: 200px;
+
+    li:hover {
+      background-color: #4367b2;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+.fa-users {
+  margin-left: 10px;
+}
+
+.user-name {
+  color: white;
+  font-size: 20px;
+  z-index: 10;
+  margin: 0;
+  position: absolute;
+  bottom: 50px;
+  left: 205px;
+}
