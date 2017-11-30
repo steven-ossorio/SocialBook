@@ -9,7 +9,6 @@ class PostIndex extends Component {
       profilePostsId: this.props.profilePostsId
     };
     this.renderPosts = this.renderPosts.bind(this);
-    // this.deletePost = this.deletePost.bind(this);
     this.postOwner = this.postOwner.bind(this);
   }
 
@@ -18,13 +17,6 @@ class PostIndex extends Component {
       this.props.fetchUser(nextProps.match.params.userId);
     }
   }
-
-  // deletePost(idx){
-  //   const that = this;
-  //   return () => that.props.deletePost(idx);
-  //   // <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-  //   //   <button onClick={ this.deletePost(post.id) }>Delete Post</button>
-  // }
 
   postOwner(post) {
     if (post.owner === this.props.currentUser.id) {

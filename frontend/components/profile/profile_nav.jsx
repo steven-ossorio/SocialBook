@@ -10,6 +10,7 @@ class ProfileNav extends Component {
   }
 
   render(){
+    debugger
     return(
       <div>
         <main className="newsfeed-nav-container">

@@ -44,6 +44,13 @@ class Api::FriendsController < ApplicationController
       friendee_id: current_user.id
     )
 
+    if @cancel_friendship === nil
+      @cancel_friendship = Friend.find_by(
+        friender_id: current_user.id,
+        friendee_id: friend.id
+      )
+    end
+
     @cancel_friendship.destroy!
 
     render json: @cancel_friendship
