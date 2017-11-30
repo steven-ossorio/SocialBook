@@ -2,8 +2,9 @@ import React from 'react';
 import { merge, omit } from 'lodash';
 
 import { RECEIVE_ALL_USERS, RECEIVE_USER } from '../../actions/user_actions';
-import { RECEIVE_CURRENT_USER } from '../../actions/session_actions'
+import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
 import { RECEIVE_FRIEND, REMOVE_FRIEND, UPDATE_FRIEND } from '../../actions/friend_actions';
+import { REMOVE_POST } from '../../actions/post_actions';
 
 const UserReducer = (state = {}, action) => {
   let newState;
@@ -14,6 +15,13 @@ const UserReducer = (state = {}, action) => {
     case RECEIVE_USER:
       newState = merge({}, state, { [action.user.id]: action.user });
       newState.friends = action.friends || {};
+      return newState;
+    case REMOVE_POST:
+      newState = merge({}, state);
+      let key = Object.keys(newState)[0];
+      let location = newState[key].profilePostsId.indexOf(action.postId);
+      newState[key].profilePostsId = newState[key].profilePostsId.slice(0, location).concat(newState[key].profilePostsId.slice(location + 1));
+      // action.postId
       return newState;
     case RECEIVE_FRIEND:
       let friendee = action.friend.friendee_id;

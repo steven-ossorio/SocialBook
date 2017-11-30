@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import PostIndex from './post_index';
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   let user = state.users[ownProps.match.params.userId];
   return {
     posts: state.posts,

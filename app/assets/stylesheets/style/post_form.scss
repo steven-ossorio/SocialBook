@@ -60,3 +60,64 @@ textarea {
   margin-top: 5px;
   margin-right: 5px;
 }
+
+.post-dropdown-container {
+  position: relative;
+
+.post-dropdown {
+  top: -8px;
+  right: 5px;
+  width: 170px;
+  height: 20px;
+  z-index: 2;
+  position: absolute;
+  background-color: white;
+  padding: 5px 0px;
+  box-shadow: 1px 3px 14px 1px rgba(0,0,0,0.54);
+
+
+    .post-options:hover {
+      // border: 1px solid grey;
+    }
+
+
+    .selection-option {
+      margin: 2px 0px;
+    }
+
+    li:hover {
+      background-color: #4367b2;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    button {
+      background-color: transparent;
+      background-repeat: no-repeat;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      outline: none;
+      width: 170px;
+      text-align: left;
+    }
+
+    button:hover {
+      color: white;
+    }
+    // a {
+    //   color: #292d34;
+    //   cursor: pointer;
+    // }
+  }
+}
+
+#menu > .fa-ellipsis-h {
+  padding: 9px;
+  color: #6d757c;
+
+  &:hover {
+    cursor: pointer;
+    color: #30353d;
+  }
+}
