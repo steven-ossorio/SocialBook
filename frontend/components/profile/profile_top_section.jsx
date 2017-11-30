@@ -37,6 +37,7 @@ class ProfileTopSection extends Component {
                   { fullName }
                 </div>
                 { addButton }
+                { secondButton }
               </div>
               <div className="profile-image-second-container">
                 <div className="profile-image-container" style={{ backgroundImage: `url(${this.props.user.image_url})`}}>
