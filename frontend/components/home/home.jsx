@@ -55,7 +55,7 @@ class Home extends Component {
   }
 
   render(){
-    if (this.state.redirect || this.props.currentUser) {
+    if (this.state.redirect) {
       return(
         <Redirect to={`/users/${this.props.currentUser.id}`} />
       );

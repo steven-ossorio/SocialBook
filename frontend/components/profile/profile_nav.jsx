@@ -9,6 +9,7 @@ class ProfileNav extends Component {
 
   }
 
+  // <RequestDropDown currentUser={ this.props.currentUser } user={ this.props.user } updateFriendship={ this.props.updateFriendship } />
   render(){
     return(
       <div>
@@ -21,11 +22,10 @@ class ProfileNav extends Component {
                 <Link to={`/users/${ this.props.currentUser.id}` } replace>{ this.props.currentUser.firstName } </Link>
               </li>
               <li>Home</li>
-              <RequestDropDown currentUser={ this.props.currentUser } user={ this.props.user } updateFriendship={ this.props.updateFriendship } />
               <li className="hidden-element"><i className="fa fa-comments"></i></li>
               <li className="hidden-element"><i className="fa fa-globe"></i></li>
               <li className="hidden-element"><i className="fa fa-question-circle"></i></li>
-              <li><DropDown logout={ this.props.logout } /></li>
+              <li><DropDown logout={ this.props.logout } history={ this.props.history } /></li>
             </ul>
           </div>
         </main>

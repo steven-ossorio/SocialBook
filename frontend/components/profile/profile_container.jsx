@@ -2,6 +2,7 @@ import { logout } from '../../actions/session_actions';
 import { fetchUser, updateUser } from '../../actions/user_actions';
 import { createFriendship, deleteFriendship, updateFriendship } from '../../actions/friend_actions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Profile from './profile';
 import About from './about';
 
@@ -24,7 +25,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Profile);
+)(Profile));

@@ -25,7 +25,7 @@ class ProfileTopSection extends Component {
 
       return(
         <div>
-          <ProfileNav updateFriendship={ this.props.updateFriendship} logout={ this.props.logout } currentUser={ this.props.currentUser } user={ this.props.user } />
+          <ProfileNav history={ this.props.history } updateFriendship={ this.props.updateFriendship} logout={ this.props.logout } currentUser={ this.props.currentUser } user={ this.props.user } />
           <div className="profile-page-top">
             <div className="top-profile-portion-container">
               <div className="profile-cover-container">

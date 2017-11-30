@@ -9,6 +9,8 @@ class DropDown extends Component {
     this.state = {
       menuActive: false
     };
+
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   toggleMenu() {
@@ -18,13 +20,18 @@ class DropDown extends Component {
     });
   }
 
+  handleLogout() {
+    // e.preventDefault();
+    this.props.logout();
+  }
+
   render() {
       let menu;
       if(this.state.menuActive) {
         menu = <div>
                   <ul className="logout-dropdown">
                     <div className="logout-container">
-                      <li><Link to='/' onClick={ this.props.logout } replace >Logout</Link></li>
+                      <li><Link to='/' onClick={ this.handleLogout } replace >Logout</Link></li>
                     </div>
                   </ul>
                 </div>;

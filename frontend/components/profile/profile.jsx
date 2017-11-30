@@ -23,10 +23,11 @@ class Profile extends Component {
   }
 
   render(){
-    if (this.props.user && this.props.currentUser) {
+
+    if (this.props.user) {
       return(
         <div>
-          <ProfileTopSection updateFriendship={ this.props.updateFriendship } deleteFriendship={ this.props.deleteFriendship } match={ this.props.match } fetchUser={ this.props.fetchUser } createFriendship={ this.props.createFriendship } updateUser={ this.props.updateUser } currentUser={ this.props.currentUser } user={ this.props.user } logout={ this.props.logout } />
+          <ProfileTopSection history={this.props.history} updateFriendship={ this.props.updateFriendship } deleteFriendship={ this.props.deleteFriendship } match={ this.props.match } fetchUser={ this.props.fetchUser } createFriendship={ this.props.createFriendship } updateUser={ this.props.updateUser } currentUser={ this.props.currentUser } user={ this.props.user } logout={ this.props.logout } />
           <div className="profile-page-container" >
             <div className="profile-left-section">
               <Intro />
@@ -41,8 +42,8 @@ class Profile extends Component {
       );
     } else {
       return (
-        <Redirect to='/' />
-
+        <div>
+        </div>
       );
     }
   }
