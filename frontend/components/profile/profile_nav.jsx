@@ -10,7 +10,6 @@ class ProfileNav extends Component {
   }
 
   render(){
-    debugger
     return(
       <div>
         <main className="newsfeed-nav-container">
@@ -19,7 +18,7 @@ class ProfileNav extends Component {
             <ul className="navbar-items">
               <li>
                 <img className="nav-profile-image" src={ this.props.currentUser.image_url }></img>
-                <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.currentUser.firstName }</Link>
+                <Link to={`/users/${ this.props.currentUser.id}` } replace>{ this.props.currentUser.firstName } </Link>
               </li>
               <li>Home</li>
               <RequestDropDown currentUser={ this.props.currentUser } user={ this.props.user } updateFriendship={ this.props.updateFriendship } />

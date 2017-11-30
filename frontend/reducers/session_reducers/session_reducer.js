@@ -12,10 +12,12 @@ const SessionReducer = (state = originalState, action) => {
   let nextState;
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
+    debugger
       nextState = merge({}, state);
       nextState.currentUser = action.currentUser;
       return nextState;
     default:
+      debugger
       return state;
   }
 };

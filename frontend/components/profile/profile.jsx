@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { merge } from 'lodash';
 import PostFormContainer from '../post/post_form_container';
 import PostIndexContainer from '../post/post_index_container';
@@ -23,9 +23,7 @@ class Profile extends Component {
   }
 
   render(){
-    // console.log("user", this.props.user);
-    // console.log("state", this.state);
-    if (this.props.user) {
+    if (this.props.user && this.props.currentUser) {
       return(
         <div>
           <ProfileTopSection updateFriendship={ this.props.updateFriendship } deleteFriendship={ this.props.deleteFriendship } match={ this.props.match } fetchUser={ this.props.fetchUser } createFriendship={ this.props.createFriendship } updateUser={ this.props.updateUser } currentUser={ this.props.currentUser } user={ this.props.user } logout={ this.props.logout } />
@@ -43,9 +41,8 @@ class Profile extends Component {
       );
     } else {
       return (
-        <div>
-          // <h1>hello</h1>
-        </div>
+        <Redirect to='/' />
+
       );
     }
   }
