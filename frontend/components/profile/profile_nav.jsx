@@ -14,7 +14,7 @@ class ProfileNav extends Component {
       <div>
         <main className="newsfeed-nav-container">
           <div className="newsfeed-nav-items">
-            <Link to="/"><h1 className="logo"><i className="fa fa-facebook-official"></i></h1></Link>
+            <Link to="#"><h1 className="logo"><i className="fa fa-facebook-official"></i></h1></Link>
             <ul className="navbar-items">
               <li>
                 <img className="nav-profile-image" src={ this.props.currentUser.image_url }></img>

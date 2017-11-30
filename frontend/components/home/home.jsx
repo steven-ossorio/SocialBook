@@ -17,7 +17,14 @@ class Home extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      redirect: true
+    });
+  }
+
   componentWillReceiveProps(nextProps){
+    debugger
     if (this.props.currentUser === null && nextProps.currentUser !== null) {
       // this.props.fetchUser(nextProps.currentUser.id);
       this.setState({
@@ -57,7 +64,7 @@ class Home extends Component {
   render(){
     if (this.state.redirect) {
       return(
-        <Redirect to={`/users/${this.props.currentUser.id}`} />
+        <Redirect to={`/users/${this.props.currentUser.id}`} replace />
       );
     } else {
       return (
