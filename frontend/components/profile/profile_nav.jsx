@@ -17,8 +17,8 @@ class ProfileNav extends Component {
             <Link to="#"><h1 className="logo"><i className="fa fa-facebook-official"></i></h1></Link>
             <ul className="navbar-items">
               <li>
-                <img className="nav-profile-image" src={ this.props.currentUser.image_url }></img>
-                <Link to={`/users/${ this.props.currentUser.id}` } replace>{ this.props.currentUser.firstName } </Link>
+                <img className="nav-profile-image" src={ this.props.user.image_url }></img>
+                <Link to={`/users/${ this.props.currentUser.id}` } replace>{ this.props.user.firstName } </Link>
               </li>
               <li>Home</li>
               <RequestDropDown currentUser={ this.props.currentUser } user={ this.props.user } updateFriendship={ this.props.updateFriendship } />

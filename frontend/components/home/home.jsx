@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import MDSpinner from "react-md-spinner";
+import MDSpinner from "react-md-spinner";
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { Redirect } from 'react-router-dom';
@@ -35,7 +35,7 @@ class Home extends Component {
               <h1 className="logo"><Link to="/"><i className="fa fa-facebook-official"></i></Link></h1>
               <ul className="navbar-items">
                 <li>
-                  <img className="nav-profile-image" src={ this.props.currentUser.image_url }></img>
+                  <img className="nav-profile-image" src={ this.props.user.image_url }></img>
                   <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.user.firstName }</Link>
                 </li>
                 <li>Home</li>
@@ -53,6 +53,10 @@ class Home extends Component {
             </div>
           </div>
         </div>
+      );
+    } else if (this.props.currentUser && this.props.user === undefined) {
+      return (
+        <MDSpinner />
       );
     } else {
       return (
