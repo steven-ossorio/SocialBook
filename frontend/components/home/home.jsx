@@ -12,29 +12,22 @@ import ProfileContainer from '../profile/profile_container';
 class Home extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      redirect: false
-    };
   }
   //
-  // componentDidMount() {
-  //   this.setState({
-  //     redirect: true
-  //   });
-  // }
+  componentDidMount() {
+    if (this.props.user === undefined) {
+      this.props.fetchUser(this.props.currentUser.id);
+    }
+  }
 
-  // componentWillReceiveProps(nextProps){
-  //   debugger
-  //   if (this.props.currentUser === null && nextProps.currentUser !== null) {
-  //     // this.props.fetchUser(nextProps.currentUser.id);
-  //     this.setState({
-  //       redirect: true
-  //     });
-  //   }
-  // }
+  componentWillReceiveProps(nextProps){
+    if (this.props.currentUser === null && nextProps.currentUser !== null) {
+      this.props.fetchUser(nextProps.currentUser.id);
+    }
+  }
 
   render(){
-    if (this.props.currentUser) {
+    if (this.props.currentUser && this.props.user) {
       return(
         <div>
           <main className="newsfeed-nav-container">
@@ -43,7 +36,7 @@ class Home extends Component {
               <ul className="navbar-items">
                 <li>
                   <img className="nav-profile-image" src={ this.props.currentUser.image_url }></img>
-                  <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.currentUser.firstName }</Link>
+                  <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.user.firstName }</Link>
                 </li>
                 <li>Home</li>
                 <li className="hidden-element"><i className="fa fa-users"></i></li>
@@ -60,7 +53,6 @@ class Home extends Component {
             </div>
           </div>
         </div>
-        // <Redirect to={`/users/${this.props.currentUser.id}`} replace />
       );
     } else {
       return (
