@@ -62,7 +62,8 @@ class Home extends Component {
   }
 
   render(){
-    if (this.state.redirect) {
+    debugger
+    if (this.state.redirect || this.props.currentUser) {
       return(
         <Redirect to={`/users/${this.props.currentUser.id}`} replace />
       );
