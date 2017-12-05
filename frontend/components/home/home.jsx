@@ -16,56 +16,51 @@ class Home extends Component {
       redirect: false
     };
   }
+  //
+  // componentDidMount() {
+  //   this.setState({
+  //     redirect: true
+  //   });
+  // }
 
-  componentDidMount() {
-    this.setState({
-      redirect: true
-    });
-  }
-
-  componentWillReceiveProps(nextProps){
-    debugger
-    if (this.props.currentUser === null && nextProps.currentUser !== null) {
-      // this.props.fetchUser(nextProps.currentUser.id);
-      this.setState({
-        redirect: true
-      });
-    }
-  }
-
-  newFeed() {
-    <div>
-      <main className="newsfeed-nav-container">
-        <div className="newsfeed-nav-items">
-          <h1 className="logo"><Link to="/"><i className="fa fa-facebook-official"></i></Link></h1>
-          <ul className="navbar-items">
-            <li>
-              <img className="nav-profile-image" src={ this.props.currentUser.image_url }></img>
-              <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.currentUser.firstName }</Link>
-            </li>
-            <li>Home</li>
-            <li className="hidden-element"><i className="fa fa-users"></i></li>
-            <li className="hidden-element"><i className="fa fa-comments"></i></li>
-            <li className="hidden-element"><i className="fa fa-globe"></i></li>
-            <li className="hidden-element"><i className="fa fa-question-circle"></i></li>
-            <li><DropDown logout={ this.props.logout } /></li>
-          </ul>
-        </div>
-      </main>
-      <div className="under-construction">
-        <div className="under-construction-inner">
-          <img src="http://www.hunter.cuny.edu/onestop/financial-aid-images-new/fa-working-draft-images/under-construction.png"></img>
-        </div>
-      </div>
-    </div>;
-
-  }
+  // componentWillReceiveProps(nextProps){
+  //   debugger
+  //   if (this.props.currentUser === null && nextProps.currentUser !== null) {
+  //     // this.props.fetchUser(nextProps.currentUser.id);
+  //     this.setState({
+  //       redirect: true
+  //     });
+  //   }
+  // }
 
   render(){
-    debugger
-    if (this.state.redirect || this.props.currentUser) {
+    if (this.props.currentUser) {
       return(
-        <Redirect to={`/users/${this.props.currentUser.id}`} replace />
+        <div>
+          <main className="newsfeed-nav-container">
+            <div className="newsfeed-nav-items">
+              <h1 className="logo"><Link to="/"><i className="fa fa-facebook-official"></i></Link></h1>
+              <ul className="navbar-items">
+                <li>
+                  <img className="nav-profile-image" src={ this.props.currentUser.image_url }></img>
+                  <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.currentUser.firstName }</Link>
+                </li>
+                <li>Home</li>
+                <li className="hidden-element"><i className="fa fa-users"></i></li>
+                <li className="hidden-element"><i className="fa fa-comments"></i></li>
+                <li className="hidden-element"><i className="fa fa-globe"></i></li>
+                <li className="hidden-element"><i className="fa fa-question-circle"></i></li>
+                <li><DropDown logout={ this.props.logout } /></li>
+              </ul>
+            </div>
+          </main>
+          <div className="under-construction">
+            <div className="under-construction-inner">
+              <img src="http://www.hunter.cuny.edu/onestop/financial-aid-images-new/fa-working-draft-images/under-construction.png"></img>
+            </div>
+          </div>
+        </div>
+        // <Redirect to={`/users/${this.props.currentUser.id}`} replace />
       );
     } else {
       return (
