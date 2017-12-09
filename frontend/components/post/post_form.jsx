@@ -47,7 +47,7 @@ class PostForm extends Component {
                 <p className="make-a-post"><i className="fa fa-pencil" aria-hidden="true"></i>Make Post</p>
               </div>
               <div className="post-inner-container">
-                <img className="post-form-image" src={ this.props.currentUser.image_url }></img>
+                <img className="post-form-image" src={ this.props.user.image_url }></img>
                 <textarea className="post-input-field" onChange={ this.update('text') } value={ this.state.text } placeholder="What's on your mind?"></textarea>
               </div>
               <div className="post-form-button-container">
