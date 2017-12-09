@@ -92,12 +92,12 @@ class SessionForm extends Component {
                 <div>
                   <label className="login-password-label">Password</label>
                   <input type="password" className="login-password" onChange={ this.update('password')}></input>
-                  <button className="login-button" onClick={ this.submit }>Log In</button>
                 </div>
                 <div>
+                  <button onClick={ this.submit }>Log In</button>
+                  <button onClick={ this.guestLogin }>Guest</button>
                 </div>
               </form>
-              <button className="login-button guest-login" onClick={ this.guestLogin }>Guest</button>
             </div>
           </nav>
         </main>

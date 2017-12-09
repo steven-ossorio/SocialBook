@@ -1,5 +1,5 @@
 .nav-background {
-  background-color: #385996;
+  background-color: #3e5c9a;
   margin: 0;
   height: 80px;
 }
@@ -7,10 +7,12 @@
 nav {
   display: flex;
   justify-content: space-between;
-  background-color: #385996;
+  background-color: #3e5c9a;
 }
 
 .logo {
+  text-transform: lowercase;
+  font-weight: 700;
   color: white;
   font-size: 40px;
   margin: 0;
@@ -23,29 +25,52 @@ nav {
   padding-top: 30px;
   display: flex;
   position: relative;
+  align-items: flex-end;
+
+  button {
+    font-size: 12px;
+    background-color: #4267b2;
+    border-color: #29487d;
+    border-radius: 0;
+    color: white;
+    cursor: pointer;
+    height: 25px;
+
+    &:hover {
+      background-color: #365899;
+    }
+  }
+
+  div:not(.login-error) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div:last-child {
+    flex-direction: row;
+
+    button:first-child {
+      margin-right: 15px;
+    }
+  }
 }
 
-.login-email {
-  margin-right: 5px;
+.login-email, .login-password {
+  margin-right: 15px;
   border: 1px solid #ccc;
-  height: 18px;
-  position: relative;
+  height: 25px;
+  width: 150px;
+  font-size: 11px;
+  padding: 0 2px;
 }
 
-.login-email-label {
-  position: absolute;
-  margin-top: -20px;
-}
-
-.login-password {
-  margin-right: 5px;
-  border: 1px solid #ccc;
-  height: 18px;
-}
-
-.login-password-label {
-  position: absolute;
-  margin-top: -20px;
+.login-email-label, .login-password-label {
+  // position: absolute;
+  margin-bottom: 5px;
+  margin-top: -10px;
+  color: white;
+  font-weight: 300;
+  font-size: 12px;
 }
 
 .login-button {
