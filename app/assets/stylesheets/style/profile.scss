@@ -3,7 +3,7 @@ html {
 }
 
 .profile-page-container {
-  width: 900px;
+  width: 850px;
   margin: 0 auto;
   padding: 18px;
   display: flex;
@@ -12,28 +12,27 @@ html {
 
 .top-profile-portion-container {
   position: relative;
-  width: 900px;
+  width: 850px;
   margin: 0 auto;
 }
 
 .profile-image-container {
-  width: 160px;
-  height: 160px;
-  overflow: hidden;
   position: absolute;
-  background-color: white;
-  margin: 4px;
-  background-size: cover;
+  bottom: 18px;
+  padding: 4px;
+  border: 1px solid #aaa;
+  background: white;
+  left: 15px;
+  width: 170px;
+  height: 170px;
+
+  div {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
 }
 
-.profile-image-second-container {
-  height: 168px;
-  width: 168px;
-  position: absolute;
-  top: 175px;
-  left: 20px;
-  background-color: white;
-}
 
 .profile-image {
   width: 100%;
@@ -42,10 +41,6 @@ html {
 
 .upload-image-container {
   width: 100%;
-}
-
-.profile-image-hover-text {
-
 }
 
 .upload-image-hover {
@@ -67,10 +62,14 @@ html {
 }
 
 .profile-cover-container {
-  width: 900px;
+  width: 850px;
   margin: 0 auto;
   overflow: hidden;
   height: 315px;
+
+  div {
+    display: flex;
+  }
 }
 
 .profile-cover-image {
@@ -79,30 +78,23 @@ html {
 
 .profile-pages-container {
   background-color: white;
-}
-
-.profile-pages {
-  display: flex;
-  margin: 0 auto;
-  width: 360px;
-}
-
-.profile-pages > li {
-  color: #4b4f56;
-  cursor: default;
-  // color: #0800ee;
-  // text-decoration: underline;
-  font-weight: bold;
   height: 43px;
-  line-height: 3.05;
-  padding: 0 17px;
-  font-size: 14px;
-  border-left: 1px solid #e9eaed;
-  border-right: 1px solid #e9eaed;
-}
+  border: 1px solid whitesmoke;
 
-.profile-pages > li:last-child {
-  border-right: 1px solid #e9eaed;
+  ul {
+    padding-left: 200px;
+    display: flex;
+
+    li {
+      border-left: 1px solid whitesmoke;
+      padding: 0 20px;
+      line-height: 43px;
+
+      &:last-child {
+        border-right: 1px solid whitesmoke;
+      }
+    }
+  }
 }
 
 // Modal Profile Image
@@ -206,14 +198,6 @@ html {
   }
 }
 
-.adding-friend {
-  position: absolute;
-  right: 20px;
-  bottom: 95px;
-  height: 28px;
-  width: 98px;
-}
-
 .request-dropdown {
   width: 200px;
   position: absolute;
@@ -255,9 +239,22 @@ html {
   font-size: 20px;
   z-index: 10;
   margin: 0;
+  width: 650px;
+  padding-right: 15px;
   position: absolute;
-  bottom: 50px;
-  left: 205px;
+  bottom: 63px;
+  left: 200px;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    border-radius: 0;
+    height: 25px;
+    padding: 0 5px;
+    font-weight: bold;
+    letter-spacing: 0.25px;
+    font-family: Roboto, sans-serif;
+  }
 }
 
 .social-logo {

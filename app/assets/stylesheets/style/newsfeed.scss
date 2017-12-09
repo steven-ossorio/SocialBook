@@ -1,33 +1,57 @@
 .newsfeed-nav-container {
-  height: 40px;
+  height: 45px;
   background-color: #45629d;
+  padding: 10px 0px;
 }
 
 .newsfeed-nav-items {
-  width: 900px;
+  width: 850px;
   display: flex;
   justify-content: space-between;
   position: relative;
   margin: 0 auto;
   z-index: 5px;
+
+  i {
+    font-size: 26.5px;
+  }
+
+  li {
+    font-size: 12px;
+    line-height: 25px;
+
+    i {
+      font-size: 18px;
+    }
+
+    a {
+      padding-left: 5px;
+      padding-right: 10px;
+      border-right: 1px solid #365899;
+      height: 100%;
+    }
+
+    &:nth-child(2) {
+      color: white;
+    }
+  }
 }
 
 .nav-profile-image {
   border-radius: 50%;
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   margin-bottom: -8px;
   margin-top: -4px
 }
 
 .navbar-items {
-  margin-top: 10px;
   display: flex;
   font-size: 20px;
-}
 
-.navbar-items > li {
-  margin-left: 10px;
+  li {
+    margin-left: 10px;
+  }
 }
 
 .fa-facebook-official {
