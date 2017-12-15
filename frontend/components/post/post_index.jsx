@@ -47,8 +47,8 @@ class PostIndex extends Component {
                     <img className="post-form-image" src={ post.image }></img>
                   </div>
                   <div className="post-name-container">
-                    <div>{ post.first_name }</div>
-                    <div>{ moment(post.created_at).format("LL").slice(0, 10) }</div>
+                    <p>{ post.first_name }</p>
+                    <p>{ moment(post.created_at).format("LL").slice(0, 10) }</p>
                   </div>
                 </div>
                 { this.postOwner(post) }

@@ -11,17 +11,14 @@ class Friends extends Component {
     let friendsCount = Object.values(this.props.friends).length;
     let friends = Object.values(this.props.friends).map( friend => {
       return (
-        <div key={ `${ friend.id }` }>
-          <Link to={ `/users/${friend.id}` }>
-            <div className="profile-friend-image" style={{ backgroundImage: `url(${friend.image})`}}>
-
-              <div className="friend-full-name">
-                <li>{ friend.first_name }</li>
-                <li>{ friend.last_name }</li>
-              </div>
-            </div>
-          </Link>
-        </div>
+        <Link className="profile-friend-link" to={ `/users/${friend.id}` } key={ `${ friend.id }` }>
+          <div className="profile-friend-image" style={{ backgroundImage: `url(${friend.image})`}}>
+            <ul className="friend-full-name">
+              <li>{ friend.first_name }</li>
+              <li>{ friend.last_name }</li>
+            </ul>
+          </div>
+        </Link>
       );
     });
     let friendsList = friends.slice(0, 9);

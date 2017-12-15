@@ -6,6 +6,7 @@ import PostIndexContainer from '../post/post_index_container';
 import ProfileTopSection from './profile_top_section';
 import Friends from './friends';
 import Intro from './intro';
+import ProfileNav from './profile_nav';
 
 class Profile extends Component {
   constructor(props){
@@ -27,6 +28,7 @@ class Profile extends Component {
     if (this.props.user) {
       return(
         <div>
+          <ProfileNav history={ this.props.history } updateFriendship={ this.props.updateFriendship} logout={ this.props.logout } currentUser={ this.props.currentUser } user={ this.props.user } />
           <ProfileTopSection history={this.props.history} updateFriendship={ this.props.updateFriendship } deleteFriendship={ this.props.deleteFriendship } match={ this.props.match } fetchUser={ this.props.fetchUser } createFriendship={ this.props.createFriendship } updateUser={ this.props.updateUser } currentUser={ this.props.currentUser } user={ this.props.user } logout={ this.props.logout } />
           <div className="profile-page-container" >
             <div className="profile-left-section">

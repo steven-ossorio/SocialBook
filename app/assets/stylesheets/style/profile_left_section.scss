@@ -1,10 +1,11 @@
 .profile-left-section {
   display: flex;
   flex-direction: column;
+  width: 323px;
+  margin: 20px 0px;
 }
 
 .intro-container {
-  width: 340px;
   background-color: white;
   height: 150px;
 }
@@ -38,8 +39,6 @@
 
 .profile-friends-container {
   margin-top: 20px;
-  width: 340px;
-  height: 400px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -65,18 +64,23 @@
   }
 }
 
+.profile-friend-link {
+  &:nth-child(n + 4) {
+    margin-top: 4px;
+  }
+}
+
 .profile-friend-image {
   width: 101px;
   height: 101px;
   position: relative;
   background-size: cover;
-  margin: 5px;
   cursor: pointer;
 
   .friend-full-name {
     display: flex;
     position: absolute;
-    font-size: 15px;
+    font-size: 12px;
     color: white;
     right: 0;
     left: 0;
@@ -92,4 +96,6 @@
 .all-friends-profile-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5px;
 }
