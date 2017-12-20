@@ -18,6 +18,7 @@ class Home extends Component {
   componentDidMount() {
     if (this.props.user === undefined) {
       this.props.fetchUser(this.props.currentUser.id);
+      this.props.fetchNewsFeed();
     }
   }
 
@@ -55,7 +56,7 @@ class Home extends Component {
             </div>
           </main>
 
-          <div className="newsfeed_container">      
+          <div className="newsfeed_container">
             <PostFormContainer props={ this.props} user={ this.props.user } />
             { posts }
           </div>
