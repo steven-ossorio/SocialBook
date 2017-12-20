@@ -23,5 +23,12 @@ export const updateUser = (formData, id) => {
   });
 };
 
+export const newsFeed = () => {
+  return $.ajax({
+    method: "get",
+    url: `/api/newsfeed`
+  });
+};
+
 // user.friendIds.map((id) => state.users[id])
 // user.postIds.map((id) => state.posts[id])

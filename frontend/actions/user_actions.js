@@ -3,6 +3,7 @@ import * as UserAPIUtil from '../util/user_api_util';
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USER_ERRORS = 'RECEIVE_USER_ERRORS';
+export const RECEIVE_NEWSFEED = 'RECEIVE_NEWSFEED';
 
 export const fetchUsers = () => dispatch => {
   return UserAPIUtil.fetchUsers().then( users => {
@@ -25,6 +26,14 @@ export const updateUser = (user, id) => dispatch => {
     return dispatch(receiveErrors(errors));
   });
 };
+
+export const fetchNewsFeed = () => dispatch => {
+  return UserAPIUtil.newsFeed().then( posts => {
+    return dispatch(receiveNewsFeed(posts));
+  }, errors => {
+    return dispatch(receiveErrors(errors));
+  });
+}
 
 
 const receiveAllUsers = users => {
@@ -50,3 +59,10 @@ const receiveErrors = errors => {
     errors
   };
 };
+
+const receiveNewsFeed = posts => {
+  return {
+    type: RECEIVE_NEWSFEED,
+    posts
+  }
+}

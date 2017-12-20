@@ -8,12 +8,13 @@ import DropDown from './dropdown';
 import SessionFormContainer from '../session/session_form_container';
 import SignUpFormContainer from '../signup/signup_form_container';
 import ProfileContainer from '../profile/profile_container';
+import PostFormContainer from '../post/post_form_container';
 
 class Home extends Component {
   constructor(props){
     super(props);
   }
-  //
+
   componentDidMount() {
     if (this.props.user === undefined) {
       this.props.fetchUser(this.props.currentUser.id);
@@ -23,12 +24,17 @@ class Home extends Component {
   componentWillReceiveProps(nextProps){
     if (this.props.currentUser === null && nextProps.currentUser !== null) {
       this.props.fetchUser(nextProps.currentUser.id);
+      this.props.fetchNewsFeed();
     }
   }
 
   render(){
-    // debugger
     if (this.props.currentUser && this.props.user) {
+      let posts = this.props.newsfeed.map( post => (
+        <div key={ post.id }>
+          { post.text }
+        </div>
+      ));
       return(
         <div>
           <main className="newsfeed-nav-container">
@@ -48,10 +54,10 @@ class Home extends Component {
               </ul>
             </div>
           </main>
-          <div className="under-construction">
-            <div className="under-construction-inner">
-              <img src="http://www.hunter.cuny.edu/onestop/financial-aid-images-new/fa-working-draft-images/under-construction.png"></img>
-            </div>
+
+          <div className="newsfeed_container">      
+            <PostFormContainer props={ this.props} user={ this.props.user } />
+            { posts }
           </div>
         </div>
       );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { merge, omit } from 'lodash';
 
-import { RECEIVE_ALL_USERS, RECEIVE_USER } from '../../actions/user_actions';
+import { RECEIVE_ALL_USERS, RECEIVE_USER, RECEIVE_NEWSFEED } from '../../actions/user_actions';
 import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
 import { RECEIVE_FRIEND, REMOVE_FRIEND, UPDATE_FRIEND } from '../../actions/friend_actions';
 import { REMOVE_POST } from '../../actions/post_actions';
@@ -12,6 +12,8 @@ const UserReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_USERS:
       return action.users;
+    case RECEIVE_NEWSFEED:
+      return merge({}, state, { newsfeed: action.posts.newsfeed });
     case RECEIVE_USER:
       newState = merge({}, state, { [action.user.id]: action.user });
       newState.friends = action.friends || {};

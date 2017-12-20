@@ -59,7 +59,7 @@ class User < ApplicationRecord
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
-  def reset_session_token! 
+  def reset_session_token!
     self.session_token = User.generate_session_token
     self.save!
     self.session_token
@@ -70,9 +70,8 @@ class User < ApplicationRecord
   end
 
   def friends
-    @friends ||= self.in_friends.where("friends.status = 'Accepted'") + self.out_friends.where("friends.status = 'Accepted'")
-    # @friends ||= Friend.where("(friends.friender_id = ? OR friends.friendee_id = ?)
-    # AND friends.status = 'Accepted'", self.id, self.id)
+    @friends ||= self.in_friends.where("friends.status = 'Accepted'") +
+    self.out_friends.where("friends.status = 'Accepted'")
   end
 
   def requests
@@ -80,11 +79,18 @@ class User < ApplicationRecord
   end
 
   def pending
-    @pending ||= self.requester.where(status: "Pending") + self.requestee.where(status: "Pending")
+    @pending ||= self.requester.where(status: "Pending") +
+    self.requestee.where(status: "Pending")
   end
 
-  def newFeed
-    self.friends
+  def newsfeed
+    @friends ||= self.in_friends.where("friends.status = 'Accepted'").includes(:posts) + self.out_friends.where("friends.status = 'Accepted'").includes(:posts)
+
+    @posts = []
+
+    @friends.each { |friend| @posts += friend.posts }
+
+    @posts
   end
 
   def all_posts

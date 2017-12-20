@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
 
   namespace :api, defaults: { format: :json } do
+    get '/newsfeed', to: 'users#newsfeed'
+
     resources :users, only: [:index, :create, :show, :update]
     resources :posts
     resources :friends, only: [:create, :edit, :update, :destroy]

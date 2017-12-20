@@ -3,6 +3,10 @@ class Api::UsersController < ApplicationController
     @users = User.all
   end
 
+  def newsfeed
+    @posts = current_user.newsfeed
+    render :newsfeed
+  end
 
   def create
     @user = User.new(user_params)
