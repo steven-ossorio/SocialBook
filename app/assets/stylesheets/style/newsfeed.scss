@@ -1,12 +1,18 @@
 .newsfeed-nav-container {
   top: 0;
-  height: 45px;
+  box-sizing: border-box;
+  height: 42px;
   background-color: #45629d;
   padding: 10px 0px;
   z-index: 1000;
   left: 0;
   right: 0;
   position: fixed;
+}
+
+.newsfeed_container {
+  width: 500px;
+  margin: 60px auto;
 }
 
 .newsfeed-nav-items {
