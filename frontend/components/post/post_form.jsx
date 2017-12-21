@@ -8,6 +8,7 @@ class PostForm extends Component {
       text: "",
       // profile_id: parseInt(this.props.match.params.userId)
     };
+    console.log(this.state.text);
     this.onSubmit = this.onSubmit.bind(this);
     this.update = this.update.bind(this);
   }
@@ -24,7 +25,11 @@ class PostForm extends Component {
     e.preventDefault();
 
     const post = Object.assign({}, this.state);
-    post.profile_id = this.props.match.params.userId;
+    if (this.props.match.params.userId !== undefined) {
+      post.profile_id = this.props.match.params.userId;
+    } else {
+      post.profile_id = this.props.currentUser.id;
+    }
     this.props.createPost(post).then( () => {
       this.setState({
         text: ""
