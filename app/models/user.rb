@@ -86,6 +86,7 @@ class User < ApplicationRecord
   def newsfeed
     @friends ||= self.in_friends.where("friends.status = 'Accepted'").includes(:posts) + self.out_friends.where("friends.status = 'Accepted'").includes(:posts)
 
+
     @posts = []
 
     @friends.each { |friend| @posts += friend.posts }
