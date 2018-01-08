@@ -16,15 +16,15 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    // debugger
-    if (this.props.user === undefined || this.props.newsFeed === undefined) {
-      this.props.fetchUser(this.props.currentUser.id);
+    debugger
+    if (this.props.newsfeed === undefined || this.props.user === undefined) {
       this.props.fetchNewsFeed();
+      this.props.fetchUser(this.props.currentUser.id);
     }
   }
 
   componentWillReceiveProps(nextProps){
-    // debugger
+    debugger
     if (this.props.currentUser === null && nextProps.currentUser !== null) {
       this.props.fetchUser(nextProps.currentUser.id);
       this.props.fetchNewsFeed();
@@ -42,7 +42,7 @@ class Home extends Component {
   }
 
   render(){
-    // debugger
+    debugger
     if (this.props.currentUser && this.props.user) {
       let posts = this.props.newsfeed.map( post => (
         <li className="post-list" key={ `${post.id}` }>
