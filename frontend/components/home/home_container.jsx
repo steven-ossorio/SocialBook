@@ -1,5 +1,6 @@
 import { logout } from '../../actions/session_actions';
 import { fetchUser, fetchNewsFeed } from '../../actions/user_actions';
+import { deletePost } from '../../actions/post_actions';
 import { connect } from 'react-redux';
 import Home from './home';
 
@@ -31,7 +32,8 @@ const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout()),
     fetchUser: id => dispatch(fetchUser(id)),
-    fetchNewsFeed: () => dispatch(fetchNewsFeed())
+    fetchNewsFeed: () => dispatch(fetchNewsFeed()),
+    deletePost: id => dispatch(deletePost(id))
   };
 };
 
