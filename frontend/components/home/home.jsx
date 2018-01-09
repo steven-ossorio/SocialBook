@@ -28,10 +28,6 @@ class Home extends Component {
       this.props.fetchUser(nextProps.currentUser.id);
       this.props.fetchNewsFeed();
     }
-
-    if (Object.keys(this.props.posts).length < Object.keys(nextProps.posts).length) {
-      this.props.fetchNewsFeed();
-    }
   }
 
   postOwner(post) {
