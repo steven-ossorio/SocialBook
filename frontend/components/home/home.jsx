@@ -5,6 +5,7 @@ import moment from 'moment';
 import { Redirect } from 'react-router-dom';
 import { Dropdown, DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
 import DropDown from './dropdown';
+import PostDropDown from './delete_post.jsx';
 import SessionFormContainer from '../session/session_form_container';
 import SignUpFormContainer from '../signup/signup_form_container';
 import ProfileContainer from '../profile/profile_container';
@@ -23,9 +24,12 @@ class Home extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    debugger
     if (this.props.currentUser === null && nextProps.currentUser !== null) {
       this.props.fetchUser(nextProps.currentUser.id);
+      this.props.fetchNewsFeed();
+    }
+
+    if (Object.keys(this.props.posts).length < Object.keys(nextProps.posts).length) {
       this.props.fetchNewsFeed();
     }
   }
@@ -34,7 +38,7 @@ class Home extends Component {
     if (post.owner === this.props.currentUser.id) {
       return (
         <div>
-          <DropDown deletePost={ this.props.deletePost } post={ post } />
+          <PostDropDown deletePost={ this.props.deletePost } post={ post } />
         </div>
       );
     }
