@@ -16,8 +16,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    debugger
-    if (this.props.newsfeed === undefined || this.props.user === undefined) {
+    if ((this.props.newsfeed === undefined || this.props.user === undefined) && this.props.currentUser) {
       this.props.fetchNewsFeed();
       this.props.fetchUser(this.props.currentUser.id);
     }
@@ -42,8 +41,7 @@ class Home extends Component {
   }
 
   render(){
-    debugger
-    if (this.props.currentUser && this.props.user) {
+    if (this.props.currentUser && this.props.user && this.props.newsfeed !== undefined) {
       let posts = this.props.newsfeed.map( post => (
         <li className="post-list" key={ `${post.id}` }>
           <div className="post-list-container">
@@ -91,7 +89,7 @@ class Home extends Component {
           </div>
         </div>
       );
-    } else if (this.props.currentUser && this.props.user === undefined) {
+    } else if (this.props.currentUser && this.props.user === undefined && this.props.newsfeed === undefined) {
       return (
         <MDSpinner />
       );

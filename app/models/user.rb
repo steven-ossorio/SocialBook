@@ -87,13 +87,12 @@ class User < ApplicationRecord
     @friends ||= self.in_friends.where("friends.status = 'Accepted'").includes(:posts) + self.out_friends.where("friends.status = 'Accepted'").includes(:posts)
     @something = self.profile_posts
 
-    debugger
-
     @posts = []
 
     @friends.each { |friend| @posts += friend.posts }
+    @newsfeed = @posts + @something
 
-    @posts + @something
+    @newsfeed.sort! { |a, b|  b.created_at <=> a.created_at }
   end
 
   def all_posts
