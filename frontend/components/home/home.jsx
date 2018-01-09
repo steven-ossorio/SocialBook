@@ -73,7 +73,7 @@ class Home extends Component {
                   <img className="nav-profile-image" src={ this.props.user.image_url }></img>
                   <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.user.firstName }</Link>
                 </li>
-                <li>Home</li>
+                <li><Link to="/">Home</Link></li>
                 <li className="hidden-element"><i className="fa fa-users"></i></li>
                 <li className="hidden-element"><i className="fa fa-comments"></i></li>
                 <li className="hidden-element"><i className="fa fa-globe"></i></li>

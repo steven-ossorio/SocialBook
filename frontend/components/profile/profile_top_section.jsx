@@ -46,10 +46,10 @@ class ProfileTopSection extends Component {
               <div className="profile-pages-container">
                 <ul>
                   <li className="profile-timeline">Timeline</li>
-                  <li className="profile-about ">About</li>
-                  <li className="profile-friends ">Friends</li>
-                  <li className="profile-photos ">Photos</li>
-                  <li className="profile-more ">More</li>
+                  <li className="profile-about hidden-element">About</li>
+                  <li className="profile-friends hidden-element">Friends</li>
+                  <li className="profile-photos hidden-element">Photos</li>
+                  <li className="profile-more hidden-element">More</li>
                 </ul>
               </div>
             </div>
