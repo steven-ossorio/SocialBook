@@ -4,7 +4,7 @@ import { merge, omit } from 'lodash';
 import { RECEIVE_ALL_USERS, RECEIVE_USER, RECEIVE_NEWSFEED } from '../../actions/user_actions';
 import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
 import { RECEIVE_FRIEND, REMOVE_FRIEND, UPDATE_FRIEND } from '../../actions/friend_actions';
-import { REMOVE_POST } from '../../actions/post_actions';
+import { REMOVE_POST, RECEIVE_POST } from '../../actions/post_actions';
 
 const UserReducer = (state = {}, action) => {
   let newState;
@@ -17,6 +17,10 @@ const UserReducer = (state = {}, action) => {
     case RECEIVE_USER:
       newState = merge({}, state, { [action.user.id]: action.user });
       newState.friends = action.friends || {};
+      return newState;
+    case RECEIVE_POST:
+      newState = merge({}, state);
+      newState.newsfeed.unshift(action.post);
       return newState;
     case REMOVE_POST:
       newState = merge({}, state);
