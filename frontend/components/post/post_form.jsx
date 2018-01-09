@@ -8,7 +8,7 @@ class PostForm extends Component {
       text: "",
       // profile_id: parseInt(this.props.match.params.userId)
     };
-    console.log(this.state.text);
+    // console.log(this.state.text);
     this.onSubmit = this.onSubmit.bind(this);
     this.update = this.update.bind(this);
   }
