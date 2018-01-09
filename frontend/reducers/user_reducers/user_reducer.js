@@ -23,7 +23,14 @@ const UserReducer = (state = {}, action) => {
       let key = Object.keys(newState)[0];
       let location = newState[key].profilePostsId.indexOf(action.postId);
       newState[key].profilePostsId = newState[key].profilePostsId.slice(0, location).concat(newState[key].profilePostsId.slice(location + 1));
-      // action.postId
+
+      let newsfeed = newState.newsfeed;
+      for (let i = 0; i < newsfeed.length; i++) {
+        if (newsfeed[i].id === action.postId) {
+          newState.newsfeed = newState.newsfeed.slice(0, i).concat(newState.newsfeed.slice(i + 1));
+        }
+      }
+
       return newState;
     case RECEIVE_FRIEND:
       let friendee = action.friend.friendee_id;
