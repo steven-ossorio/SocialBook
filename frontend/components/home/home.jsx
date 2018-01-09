@@ -91,7 +91,7 @@ class Home extends Component {
       );
     } else if (this.props.currentUser && this.props.user === undefined && this.props.newsfeed === undefined) {
       return (
-        <MDSpinner />
+        <div></div>
       );
     } else {
       return (
