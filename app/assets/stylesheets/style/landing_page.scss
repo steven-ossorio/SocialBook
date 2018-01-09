@@ -30,14 +30,21 @@ html {
     text-align: center;
     width: 200px;
 
+    li {
+      margin-left: 0px;
+      margin-bottom: 3px;
+    }
+
     li:hover {
       background-color: #4367b2;
-      width: 100%;
+      width: 200px;
       border-radius: 5px;
+      cursor: pointer;
     }
     a {
       color: #292d34;
       cursor: pointer;
+      border-right: none;
     }
   }
 
