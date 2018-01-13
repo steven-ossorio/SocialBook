@@ -23,9 +23,21 @@ Socialbook is a Facebook clone that seeks to replicate some commonly used featur
   
 ## Features
 
+### Custom Authentication
+
+### Creating/Updating/Deleting Posts
+
+### Making and Losing Friends
+
+### Newsfeed
+
 ## Design Decisions
 
 ## Features in Development
+- User created and managed groups
+- Sharing Posts
+- Improved Newsfeed algorithm
+- Suggested Friends
 
 #### Why React?
 
