@@ -2,7 +2,7 @@
 
 Please check out the site at [Socialbook](http://www.socialbook.tech)
 
-Socialbook is a Facebook clone that seeks to replicate some commonly used features and design decisions as closely as possible. Socialbook enables users to interact with others in their social network by adding and removing friends, posting statuses, writing on their friends walls, commenting on these posts, and keeping track of other interactions via their newsfeed. 
+Socialbook is a Facebook clone that seeks to replicate some commonly used features and design decisions as closely as possible. Socialbook enables users to interact with others in their social network by adding and removing friends, posting statuses, writing on their friends walls, commenting on these posts, and keeping track of other interactions via their newsfeed.
 
 ## Technology
 
@@ -14,16 +14,19 @@ Socialbook is a Facebook clone that seeks to replicate some commonly used featur
   + Heroku (web hosting)
   + AJAX
   + Node/NPM
-  
+
 ### Backend
   + Amazon Web Services (S3)
   + PostgreSQL
   + Ruby on Rails
   + ActiveRecord
-  
+
 ## Features
 
 ### Custom Authentication
+![Socialbook Login](docs/loginGif.gif)
+
+
 
 ### Creating/Updating/Deleting Posts
 
