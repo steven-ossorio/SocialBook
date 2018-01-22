@@ -31,7 +31,9 @@ Socialbook is a Facebook clone that seeks to replicate some commonly used featur
 
 
 ### Creating/Deleting Posts
-![Socialbook Login](docs/posting_deleteing.gif)
+![Socialbook Login](docs/posting_deleting.gif)
+
+<img src="docs/posting_deleting.gif" width="500">
 
 ### Making and Losing Friends
 
