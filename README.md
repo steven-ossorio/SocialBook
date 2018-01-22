@@ -24,11 +24,14 @@ Socialbook is a Facebook clone that seeks to replicate some commonly used featur
 ## Features
 
 ### Custom Authentication
-![Socialbook Login](docs/loginGif.gif)
+<!-- Explanation on top -->
+
+![Socialbook Login](docs/auth.gif)
 
 
 
-### Creating/Updating/Deleting Posts
+### Creating/Deleting Posts
+![Socialbook Login](docs/posting_deleteing.gif)
 
 ### Making and Losing Friends
 
@@ -37,15 +40,14 @@ Socialbook is a Facebook clone that seeks to replicate some commonly used featur
 ## Design Decisions
 
 ## Features in Development
-- User created and managed groups
-- Sharing Posts
+- Fix drop down regarding pending Users
+- Implement Comment to Posts
+- Editing Posts and Comments
 - Improved Newsfeed algorithm
+- Search for Users
 - Suggested Friends
+- User created and managed groups
 
 #### Why React?
 
 One of the most basic obvious reason is due to React being a core fundamental language for Facebook itself which Socialbook was inspired from. Main reason is how the language helps limit the need for AJAX calls to the backend by saving information received on the frontend. Redux is a framework much similar to Flux, the difference being it allows us to maintain a single store. By slicing the state into appropriately, we can maintain the limited need of an AJAX call and allow us instead reuse where we place information. An example can be seen in the snippet down below.
-
-### Socialbook Login
-
-![Socialbook Login](docs/loginGif.gif)
