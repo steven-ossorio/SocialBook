@@ -25,7 +25,6 @@ Socialbook is a Facebook clone that seeks to replicate some commonly used featur
 
 ### Custom Authentication
 <!-- Explanation on top -->
-
 <!-- ![Socialbook Login](docs/auth.gif) -->
 <img src="docs/auth.gif" width="600">
 
@@ -34,14 +33,18 @@ Socialbook is a Facebook clone that seeks to replicate some commonly used featur
 <!-- ![Socialbook Login](docs/posting.gif) -->
 <img src="docs/posting.gif" width="600">
 
-### Making and Losing Friends
+### Adding/Deleting Friends
+<img src="docs/friendship.gif" width="600">
 
 ### Newsfeed
+<img src="docs/newsfeed.gif" width="600">
+
 
 ## Design Decisions
 
 ## Features in Development
 - Fix drop down regarding pending Users
+- Friends add state not updating and delete button
 - Implement Comment to Posts
 - Editing Posts and Comments
 - Improved Newsfeed algorithm
