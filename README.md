@@ -31,20 +31,16 @@ A gif will be present below each description showing each feature in action.
 5. Newsfeed
 
 ### Custom Authentication
-<!-- Explanation on top -->
-<!-- ![Socialbook Login](docs/auth.gif) -->
+
 Most users when using a social media platform expect the company to maintain a high level of optional privacy and security. In order to make sure the security portion meets customer standards, I used BCrypt gem. The gem makes sure what gets saved is a hash version of the password instead of the password itself.
 
-Error handling was implemented in order to convey to the user what he/she is missing. The process happens once a person clicks on Login/Create Account button. -If a validation fails, the backend will send up errors where we store within the Errors slice of state under it's appropriate key (session for this case).- Depending on the type of error, we can allocate them in the right location.
-
-<!--
-Authentication is an important feature for any social media site. In order to maintain security, the use of Bcrypt gem on the backend was implemented which job is to create a session token which is used to login and logout a user. Error handling is another key feature which tells a user what he/she may be missing due to model validation in regards to forms. Both can be seen for Login/Signup where errors are fired when a user doesn't fill in the required fields. This cycle fire from the backend and retains in the error slice of state under appropriate key such as session in this case.   -->
+Error handling was implemented in order to convey to the user what he/she is missing. The process happens once a person clicks on Login/Create Account button. As errors start to trigger due to failed validations, we pass those errors in the error slice of state. Depending on the type of error, we can allocate them in the right location.
 
 <img src="docs/auth.gif" width="600">
 
 
 ### Creating/Deleting Posts
-<!-- ![Socialbook Login](docs/posting.gif) -->
+
 A user is able to create a post on his/her own wall and their friends wall. The delete function is only available to posts created by the signed in user. The post is added/removed once an action fires. The action reaches the reducer which updates the store and causes the components to re-render.
 
 <img src="docs/posting.gif" width="600">
@@ -71,8 +67,7 @@ create_table "friends", force: :cascade do |t|
   t.index ["friender_id"], name: "index_friends_on_friender_id"
 end
 ```
-
--There were multiple ways a "friend" connection could have been established, another being creating a pending model and a friendship model. I believe a better approach was maintaining a single table model and using methods to proceed how a person interacts with the initialized instance (whether it's to cancel a request or change "Pending" to "Accepted").-
+There were multiple ways a developer could have created a "friend" connection. An example would have been to create two models, a pending and friendship. Such role would have separated the task to it's respective model. I believe my approach kept things simpler since any negative actions such as "cancel of request" or "deleting a friend" would result in just removing that single initialized instance instead of possible two.
 
 <img src="docs/friendship.gif" width="600">
 
@@ -93,7 +88,7 @@ def newsfeed
 end
 ```
 
-Since the interaction between a "friend" can either be the initiator (in_friends) or the receiver (out_friends), we need to get all friend that has the current user in the model on both ends and with a "Accepted" status which means they are friends.
+Since the interaction between a "friend" can either be the initiator (in_friends/friender shown on top snippet) or the receiver (out_friends/friendee shown on top snippet), we needed to grab all the friends the current user is associated with while he/she is either a (friender/friendee) and with a "Accepted" status which means they are friends.
 
 <img src="docs/newsfeed.gif" width="600">
 
