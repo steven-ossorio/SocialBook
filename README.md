@@ -16,9 +16,9 @@ Socialbook is a Facebook clone that seeks to replicate some commonly used featur
   + Node/NPM
 
 ### Backend
+  + Ruby on Rails
   + Amazon Web Services (S3)
   + PostgreSQL
-  + Ruby on Rails
   + ActiveRecord
 
 ## Features
@@ -33,9 +33,9 @@ A gif will be present below each description showing each feature in action.
 ### Custom Authentication
 <!-- Explanation on top -->
 <!-- ![Socialbook Login](docs/auth.gif) -->
-Most users when using a social media platform expects the company to maintain a high level of optional privacy and security. In order to make sure the security portion meets customer standards, BCrypt gem was used. The gems makes sure what gets saved is a hash version of the password instead of the password itself.
+Most users when using a social media platform expect the company to maintain a high level of optional privacy and security. In order to make sure the security portion meets customer standards, I used BCrypt gem. The gem makes sure what gets saved is a hash version of the password instead of the password itself.
 
-Error handling was implemented in order to convey to the user what he/she is missing. The process happens once a person clicks on Login/Create Account button. If a validation fails, the backend will send up errors where we store within the Errors slice of state under it's appropriate key (session for this case). Depending on the type of error, we can allocate them in the right location.
+Error handling was implemented in order to convey to the user what he/she is missing. The process happens once a person clicks on Login/Create Account button. -If a validation fails, the backend will send up errors where we store within the Errors slice of state under it's appropriate key (session for this case).- Depending on the type of error, we can allocate them in the right location.
 
 <!--
 Authentication is an important feature for any social media site. In order to maintain security, the use of Bcrypt gem on the backend was implemented which job is to create a session token which is used to login and logout a user. Error handling is another key feature which tells a user what he/she may be missing due to model validation in regards to forms. Both can be seen for Login/Signup where errors are fired when a user doesn't fill in the required fields. This cycle fire from the backend and retains in the error slice of state under appropriate key such as session in this case.   -->
@@ -45,7 +45,7 @@ Authentication is an important feature for any social media site. In order to ma
 
 ### Creating/Deleting Posts
 <!-- ![Socialbook Login](docs/posting.gif) -->
-A user is able to create a post on his/her own wall and their friends wall. The delete function is only available to post created by the signed in user. The post are added/removed once an action fires. The action would lead to the store to be updated which forces the component to update as well. This occurs since the amount of post in the current state is less than the next state.
+A user is able to create a post on his/her own wall and their friends wall. The delete function is only available to posts created by the signed in user. The post is added/removed once an action fires. The action reaches the reducer which updates the store and causes the components to re-render.
 
 <img src="docs/posting.gif" width="600">
 
@@ -58,7 +58,7 @@ A user is able to update their profile image. The process is similar to Facebook
 
 ### Adding/Deleting Friends
 
-The interaction between two users start from the backend. Where upon requesting to add a user, a friendship is initialized through the Friends model. The user who initiates the request is considered a friender while the requested is the friendee. By default once the instance has been initialized it'll have a default "Pending" until a friendee accepts the requested friendship.
+The interaction between two users starts from the backend. Upon requesting to add a user, a friendship is initialized through the Friends model. The user who initiates the request is considered a friender while the requested is the friendee. By default once the instance has been initialized it'll have a default "Pending" until a friendee accepts the requested friendship.
 
 ```Ruby
 create_table "friends", force: :cascade do |t|
@@ -72,12 +72,12 @@ create_table "friends", force: :cascade do |t|
 end
 ```
 
-There were multiple ways a "friend" connection could have been established, another being creating a pending model and a friendship model. I believe a better approach was maintaining a single table model and using methods to proceed how a person interacts with the initialized instance (whether it's to cancel a request or change "Pending" to "Accepted").
+-There were multiple ways a "friend" connection could have been established, another being creating a pending model and a friendship model. I believe a better approach was maintaining a single table model and using methods to proceed how a person interacts with the initialized instance (whether it's to cancel a request or change "Pending" to "Accepted").-
 
 <img src="docs/friendship.gif" width="600">
 
 ### Newsfeed
-The Newsfeed is one of Facebook key feature. A NewsFeed is where a logged in user gets to see what their friends have posted and are able to make a post (which appears on their profile wall as well).
+The Newsfeed is one of Facebook's key feature. A NewsFeed is where a logged in user gets to see what their friends have posted and is able to make a post (which appears on their profile wall as well).
 
 ``` Ruby
 def newsfeed
@@ -101,7 +101,7 @@ Since the interaction between a "friend" can either be the initiator (in_friends
 ## Design Decisions
 #### Why React?
 
-React is a library that was created by the Facebook team back in 2013 which has taken front and center in the last year. Question is, why React was implemented over it's well known competitor Angular. Besides the point that Facebook uses it itself, React has a lot of good reasons why one would pick it. First is its size. Being a small library and not a framework like Angular, it makes it faster for a user visiting a website to download the required files quicker. Another advantage is how quick React runs due to its use of a virtual DOM that updates depending on changes occurring in comparison to using views (Angular). Although it is quicker, there are specific scenarios where Angular 2 can be considered faster.
+React was created by the Facebook 2013, a library that has become popular in the last year. Question: why React was implemented over it's well known competitor Angular? Besides the most obvious point that Facebook uses it, React has a lot of good reasons why one may pick it over its competitors. First is its size. Being a small library and not a framework like Angular, it makes it faster for a user visiting a website to download the required files quicker. Another advantage is how quick React runs due to its use of a virtual DOM that updates depending on changes occurring in comparison to using views (Angular). Although it is quicker, there are specific scenarios where Angular 2 can be considered faster.
 
 ## Features in Development
 - Fix drop down regarding pending Users
