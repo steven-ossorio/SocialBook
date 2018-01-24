@@ -58,7 +58,7 @@ A user is able to update their profile image. The process is similar to Facebook
 
 ### Adding/Deleting Friends
 
-The interaction between two users start from the backend. Where upon requesting an add request a friendship is initialized through the Friends model. The user who initiates the request is considered a friender while the requested is the friendee. By default once the instance has been initialized it'll have a default "Pending" until a friendee accepts the requsted friendship.
+The interaction between two users start from the backend. Where upon requesting to add a user, a friendship is initialized through the Friends model. The user who initiates the request is considered a friender while the requested is the friendee. By default once the instance has been initialized it'll have a default "Pending" until a friendee accepts the requested friendship.
 
 ```Ruby
 create_table "friends", force: :cascade do |t|
@@ -71,12 +71,29 @@ create_table "friends", force: :cascade do |t|
   t.index ["friender_id"], name: "index_friends_on_friender_id"
 end
 ```
-There were multiple ways to implement a friendship model where one can even produce two models where requests are done separately to a friendship model. I believe through the use of models methods and simply updating an attribute within the instance would be quicker and more efficient than having to keep track of two models when a user become friends and delete friendship.
+
+There were multiple ways a "friend" connection could have been established, another being creating a pending model and a friendship model. I believe a better approach was maintaining a single table model and using methods to proceed how a person interacts with the initialized instance (whether it's to cancel a request or change "Pending" to "Accepted").
 
 <img src="docs/friendship.gif" width="600">
 
 ### Newsfeed
-The Newsfeed is one of Facebook key feature. The use of a Newsfeed is to post a signin user a post which would also appear on their profile post but also see all post friends have posted in their own profile wall.
+The Newsfeed is one of Facebook key feature. A NewsFeed is where a logged in user gets to see what their friends have posted and are able to make a post (which appears on their profile wall as well).
+
+``` Ruby
+def newsfeed
+  @friends ||= self.in_friends.where("friends.status = 'Accepted'").includes(:posts) + self.out_friends.where("friends.status = 'Accepted'").includes(:posts)
+  @something = self.profile_posts
+
+  @posts = []
+
+  @friends.each { |friend| @posts += friend.posts }
+  @newsfeed = @posts + @something
+
+  @newsfeed.sort! { |a, b|  b.created_at <=> a.created_at }
+end
+```
+
+Since the interaction between a "friend" can either be the initiator (in_friends) or the receiver (out_friends), we need to get all friend that has the current user in the model on both ends and with a "Accepted" status which means they are friends.
 
 <img src="docs/newsfeed.gif" width="600">
 
@@ -84,7 +101,7 @@ The Newsfeed is one of Facebook key feature. The use of a Newsfeed is to post a 
 ## Design Decisions
 #### Why React?
 
-One of the most basic obvious reason is due to React being a core fundamental language for Facebook itself which Socialbook was inspired from. Main reason is how the language helps limit the need for AJAX calls to the backend by saving information received on the frontend. Redux is a framework much similar to Flux, the difference being it allows us to maintain a single store. By slicing the state into appropriately, we can maintain the limited need of an AJAX call and allow us instead reuse where we place information. An example can be seen in the snippet down below.
+React is a library that was created by the Facebook team back in 2013 which has taken front and center in the last year. Question is, why React was implemented over it's well known competitor Angular. Besides the point that Facebook uses it itself, React has a lot of good reasons why one would pick it. First is its size. Being a small library and not a framework like Angular, it makes it faster for a user visiting a website to download the required files quicker. Another advantage is how quick React runs due to its use of a virtual DOM that updates depending on changes occurring in comparison to using views (Angular). Although it is quicker, there are specific scenarios where Angular 2 can be considered faster.
 
 ## Features in Development
 - Fix drop down regarding pending Users
