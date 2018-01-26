@@ -8,6 +8,8 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Friend.destroy_all
+Post.destroy_all
 
 sex = ["male", "female"]
 
