@@ -38,7 +38,6 @@ cover_images = [
 collection_of_created_users_id = []
 
 20.times do |user|
-  debugger
   created_user = User.create!(
     email: Faker::Internet.email,
     password: 'password',
@@ -51,4 +50,43 @@ collection_of_created_users_id = []
   )
 
   collection_of_created_users_id.push(created_user.id)
+end
+
+no_dublicates = {}
+
+200.times do |friend|
+  logged_in_user = collection_of_created_users_id.sample
+  added_user = collection_of_created_users_id.sample
+
+  no_dublicates[logged_in_user] = [] unless no_dublicates[logged_in_user]
+
+  if no_dublicates[logged_in_user].count === 19
+    logged_in_user = collection_of_created_users_id.sample
+  end
+
+  until logged_in_user != added_user && !no_dublicates[logged_in_user].include?(added_user)
+    added_user = collection_of_created_users_id.sample
+  end
+
+  if no_dublicates[logged_in_user]
+    no_dublicates[logged_in_user].push(added_user)
+  end
+
+
+  Friend.create!(
+    friender_id: logged_in_user,
+    friendee_id: added_user,
+    status: "Accepted",
+  )
+end
+
+1000.times do |post|
+  owner = collection_of_created_users_id.sample
+  profile_id = collection_of_created_users_id.sample
+
+  Post.create!(
+    owner_id: owner,
+    profile_id: profile_id,
+    text: Faker::RickAndMorty.quote
+  )
 end
