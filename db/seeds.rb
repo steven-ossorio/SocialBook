@@ -35,8 +35,11 @@ cover_images = [
   "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/joker_cover.jpg"
 ]
 
-150.times do |user|
-  User.create!(
+collection_of_created_users_id = []
+
+20.times do |user|
+  debugger
+  created_user = User.create!(
     email: Faker::Internet.email,
     password: 'password',
     first_name: Faker::Name.first_name,
@@ -46,5 +49,6 @@ cover_images = [
     image: profile_images.sample,
     cover_image: cover_images.sample
   )
-  
+
+  collection_of_created_users_id.push(created_user.id)
 end

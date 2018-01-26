@@ -9,8 +9,4 @@ class Friend < ApplicationRecord
   primary_key: :id,
   foreign_key: :friendee_id,
   class_name: :User
-
-  def method_name
-
-  end
 end
