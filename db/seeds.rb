@@ -37,7 +37,20 @@ cover_images = [
 
 collection_of_created_users_id = []
 
-20.times do |user|
+my_profile = User.create!(
+  email: 'steven@steven.com',
+  password: 'steven',
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  sex: sex.sample,
+  dob: "Oct 20 1999",
+  image: profile_images.sample,
+  cover_image: cover_images.sample
+)
+
+collection_of_created_users_id.push(my_profile.id)
+
+50.times do |user|
   created_user = User.create!(
     email: Faker::Internet.email,
     password: 'password',
@@ -54,13 +67,13 @@ end
 
 no_dublicates = {}
 
-200.times do |friend|
+1000.times do |friend|
   logged_in_user = collection_of_created_users_id.sample
   added_user = collection_of_created_users_id.sample
 
   no_dublicates[logged_in_user] = [] unless no_dublicates[logged_in_user]
 
-  if no_dublicates[logged_in_user].count === 19
+  if no_dublicates[logged_in_user].count === 40
     logged_in_user = collection_of_created_users_id.sample
   end
 
@@ -83,10 +96,13 @@ end
 1000.times do |post|
   owner = collection_of_created_users_id.sample
   profile_id = collection_of_created_users_id.sample
+  quote = []
+  quote.push(Faker::HarryPotter.quote)
+  quote.push(Faker::RickAndMorty.quote)
 
   Post.create!(
     owner_id: owner,
     profile_id: profile_id,
-    text: Faker::RickAndMorty.quote
+    text: quote.sample
   )
 end
