@@ -22,7 +22,7 @@ nav {
 }
 
 .login-form {
-  padding-top: 30px;
+  padding-top: 19px;
   display: flex;
   position: relative;
   align-items: flex-end;
@@ -58,7 +58,7 @@ nav {
 .login-email, .login-password {
   margin-right: 15px;
   border: 1px solid #ccc;
-  height: 25px;
+  height: 23px;
   width: 150px;
   font-size: 11px;
   padding: 0 2px;
@@ -66,7 +66,7 @@ nav {
 
 .login-email-label, .login-password-label {
   // position: absolute;
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
   margin-top: -10px;
   color: white;
   font-weight: 300;
@@ -74,7 +74,7 @@ nav {
 }
 
 label {
-  padding: 5px;
+  padding: 5px 0;
 }
 
 .login-button {
