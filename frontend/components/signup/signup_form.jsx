@@ -52,12 +52,6 @@ class SignUpForm extends Component {
     this.props.signup(user);
   }
 
-  // errorsString(propName) {
-  //   if (this.props.errors[propName]) {
-  //     return <div>{`${propName} ${this.props.errors[propName]}`}</div>
-  //   }
-  // }
-
   errorsFirstName(propName) {
     if (this.props.errors[propName]) {
       return <div className="signup-form-first-name-error"> First name { this.props.errors[propName] }</div>;
@@ -175,13 +169,13 @@ class SignUpForm extends Component {
               </div>
               <p className="signup-birthday-text">Birthday</p>
               <div className="signup-birthday-section">
-                <select className="signup-birthday" value={ this.state.month } onChange={ this.update('month') } >
+                <select className="signup-birthday-month" value={ this.state.month } onChange={ this.update('month') } >
                   { months }
                 </select>
-                <select className="signup-birthday" value={ this.state.day } onChange={ this.update('day') }>
+                <select className="signup-birthday-date" value={ this.state.day } onChange={ this.update('day') }>
                   { days }
                 </select>
-                <select className="signup-birthday" value={ this.state.year } onChange={ this.update('year') }>
+                <select className="signup-birthday-year" value={ this.state.year } onChange={ this.update('year') }>
                   { years }
                 </select>
                 <p className="birthday-requiremenr">Why do I need to provide my birthday?</p>

@@ -154,17 +154,23 @@
 
 .signup-birthday-section {
   display: flex;
+
+  p {
+    font-size: 11px;
+    width: 150px;
+    margin-left: 8px;
+    line-height: 15px;
+  }
 }
 
-.signup-birthday-section > p {
-  font-size: 12px;
-  width: 150px;
-  margin-left: 8px;
+.signup-birthday-month, .signup-birthday-date, .signup-birthday-year {
+  font-size: 13px;
+  height: 30px;
+  padding: 5px;
 }
 
-.signup-birthday {
-  font-size: 10px;
-  height: 25px;
+.signup-birthday-date {
+  width: 49px;
 }
 
 .terms-to-agree {
