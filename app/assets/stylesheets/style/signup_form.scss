@@ -1,8 +1,6 @@
 .signup-form-layout {
-  display: flex;
+  margin-right: 25px;
   width: 980px;
-  margin: 0 auto;
-  flex-direction: column;
   align-items: flex-end;
 }
 
@@ -26,39 +24,49 @@
 }
 
 .photo-icon {
-  size: 15px;
   background-image: asset-url('image1.png');
-  min-width: 60px;
-  min-height: 100px;
+  min-width: 49px;
+  min-height: 43px;
   background-repeat: no-repeat;
-
+  margin-right: 17px;
 }
 
 .photo-icon-description {
   display: flex;
+  margin-bottom: 33px;
 
   p:first-of-type {
     font-weight: bold;
+    font-size: 17px;
   }
 
   p {
+    font-size: 15px;
     padding-top: 15px;
-    margin-left: 5px;
+    // margin-left: 5px;
+  }
+
+  p:nth-child(3) {
+    margin-top: 2px;
+    margin-left: 10px;
+    color: #666666;
   }
 }
 
 .share-icon {
   background-image: asset-url('image2.png');
-  min-width: 60px;
-  min-height: 100px;
+  min-width: 45px;
+  min-height: 44px;
   background-repeat: no-repeat;
+  margin-right: 20px;
 }
 
 .search-icon {
   background-image: asset-url('image3.png');
-  min-width: 60px;
-  min-height: 100px;
+  min-width: 55px;
+  min-height: 49px;
   background-repeat: no-repeat;
+  margin-right: 12px;
 }
 
 .form-heading {
@@ -75,7 +83,7 @@
 .signup-text-two {
   font-size: 19px;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
 }
 
 .login-page-background-color {
@@ -128,6 +136,11 @@
 
 .signup-sex-container {
   position: relative;
+  font-size: 18px;
+
+  label {
+    padding: 0 10px 0 3px;
+  }
 }
 
 .signup-last-name {
@@ -174,19 +187,28 @@
 }
 
 .terms-to-agree {
-  font-size: 10px;
+  color: #777;
+  font-size: 11px;
   margin: 15px 0px;
-  width: 250px;
+  width: 316px;
+  line-height: 1.34;
+  direction: ltr;
+
+  p {
+    margin-left: 1em 0;
+  }
 }
 
 .signup-button {
   color: white;
   background-color: green;
-  width: 180px;
-  font-size: 15px;
+  min-width: 194px;
+  font-size: 19px;
   height: 40px;
   border-radius: 5px;
-  margin: 10px 0px;
+  // margin: 10px 0px;
+  padding: 7px 20px;
+  margin-bottom: 11px;
 }
 
 // Errors
