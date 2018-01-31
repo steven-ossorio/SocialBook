@@ -21,7 +21,6 @@ class DropDown extends Component {
   }
 
   handleLogout() {
-    // e.preventDefault();
     this.props.logout();
   }
 

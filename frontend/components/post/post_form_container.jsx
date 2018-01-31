@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import PostForm from './post_form';
 
 const mapStateToProps = (state, ownProps) => {
-  // 
   return {
     currentUser: state.session.currentUser,
     post: state.posts,

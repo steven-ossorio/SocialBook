@@ -29,6 +29,3 @@ export const newsFeed = () => {
     url: `/api/newsfeed`
   });
 };
-
-// user.friendIds.map((id) => state.users[id])
-// user.postIds.map((id) => state.posts[id])

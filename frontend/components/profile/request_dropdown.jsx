@@ -33,15 +33,6 @@ class RequestDropDown extends Component {
             </div>
           );
         });
-
-
-        // menu = <div>
-        //           <ul className="logout-dropdown">
-        //             <div className="logout-container">
-        //               <li>Hello</li>
-        //             </div>
-        //           </ul>
-        //         </div>;
       } else {
         menu = "";
       }
