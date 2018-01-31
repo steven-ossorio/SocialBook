@@ -96,7 +96,7 @@ Since the interaction between a "friend" can either be the initiator (in_friends
 ## Design Decisions
 #### Why React?
 
-React was created by the Facebook 2013, a library that has become popular in the last year. Question: why React was implemented over it's well known competitor Angular? Besides the most obvious point that Facebook uses it, React has a lot of good reasons why one may pick it over its competitors. First is its size. Being a small library and not a framework like Angular, it makes it faster for a user visiting a website to download the required files quicker. Another advantage is how quick React runs due to its use of a virtual DOM that updates depending on changes occurring in comparison to using views (Angular). Although it is quicker, there are specific scenarios where Angular 2 can be considered faster.
+React was created by the Facebook 2013, a library that has become popular in the last year. Question: why React was implemented over it's well known competitor Angular? Besides the most obvious point that Facebook uses it, React has a lot of good reasons why one may pick it over its competitors. First is its size. Being a small library and not a framework like Angular, it makes it faster for a user visiting a website to download the required files quicker. Another advantage is how quick React runs due to its use of a virtual DOM that updates depending on changes occurring in comparison to using views (Angular).
 
 ## Features in Development
 - Fix drop down regarding pending Users
