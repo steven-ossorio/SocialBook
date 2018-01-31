@@ -85,7 +85,7 @@ class User < ApplicationRecord
 
   def newsfeed
     @friends ||= self.in_friends.where("friends.status = 'Accepted'").includes(:posts) + self.out_friends.where("friends.status = 'Accepted'").includes(:posts)
-    @something = self.profile_posts
+    @something = self.profile_posts.where("owner_id = ?", self.id)
 
     @posts = []
 
