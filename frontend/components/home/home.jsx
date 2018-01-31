@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MDSpinner from "react-md-spinner";
+import { RingLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { Redirect } from 'react-router-dom';
@@ -24,7 +24,7 @@ class Home extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if (this.props.currentUser === null && nextProps.currentUser !== null) {
+    if (!this.props.currentUser && nextProps.currentUser) {
       this.props.fetchUser(nextProps.currentUser.id);
       this.props.fetchNewsFeed();
     }
@@ -89,9 +89,15 @@ class Home extends Component {
           </div>
         </div>
       );
-    } else if (this.props.currentUser && this.props.user === undefined && this.props.newsfeed === undefined) {
+    } else if (this.props.currentUser && (this.props.user === undefined && this.props.newsfeed === undefined)) {
       return (
         <div></div>
+      );
+    } else if (this.props.currentUser && (this.props.user && this.props.newsfeed === undefined)) {
+      return (
+        <div className="loading-spin">
+          <RingLoader size={100} color={'#0000FF'} />
+        </div>
       );
     } else {
       return (
