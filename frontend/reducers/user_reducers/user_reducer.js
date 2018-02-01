@@ -55,7 +55,6 @@ const UserReducer = (state = {}, action) => {
       removeFriend = action.friend.removed_friendship.friendee_id;
       currentUser = action.friend.removed_friendship.friender_id;
     }
-    debugger
     if (state[currentUser]) {
       let currentUserFriends = state[currentUser].friendIds.filter( id => {
         return id !== removeFriend;
