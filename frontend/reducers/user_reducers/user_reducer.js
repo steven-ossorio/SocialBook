@@ -44,14 +44,33 @@ const UserReducer = (state = {}, action) => {
       newState[friendee].requests.push(action.friend.friender_id);
       return newState;
     case REMOVE_FRIEND:
-    let removeFriend = action.friend.friender_id;
-    let newStateArr = state[action.friend.friendee_id].friendIds.filter( id => {
-      return id !== removeFriend;
+    let removeFriend;
+    let currentUser;
+    newState = merge({}, state);
+
+    if (action.friend.type === "friendee") {
+      removeFriend = action.friend.removed_friendship.friender_id;
+      currentUser = action.friend.removed_friendship.friendee_id;
+    } else if (action.friend.type === "friender") {
+      removeFriend = action.friend.removed_friendship.friendee_id;
+      currentUser = action.friend.removed_friendship.friender_id;
+    }
+    debugger
+    if (state[currentUser]) {
+      let currentUserFriends = state[currentUser].friendIds.filter( id => {
+        return id !== removeFriend;
+      });
+      newState[currentUser].friendIds = currentUserFriends;
+    }
+
+    let removedFriend  = state[removeFriend].friendIds.filter( id => {
+      return id !== currentUser;
     });
 
-    newState = merge({}, state);
-    newState[action.friend.friendee_id].friendIds = newStateArr;
+    newState[removeFriend].friendIds = removedFriend;
+
     return newState;
+
     case UPDATE_FRIEND:
       let requester = action.friend.friender_id;
       newState = merge({}, state);
