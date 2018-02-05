@@ -97,6 +97,71 @@ html {
   }
 }
 
+.friend-dropdown-container {
+  width: 96px;
+  background-color: #f6f7f9;
+  color: #4b4f56;
+  line-height: 26px;
+  font-size: 13px;
+  border: 1px solid;
+  padding: 0 10px;
+  text-align: center;
+  font-weight: bold;
+
+  i {
+    padding: 6px 4px;
+  }
+
+  span{
+    cursor: default;
+  }
+}
+
+.friend-dropeddown-container {
+  position: relative;
+
+  .post-dropdown {
+    color: #4b4f56;
+    top: 39px;
+    right: -100px;
+    width: 194px;
+    height: 37px;
+    z-index: 2;
+    position: absolute;
+    line-height: 26px;
+    box-shadow: 1px 3px 14px 1px rgba(0,0,0,0.54);
+    font-weight: normal;
+    background-color: #e9ebee;
+
+    .selection-option {
+      line-height: 31px;
+    }
+
+    li:hover {
+      width: 100%;
+    }
+
+    button {
+      background-color: transparent;
+      background-repeat: no-repeat;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      outline: none;
+      width: 194px;
+      height: 23px;
+      text-align: left;
+      padding: 0px 24px;
+
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background-color: #365899;
+      }
+    }
+  }
+}
+
 // Modal Profile Image
 
 .modal-heading {
