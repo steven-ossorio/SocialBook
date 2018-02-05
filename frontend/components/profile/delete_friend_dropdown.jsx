@@ -27,7 +27,7 @@ class DropDown extends Component {
   render() {
       let menu;
       if(this.state.menuActive) {
-        menu = <div className="post-dropdown-container" onMouseLeave= { this.toggleMenu }>
+        menu = <div className="friend-dropeddown-container" onMouseLeave= { this.toggleMenu }>
                   <ul className="post-dropdown">
                     <div className="post-options">
                       <li className="selection-option"><button onClick={ () => this.props.deleteFriendship(this.props.user.id) } className="adding-friend">Unfriend</button></li>
@@ -40,8 +40,8 @@ class DropDown extends Component {
       }
       return (
         <div id = "menu">
-          <div onMouseEnter = { this.toggleMenu }>
-            <i className = "fa fa-check"/> <span>Friends</span><i class="fa fa-caret-down"/>
+          <div className="friend-dropdown-container" onMouseEnter = { this.toggleMenu }>
+            <i className = "fa fa-check"/> <span className="current-friend">Friends</span><i class="fa fa-caret-down"/>
           </div>
           {menu}
         </div>
