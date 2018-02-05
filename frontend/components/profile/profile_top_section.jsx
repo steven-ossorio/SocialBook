@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ProfileNav from './profile_nav';
 import ProfileImage from './profile_image';
+import FriendDropDown from './delete_friend_dropdown';
 
 
 class ProfileTopSection extends Component {
@@ -17,8 +18,9 @@ class ProfileTopSection extends Component {
       if (this.props.user.requests.includes(this.props.currentUser.id) && this.props.user.requests.includes(this.props.currentUser.id) !== null) {
         addButton = <button className="adding-friend">Pending</button>;
       } else if (this.props.user.friendIds.includes(this.props.currentUser.id)) {
-        addButton = <button className="adding-friend">Friends</button>;
-        secondButton = <button onClick={ () => this.props.deleteFriendship(this.props.user.id) } className="adding-friend">Delete Friend</button>;
+        addButton = <FriendDropDown props={ this.props } />;
+        // addButton = <button className="adding-friend">Friends</button>;
+        // secondButton = <button onClick={ () => this.props.deleteFriendship(this.props.user.id) } className="adding-friend">Unfriend</button>;
       } else if (parseInt(this.props.match.params.userId) !== this.props.currentUser.id) {
         addButton = <button className="adding-friend" onClick={ () => this.props.createFriendship(this.props.user.id) }>Add Friend</button>;
       }
