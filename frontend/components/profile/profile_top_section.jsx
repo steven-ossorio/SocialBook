@@ -20,7 +20,9 @@ class ProfileTopSection extends Component {
       } else if (this.props.user.friendIds.includes(this.props.currentUser.id)) {
         addButton = <FriendDropDown deleteFriendship={ this.props.deleteFriendship } user={ this.props.user } />;
       } else if (parseInt(this.props.match.params.userId) !== this.props.currentUser.id) {
-        addButton = <button className="adding-friend" onClick={ () => this.props.createFriendship(this.props.user.id) }>Add Friend</button>;
+        addButton = <div className="friend-dropdown-container">
+          <i class="fa fa-user-plus"></i><button className="adding-friend" onClick={ () => this.props.createFriendship(this.props.user.id) }>Add Friend</button>
+        </div>;
       }
 
       let profileId = this.props.match.params.userId;
