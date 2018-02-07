@@ -41,7 +41,7 @@ class DropDown extends Component {
       return (
         <div id = "menu">
           <div className="friend-dropdown-container" onMouseEnter = { this.toggleMenu }>
-            <i className = "fa fa-check"/> <span className="current-friend">Friends</span><i class="fa fa-caret-down"/>
+            <i className = "fa fa-check"/> <span className="current-friend">Friends</span><i className="fa fa-caret-down"/>
           </div>
           {menu}
         </div>
