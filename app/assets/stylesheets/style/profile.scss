@@ -121,7 +121,32 @@ html {
     color: #4b4f56;
     cursor: pointer;
   }
+}
 
+.pending-friend-container {
+  background-clip: padding-box;
+  border-color: rgba(0, 0, 0, .4);
+  width: 150px;
+  background-color: #f6f7f9;
+  color: #4b4f56;
+  font-size: 12px;
+  border: 1px solid;
+  padding: 1px 8px;
+  cursor: pointer;
+
+  i {
+    margin-top: 5px;
+  }
+
+  span{
+    cursor: pointer;
+  }
+
+  .adding-friend {
+    border: none;
+    color: #4b4f56;
+    cursor: pointer;
+  }
 }
 
 .friend-dropdown-container {
