@@ -3,13 +3,13 @@ import { fetchUser, updateUser } from '../../actions/user_actions';
 import { createFriendship, deleteFriendship, updateFriendship } from '../../actions/friend_actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import ProfileNav from './profile_nav';
+import ProfileTop from './profile_top_section';
 import About from './about';
 
 const mapStateToProps = ({ session, users }, ownProps) => {
   return {
     currentUser: session.currentUser,
-    user: users[session.currentUser.id],
+    user: users[ownProps.match.params.userId],
     friends: users.friends
   };
 };
@@ -28,4 +28,4 @@ const mapDispatchToProps = dispatch => {
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProfileNav));
+)(ProfileTop));
