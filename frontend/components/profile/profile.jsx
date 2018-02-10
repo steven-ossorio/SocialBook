@@ -9,6 +9,7 @@ import Friends from './friends';
 import Intro from './intro';
 import ProfileNav from './profile_nav';
 import ProfileNavContainer from './profile_nav_container';
+import FriendsContainer from './friends_container';
 
 class Profile extends Component {
   constructor(props){
@@ -35,7 +36,7 @@ class Profile extends Component {
           <div className="profile-page-container" >
             <div className="profile-left-section">
               <Intro />
-              <Friends friends={ this.props.friends } />
+              <FriendsContainer />
             </div>
             <div className="posts-container">
               <PostFormContainer props={ this.props} user={ this.props.user }/>
