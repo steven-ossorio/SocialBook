@@ -6,7 +6,12 @@ import RequestDropDown from './request_dropdown';
 class ProfileNav extends Component {
   constructor(props){
     super(props);
+  }
 
+  componentDidMount() {
+    if (!this.props.user[this.props.currentUser.id]) {
+      this.props.fetchUser(this.props.currentUser.id);
+    }
   }
 
   render(){
