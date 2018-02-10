@@ -4,9 +4,11 @@ import { merge } from 'lodash';
 import PostFormContainer from '../post/post_form_container';
 import PostIndexContainer from '../post/post_index_container';
 import ProfileTopSection from './profile_top_section';
+import ProfileTopContainer from "./profile_top_container";
 import Friends from './friends';
 import Intro from './intro';
 import ProfileNav from './profile_nav';
+import ProfileNavContainer from './profile_nav_container';
 
 class Profile extends Component {
   constructor(props){
@@ -14,6 +16,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
+    this.props.fetchUser(this.props.currentUser.id);
     this.props.fetchUser(this.props.match.params.userId);
   }
 
@@ -27,8 +30,8 @@ class Profile extends Component {
     if (this.props.user) {
       return(
         <div>
-          <ProfileNav fetchUser={this.props.fetchUser} history={ this.props.history } updateFriendship={ this.props.updateFriendship} logout={ this.props.logout } currentUser={ this.props.currentUser } user={ this.props.user } />
-          <ProfileTopSection history={this.props.history} updateFriendship={ this.props.updateFriendship } deleteFriendship={ this.props.deleteFriendship } match={ this.props.match } fetchUser={ this.props.fetchUser } createFriendship={ this.props.createFriendship } updateUser={ this.props.updateUser } currentUser={ this.props.currentUser } user={ this.props.user } logout={ this.props.logout } />
+          <ProfileNavContainer props={ this.props } />
+          <ProfileTopContainer props={ this.props } />
           <div className="profile-page-container" >
             <div className="profile-left-section">
               <Intro />
