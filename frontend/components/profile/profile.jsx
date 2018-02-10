@@ -39,7 +39,7 @@ class Profile extends Component {
               <FriendsContainer />
             </div>
             <div className="posts-container">
-              <PostFormContainer props={ this.props} user={ this.props.user }/>
+              <PostFormContainer />
               <PostIndexContainer />
             </div>
           </div>
