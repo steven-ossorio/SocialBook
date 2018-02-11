@@ -76,7 +76,7 @@ class ProfileImage extends Component {
           <div onClick={ this.openModal } className="upload-image-container">
             <div className="upload-image-hover">
               <span><i className="fa fa-camera"></i></span>
-              <span>Update Profile Image</span>
+              <span>Update Profile Picture</span>
             </div>
           </div>
           <Modal
