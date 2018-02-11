@@ -10,6 +10,8 @@ import SessionFormContainer from '../session/session_form_container';
 import SignUpFormContainer from '../signup/signup_form_container';
 import ProfileContainer from '../profile/profile_container';
 import PostFormContainer from '../post/post_form_container';
+import HomeNavContainer from './home_nav_container';
+import NewsFeedContainer from './newsfeed_container';
 
 class Home extends Component {
   constructor(props){
@@ -42,50 +44,12 @@ class Home extends Component {
 
   render(){
     if (this.props.currentUser && this.props.user && this.props.newsfeed !== undefined) {
-      let posts = this.props.newsfeed.map( post => (
-        <li className="post-list" key={ `${post.id}` }>
-          <div className="post-list-container">
-            <div className="entire-top-container">
-              <div className="post-top-container">
-                <div className="post-top-left-container">
-                  <div>
-                    <img className="post-form-image" src={ post.image }></img>
-                  </div>
-                  <div className="post-name-container">
-                    <p>{ post.first_name }</p>
-                    <p>{ moment(post.created_at).format("LL").slice(0, 10) }</p>
-                  </div>
-                </div>
-                { this.postOwner(post) }
-              </div>
-            </div>
-            <p className="post-list-text">{ post.text }</p>
-          </div>
-        </li>
-      ));
       return(
         <div>
-          <main className="newsfeed-nav-container">
-            <div className="newsfeed-nav-items">
-              <h1 className="logo"><Link to="/"><i className="fa fa-facebook-official"></i></Link></h1>
-              <ul className="navbar-items">
-                <li>
-                  <img className="nav-profile-image" src={ this.props.user.image_url }></img>
-                  <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.user.firstName }</Link>
-                </li>
-                <li><Link to="/">Home</Link></li>
-                <li className="hidden-element"><i className="fa fa-users"></i></li>
-                <li className="hidden-element"><i className="fa fa-comments"></i></li>
-                <li className="hidden-element"><i className="fa fa-globe"></i></li>
-                <li className="hidden-element"><i className="fa fa-question-circle"></i></li>
-                <li><DropDown logout={ this.props.logout } /></li>
-              </ul>
-            </div>
-          </main>
-
+          <HomeNavContainer />
           <div className="newsfeed_container">
-            <PostFormContainer props={ this.props } user={ this.props.user } />
-            { posts }
+            <PostFormContainer />
+            <NewsFeedContainer />
           </div>
         </div>
       );
