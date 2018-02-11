@@ -33,24 +33,50 @@ html {
   }
 
   .upload-image-container {
-    width: 100%;
+    width: 160px;
+
+    div {
+      bottom: 0
+    }
 
     .upload-image-hover {
-      width: 100%;
+      width: 160px;
       height: 60px;
       position: absolute;
-      bottom: 0;
+      bottom: 5;
       color: transparent;
       display: flex;
+
+      span:first-child {
+        margin-left: 15px;
+        margin-top: 20px;
+        font-size: 25px;
+      }
+
+      span:last-child {
+        margin-top: 18px;
+        margin-left: 10px;
+        text-align: left;
+        font-size: 14px;
+      }
 
       &:hover {
         // position: absolute;
         background-color: black;
         height: 52px;
-        width: 100%;
-        bottom: 0px;
+        width: 160px;
+        bottom: 5px;
         color: white;
         font-size: 12px;
+
+        span:first-child {
+          font-size: 12px;
+        }
+
+        span:last-child {
+          font-size: 12px;
+          width: 80px;
+        }
       }
     }
   }

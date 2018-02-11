@@ -42,8 +42,11 @@ class ProfileTopSection extends Component {
                 </div>
               </div>
               <div className="profile-image-container">
-                <div style={{ backgroundImage: `url(${this.props.user.image_url})`}}></div>
-                <ProfileImage currentUser={ this.props.currentUser} updateUser={ this.props.updateUser } match={ this.props.match }/>
+                <div style={{ backgroundImage: `url(${this.props.user.image_url})`}}>
+
+
+                  <ProfileImage currentUser={ this.props.currentUser} updateUser={ this.props.updateUser } match={ this.props.match }/>
+                </div>
               </div>
               <div className="profile-pages-container">
                 <ul>
