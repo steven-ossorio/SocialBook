@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { RingLoader } from 'react-spinners';
+
 
 
 class NewsFeed extends Component {
@@ -25,32 +27,40 @@ class NewsFeed extends Component {
   }
 
   render(){
-    let posts = this.props.newsfeed.map( post => (
-      <li className="post-list" key={ `${post.id}` }>
-        <div className="post-list-container">
-          <div className="entire-top-container">
-            <div className="post-top-container">
-              <div className="post-top-left-container">
-                <div>
-                  <img className="post-form-image" src={ post.image }></img>
+    if (!(this.props.newsfeed === undefined)) {
+      let posts = this.props.newsfeed.map( post => (
+        <li className="post-list" key={ `${post.id}` }>
+          <div className="post-list-container">
+            <div className="entire-top-container">
+              <div className="post-top-container">
+                <div className="post-top-left-container">
+                  <div>
+                    <img className="post-form-image" src={ post.image }></img>
+                  </div>
+                  <div className="post-name-container">
+                    <p>{ post.first_name }</p>
+                    <p>{ moment(post.created_at).format("LL").slice(0, 10) }</p>
+                  </div>
                 </div>
-                <div className="post-name-container">
-                  <p>{ post.first_name }</p>
-                  <p>{ moment(post.created_at).format("LL").slice(0, 10) }</p>
-                </div>
+                { this.postOwner(post) }
               </div>
-              { this.postOwner(post) }
             </div>
+            <p className="post-list-text">{ post.text }</p>
           </div>
-          <p className="post-list-text">{ post.text }</p>
+        </li>
+      ));
+      return(
+        <div>
+          { posts }
         </div>
-      </li>
-    ));
-    return(
-      <div>
-        { posts }
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="loading-spin">
+          <RingLoader size={100} color={'#0000FF'} />
+        </div>
+      );
+    }
   }
 }
 
