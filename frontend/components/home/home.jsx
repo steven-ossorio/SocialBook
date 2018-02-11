@@ -53,6 +53,7 @@ class Home extends Component {
     } else if (this.props.currentUser && this.props.user === undefined) {
       return (
         <div className="loading-spin">
+          <RingLoader size={100} color={'#0000FF'} />
         </div>
       );
     }
