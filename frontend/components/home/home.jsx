@@ -32,18 +32,15 @@ class Home extends Component {
     }
   }
 
-  postOwner(post) {
-    if (post.owner === this.props.currentUser.id) {
+  render(){
+    if (this.props.currentUser === null) {
       return (
         <div>
-          <PostDropDown deletePost={ this.props.deletePost } post={ post } />
+          <SessionFormContainer />
+          <SignUpFormContainer />
         </div>
       );
-    }
-  }
-
-  render(){
-    if (this.props.currentUser && this.props.user && this.props.newsfeed !== undefined) {
+    } else if (this.props.currentUser !== undefined && this.props.user !== undefined) {
       return(
         <div>
           <HomeNavContainer />
@@ -53,21 +50,9 @@ class Home extends Component {
           </div>
         </div>
       );
-    } else if (this.props.currentUser && (this.props.user === undefined && this.props.newsfeed === undefined)) {
-      return (
-        <div></div>
-      );
-    } else if (this.props.currentUser && (this.props.user && this.props.newsfeed === undefined)) {
+    } else if (this.props.currentUser && this.props.user === undefined) {
       return (
         <div className="loading-spin">
-          <RingLoader size={100} color={'#0000FF'} />
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <SessionFormContainer />
-          <SignUpFormContainer />
         </div>
       );
     }
