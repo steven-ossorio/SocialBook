@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { RingLoader } from 'react-spinners';
-
-
+import PostDropDown from './delete_post.jsx';
 
 class NewsFeed extends Component {
   constructor(props){
