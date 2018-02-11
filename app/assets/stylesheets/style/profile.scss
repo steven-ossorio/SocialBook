@@ -27,39 +27,37 @@ html {
   height: 170px;
 
   div {
-    width: 100%;
-    height: 100%;
+    width: 160px;
+    height: 160px;
     background-size: cover;
+  }
+
+  .upload-image-container {
+    width: 100%;
+
+    .upload-image-hover {
+      width: 100%;
+      height: 60px;
+      position: absolute;
+      bottom: 0;
+      color: transparent;
+      display: flex;
+
+      &:hover {
+        // position: absolute;
+        background-color: black;
+        height: 52px;
+        width: 100%;
+        bottom: 0px;
+        color: white;
+        font-size: 12px;
+      }
+    }
   }
 }
 
 
-.profile-image {
-  width: 100%;
-  background-color: #fff;
-}
 
-.upload-image-container {
-  width: 100%;
-}
-
-.upload-image-hover {
-  position: absolute;
-  bottom: 0;
-  color: transparent;
-  width: 100%;
-  display: flex;
-}
-
-.upload-image-hover:hover {
-  position: absolute;
-  background-color: black;
-  height: 52px;
-  width: 100%;
-  bottom: 0px;
-  color: white;
-  font-size: 12px;
-}
 
 .profile-cover-container {
   width: 850px;
