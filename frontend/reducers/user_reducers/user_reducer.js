@@ -7,6 +7,7 @@ import { RECEIVE_FRIEND, REMOVE_FRIEND, UPDATE_FRIEND } from '../../actions/frie
 import { REMOVE_POST, RECEIVE_POST } from '../../actions/post_actions';
 
 const UserReducer = (state = {}, action) => {
+  debugger
   let newState;
   Object.freeze(state);
   switch (action.type) {
@@ -76,6 +77,7 @@ const UserReducer = (state = {}, action) => {
       newState[action.friend.friendee_id].friendIds.push(requester);
       return newState;
     case RECEIVE_CURRENT_USER:
+    debugger
       if (action.users === undefined) {
         return state;
       }

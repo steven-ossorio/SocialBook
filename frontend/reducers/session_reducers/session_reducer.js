@@ -8,6 +8,7 @@ const originalState = {
 };
 
 const SessionReducer = (state = originalState, action) => {
+  debugger
   Object.freeze(state);
   let nextState;
   switch (action.type) {
