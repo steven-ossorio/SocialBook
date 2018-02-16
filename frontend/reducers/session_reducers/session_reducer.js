@@ -8,13 +8,16 @@ const originalState = {
 };
 
 const SessionReducer = (state = originalState, action) => {
-  debugger
   Object.freeze(state);
   let nextState;
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       nextState = merge({}, state);
-      nextState.currentUser = action.currentUser;
+      if (action.currentUser === null) {
+        nextState.currentUser = action.currentUser;
+      } else {
+        nextState.currentUser = action.currentUser.id;
+      }
       return nextState;
     default:
       return state;
