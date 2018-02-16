@@ -27,7 +27,6 @@ class Home extends Component {
   componentWillReceiveProps(nextProps){
     if (!this.props.currentUser && nextProps.currentUser) {
       this.props.fetchNewsFeed();
-      this.props.fetchUser(nextProps.currentUser.id);
     }
   }
 
