@@ -21,12 +21,14 @@ class Home extends Component {
   componentDidMount() {
     if ((this.props.newsfeed === undefined || this.props.user === undefined) && this.props.currentUser) {
       this.props.fetchNewsFeed();
+      this.props.fetchUser(this.props.currentUser.id);
     }
   }
 
   componentWillReceiveProps(nextProps){
     if (!this.props.currentUser && nextProps.currentUser) {
       this.props.fetchNewsFeed();
+      this.props.fetchUser(nextProps.currentUser.id);
     }
   }
 
