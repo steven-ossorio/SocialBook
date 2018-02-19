@@ -19,8 +19,12 @@ const UserReducer = (state = {}, action) => {
       newState.friends = action.friends || {};
       return newState;
     case RECEIVE_POST:
-      newState = merge({}, state);
-      newState.newsfeed.unshift(action.post);
+      if (state.newsfeed === undefined) {
+        newState = merge({}, state);
+      } else {
+        newState = merge({}, state);
+        newState.newsfeed.unshift(action.post);
+      }
       return newState;
     case REMOVE_POST:
       newState = merge({}, state);
