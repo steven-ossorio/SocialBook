@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { RingLoader } from 'react-spinners';
+
 
 class Friends extends Component {
   constructor(props){
@@ -7,37 +9,45 @@ class Friends extends Component {
   }
 
   render(){
-    let friendsCount = Object.values(this.props.friends).length;
-    let friends = Object.values(this.props.friends).map( friend => {
+    if (this.props.friends === undefined) {
       return (
-        <Link className="profile-friend-link" to={ `/users/${friend.id}` } key={ `${ friend.id }` }>
-          <div className="profile-friend-image" style={{ backgroundImage: `url(${friend.image})`}}>
-            <ul className="friend-full-name">
-              <li>{ friend.first_name }</li>
-              <li>{ friend.last_name }</li>
-            </ul>
-          </div>
-        </Link>
+        <div className="loading-spin">
+          <RingLoader size={100} color={'#0000FF'} />
+        </div>
       );
-    });
-    let friendsList = friends.slice(0, 9);
-    return(
-      <div>
-        <div className="profile-friends-container">
-          <div>
-            <div className="profile-friends-heading">
-              <div className="profile-friends-icon">
-                <i className="fa fa-users" aria-hidden="true"></i>
-              </div>
-              <p>Friends { friendsCount }</p>
+    } else {
+      let friendsCount = Object.values(this.props.friends).length;
+      let friends = Object.values(this.props.friends).map( friend => {
+        return (
+          <Link className="profile-friend-link" to={ `/users/${friend.id}` } key={ `${ friend.id }` }>
+            <div className="profile-friend-image" style={{ backgroundImage: `url(${friend.image})`}}>
+              <ul className="friend-full-name">
+                <li>{ friend.first_name }</li>
+                <li>{ friend.last_name }</li>
+              </ul>
             </div>
-            <div className="all-friends-profile-container">
-              { friendsList }
+          </Link>
+        );
+      });
+      let friendsList = friends.slice(0, 9);
+      return(
+        <div>
+          <div className="profile-friends-container">
+            <div>
+              <div className="profile-friends-heading">
+                <div className="profile-friends-icon">
+                  <i className="fa fa-users" aria-hidden="true"></i>
+                </div>
+                <p>Friends { friendsCount }</p>
+              </div>
+              <div className="all-friends-profile-container">
+                { friendsList }
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
