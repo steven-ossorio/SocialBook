@@ -26,7 +26,7 @@ class PostForm extends Component {
     e.preventDefault();
 
     const post = Object.assign({}, this.state);
-    if (this.props.match.params.userId !== undefined) {
+    if (this.props.match.path !== "/" && Number(this.props.match.params.userId) !== this.props.currentUser.id) {
       post.profile_id = this.props.match.params.userId;
     } else {
       post.profile_id = this.props.currentUser.id;
