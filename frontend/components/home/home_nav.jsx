@@ -17,7 +17,7 @@ class HomeNav extends Component {
     return(
       <main className="newsfeed-nav-container">
         <div className="newsfeed-nav-items">
-          <h1 className="logo"><Link to="/"><i className="fa fa-facebook-official"></i></Link></h1>
+          <h1 className="logo"><Link to="/" replace><i className="fa fa-facebook-official"></i></Link></h1>
           <ul className="navbar-items">
             <li>
               <img className="nav-profile-image" src={ this.props.user.image_url }></img>
