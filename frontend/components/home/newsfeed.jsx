@@ -27,7 +27,15 @@ class NewsFeed extends Component {
 
   render(){
     if (!(this.props.newsfeed === undefined)) {
-      let posts = this.props.newsfeed.map( post => (
+      let postsId = {};
+      let excludeRepeat = this.props.newsfeed.filter( post => {
+        if (!postsId[post.id]) {
+          postsId[post.id] = true;
+          return post;
+        }
+      });
+
+      let posts = excludeRepeat.map( post => (
         <li className="post-list" key={ `${post.id}` }>
           <div className="post-list-container">
             <div className="entire-top-container">

@@ -33,6 +33,7 @@ class PostIndex extends Component {
     let posts = this.props.profilePostsId.sort().reverse().map( id => {
       return this.props.posts[id];
     });
+    
     posts = posts.filter(post=>{
       return post;
     });
