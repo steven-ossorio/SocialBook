@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DropDown from './dropdown';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 class PostIndex extends Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class PostIndex extends Component {
                     <img className="post-form-image" src={ post.image }></img>
                   </div>
                   <div className="post-name-container">
-                    <p>{ post.first_name }</p>
+                    <Link to={ `/users/${post.owner}` } replace><p>{ post.first_name }</p></Link>
                     <p>{ moment(post.created_at).format("LL").slice(0, 10) }</p>
                   </div>
                 </div>
