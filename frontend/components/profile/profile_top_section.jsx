@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ProfileNav from './profile_nav';
 import ProfileImage from './profile_image';
 import FriendDropDown from './delete_friend_dropdown';
-
+import { RingLoader } from 'react-spinners';
 
 class ProfileTopSection extends Component {
   constructor(props){
@@ -12,7 +12,7 @@ class ProfileTopSection extends Component {
 
   render(){
     let addButton = "";
-    if (this.props.currentUser !== null) {
+    if (this.props.currentUser !== null && this.props.user !== undefined) {
 
       if (this.props.user.requests.includes(this.props.currentUser.id) && this.props.user.requests.includes(this.props.currentUser.id) !== null) {
         addButton =  <div className="pending-friend-container">
@@ -63,7 +63,9 @@ class ProfileTopSection extends Component {
       );
     } else {
       return(
-        <div></div>
+        <div className="loading-spin">
+          <RingLoader size={100} color={'#0000FF'} />
+        </div>
       );
     }
   }

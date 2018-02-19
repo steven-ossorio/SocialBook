@@ -30,7 +30,7 @@ class Profile extends Component {
   }
 
   render(){
-    if (this.props.user) {
+    if (this.props.currentUser) {
       return(
         <div>
           <ProfileNavContainer props={ this.props } />
