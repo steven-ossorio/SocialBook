@@ -10,6 +10,8 @@ import Intro from './intro';
 import ProfileNav from './profile_nav';
 import ProfileNavContainer from './profile_nav_container';
 import FriendsContainer from './friends_container';
+import { RingLoader } from 'react-spinners';
+
 
 class Profile extends Component {
   constructor(props){
@@ -47,7 +49,8 @@ class Profile extends Component {
       );
     } else {
       return (
-        <div>
+        <div className="loading-spin">
+          <RingLoader size={100} color={'#0000FF'} />
         </div>
       );
     }
