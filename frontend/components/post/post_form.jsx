@@ -31,11 +31,13 @@ class PostForm extends Component {
     } else {
       post.profile_id = this.props.currentUser.id;
     }
-    this.props.createPost(post).then( () => {
-      this.setState({
-        text: ""
+    if (post.text !== "") {
+      this.props.createPost(post).then( () => {
+        this.setState({
+          text: ""
+        });
       });
-    });
+    }
   }
 
   render(){
