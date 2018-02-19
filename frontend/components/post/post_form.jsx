@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { RingLoader } from 'react-spinners';
+
 
 class PostForm extends Component {
   constructor(props){
@@ -37,7 +39,7 @@ class PostForm extends Component {
   }
 
   render(){
-    if (this.props.currentUser) {
+    if (this.props.currentUser && this.props.user) {
       return(
         <div>
           <form>
@@ -59,8 +61,8 @@ class PostForm extends Component {
       );
     } else {
       return (
-        <div>
-          goodbye
+        <div className="loading-spin">
+          <RingLoader size={100} color={'#0000FF'} />
         </div>
       );
     }
