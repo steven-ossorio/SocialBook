@@ -16,6 +16,7 @@ class PostIndex extends Component {
   }
 
   componentWillReceiveProps(nextProps, nextState) {
+    debugger
     if (Object.keys(this.props.posts).length < Object.keys(nextProps.posts).length) {
       this.props.fetchUser(nextProps.match.params.userId);
     }
