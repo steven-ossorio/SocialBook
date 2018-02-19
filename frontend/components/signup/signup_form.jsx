@@ -191,10 +191,6 @@ class SignUpForm extends Component {
                 </label>
               </div>
               <br />
-              <div className="terms-to-agree ">
-                <p className="">By clicking Create Account, you agree to our Terms and that you have read our Data Policy, including our Cookie Use.
-                  You may receive SMS Notifications from Facebook and can opt out at any time.</p>
-              </div>
               <button className="signup-button" onClick={ this.submit }>Create Account</button>
               <hr />
             </form>
