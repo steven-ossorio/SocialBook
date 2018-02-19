@@ -6,11 +6,19 @@ import PostIndex from './post_index';
 
 const mapStateToProps = (state, ownProps) => {
   let user = state.users[ownProps.match.params.userId];
+  let profilePostsId;
+
+  if (user === undefined) {
+    profilePostsId = null;
+  } else {
+    profilePostsId = user.profilePostsId;
+  }
+
   return {
     posts: state.posts,
     currentUser: state.session.currentUser,
     user,
-    profilePostsId: user.profilePostsId
+    profilePostsId
   };
 };
 
