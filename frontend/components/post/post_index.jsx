@@ -15,6 +15,12 @@ class PostIndex extends Component {
     this.postOwner = this.postOwner.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.match.params.userId) {
+      this.props.fetchUser(this.props.match.params.userId);
+    }
+  }
+
   componentWillReceiveProps(nextProps, nextState) {
     if (Object.keys(this.props.posts).length < Object.keys(nextProps.posts).length) {
       this.props.fetchUser(nextProps.match.params.userId);
