@@ -15,12 +15,6 @@ class PostIndex extends Component {
     this.postOwner = this.postOwner.bind(this);
   }
 
-  componentDidMount() {
-    if (this.props.match.params.userId) {
-      this.props.fetchUser(this.props.match.params.userId);
-    }
-  }
-
   componentWillReceiveProps(nextProps, nextState) {
     if (Object.keys(this.props.posts).length < Object.keys(nextProps.posts).length) {
       this.props.fetchUser(nextProps.match.params.userId);
@@ -45,13 +39,10 @@ class PostIndex extends Component {
         </div>
       );
     } else {
-      let posts = this.props.profilePostsId.sort().reverse().map( id => {
+      let posts = this.props.profilePostsId.sort( (a, b) => a - b).reverse().map( id => {
         return this.props.posts[id];
       });
 
-      posts = posts.filter(post=>{
-        return post;
-      });
       return posts.map( (post, idx) => {
 
         return (
