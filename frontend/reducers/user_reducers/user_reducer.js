@@ -28,7 +28,16 @@ const UserReducer = (state = {}, action) => {
       return newState;
     case REMOVE_POST:
       newState = merge({}, state);
-      let key = Object.keys(newState)[0];
+      let userIds = Object.keys(newState);
+      let key;
+
+      for(let i = 0; i < userIds.length; i++) {
+        if (newState[userIds[i]].profilePostsId.includes(action.postId)) {
+          key = userIds[i];
+          break;
+        }
+      }
+
       let location = newState[key].profilePostsId.indexOf(action.postId);
       newState[key].profilePostsId = newState[key].profilePostsId.slice(0, location).concat(newState[key].profilePostsId.slice(location + 1));
 
