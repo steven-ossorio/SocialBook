@@ -17,7 +17,7 @@ const PostReducer = (state = {}, action) => {
       return merge({}, state, { [action.post.id]: action.post });
     case REMOVE_POST:
       newState = merge({}, state);
-      return omit(newState, action.postId);
+      return omit(newState, String(action.postId));
     default:
       return state;
   }
