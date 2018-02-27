@@ -18,28 +18,52 @@ class RequestDropDown extends Component {
     });
   }
 
+  temporary() {
+    let ids = this.props.user.requests.filter( id => id !== this.props.currentUser.id);
+    menu = ids.map( id => {
+      return (
+        <div key={id}>
+          <ul className="request-dropdown">
+            <div className="request-options">
+              <li className="selection-option"><button onClick={ () => this.props.updateFriendship(id) }>Accept</button></li>
+            </div>
+          </ul>
+        </div>
+      );
+    });
+
+  }
+
   render() {
-      let menu;
+      let list_requests;
+
       if(this.state.menuActive) {
-        let ids = this.props.user.requests.filter( id => id !== this.props.currentUser.id);
-        menu = ids.map( id => {
+        let requestors = Object.values(this.props.requests);
+
+        list_requests = requestors.map( (user, idx ) => {
           return (
-            <div key={id}>
-              <ul className="request-dropdown">
-                <div className="request-options">
-                  <li className="selection-option"><button onClick={ () => this.props.updateFriendship(id) }>Accept</button></li>
-                </div>
-              </ul>
+            <div key={ user.id }>
+              <div>
+                <img className="requestor-image" src={ user.image }></img>
+                <span>{ user.first_name }</span>
+              </div>
+              <div className="request-options">
+                <li className="selection-option"><button onClick={ () => this.props.updateFriendship(id) }>Accept</button></li>
+              </div>
             </div>
           );
         });
+
+
       } else {
-        menu = "";
+        list_requests = "";
       }
       return (
         <li id = "menu">
           <i className = "fa fa-users" onClick = { this.toggleMenu }/>
-          {menu}
+          <div className="request_list_container">
+            {list_requests}
+          </div>
         </li>
     );
     }
