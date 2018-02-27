@@ -76,6 +76,13 @@ class User < ApplicationRecord
 
   def requests
     @friend_requests ||= self.requestee.where(status: "Pending")
+    requesters = []
+
+    @friend_requests.each do |friend_request|
+      user = User.find(friend_request.friender_id)
+      requesters.push(user)
+    end
+    requesters
   end
 
   def pending
