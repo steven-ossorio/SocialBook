@@ -35,13 +35,10 @@ json.friends do
   end
 end
 
-# json.newsFeed do
-#   @user.all_posts.each do |post|
-#     json.set! post.id do
-#       json.extract! post.owner, :first_name, :last_name, :image
-#       json.id post.id
-#       json.created_at post.created_at
-#       json.text post.text
-#     end
-#   end
-# end
+json.friend_requests do
+  @user.requests.each do |requester|
+    json.set! requester.id do
+      json.extract! requester, :id, :first_name, :last_name, :image
+    end
+  end
+end
