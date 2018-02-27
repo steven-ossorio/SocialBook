@@ -17,6 +17,8 @@ json.user do
   json.profilePostsId @user.profile_posts.pluck(:id)
 end
 
+json.requests @user.requests
+
 
 # json.email @user.email
 # json.firstName @user.first_name
