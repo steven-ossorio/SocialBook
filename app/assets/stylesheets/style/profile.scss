@@ -417,7 +417,18 @@ html {
   position: absolute;
   width: 430px;
   right: -48px;
-  background-color: blue;
+  background-color: white;
+
+  .request_list_items {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .friend-request-text {
+    width: 94px;
+    font-size: 12px;
+    cursor: pointer;
+  }
 
   img {
     border-radius: 50%;

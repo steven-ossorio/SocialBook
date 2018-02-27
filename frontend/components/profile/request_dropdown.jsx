@@ -42,10 +42,10 @@ class RequestDropDown extends Component {
 
         list_requests = requestors.map( (user, idx ) => {
           return (
-            <div key={ user.id }>
+            <div className="request_list_items" key={ user.id }>
               <div>
                 <img className="requestor-image" src={ user.image }></img>
-                <span>{ user.first_name }</span>
+                <span className="requestor-name"><Link to={`/users/${user.id}`}>{ user.first_name }</Link></span>
               </div>
               <div className="request-options">
                 <li className="selection-option"><button onClick={ () => this.props.updateFriendship(id) }>Accept</button></li>
@@ -54,6 +54,13 @@ class RequestDropDown extends Component {
           );
         });
 
+        list_requests = <div>
+          <div>
+            <p className="friend-request-text">Friend Requests</p>
+            { list_requests }
+          </div>
+        </div>;
+
 
       } else {
         list_requests = "";
@@ -61,6 +68,7 @@ class RequestDropDown extends Component {
       return (
         <li id = "menu">
           <i className = "fa fa-users" onClick = { this.toggleMenu }/>
+
           <div className="request_list_container">
             {list_requests}
           </div>
