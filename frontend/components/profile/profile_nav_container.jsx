@@ -6,11 +6,12 @@ import { withRouter } from 'react-router-dom';
 import ProfileNav from './profile_nav';
 import About from './about';
 
-const mapStateToProps = ({ session, users }, ownProps) => {
+const mapStateToProps = ({ session, users, friends }, ownProps) => {
   return {
     currentUser: session.currentUser,
     user: users[session.currentUser.id],
-    friends: users.friends
+    friends: users.friends,
+    requests: friends.requests
   };
 };
 
