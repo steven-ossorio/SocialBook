@@ -411,3 +411,17 @@ html {
   top: 0px;
   background-image: asset-url('favicon.png');
 }
+
+
+.request_list_container {
+  position: absolute;
+  width: 430px;
+  right: -48px;
+  background-color: blue;
+
+  img {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+  }
+}
