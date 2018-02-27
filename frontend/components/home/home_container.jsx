@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Home from './home';
 
 const mapStateToProps = (state) => {
+  debugger
   let user = null;
   let posts;
   let newsfeed;
