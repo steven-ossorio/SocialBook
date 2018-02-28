@@ -453,10 +453,15 @@ html {
       padding-top: 12px;
 
       a {
-        color: #365899;
+        color: #4266b2;
+        font-weight: bold;
         cursor: pointer;
         text-decoration: none;
         border-right: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
