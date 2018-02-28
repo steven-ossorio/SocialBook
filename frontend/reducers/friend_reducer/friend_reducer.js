@@ -1,7 +1,8 @@
 import React from 'react';
-import { merge } from 'lodash';
+import { merge, omit } from 'lodash';
 
 import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
+import { RECEIVE_FRIEND, UPDATE_FRIEND } from '../../actions/friend_actions';
 import { RECEIVE_USER } from '../../actions/user_actions';
 
 const FriendReducer = (state = {}, action) => {
@@ -18,6 +19,9 @@ const FriendReducer = (state = {}, action) => {
     case RECEIVE_USER:
       nextState = merge({}, state, { requests: action.friend_requests} );
       return nextState;
+    case UPDATE_FRIEND:
+      nextState = merge({}, state);
+      return omit(nextState.requests, action.friend.friender_id);
     default:
       return state;
   }
