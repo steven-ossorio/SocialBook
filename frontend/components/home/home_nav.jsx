@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import DropDown from './dropdown';
+import RequestDropDown from '../profile/request_dropdown';
 
 class HomeNav extends Component {
   constructor(props){
@@ -24,7 +25,7 @@ class HomeNav extends Component {
               <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.user.firstName }</Link>
             </li>
             <li><Link to="/">Home</Link></li>
-            <li className="hidden-element"><i className="fa fa-users"></i></li>
+            <RequestDropDown requests={ this.props.requests } currentUser={ this.props.currentUser } user={ this.props.user } updateFriendship={ this.props.updateFriendship } />
             <li className="hidden-element"><i className="fa fa-comments"></i></li>
             <li className="hidden-element"><i className="fa fa-globe"></i></li>
             <li className="hidden-element"><i className="fa fa-question-circle"></i></li>
