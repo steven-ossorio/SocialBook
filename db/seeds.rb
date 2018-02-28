@@ -52,7 +52,7 @@ my_profile = User.create!(
 
 collection_of_created_users_id.push(my_profile.id)
 
-50.times do |user|
+100.times do |user|
   created_user = User.create!(
     email: Faker::Internet.email,
     password: 'password',
@@ -68,8 +68,9 @@ collection_of_created_users_id.push(my_profile.id)
 end
 
 no_dublicates = {}
+status = ["Accepted", "Pending"]
 
-1000.times do |friend|
+2000.times do |friend|
   logged_in_user = collection_of_created_users_id.sample
   added_user = collection_of_created_users_id.sample
 
@@ -91,7 +92,7 @@ no_dublicates = {}
   Friend.create!(
     friender_id: logged_in_user,
     friendee_id: added_user,
-    status: "Accepted",
+    status: status.sample,
   )
 end
 

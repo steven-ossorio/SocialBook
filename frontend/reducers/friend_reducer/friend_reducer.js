@@ -21,7 +21,8 @@ const FriendReducer = (state = {}, action) => {
       return nextState;
     case UPDATE_FRIEND:
       nextState = merge({}, state);
-      return omit(nextState.requests, action.friend.friender_id);
+      delete nextState.requests[action.friend.friender_id];
+      return nextState;
     default:
       return state;
   }
