@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import HomeNav from './home_nav';
 
-const mapStateToProps = ({ session, users }, ownProps) => {
+const mapStateToProps = ({ session, users, friends }, ownProps) => {
   return {
     currentUser: session.currentUser,
     user: users[session.currentUser.id],
-    friends: users.friends
+    requests: friends.requests
   };
 };
 
