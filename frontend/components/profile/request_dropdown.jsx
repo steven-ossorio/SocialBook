@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Dropdown, DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
 
@@ -43,12 +43,12 @@ class RequestDropDown extends Component {
         list_requests = requestors.map( (user, idx ) => {
           return (
             <div className="request_list_items" key={ user.id }>
-              <div>
+              <div className="request_list_left">
                 <img className="requestor-image" src={ user.image }></img>
-                <span className="requestor-name"><Link to={`/users/${user.id}`}>{ user.first_name }</Link></span>
+                <span className="requestor-name"><Link to={`/users/${user.id}`}>{ user.first_name } { user.last_name }</Link></span>
               </div>
               <div className="request-options">
-                <li className="selection-option"><button onClick={ () => this.props.updateFriendship(id) }>Accept</button></li>
+                <div className="selection-option"><button onClick={ () => this.props.updateFriendship(id) }>Accept</button></div>
               </div>
             </div>
           );
@@ -56,6 +56,7 @@ class RequestDropDown extends Component {
 
         list_requests = <div>
           <div>
+            <div className="arrow-up"></div>
             <p className="friend-request-text">Friend Requests</p>
             { list_requests }
           </div>
