@@ -9,7 +9,7 @@ json.user do
   json.cover_image_url asset_path(@user.cover_image.url)
   # json.postsIds @user.posts.pluck(:id)
   json.friendIds @user.friends.pluck(:id)
-  json.requests @user.requests.pluck(:friender_id)
+  json.requests @user.requests.pluck(:id)
   json.profilePostsId @user.profile_posts.pluck(:id)
 end
 
