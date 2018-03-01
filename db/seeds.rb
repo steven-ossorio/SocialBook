@@ -70,7 +70,7 @@ end
 no_dublicates = {}
 status = ["Accepted", "Pending"]
 
-2000.times do |friend|
+3000.times do |friend|
   logged_in_user = collection_of_created_users_id.sample
   added_user = collection_of_created_users_id.sample
 
