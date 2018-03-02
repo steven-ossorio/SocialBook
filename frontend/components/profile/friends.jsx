@@ -16,7 +16,7 @@ class Friends extends Component {
         </div>
       );
     } else {
-      let friendsCount = Object.values(this.props.friends).length;
+      let friendsCount = this.props.friendIds;
       let friends = Object.values(this.props.friends).map( friend => {
         return (
           <Link className="profile-friend-link" to={ `/users/${friend.id}` } key={ `${ friend.id }` }>

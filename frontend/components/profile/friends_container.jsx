@@ -2,9 +2,15 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Friends from './friends';
 
-const mapStateToProps = ({ users }) => {
+const mapStateToProps = (state, ownProps) => {
+  let friendIds;
+
+  if (state.users[ownProps.match.params.userId] !== undefined) {
+    friendIds = state.users[ownProps.match.params.userId].friendIds.length;
+  }
   return {
-    friends: users.friends
+    friends: state.users.friends,
+    friendIds
   };
 };
 
