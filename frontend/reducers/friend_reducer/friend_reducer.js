@@ -22,7 +22,6 @@ const FriendReducer = (state = {}, action) => {
     case UPDATE_FRIEND:
       nextState = merge({}, state);
       delete nextState.requests[action.friend.friender_id];
-      debugger
       return nextState;
     default:
       return state;
