@@ -84,6 +84,7 @@ const UserReducer = (state = {}, action) => {
     return newState;
 
     case UPDATE_FRIEND:
+      debugger
       let requester = action.friend.friender_id;
       newState = merge({}, state);
       newState[action.friend.friendee_id].friendIds.push(requester);
