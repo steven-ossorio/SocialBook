@@ -12,6 +12,7 @@ import ProfileContainer from '../profile/profile_container';
 import PostFormContainer from '../post/post_form_container';
 import HomeNavContainer from './home_nav_container';
 import NewsFeedContainer from './newsfeed_container';
+import AboutDeveloper from './about_developer';
 
 class Home extends Component {
   constructor(props){
@@ -45,6 +46,7 @@ class Home extends Component {
         <div>
           <HomeNavContainer />
           <div className="newsfeed_container">
+            <AboutDeveloper />
             <PostFormContainer />
             <NewsFeedContainer />
           </div>
