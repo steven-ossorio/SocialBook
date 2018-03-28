@@ -2,6 +2,18 @@ html {
   background-color: #e9ebee;
 }
 
+.about-developer-container {
+  position: absolute;
+  right: 300px;
+  flex-direction: column;
+  display: flex;
+
+  i {
+    font-size: 50px;
+    padding: 5px;
+  }
+}
+
 .profile-page-container {
   width: 850px;
   margin: 0 auto;
