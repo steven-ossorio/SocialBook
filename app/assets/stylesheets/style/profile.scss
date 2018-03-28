@@ -8,9 +8,14 @@ html {
   flex-direction: column;
   display: flex;
 
+  a {
+    color: black;
+    text-decoration: none;
+  }
   i {
-    font-size: 50px;
+    font-size: 60px;
     padding: 5px;
+    margin-top: 15px;
   }
 }
 
