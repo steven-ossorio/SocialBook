@@ -13,6 +13,7 @@ import PostFormContainer from '../post/post_form_container';
 import HomeNavContainer from './home_nav_container';
 import NewsFeedContainer from './newsfeed_container';
 import AboutDeveloper from './about_developer';
+import NewsContainer from './news_container';
 
 class Home extends Component {
   constructor(props){
@@ -47,6 +48,7 @@ class Home extends Component {
           <HomeNavContainer />
           <div className="newsfeed_container">
             <AboutDeveloper />
+            <NewsContainer />
             <PostFormContainer />
             <NewsFeedContainer />
           </div>
