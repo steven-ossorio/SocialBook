@@ -20,6 +20,50 @@ html {
   }
 }
 
+.news-container {
+  color: black;
+  position: absolute;
+  right: 138px;
+  top: 350px;
+  width: 310px;
+  background-color: white;
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+
+  p {
+    padding: 13px;
+    font-size: 13px;
+    line-height: 13px;
+    color: #616770;
+    font-weight: bold;
+  }
+
+  li {
+    display: flex;
+    padding: 3px 10px;
+
+    .news-title {
+      color: #1d2129;
+      font-size: 13px;
+
+      span {
+        font-size: 13px;
+        line-height: 16px;
+        color: #616770;
+      }
+    }
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+    padding: 1px 10px;
+    i {
+      padding-right: 3px;
+    }
+  }
+}
+
 .profile-page-container {
   width: 850px;
   margin: 0 auto;
