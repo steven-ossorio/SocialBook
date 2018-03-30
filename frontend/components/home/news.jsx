@@ -15,16 +15,21 @@ class News extends Component {
     if (this.props.news) {
       let news = this.props.news;
       return news.map( (news, i) => {
+        console.log(news);
         return (
-          <li key={ i }>
+          <li key={ i } className="article-container">
             <a href={ news.url } >
               <div className="news-title">
-                { news.title.slice(0, 30) }
-              </div>
-              <div className="article-owner">
-                { news.source.name }
+                <i class="fa fa-fire"></i>
+                { news.title.slice(0, 50) }
+                <span>
+                  - { news.source.name }
+                </span>
               </div>
             </a>
+            <div className="on-hover-article">
+              <p>HELLO!</p>
+            </div>
           </li>
         );
       });
@@ -39,7 +44,8 @@ class News extends Component {
 
   render() {
     return (
-      <div>
+      <div className="news-container">
+        <p>Trending</p>
         { this.renderNews() }
       </div>
     );
