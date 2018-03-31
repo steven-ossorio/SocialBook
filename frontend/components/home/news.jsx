@@ -6,7 +6,8 @@ class News extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newsSize: '150px'
+      newsSize: '150px',
+      visible: 'visible'
     };
 
     this.renderNews = this.renderNews.bind(this);
@@ -18,7 +19,8 @@ class News extends Component {
 
   changeStyle(){
     this.setState({
-      newsSize: '300px'
+      newsSize: '300px',
+      visible: 'hidden'
     });
   }
 
@@ -57,7 +59,7 @@ class News extends Component {
         <div style={{ maxHeight: this.state.newsSize }} className="news-list-container">
           { this.renderNews() }
         </div>
-        <button onClick={ () => this.changeStyle() }>See More</button>
+        <a className="news-button" style={{ visibility: this.state.visible }} onClick={ () => this.changeStyle() }>See More</a>
       </div>
     );
   }
