@@ -5,10 +5,21 @@ import { Link } from 'react-router-dom';
 class News extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      newsSize: '150px'
+    };
+
     this.renderNews = this.renderNews.bind(this);
+    this.changeStyle = this.changeStyle.bind(this);
   }
   componentDidMount() {
     this.props.fetchNews();
+  }
+
+  changeStyle(){
+    this.setState({
+      newsSize: '300px'
+    });
   }
 
   renderNews() {
@@ -20,16 +31,13 @@ class News extends Component {
           <li key={ i } className="article-container">
             <a href={ news.url } >
               <div className="news-title">
-                <i class="fa fa-fire"></i>
+                <i className="fa fa-fire"></i>
                 { news.title.slice(0, 50) }
                 <span>
                   - { news.source.name }
                 </span>
               </div>
             </a>
-            <div className="on-hover-article">
-              <p>HELLO!</p>
-            </div>
           </li>
         );
       });
@@ -46,7 +54,10 @@ class News extends Component {
     return (
       <div className="news-container">
         <p>Trending</p>
-        { this.renderNews() }
+        <div style={{ maxHeight: this.state.newsSize }} className="news-list-container">
+          { this.renderNews() }
+        </div>
+        <button onClick={ () => this.changeStyle() }>See More</button>
       </div>
     );
   }
