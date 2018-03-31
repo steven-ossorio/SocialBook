@@ -30,6 +30,14 @@ html {
   border: 1px solid #dddfe2;
   border-radius: 3px;
 
+  .news-button {
+      font-size: 13px;
+      margin-top: 4px;
+      text-decoration: underline;
+      color: #365899;
+      margin-bottom: 5px;
+  }
+
   .news-list-container {
     // max-height: 150px;
     overflow-y: hidden;
@@ -62,7 +70,7 @@ html {
   a {
     color: black;
     text-decoration: none;
-    padding: 1px 10px;
+    padding: 1px 3px;
     i {
       padding-right: 3px;
     }
