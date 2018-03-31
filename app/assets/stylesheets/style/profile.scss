@@ -30,6 +30,11 @@ html {
   border: 1px solid #dddfe2;
   border-radius: 3px;
 
+  .news-list-container {
+    // max-height: 150px;
+    overflow-y: hidden;
+  }
+
   p {
     padding: 13px;
     font-size: 13px;
