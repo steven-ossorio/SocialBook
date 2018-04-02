@@ -14,6 +14,7 @@ import HomeNavContainer from './home_nav_container';
 import NewsFeedContainer from './newsfeed_container';
 import AboutDeveloper from './about_developer';
 import NewsContainer from './news_container';
+import ListSection from './list';
 
 class Home extends Component {
   constructor(props){
@@ -48,7 +49,10 @@ class Home extends Component {
           <HomeNavContainer />
           <div className="newsfeed_container">
             <div className='landing-page-container'>
-              <div className='left-portion'>
+              <div className="left-portion">
+                <ListSection user={ this.props.user }/>
+              </div>
+              <div className='middle-portion'>
                 <PostFormContainer />
                 <NewsFeedContainer />
               </div>

@@ -2,6 +2,11 @@ html {
   background-color: #e9ebee;
 }
 
+.current-user-link {
+  display: flex;
+  width: 180px;
+}
+
 .landing-page-container {
   display: flex;
 
@@ -20,6 +25,11 @@ html {
     color: black;
     text-decoration: none;
   }
+
+  i:first-child {
+    margin-top: 0px;
+  }
+
   i {
     font-size: 60px;
     padding: 5px;
