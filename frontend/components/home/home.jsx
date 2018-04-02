@@ -47,10 +47,16 @@ class Home extends Component {
         <div>
           <HomeNavContainer />
           <div className="newsfeed_container">
-            <AboutDeveloper />
-            <NewsContainer />
-            <PostFormContainer />
-            <NewsFeedContainer />
+            <div className='landing-page-container'>
+              <div className='left-portion'>
+                <PostFormContainer />
+                <NewsFeedContainer />
+              </div>
+              <div className='right-portion'>
+                <AboutDeveloper />
+                <NewsContainer />
+              </div>
+            </div>
           </div>
         </div>
       );

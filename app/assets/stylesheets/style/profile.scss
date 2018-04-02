@@ -2,8 +2,16 @@ html {
   background-color: #e9ebee;
 }
 
+.landing-page-container {
+  display: flex;
+
+  .right-portion {
+    margin-left: 10px;
+  }
+}
+
 .about-developer-container {
-  position: absolute;
+  // position: absolute;
   right: 300px;
   flex-direction: column;
   display: flex;
@@ -22,7 +30,7 @@ html {
 
 .news-container {
   color: black;
-  position: absolute;
+  // position: absolute;
   right: 138px;
   top: 350px;
   width: 310px;
