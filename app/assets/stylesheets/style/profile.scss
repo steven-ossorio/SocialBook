@@ -2,10 +2,33 @@ html {
   background-color: #e9ebee;
 }
 
-.current-user-link {
-  display: flex;
-  width: 180px;
+.left-portion {
+  img {
+    max-height: 20px;
+    max-width: 20px;
+    margin-top: 4px;
+    margin-right: 5px;
+  }
+
+  span {
+    margin: 0px 3px;
+  }
+
+  .current-user-link {
+    padding: 5px;
+    margin-right: 12px;
+    display: flex;
+    width: 180px;
+    line-height: 28px;
+    font-size: 13px;
+
+    &:hover {
+      background-color: #f6f7f9;
+      cursor: pointer;
+    }
+  }
 }
+
 
 .landing-page-container {
   display: flex;
