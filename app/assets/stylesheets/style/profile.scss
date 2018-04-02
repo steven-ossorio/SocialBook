@@ -29,6 +29,7 @@ html {
   background-color: white;
   border: 1px solid #dddfe2;
   border-radius: 3px;
+  padding: 10px;
 
   .news-button {
       font-size: 13px;
@@ -36,6 +37,8 @@ html {
       text-decoration: underline;
       color: #365899;
       margin-bottom: 5px;
+      cursor: pointer;
+      margin-left: 10px;
   }
 
   .news-list-container {
