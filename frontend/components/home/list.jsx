@@ -6,8 +6,8 @@ const ListSection = ({ user }) => {
     <ul>
       <li className="current-user-link">
         <img className="nav-profile-image" src={ user.image_url }></img>
-        { user.firstName }
-        { user.lastName }
+        <span>{ user.firstName }</span>
+        <span>{ user.lastName }</span>
       </li>
     </ul>
   );
