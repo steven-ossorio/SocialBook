@@ -8,6 +8,12 @@
   border-radius: 2px;
 }
 
+.list-of-post {
+  li{
+    margin-top: 10px;
+  }
+}
+
 .post-form-option-container {
   background-color: #f6f7f9;
   height: 35px;
@@ -36,6 +42,7 @@
     width: 40px;
     border-radius: 50%;
     margin: 15px;
+    object-fit: cover;
   }
 }
 
