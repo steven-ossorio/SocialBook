@@ -72,7 +72,7 @@ class PostIndex extends Component {
 
   render() {
     return (
-      <div>
+      <div className="list-of-post">
         { this.renderPosts() }
       </div>
     );
