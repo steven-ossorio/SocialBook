@@ -7,6 +7,11 @@ import PostDropDown from './delete_post.jsx';
 class NewsFeed extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      startIndex: 0,
+      endIndex: 10
+    };
+    this.addMore = this.addMore.bind(this);
   }
 
   componentDidMount() {
@@ -25,7 +30,16 @@ class NewsFeed extends Component {
     }
   }
 
+  addMore() {
+    this.setState({
+      startIndex: this.state.startIndex + 10,
+      endIndex: this.state.endIndex + 10
+    });
+    console.log(this.state.startIndex);
+  }
+
   render(){
+    console.log(this.state.startIndex);
     if (!(this.props.newsfeed === undefined)) {
       let postsId = {};
       let excludeRepeat = this.props.newsfeed.filter( post => {
@@ -33,8 +47,7 @@ class NewsFeed extends Component {
           postsId[post.id] = true;
           return post;
         }
-      });
-
+      }).slice(this.state.startIndex, this.state.endIndex);
       let posts = excludeRepeat.map( post => (
         <li className="post-list" key={ `${post.id}` }>
           <div className="post-list-container">
@@ -59,6 +72,7 @@ class NewsFeed extends Component {
       return(
         <div>
           { posts }
+          <button onClick={ () => this.addMore() }> See more </button>
         </div>
       );
     } else {
