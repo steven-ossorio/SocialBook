@@ -9,14 +9,20 @@ class NewsFeed extends Component {
     super(props);
     this.state = {
       startIndex: 0,
-      endIndex: 10
+      endIndex: 10,
+      posts: []
     };
-    this.addMore = this.addMore.bind(this);
+    this.addMorePosts = this.addMorePosts.bind(this);
   }
 
   componentDidMount() {
     if (!this.props.user[this.props.currentUser.id]) {
       this.props.fetchUser(this.props.currentUser.id);
+    }
+
+    if(this.props.newsfeed !== undefined) {
+      debugger
+      this.addMorePosts();
     }
   }
 
@@ -30,25 +36,37 @@ class NewsFeed extends Component {
     }
   }
 
-  addMore() {
+  addMorePosts() {
+    let postsId = {};
+    let excludeRepeat = this.props.newsfeed.filter( post => {
+      if (!postsId[post.id]) {
+        postsId[post.id] = true;
+        return post;
+      }
+    }).slice(this.state.startIndex, this.state.endIndex);
+
     this.setState({
+      posts: this.state.posts.concat(excludeRepeat),
       startIndex: this.state.startIndex + 10,
       endIndex: this.state.endIndex + 10
     });
-    console.log(this.state.startIndex);
   }
 
   render(){
-    console.log(this.state.startIndex);
-    if (!(this.props.newsfeed === undefined)) {
-      let postsId = {};
-      let excludeRepeat = this.props.newsfeed.filter( post => {
-        if (!postsId[post.id]) {
-          postsId[post.id] = true;
-          return post;
-        }
-      }).slice(this.state.startIndex, this.state.endIndex);
-      let posts = excludeRepeat.map( post => (
+    if ((this.props.newsfeed !== undefined)) {
+      // let excludeRepeat;
+      // if (this.state.posts.length === 0) {
+      //   let postsId = {};
+      //   excludeRepeat = this.props.newsfeed.filter( post => {
+      //     if (!postsId[post.id]) {
+      //       postsId[post.id] = true;
+      //       return post;
+      //     }
+      //   }).slice(0, 10);
+      // } else {
+      //   excludeRepeat = this.state.posts;
+      // }
+      let posts = this.state.posts.map( post => (
         <li className="post-list" key={ `${post.id}` }>
           <div className="post-list-container">
             <div className="entire-top-container">
@@ -72,7 +90,7 @@ class NewsFeed extends Component {
       return(
         <div>
           { posts }
-          <button onClick={ () => this.addMore() }> See more </button>
+          <button onClick={ () => this.addMorePosts() }> See more </button>
         </div>
       );
     } else {

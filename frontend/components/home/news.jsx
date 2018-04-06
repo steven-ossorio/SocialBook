@@ -28,7 +28,6 @@ class News extends Component {
     if (this.props.news) {
       let news = this.props.news;
       return news.map( (news, i) => {
-        console.log(news);
         return (
           <li key={ i } className="article-container">
             <a href={ news.url } >
