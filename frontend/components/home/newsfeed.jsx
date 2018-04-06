@@ -9,8 +9,7 @@ class NewsFeed extends Component {
     super(props);
     this.state = {
       startIndex: 0,
-      endIndex: 10,
-      posts: []
+      endIndex: 10
     };
     this.addMorePosts = this.addMorePosts.bind(this);
   }
@@ -18,11 +17,6 @@ class NewsFeed extends Component {
   componentDidMount() {
     if (!this.props.user[this.props.currentUser.id]) {
       this.props.fetchUser(this.props.currentUser.id);
-    }
-
-    if(this.props.newsfeed !== undefined) {
-      debugger
-      this.addMorePosts();
     }
   }
 
@@ -37,36 +31,23 @@ class NewsFeed extends Component {
   }
 
   addMorePosts() {
-    let postsId = {};
-    let excludeRepeat = this.props.newsfeed.filter( post => {
-      if (!postsId[post.id]) {
-        postsId[post.id] = true;
-        return post;
-      }
-    }).slice(this.state.startIndex, this.state.endIndex);
-
     this.setState({
-      posts: this.state.posts.concat(excludeRepeat),
-      startIndex: this.state.startIndex + 10,
       endIndex: this.state.endIndex + 10
     });
   }
 
   render(){
     if ((this.props.newsfeed !== undefined)) {
-      // let excludeRepeat;
-      // if (this.state.posts.length === 0) {
-      //   let postsId = {};
-      //   excludeRepeat = this.props.newsfeed.filter( post => {
-      //     if (!postsId[post.id]) {
-      //       postsId[post.id] = true;
-      //       return post;
-      //     }
-      //   }).slice(0, 10);
-      // } else {
-      //   excludeRepeat = this.state.posts;
-      // }
-      let posts = this.state.posts.map( post => (
+
+      let postsId = {};
+      let excludeRepeat = this.props.newsfeed.filter( post => {
+        if (!postsId[post.id]) {
+          postsId[post.id] = true;
+          return post;
+        }
+      }).slice(this.state.startIndex, this.state.endIndex);
+
+      let posts = excludeRepeat.map( post => (
         <li className="post-list" key={ `${post.id}` }>
           <div className="post-list-container">
             <div className="entire-top-container">
