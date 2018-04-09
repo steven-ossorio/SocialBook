@@ -32,14 +32,16 @@ const UserReducer = (state = {}, action) => {
       let key;
 
       for(let i = 0; i < userIds.length; i++) {
+        if (isNaN(userIds[i])) break;
         if (newState[userIds[i]].profilePostsId.includes(action.postId)) {
           key = userIds[i];
           break;
         }
       }
-
-      let location = newState[key].profilePostsId.indexOf(action.postId);
-      newState[key].profilePostsId = newState[key].profilePostsId.slice(0, location).concat(newState[key].profilePostsId.slice(location + 1));
+      if(key !== undefined) {
+        let location = newState[key].profilePostsId.indexOf(action.postId);
+        newState[key].profilePostsId = newState[key].profilePostsId.slice(0, location).concat(newState[key].profilePostsId.slice(location + 1));
+      }
 
       if (newState.newsfeed) {
         let newsfeed = newState.newsfeed;
