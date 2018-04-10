@@ -10,17 +10,25 @@ class NewsFeed extends Component {
     this.state = {
       startIndex: 0,
       endIndex: 10,
-      loading: false
+      loading: false,
+      _isMounted: false
     };
     this.addMorePosts = this.addMorePosts.bind(this);
     this.endOfPage = this.endOfPage.bind(this);
     this.loading = this.loading.bind(this);
+    this._isMounted = null;
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   componentDidMount() {
     if (!this.props.user[this.props.currentUser.id]) {
       this.props.fetchUser(this.props.currentUser.id);
     }
+
+    this._isMounted = true;
   }
 
   loading() {
@@ -46,14 +54,16 @@ class NewsFeed extends Component {
       endIndex: this.state.endIndex + 10,
       loading: false
     });
+
+    this._isMounted = true;
   }
 
   endOfPage() {
     if (!this.state.loading) {
       $(window).scroll( () => {
         if($(window).scrollTop() + $(window).height() == $(document).height() && this.state.loading === false) {
-          this.setState({ loading: true });
-          setTimeout( () => this.addMorePosts(), 1500 );
+          if(this._isMounted) this.setState({ loading: true });
+          if(this._isMounted) setTimeout( () => this.addMorePosts(), 1500 );
         }
       });
     }
@@ -91,7 +101,7 @@ class NewsFeed extends Component {
         </li>
       ));
       return(
-        <div onScroll={ this.endOfPage() }>
+        <div id="scroll-newsfeed" onScroll={ this.endOfPage() }>
           { posts }
           { this.loading() }
         </div>
