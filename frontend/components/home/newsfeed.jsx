@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { RingLoader } from 'react-spinners';
+import { RingLoader, PulseLoader } from 'react-spinners';
 import PostDropDown from './delete_post.jsx';
 
 class NewsFeed extends Component {
@@ -34,7 +34,9 @@ class NewsFeed extends Component {
   loading() {
     if (this.state.loading) {
       return(
-        <RingLoader size={100} color={'#0000FF'} />
+        <div className="newsfeed-loading-animation">
+          <PulseLoader size={30} color={'#0000FF'} />
+        </div>
       );
     }
   }
