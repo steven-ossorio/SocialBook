@@ -11,8 +11,8 @@ const ListSection = ({ user }) => {
           <span>{ user.lastName }</span>
         </li>
       </Link>
-      <li className="newsfeed-link">
-        <i class="fa fa-newspaper" aria-hidden="true"></i>
+      <li className="newsfeed-list">
+         <i className="fa fa-newspaper-o"><span>News Feed</span></i>
       </li>
     </ul>
   );
