@@ -12,7 +12,8 @@ const ListSection = ({ user }) => {
         </li>
       </Link>
       <li className="newsfeed-list">
-         <i className="fa fa-newspaper-o"><span>News Feed</span></i>
+        <i className="fa fa-newspaper-o"></i>
+        <span>News Feed</span>
       </li>
     </ul>
   );
