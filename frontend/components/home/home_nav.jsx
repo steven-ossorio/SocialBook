@@ -24,7 +24,7 @@ class HomeNav extends Component {
               <img className="nav-profile-image" src={ this.props.user.image_url }></img>
               <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.user.firstName }</Link>
             </li>
-            <li><Link to="/">Home</Link></li>
+            <li><Link to="/" replace>Home</Link></li>
             <RequestDropDown requests={ this.props.requests } currentUser={ this.props.currentUser } user={ this.props.user } updateFriendship={ this.props.updateFriendship } />
             <li className="hidden-element"><i className="fa fa-comments"></i></li>
             <li className="hidden-element"><i className="fa fa-globe"></i></li>
