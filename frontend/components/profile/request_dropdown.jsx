@@ -1,6 +1,7 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Dropdown, DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
+import onClickOutside from 'react-onclickoutside';
 
 class RequestDropDown extends Component {
   constructor(props){
@@ -9,6 +10,15 @@ class RequestDropDown extends Component {
     this.state = {
       menuActive: false
     };
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  handleClickOutside() {
+    let menuState = !this.state.menuActive;
+
+    this.setState({
+      menuActive: false
+    });
   }
 
   toggleMenu() {
@@ -72,4 +82,4 @@ class RequestDropDown extends Component {
     }
   }
 
-export default RequestDropDown;
+export default onClickOutside(RequestDropDown);
