@@ -1,4 +1,5 @@
 require 'faker'
+require 'forgery'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -47,7 +48,9 @@ my_profile = User.create!(
   sex: sex.sample,
   dob: "Oct 20 1999",
   image: profile_images.sample,
-  cover_image: cover_images.sample
+  cover_image: cover_images.sample,
+  home_location: `#{Forgery('address').city}, #{Forgery('address').country}`,
+  current_location: `#{Forgery('address').city}, #{Forgery('address').country}`
 )
 
 collection_of_created_users_id.push(my_profile.id)
@@ -61,7 +64,9 @@ collection_of_created_users_id.push(my_profile.id)
     sex: sex.sample,
     dob: "Oct 20 1999",
     image: profile_images.sample,
-    cover_image: cover_images.sample
+    cover_image: cover_images.sample,
+    home_location: `#{Forgery('address').city}, #{Forgery('address').country}`,
+    current_location: `#{Forgery('address').city}, #{Forgery('address').country}`
   )
 
   collection_of_created_users_id.push(created_user.id)

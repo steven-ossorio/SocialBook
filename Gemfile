@@ -37,6 +37,7 @@ gem "figaro"
 gem 'aws-sdk', '< 3.0'
 gem 'font-awesome-rails'
 gem 'faker'
+gem 'forgery'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
