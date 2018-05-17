@@ -8,34 +8,62 @@
 .intro-container {
   background-color: white;
   height: 150px;
+
+  .intro-header {
+    display: flex;
+    padding: 10px;
+
+    .intro-header-icon {
+      background-color: #4368b2;
+      border-radius: 50%;
+      font-size: 15px;
+      width: 18px;
+      height: 20px;
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    i {
+      margin-left: 4px;
+      margin-top: 2px;
+      color: white;
+      margin-right: 20px;
+    }
+
+    p {
+      margin-top: 2px;
+      color: #4469b1;
+    }
+  }
+
+  .intro-description {
+    font-size: 12px;
+    border-top: 1px solid #e9ebee;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: #1d2129;
+    p {
+      font-weight: bold;
+    }
+    p > span {
+      color:#abadb3;
+    }
+    p > i:first-child {
+      font-size: 16px;
+      margin-top: 10px;
+      margin-right: 10px;
+      color: #abadb3;
+    }
+    p:nth-child(2) {
+      margin-left: 3px;
+      i {
+        font-size: 16px;
+        margin-right: 12px;
+      }
+    }
+  }
 }
 
-.intro-header {
-  display: flex;
-  padding: 10px;
-
-  .intro-header-icon {
-    background-color: #4368b2;
-    border-radius: 50%;
-    font-size: 15px;
-    width: 18px;
-    height: 20px;
-    width: 20px;
-    margin-right: 10px;
-  }
-
-  i {
-    margin-left: 4px;
-    margin-top: 2px;
-    color: white;
-    margin-right: 20px;
-  }
-
-  p {
-    margin-top: 2px;
-    color: #4469b1;
-  }
-}
 
 .profile-friends-container {
   margin-top: 20px;

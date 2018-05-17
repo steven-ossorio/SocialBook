@@ -49,8 +49,8 @@ my_profile = User.create!(
   dob: "Oct 20 1999",
   image: profile_images.sample,
   cover_image: cover_images.sample,
-  home_location: `#{Forgery('address').city}, #{Forgery('address').country}`,
-  current_location: `#{Forgery('address').city}, #{Forgery('address').country}`
+  home_location: Forgery('address').city + ", " + Forgery('address').country,
+  current_location: Forgery('address').city + ", " + Forgery('address').country
 )
 
 collection_of_created_users_id.push(my_profile.id)
@@ -65,8 +65,8 @@ collection_of_created_users_id.push(my_profile.id)
     dob: "Oct 20 1999",
     image: profile_images.sample,
     cover_image: cover_images.sample,
-    home_location: `#{Forgery('address').city}, #{Forgery('address').country}`,
-    current_location: `#{Forgery('address').city}, #{Forgery('address').country}`
+    home_location: Forgery('address').city + ", " + Forgery('address').country,
+    current_location: Forgery('address').city + ", " + Forgery('address').country
   )
 
   collection_of_created_users_id.push(created_user.id)

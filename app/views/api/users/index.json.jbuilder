@@ -11,6 +11,8 @@ json.user do
   json.sex @user.sex
   json.image_url asset_path(@user.image.url)
   json.cover_image_url asset_path(@user.cover_image.url)
+  json.current_location @user.current_location
+  json.home_location @user.home_location
   # json.postsIds @user.posts.pluck(:id)
   json.friendIds @user.friends.pluck(:id)
   json.requests @user.requests.pluck(:friender_id)

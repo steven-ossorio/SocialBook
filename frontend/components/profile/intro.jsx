@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { RingLoader } from 'react-spinners';
 
 class Intro extends Component {
   constructor(props){
@@ -8,18 +9,40 @@ class Intro extends Component {
   }
 
   render(){
-    return (
-      <div>
-        <div className="intro-container">
-          <div className="intro-header">
-            <div className="intro-header-icon">
-              <i className="fa fa-globe" aria-hidden="true"></i>
+    if (this.props.user) {
+      return (
+        <div>
+          <div className="intro-container">
+            <div className="intro-header">
+              <div className="intro-header-icon">
+                <i className="fa fa-globe" aria-hidden="true"></i>
+              </div>
+              <p>Intro</p>
             </div>
-            <p>Intro</p>
+            <div className="intro-description">
+              <p><i className="fa fa-home"></i><span>Lives in</span> { this.props.user.current_location }</p>
+              <p><i className="fa fa-map-marker"></i><span>From</span> { this.props.user.home_location }</p>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div>
+          <div className="intro-container">
+            <div className="intro-header">
+              <div className="intro-header-icon">
+                <i className="fa fa-globe" aria-hidden="true"></i>
+              </div>
+              <p>Intro</p>
+              <div className="loading-spin">
+                <RingLoader size={20} color={'#0000FF'} />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
 

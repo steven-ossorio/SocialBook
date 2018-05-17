@@ -6,7 +6,7 @@ import PostIndexContainer from '../post/post_index_container';
 import ProfileTopSection from './profile_top_section';
 import ProfileTopContainer from "./profile_top_container";
 import Friends from './friends';
-import Intro from './intro';
+import IntroContainer from './intro_container';
 import ProfileNav from './profile_nav';
 import ProfileNavContainer from './profile_nav_container';
 import FriendsContainer from './friends_container';
@@ -37,7 +37,7 @@ class Profile extends Component {
           <ProfileTopContainer props={ this.props } />
           <div className="profile-page-container" >
             <div className="profile-left-section">
-              <Intro />
+              <IntroContainer />
               <FriendsContainer />
             </div>
             <div className="posts-container">
