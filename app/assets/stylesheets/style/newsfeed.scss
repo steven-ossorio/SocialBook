@@ -51,7 +51,12 @@
     }
   }
 }
-
+.nav-profile-image-container {
+  &:hover {
+    // background-color: #4267b2;
+    background-color: #29487d;
+  }
+}
 .nav-profile-image {
   border-radius: 50%;
   height: 25px;

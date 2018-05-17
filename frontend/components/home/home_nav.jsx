@@ -20,7 +20,7 @@ class HomeNav extends Component {
         <div className="newsfeed-nav-items">
           <h1 className="logo"><Link to="/" replace><i className="fa fa-facebook-official"></i></Link></h1>
           <ul className="navbar-items">
-            <li>
+            <li className="nav-profile-image-container">
               <img className="nav-profile-image" src={ this.props.user.image_url }></img>
               <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.user.firstName }</Link>
             </li>

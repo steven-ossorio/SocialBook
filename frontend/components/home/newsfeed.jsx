@@ -92,7 +92,7 @@ class NewsFeed extends Component {
                   </div>
                   <div className="post-name-container">
                     <Link to={ `users/${ post.owner }`}><p>{ post.first_name }</p></Link>
-                    <p>{ moment(post.created_at).format("LL").slice(0, 10) }</p>
+                    <p>{ moment(post.created_at).format("LL") }</p>
                   </div>
                 </div>
                 { this.postOwner(post) }
