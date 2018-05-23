@@ -14,6 +14,93 @@ Post.destroy_all
 
 sex = ["male", "female"]
 
+colleges = [
+  "State University of New York at Buffalo",
+  "Binghamton University",
+  "Stony Brook University",
+  "University at Albany, State University of New York",
+  "SUNY Technology Colleges",
+  "Alfred State College",
+  "State University of New York at Canton",
+  "State University of New York at Cobleskill",
+  "State University of New York at Delhi",
+  "State University of New York at Farmingdale",
+  "State University of New York at Morrisville",
+  "State University of New York Polytechnic Institute, Marcy",
+  "State University of New York Maritime College",
+  "SUNY Comprehensive Colleges",
+  "Buffalo State College",
+  "Empire State College, Saratoga Springs",
+  "State University of New York at Brockport",
+  "State University of New York at Cortland",
+  "State University of New York at Fredonia",
+  "State University of New York at Geneseo",
+  "State University of New York at New Paltz",
+  "State University of New York at Old Westbury",
+  "State University of New York at Oneonta",
+  "State University of New York at Oswego",
+  "State University of New York at Plattsburgh",
+  "State University of New York at Potsdam",
+  "Crane School of Music",
+  "State University of New York at Purchase",
+  "SUNY Specialized Doctoral Granting Units",
+  "State University of New York Downstate Medical Center",
+  "State University of New York Upstate Medical University",
+  "State University of New York College of Environmental Science and Forestry",
+  "State University of New York State College of Optometry"
+]
+
+majors = [
+  "Accounting",
+  "Architectural Engineering",
+  "Architecture",
+  "Art History",
+  "Biochemistry",
+  "Bioengineering",
+  "Biology",
+  "Biophysics",
+  "Biotechnology",
+  "Business Administration and Management",
+  "Business Logistics",
+  "Chemical Engineering",
+  "Computer Engineering",
+  "Computer Science",
+  "Crime, Law, and Justice",
+  "Economics",
+  "Electrical Engineering",
+  "Elementary and Kindergarten Education",
+  "Engineering Science",
+  "English",
+  "Environmental Systems Engineering",
+  "Geography",
+  "Geosciences",
+  "Graphic Design and Photography",
+  "Health and Physical Education",
+  "Health Policy and Administration",
+  "Industrial Engineering",
+  "Information Sciences and Technology",
+  "Journalism",
+  "Mathematics",
+  "Mechanical Engineering",
+  "Media Studies",
+  "Meteorology",
+  "Microbiology",
+  "Mineral Economics",
+  "Modern Languages",
+  "Music Education",
+  "Nuclear Engineering",
+  "Nursing",
+  "Nutrition",
+  "Philosophy",
+  "Physics",
+  "Physiology",
+  "Political Science",
+  "Pre-medicine",
+  "Psychology",
+  "Secondary Education",
+  "Sociology"
+]
+
 profile_images = [
   "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/Leia.jpg",
   "https://s3.amazonaws.com/socialbook-dev/users/cover_images/000/000/001/Jeff_Dunham.jpg",
@@ -50,7 +137,9 @@ my_profile = User.create!(
   image: profile_images.sample,
   cover_image: cover_images.sample,
   home_location: Forgery('address').city + ", " + Forgery('address').country,
-  current_location: Forgery('address').city + ", " + Forgery('address').country
+  current_location: Forgery('address').city + ", " + Forgery('address').country,
+  major: majors.sample,
+  education: colleges.sample
 )
 
 collection_of_created_users_id.push(my_profile.id)
@@ -66,7 +155,9 @@ collection_of_created_users_id.push(my_profile.id)
     image: profile_images.sample,
     cover_image: cover_images.sample,
     home_location: Forgery('address').city + ", " + Forgery('address').country,
-    current_location: Forgery('address').city + ", " + Forgery('address').country
+    current_location: Forgery('address').city + ", " + Forgery('address').country,
+    major: majors.sample,
+    education: colleges.sample
   )
 
   collection_of_created_users_id.push(created_user.id)

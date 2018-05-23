@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180517190302) do
+ActiveRecord::Schema.define(version: 20180517215141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20180517190302) do
     t.datetime "cover_image_updated_at"
     t.string "current_location"
     t.string "home_location"
+    t.string "education"
+    t.string "major"
   end
 
 end

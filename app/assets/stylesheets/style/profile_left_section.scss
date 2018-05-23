@@ -42,23 +42,34 @@
     margin-left: 15px;
     margin-right: 15px;
     color: #1d2129;
+
+    span {
+      color: #365899;
+    }
+
     p {
       font-weight: bold;
     }
-    p > span {
-      color:#abadb3;
-    }
+
     p > i:first-child {
       font-size: 16px;
       margin-top: 10px;
       margin-right: 10px;
       color: #abadb3;
+      margin-left: 2px;
     }
     p:nth-child(2) {
       margin-left: 3px;
       i {
         font-size: 16px;
         margin-right: 12px;
+        margin-left: 2px;
+      }
+    }
+    p:nth-child(3) {
+      i {
+        margin-right: 3px;
+        font-size: 16px; 
       }
     }
   }

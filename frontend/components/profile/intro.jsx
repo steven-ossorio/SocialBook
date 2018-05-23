@@ -10,6 +10,7 @@ class Intro extends Component {
 
   render(){
     if (this.props.user) {
+      console.log(this.props.user);
       return (
         <div>
           <div className="intro-container">
@@ -20,8 +21,9 @@ class Intro extends Component {
               <p>Intro</p>
             </div>
             <div className="intro-description">
-              <p><i className="fa fa-home"></i><span>Lives in</span> { this.props.user.current_location }</p>
-              <p><i className="fa fa-map-marker"></i><span>From</span> { this.props.user.home_location }</p>
+              <p><i className="fa fa-home"></i>Lives in <span>{ this.props.user.current_location }</span></p>
+              <p><i className="fa fa-map-marker"></i>From <span>{ this.props.user.home_location }</span></p>
+              <p><i className="fa fa-graduation-cap"></i>Studied { this.props.user.major } at <span> { this.props.user.school }</span></p>    
             </div>
           </div>
         </div>
