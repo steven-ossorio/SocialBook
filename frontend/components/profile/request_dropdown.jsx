@@ -53,7 +53,8 @@ class RequestDropDown extends Component {
             <div>
               <div className="arrow-up"></div>
               <p className="friend-request-text">Friend Requests</p>
-              { list_requests }
+              <div className="friend-request-list">{ list_requests }</div>
+              <div className="friend-request-footer"></div>
             </div>
           </div>;
         } else {
