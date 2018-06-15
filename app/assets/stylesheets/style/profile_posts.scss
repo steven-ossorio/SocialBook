@@ -1,6 +1,32 @@
 li {
   list-style: none;
 }
+
+.comment-container {
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  .comment-content {
+    word-wrap: break-word;
+    background-color: #ebedf0;
+    border-radius: 18px;
+    display: block;
+    line-height: 16px;
+    padding: 9px 12px;
+    font-size: 13px;
+    width: 90%;
+
+    .comment-owner-name {
+      color: #365899;
+      cursor: pointer;
+      text-decoration: none;
+      max-width: 10%;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
 .post-list {
   margin-top: 20px;
 
@@ -15,6 +41,8 @@ li {
     object-fit: cover;
     margin-right: 10px;
   }
+
+
 }
 
 .post-list-container {

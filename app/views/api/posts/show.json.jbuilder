@@ -10,6 +10,7 @@ json.owner @post.owner_id
 json.created_at @post.created_at
 json.text @post.text
 json.profile_id @post.profile_id
+json.comments @post.comments
     # end
   # end
 # end

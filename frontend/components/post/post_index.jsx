@@ -3,6 +3,9 @@ import DropDown from './dropdown';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { RingLoader } from 'react-spinners';
+import CommentForm from '../comment/comment_form';
+import CommentList from '../comment/comment_list';
+import CommentContainer from '../comment/comment_container';
 
 
 class PostIndex extends Component {
@@ -25,7 +28,7 @@ class PostIndex extends Component {
     if (post.owner === this.props.currentUser.id) {
       return (
         <div>
-          <DropDown deletePost={ this.props.deletePost } post={ post } />
+          <DropDown deletePost={ this.props.deletePost } post={ post }/>
         </div>
       );
     }
@@ -44,7 +47,6 @@ class PostIndex extends Component {
       });
 
       return posts.map( (post, idx) => {
-
         return (
           <li className="post-list" key={ `${post.id}` }>
             <div className="post-list-container">
@@ -63,6 +65,10 @@ class PostIndex extends Component {
                 </div>
               </div>
               <p className="post-list-text">{ post.text }</p>
+              <div>
+                <CommentContainer postId={post.id} />
+              </div>
+              <CommentForm user={ this.props.user } postId={ post.id } createComment={ this.props.createComment }  />
             </div>
           </li>
         );

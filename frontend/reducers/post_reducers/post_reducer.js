@@ -1,9 +1,14 @@
-import React from 'react';
-import { merge, omit } from 'lodash';
+import React from "react";
+import { merge, omit } from "lodash";
 
-import { RECEIVE_ALL_POSTS, RECEIVE_POST, REMOVE_POST } from '../../actions/post_actions';
-import { RECEIVE_USER } from '../../actions/user_actions';
-import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
+import {
+  RECEIVE_ALL_POSTS,
+  RECEIVE_POST,
+  REMOVE_POST
+} from "../../actions/post_actions";
+import { RECEIVE_USER } from "../../actions/user_actions";
+import { RECEIVE_CURRENT_USER } from "../../actions/session_actions";
+import { RECEIVE_COMMENT } from "../../actions/comment_actions";
 
 const PostReducer = (state = {}, action) => {
   let newState;
@@ -18,6 +23,15 @@ const PostReducer = (state = {}, action) => {
     case REMOVE_POST:
       newState = merge({}, state);
       return omit(newState, String(action.postId));
+    case RECEIVE_COMMENT:
+      newState = merge({}, state);
+      let postId = action.comment.comment.postId;
+      let post = newState[postId];
+      let comments = post.comments;
+      if (!comments.includes(action.comment.comment.id)) {
+        newState[postId].comments.push(action.comment);
+      }
+      return newState;
     default:
       return state;
   }
