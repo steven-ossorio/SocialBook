@@ -34,8 +34,8 @@ class CommentList extends Component {
             <div className="comment-container">
               <img src={comment.user.image}></img>
               <div className="comment-content">
-                <Link className="comment-owner-name" to={`/users/${comment.user.id}`} replace>{comment.user.first_name}</Link>
-                <p>{comment.text}</p>
+                  <Link className="comment-owner-name" to={`/users/${comment.user.id}`} replace>{comment.user.first_name}</Link>
+                  <span>{comment.text}</span>
               </div>
             </div>
           </li>

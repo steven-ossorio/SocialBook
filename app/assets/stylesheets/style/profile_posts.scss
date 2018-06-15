@@ -2,6 +2,15 @@ li {
   list-style: none;
 }
 
+.comment-input-field {
+  border: 1px solid black;
+  line-height: 16px;
+  font-size: 13px;
+  position: absolute;
+  width: auto;
+  resize: none;
+}
+
 .comment-container {
   padding: 10px;
   display: flex;
@@ -14,9 +23,10 @@ li {
     line-height: 16px;
     padding: 9px 12px;
     font-size: 13px;
-    width: 90%;
+    max-width: 90%;
 
     .comment-owner-name {
+      margin-right: 5px;
       color: #365899;
       cursor: pointer;
       text-decoration: none;
