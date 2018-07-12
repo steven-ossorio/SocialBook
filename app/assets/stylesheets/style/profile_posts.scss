@@ -3,12 +3,16 @@ li {
 }
 
 .comment-input-field {
-  border: 1px solid black;
+  border-radius: 16px;
+  padding-left: 6px;
+  border: 1px solid #dddfe2;
+  align-items: center;
   line-height: 16px;
   font-size: 13px;
   position: absolute;
-  width: auto;
+  width: 400px;
   resize: none;
+  padding-right: 0;
 }
 
 .comment-container {
