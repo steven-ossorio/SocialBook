@@ -1,19 +1,20 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import CommentList from './comment_list';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import CommentList from "./comment_list";
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
     comments: state.comment
   };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-  };
+  return {};
 };
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CommentList));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(CommentList)
+);

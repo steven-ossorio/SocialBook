@@ -8,17 +8,43 @@ class CommentList extends Component {
     super(props);
 
     this.state = {
-      startIndex: this.props.comments[this.props.postId].length,
+      startIndex: this.props.comments[this.props.postId].length - 3,
       endIndex: this.props.comments[this.props.postId].length
     };
     this.renderComments = this.renderComments.bind(this);
+    this.showMoreComments = this.showMoreComments.bind(this);
+  }
+
+  showMoreComments() {
+    let startIndex;
+    if (this.state.startIndex - 3 < 0) {
+      startIndex = 0;
+    } else {
+      startIndex = this.state.startIndex - 3;
+    }
+    this.setState({
+      startIndex
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.comments[nextProps.postId].length >
+      this.props.comments[this.props.postId].length
+    ) {
+      this.setState({
+        endIndex: nextProps.comments[this.props.postId].length
+      });
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     if (
-      nextProps.comments[this.props.postId].length !==
-      this.props.comments[this.props.postId].length
+      this.props.comments[this.props.postId].length <
+      nextProps.comments[nextProps.postId].length
     ) {
+      return true;
+    } else if (nextState.startIndex < this.state.startIndex) {
       return true;
     }
 
@@ -27,20 +53,23 @@ class CommentList extends Component {
 
   renderComments() {
     let loadMoreComments =
-      this.props.comments[this.props.postId].length > 3 ? (
-        <p>Load More Comments</p>
+      this.props.comments[this.props.postId].length &&
+      this.state.startIndex > 0 ? (
+        <p onClick={this.showMoreComments}>Load More Comments</p>
       ) : (
         ""
       );
     let commentList = this.props.comments[this.props.postId].slice(
-      this.state.startIndex - 3,
+      this.state.startIndex,
       this.state.endIndex
     );
 
-    commentList = commentList.map((comment, idx) => {
+    console.log("endLength", this.state.endIndex);
+
+    commentList = commentList.map(comment => {
       return (
-        <div>
-          <li className="post-list" key={`${comment.id}`}>
+        <div key={`${comment.id}`}>
+          <div className="post-list">
             <div className="comment-container">
               <img src={comment.user.image} />
               <div className="comment-content">
@@ -54,7 +83,7 @@ class CommentList extends Component {
                 <span>{comment.text}</span>
               </div>
             </div>
-          </li>
+          </div>
         </div>
       );
     });
