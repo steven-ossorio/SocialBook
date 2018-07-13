@@ -19,6 +19,16 @@ li {
   margin-left: 10px;
 }
 
+.loading-more-comments {
+  font-size: 13px;
+  padding-bottom: 5px;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
 .comment-container {
   padding: 10px 0;
   display: flex;

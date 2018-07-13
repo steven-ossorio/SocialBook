@@ -56,7 +56,7 @@ class CommentList extends Component {
       this.props.comments[this.props.postId].length &&
       this.state.startIndex > 0 ? (
         <p className="loading-more-comments" onClick={this.showMoreComments}>
-          Load More Comments
+          View 3 more comments
         </p>
       ) : (
         ""
