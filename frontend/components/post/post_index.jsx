@@ -75,14 +75,14 @@ class PostIndex extends Component {
                 </div>
               </div>
               <p className="post-list-text">{post.text}</p>
-              <div>
+              <div className="entire-comment-container">
                 <CommentContainer postId={post.id} />
+                <CommentForm
+                  user={this.props.user}
+                  postId={post.id}
+                  createComment={this.props.createComment}
+                />
               </div>
-              <CommentForm
-                user={this.props.user}
-                postId={post.id}
-                createComment={this.props.createComment}
-              />
             </div>
           </li>
         );

@@ -55,7 +55,9 @@ class CommentList extends Component {
     let loadMoreComments =
       this.props.comments[this.props.postId].length &&
       this.state.startIndex > 0 ? (
-        <p onClick={this.showMoreComments}>Load More Comments</p>
+        <p className="loading-more-comments" onClick={this.showMoreComments}>
+          Load More Comments
+        </p>
       ) : (
         ""
       );
@@ -64,24 +66,20 @@ class CommentList extends Component {
       this.state.endIndex
     );
 
-    console.log("endLength", this.state.endIndex);
-
     commentList = commentList.map(comment => {
       return (
-        <div key={`${comment.id}`}>
-          <div className="post-list">
-            <div className="comment-container">
-              <img src={comment.user.image} />
-              <div className="comment-content">
-                <Link
-                  className="comment-owner-name"
-                  to={`/users/${comment.user.id}`}
-                  replace
-                >
-                  {comment.user.first_name}
-                </Link>
-                <span>{comment.text}</span>
-              </div>
+        <div className="comment-list" key={`${comment.id}`}>
+          <div className="comment-container">
+            <img src={comment.user.image} />
+            <div className="comment-content">
+              <Link
+                className="comment-owner-name"
+                to={`/users/${comment.user.id}`}
+                replace
+              >
+                {comment.user.first_name}
+              </Link>
+              <span>{comment.text}</span>
             </div>
           </div>
         </div>
