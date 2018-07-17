@@ -6,6 +6,11 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :likes,
+  foreign_key: :liker_id,
+  primary_key: :id,
+  class_name: :Like
+
   has_many :posts,
     primary_key: :id,
     foreign_key: :owner_id,
