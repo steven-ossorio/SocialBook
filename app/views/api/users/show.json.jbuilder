@@ -25,6 +25,7 @@ json.posts do
       json.text post.text
       json.owner post.owner_id
       json.profile_id post.profile_id
+      json.likes post.likes
       json.comments do
         json.array! post.comments.each do |comment|
           json.user do

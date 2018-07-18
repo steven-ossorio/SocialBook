@@ -4,5 +4,6 @@
     json.created_at post.created_at
     json.text post.text
     json.comments post.comments
+    json.likes post.likes
   end
 end

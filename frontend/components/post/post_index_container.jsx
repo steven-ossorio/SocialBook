@@ -1,9 +1,10 @@
-import { fetchPosts, deletePost } from '../../actions/post_actions';
-import { fetchUser } from '../../actions/user_actions';
-import { createComment } from '../../actions/comment_actions';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import PostIndex from './post_index';
+import { fetchPosts, deletePost } from "../../actions/post_actions";
+import { fetchUser } from "../../actions/user_actions";
+import { like } from "../../actions/like_actions";
+import { createComment } from "../../actions/comment_actions";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import PostIndex from "./post_index";
 
 const mapStateToProps = (state, ownProps) => {
   let user = state.users[ownProps.match.params.userId];
@@ -28,11 +29,14 @@ const mapDispatchToProps = dispatch => {
     fetchPosts: () => dispatch(fetchPosts()),
     deletePost: id => dispatch(deletePost(id)),
     fetchUser: id => dispatch(fetchUser(id)),
-    createComment: comment => dispatch(createComment(comment))
+    createComment: comment => dispatch(createComment(comment)),
+    like: data => dispatch(like(data))
   };
 };
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PostIndex));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(PostIndex)
+);

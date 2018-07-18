@@ -6,6 +6,7 @@ import { RingLoader } from "react-spinners";
 import CommentForm from "../comment/comment_form";
 import CommentList from "../comment/comment_list";
 import CommentContainer from "../comment/comment_container";
+import Like from "./like_post";
 
 class PostIndex extends Component {
   constructor(props) {
@@ -75,6 +76,11 @@ class PostIndex extends Component {
                 </div>
               </div>
               <p className="post-list-text">{post.text}</p>
+              <Like
+                like={this.props.like}
+                postId={post.id}
+                userId={this.props.currentUser.id}
+              />
               <div className="entire-comment-container">
                 <CommentContainer postId={post.id} />
                 <CommentForm

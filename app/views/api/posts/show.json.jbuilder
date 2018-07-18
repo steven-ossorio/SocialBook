@@ -11,6 +11,8 @@ json.created_at @post.created_at
 json.text @post.text
 json.profile_id @post.profile_id
 json.comments @post.comments
+json.likes @post.likes
+
     # end
   # end
 # end
