@@ -37,13 +37,34 @@ const UserReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_LIKE:
       newState = merge({}, state);
-      for (let i = 0; i < newState.newsfeed.length; i++) {
-        let currentPost = newState.newsfeed[i];
-        if (currentPost.id === action.like.like.liked_id) {
-          currentPost.likes[currentPost.id].array.push(
-            action.like.like.liker_id
-          );
-          break;
+      if (newState.newsfeed) {
+        for (let i = 0; i < newState.newsfeed.length; i++) {
+          let currentPost = newState.newsfeed[i];
+          if (currentPost.id === action.like.like.liked_id) {
+            currentPost.likes[currentPost.id].array.push(
+              action.like.like.liker_id
+            );
+            break;
+          }
+        }
+      }
+      return newState;
+    case REMOVE_LIKE:
+      newState = merge({}, state);
+      if (newState.newsfeed) {
+        for (let i = 0; i < newState.newsfeed.length; i++) {
+          let currentPost = newState.newsfeed[i];
+          if (currentPost.id === action.like.like.liked_id) {
+            let likeRemoveIndex = currentPost.likes[
+              currentPost.id
+            ].array.indexOf(action.like.like.liker_id);
+
+            let newArray = newState.newsfeed[i].likes[
+              currentPost.id
+            ].array.splice(likeRemoveIndex, 1);
+
+            newState.newsfeed[i].likes[currentPost.id].array.concat(newArray);
+          }
         }
       }
       return newState;
