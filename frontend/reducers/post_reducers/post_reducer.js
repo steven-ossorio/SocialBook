@@ -5,7 +5,7 @@ import {
   RECEIVE_POST,
   REMOVE_POST
 } from "../../actions/post_actions";
-import { RECEIVE_LIKE } from "../../actions/like_actions";
+import { RECEIVE_LIKE, REMOVE_LIKE } from "../../actions/like_actions";
 import { RECEIVE_USER } from "../../actions/user_actions";
 import { RECEIVE_COMMENT } from "../../actions/comment_actions";
 
@@ -27,8 +27,10 @@ const PostReducer = (state = {}, action) => {
       let like = action.like.like;
       postId = like.liked_id;
       newState[postId].likes[postId].array.push(like.liker_id);
-      debugger;
       return newState;
+    case REMOVE_LIKE:
+      debugger;
+      return state;
     case RECEIVE_COMMENT:
       newState = merge({}, state);
       let postId = action.comment.comment.postId;

@@ -17,8 +17,8 @@ export const like = data => dispatch => {
 
 export const unlike = id => dispatch => {
   return LikeAPIUtil.unlike(id).then(
-    () => {
-      return dispatch(removeLike(id));
+    like => {
+      return dispatch(removeLike(like));
     },
     errors => {
       return dispatch(receiveErrors(errors));
@@ -33,10 +33,10 @@ const receiveLike = like => {
   };
 };
 
-const removeLike = likeId => {
+const removeLike = like => {
   return {
     type: REMOVE_LIKE,
-    likeId
+    like
   };
 };
 
