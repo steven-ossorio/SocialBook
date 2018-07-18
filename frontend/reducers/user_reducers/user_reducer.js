@@ -35,6 +35,18 @@ const UserReducer = (state = {}, action) => {
         newState.newsfeed.unshift(action.post);
       }
       return newState;
+    case RECEIVE_LIKE:
+      newState = merge({}, state);
+      for (let i = 0; i < newState.newsfeed.length; i++) {
+        let currentPost = newState.newsfeed[i];
+        if (currentPost.id === action.like.like.liked_id) {
+          currentPost.likes[currentPost.id].array.push(
+            action.like.like.liker_id
+          );
+          break;
+        }
+      }
+      return newState;
     case REMOVE_POST:
       newState = merge({}, state);
       let userIds = Object.keys(newState);
