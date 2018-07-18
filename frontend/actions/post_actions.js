@@ -1,46 +1,58 @@
-import * as PostAPIUtil from '../util/post_api_util';
+import * as PostAPIUtil from "../util/post_api_util";
 
-export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
-export const RECEIVE_POST = 'RECEIVE_POST';
-export const REMOVE_POST = 'REMOVE_POST';
-export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS';
+export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
+export const RECEIVE_POST = "RECEIVE_POST";
+export const REMOVE_POST = "REMOVE_POST";
+export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
 
 export const fetchPosts = () => dispatch => {
-  return PostAPIUtil.fetchPosts().then( posts => {
+  return PostAPIUtil.fetchPosts().then(posts => {
     return dispatch(receiveAllPosts(posts));
   });
 };
 
 export const fetchPost = id => dispatch => {
-  return PostAPIUtil.fetchPost(id).then( post => {
-    return dispatch(receivePost(post));
-  }, errors => {
-    return dispatch(receiveErrors(errors));
-  });
+  return PostAPIUtil.fetchPost(id).then(
+    post => {
+      return dispatch(receivePost(post));
+    },
+    errors => {
+      return dispatch(receiveErrors(errors));
+    }
+  );
 };
 
 export const createPost = post => dispatch => {
-  return PostAPIUtil.createPost(post).then( post => {
-    return dispatch(receivePost(post));
-  }, errors => {
-    return dispatch(receiveErrors(errors));
-  });
+  return PostAPIUtil.createPost(post).then(
+    post => {
+      return dispatch(receivePost(post));
+    },
+    errors => {
+      return dispatch(receiveErrors(errors));
+    }
+  );
 };
 
 export const updatePost = post => dispatch => {
-  return PostAPIUtil.updatePost(post).then( post => {
-    return dispatch(receivePost(post));
-  }, errors => {
-    return dispatch(receiveErrors(errors));
-  });
+  return PostAPIUtil.updatePost(post).then(
+    post => {
+      return dispatch(receivePost(post));
+    },
+    errors => {
+      return dispatch(receiveErrors(errors));
+    }
+  );
 };
 
 export const deletePost = id => dispatch => {
-  return PostAPIUtil.deletePost(id).then( () => {
-    return dispatch(removePost(id));
-  }, errors => {
-    return dispatch(receiveErrors(errors));
-  });
+  return PostAPIUtil.deletePost(id).then(
+    () => {
+      return dispatch(removePost(id));
+    },
+    errors => {
+      return dispatch(receiveErrors(errors));
+    }
+  );
 };
 
 const receiveAllPosts = posts => {
