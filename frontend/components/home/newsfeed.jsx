@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import { RingLoader, PulseLoader } from "react-spinners";
 import PostDropDown from "./delete_post.jsx";
+import CommentForm from "../comment/comment_form";
+import CommentList from "../comment/comment_list";
+import CommentContainer from "../comment/comment_container";
 import Like from "../../components/post/like_post";
 
 class NewsFeed extends Component {
@@ -115,14 +118,16 @@ class NewsFeed extends Component {
               likeIds={post.likes[post.id].array}
             />
 
-            {post.likes[post.id].array.length > 0 ? (
-              <div className="like-count-container">
-                <i className="fa fa-thumbs-up" />{" "}
-                {post.likes[post.id].array.length}
-              </div>
-            ) : (
-              ""
-            )}
+            <div className="entire-comment-container">
+              {post.likes[post.id].array.length > 0 ? (
+                <div className="like-count-container">
+                  <i className="fa fa-thumbs-up" />{" "}
+                  {post.likes[post.id].array.length}
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
         </li>
       ));

@@ -10,4 +10,14 @@ json.newsfeed @posts.each do |post|
       json.array post.likes.map(&:liker_id)
     end
   end
+  json.comments do
+    json.array! post.comments.each do |comment|
+      json.user do
+        json.extract! comment.user, :id, :first_name, :last_name, :image
+      end
+      json.id comment.id
+      json.created_at comment.created_at
+      json.text comment.text
+    end
+  end
 end

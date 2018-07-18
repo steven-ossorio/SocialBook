@@ -23,32 +23,6 @@ const UserReducer = (state = {}, action) => {
       return action.users;
     case RECEIVE_NEWSFEED:
       return merge({}, state, { newsfeed: action.posts.newsfeed });
-    case RECEIVE_LIKE:
-      newState = merge({}, state);
-      let like = action.like.like;
-      for (let i = 0; i < newState.newsfeed.length; i++) {
-        let current = newState.newsfeed[i];
-        if (current.id === like.liked_id) {
-          current.likes[current.id].array.push(like.liker_id);
-          break;
-        }
-      }
-      return newState;
-    case REMOVE_LIKE:
-      newState = merge({}, state);
-      like = action.like.like;
-      for (let i = 0; i < newState.newsfeed.length; i++) {
-        let current = newState.newsfeed[i];
-        if (current.id === like.liked_id) {
-          let removeIndex = current.likes[current.id].array.indexOf(
-            like.liker_id
-          );
-          let newArray = current.likes[current.id].array.splice(removeIndex, 1);
-          current.likes[current.id].array.concat(newArray);
-          break;
-        }
-      }
-      return newState;
     case RECEIVE_USER:
       newState = merge({}, state, { [action.user.id]: action.user });
       newState.friends = action.friends || {};

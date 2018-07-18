@@ -15,11 +15,11 @@ const CommentReducer = (state = {}, action) => {
         });
       }
       return newState;
-      case RECEIVE_COMMENT:
-        newState = merge({}, state);
-        let postId = action.comment.comment.postId;
-        newState[postId].push(action.comment.comment);
-        return newState;
+    case RECEIVE_COMMENT:
+      newState = merge({}, state);
+      let postId = action.comment.comment.postId;
+      newState[postId].push(action.comment.comment);
+      return newState;
     default:
       return state;
   }

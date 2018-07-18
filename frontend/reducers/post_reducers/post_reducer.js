@@ -27,7 +27,6 @@ const PostReducer = (state = {}, action) => {
       let like = action.like.like;
       postId = like.liked_id;
       if (newState[postId]) {
-        debugger;
         newState[postId].likes[postId].array.push(like.liker_id);
         return newState;
       }
