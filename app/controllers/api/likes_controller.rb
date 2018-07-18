@@ -1,6 +1,5 @@
 class Api::LikesController < ApplicationController
   def create
-    debugger
     if params[:data][:type] === "POST"
       @like = Like.new
       @like.liked_id = params[:data][:liked_id]
