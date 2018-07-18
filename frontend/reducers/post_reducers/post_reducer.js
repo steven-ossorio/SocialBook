@@ -27,6 +27,7 @@ const PostReducer = (state = {}, action) => {
       let like = action.like.like;
       postId = like.liked_id;
       newState[postId].likes[postId].array.push(like.liker_id);
+      debugger;
       return newState;
     case RECEIVE_COMMENT:
       newState = merge({}, state);

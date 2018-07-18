@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { like } from "../../actions/like_actions";
 
 class Like extends Component {
   like() {
@@ -10,14 +9,28 @@ class Like extends Component {
     this.props.like(data);
   }
 
+  unlike() {
+    this.props.unlike(this.props.postId);
+  }
+
   render() {
-    return (
-      <div className="like-container">
-        <div className="like" onClick={this.like.bind(this)}>
-          <i class="fa fa-thumbs-up" /> <span>Like</span>
+    if (this.props.likeIds.includes(this.props.userId)) {
+      return (
+        <div className="like-container">
+          <div className="liked" onClick={this.unlike.bind(this)}>
+            <i className="fa fa-thumbs-up" /> <span>Like</span>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="like-container">
+          <div className="like" onClick={this.like.bind(this)}>
+            <i className="fa fa-thumbs-up" /> <span>Like</span>
+          </div>
+        </div>
+      );
+    }
   }
 }
 

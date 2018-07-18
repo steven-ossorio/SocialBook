@@ -135,6 +135,23 @@ input::placeholder {
   padding: 10px;
   margin-bottom: 15px;
 
+  .liked {
+    padding-left: 25px;
+
+    span {
+      font-size: 20px;
+    }
+
+    i {
+      color: #365899;
+      font-size: 22px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   .like {
     padding-left: 25px;
 

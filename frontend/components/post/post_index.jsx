@@ -77,14 +77,16 @@ class PostIndex extends Component {
               </div>
               <p className="post-list-text">{post.text}</p>
               <Like
+                unlike={this.props.unlike}
                 like={this.props.like}
                 postId={post.id}
                 userId={this.props.currentUser.id}
+                likeIds={post.likes[post.id].array}
               />
               <div className="entire-comment-container">
                 {post.likes[post.id].array.length > 0 ? (
                   <div className="like-count-container">
-                    <i class="fa fa-thumbs-up" />{" "}
+                    <i className="fa fa-thumbs-up" />{" "}
                     {post.likes[post.id].array.length}
                   </div>
                 ) : (

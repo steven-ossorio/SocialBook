@@ -27,7 +27,7 @@ json.posts do
       json.profile_id post.profile_id
       json.likes do
         json.set! post.id do
-          json.array post.likes.map(&:liked_id)
+          json.array post.likes.map(&:liker_id)
         end
       end
       json.comments do
