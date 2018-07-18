@@ -5,4 +5,9 @@ json.newsfeed @posts.each do |post|
   json.created_at post.created_at
   json.text post.text
   json.profile_id post.profile_id
+  json.likes do
+    json.set! post.id do
+      json.array post.likes.map(&:liker_id)
+    end
+  end
 end

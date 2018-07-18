@@ -26,7 +26,12 @@ const PostReducer = (state = {}, action) => {
       newState = merge({}, state);
       let like = action.like.like;
       postId = like.liked_id;
-      newState[postId].likes[postId].array.push(like.liker_id);
+      if (newState[postId]) {
+        debugger;
+        newState[postId].likes[postId].array.push(like.liker_id);
+        return newState;
+      }
+
       return newState;
     case REMOVE_LIKE:
       newState = merge({}, state);
