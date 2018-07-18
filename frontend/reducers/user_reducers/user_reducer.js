@@ -13,7 +13,7 @@ import {
   UPDATE_FRIEND
 } from "../../actions/friend_actions";
 import { REMOVE_POST, RECEIVE_POST } from "../../actions/post_actions";
-import { RECEIVE_LIKE } from "../../actions/like_actions";
+import { RECEIVE_LIKE, REMOVE_LIKE } from "../../actions/like_actions";
 
 const UserReducer = (state = {}, action) => {
   let newState;
@@ -30,6 +30,22 @@ const UserReducer = (state = {}, action) => {
         let current = newState.newsfeed[i];
         if (current.id === like.liked_id) {
           current.likes[current.id].array.push(like.liker_id);
+          break;
+        }
+      }
+      return newState;
+    case REMOVE_LIKE:
+      newState = merge({}, state);
+      like = action.like.like;
+      for (let i = 0; i < newState.newsfeed.length; i++) {
+        let current = newState.newsfeed[i];
+        if (current.id === like.liked_id) {
+          let removeIndex = current.likes[current.id].array.indexOf(
+            like.liker_id
+          );
+          let newArray = current.likes[current.id].array.splice(removeIndex, 1);
+          current.likes[current.id].array.concat(newArray);
+          break;
         }
       }
       return newState;

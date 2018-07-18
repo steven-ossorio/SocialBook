@@ -31,20 +31,21 @@ const PostReducer = (state = {}, action) => {
         newState[postId].likes[postId].array.push(like.liker_id);
         return newState;
       }
-
       return newState;
     case REMOVE_LIKE:
       newState = merge({}, state);
       like = action.like.like;
       postId = like.liked_id;
-      let removeIdIndex = newState[postId].likes[postId].array.indexOf(
-        like.liker_id
-      );
-      let newArray = newState[postId].likes[postId].array.splice(
-        removeIdIndex,
-        1
-      );
-      newState[postId].likes[postId].array.concat(newArray);
+      if (newState[postId]) {
+        let removeIdIndex = newState[postId].likes[postId].array.indexOf(
+          like.liker_id
+        );
+        let newArray = newState[postId].likes[postId].array.splice(
+          removeIdIndex,
+          1
+        );
+        newState[postId].likes[postId].array.concat(newArray);
+      }
       return newState;
     case RECEIVE_COMMENT:
       newState = merge({}, state);
