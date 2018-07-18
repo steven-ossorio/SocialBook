@@ -51,7 +51,7 @@ class PostIndex extends Component {
           return this.props.posts[id];
         });
 
-      return posts.map((post, idx) => {
+      return posts.map(post => {
         return (
           <li className="post-list" key={`${post.id}`}>
             <div className="post-list-container">
@@ -82,6 +82,14 @@ class PostIndex extends Component {
                 userId={this.props.currentUser.id}
               />
               <div className="entire-comment-container">
+                {post.likes[post.id].array.length > 0 ? (
+                  <div className="like-count-container">
+                    <i class="fa fa-thumbs-up" />{" "}
+                    {post.likes[post.id].array.length}
+                  </div>
+                ) : (
+                  ""
+                )}
                 <CommentContainer postId={post.id} />
                 <CommentForm
                   user={this.props.user}
