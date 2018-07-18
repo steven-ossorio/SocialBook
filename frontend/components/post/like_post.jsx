@@ -11,10 +11,11 @@ class Like extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
-      <div>
-        <button onClick={this.like.bind(this)}>Press me to like</button>
+      <div className="like-container">
+        <div className="like" onClick={this.like.bind(this)}>
+          <i class="fa fa-thumbs-up" /> <span>Like</span>
+        </div>
       </div>
     );
   }

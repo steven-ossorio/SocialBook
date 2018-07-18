@@ -128,3 +128,22 @@ input::placeholder {
   display: flex;
   flex-direction: column;
 }
+
+.like-container {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  .like {
+    padding-left: 15px;
+
+    i {
+      font-size: 18px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

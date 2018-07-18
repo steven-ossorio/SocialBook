@@ -23,8 +23,11 @@ const PostReducer = (state = {}, action) => {
       newState = merge({}, state);
       return omit(newState, String(action.postId));
     case RECEIVE_LIKE:
-      debugger;
-      return state;
+      newState = merge({}, state);
+      let like = action.like.like;
+      postId = like.liked_id;
+      newState[postId].likes[postId].array.push(like.liker_id);
+      return newState;
     case RECEIVE_COMMENT:
       newState = merge({}, state);
       let postId = action.comment.comment.postId;
