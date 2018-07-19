@@ -4,7 +4,6 @@ import moment from "moment";
 import { RingLoader, PulseLoader } from "react-spinners";
 import PostDropDown from "./delete_post.jsx";
 import CommentForm from "../comment/comment_form";
-import CommentList from "../comment/comment_list";
 import CommentContainer from "../comment/comment_container";
 import Like from "../../components/post/like_post";
 
@@ -127,6 +126,11 @@ class NewsFeed extends Component {
               ) : (
                 ""
               )}
+              <CommentForm
+                user={this.props.user}
+                postId={post.id}
+                createComment={this.props.createComment}
+              />
             </div>
           </div>
         </li>
