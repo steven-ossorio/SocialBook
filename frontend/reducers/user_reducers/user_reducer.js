@@ -14,6 +14,7 @@ import {
 } from "../../actions/friend_actions";
 import { REMOVE_POST, RECEIVE_POST } from "../../actions/post_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../../actions/like_actions";
+import { RECEIVE_COMMENT } from "../../actions/comment_actions";
 
 const UserReducer = (state = {}, action) => {
   let newState;
@@ -33,6 +34,19 @@ const UserReducer = (state = {}, action) => {
       } else {
         newState = merge({}, state);
         newState.newsfeed.unshift(action.post);
+      }
+      return newState;
+    case RECEIVE_COMMENT:
+      debugger;
+      newState = merge({}, state);
+      if (newState.newsfeed) {
+        for (let i = 0; i < newState.newsfeed.length; i++) {
+          let currentPost = newState.newsfeed[i];
+          if (currentPost.id === action.comment.comment.postId) {
+            currentPost.comments.push(action.comment.comment);
+            break;
+          }
+        }
       }
       return newState;
     case RECEIVE_LIKE:
