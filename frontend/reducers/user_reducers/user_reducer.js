@@ -1,4 +1,3 @@
-import React from "react";
 import { merge, omit } from "lodash";
 
 import {
@@ -29,15 +28,14 @@ const UserReducer = (state = {}, action) => {
       newState.friends = action.friends || {};
       return newState;
     case RECEIVE_POST:
+      newState = merge({}, state);
       if (state.newsfeed === undefined) {
-        newState = merge({}, state);
+        return newState;
       } else {
-        newState = merge({}, state);
         newState.newsfeed.unshift(action.post);
       }
       return newState;
     case RECEIVE_COMMENT:
-      debugger;
       newState = merge({}, state);
       if (newState.newsfeed) {
         for (let i = 0; i < newState.newsfeed.length; i++) {

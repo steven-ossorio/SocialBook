@@ -126,6 +126,7 @@ class NewsFeed extends Component {
               ) : (
                 ""
               )}
+              <CommentContainer postId={post.id} />
               <CommentForm
                 user={this.props.user}
                 postId={post.id}

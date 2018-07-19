@@ -1,6 +1,7 @@
 import { merge, omit } from "lodash";
 import { RECEIVE_USER, RECEIVE_NEWSFEED } from "../../actions/user_actions";
 import { RECEIVE_COMMENT } from "../../actions/comment_actions";
+import { RECEIVE_POST } from "../../actions/post_actions";
 
 const CommentReducer = (state = {}, action) => {
   let newState;
@@ -16,7 +17,6 @@ const CommentReducer = (state = {}, action) => {
       }
       return newState;
     case RECEIVE_NEWSFEED:
-      debugger;
       newState = merge({}, state);
       posts = action.posts;
       if (posts) {
@@ -30,6 +30,13 @@ const CommentReducer = (state = {}, action) => {
       newState = merge({}, state);
       let postId = action.comment.comment.postId;
       newState[postId].push(action.comment.comment);
+      return newState;
+    case RECEIVE_POST:
+      newState = merge({}, state);
+      let post = action.post;
+      if (post) {
+        newState[post.id] = post.comments;
+      }
       return newState;
     default:
       return state;
