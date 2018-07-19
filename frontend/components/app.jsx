@@ -1,20 +1,16 @@
-import React from 'react';
-import HomeContainer from './home/home_container';
-import SessionFormContainer from './session/session_form_container';
-import SignUpFormContainer from './signup/signup_form_container';
-import PostFormContainer from './post/post_form_container';
-import PostIndexContainer from './post/post_index_container';
-import ProfileContainer from './profile/profile_container';
-import { Route, Link, Redirect, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
-
+import React from "react";
+import HomeContainer from "./home/home_container";
+import ProfileContainer from "./profile/profile_container";
+import FriendsContainer from "./profile/friends_list_container";
+import { Route } from "react-router-dom";
 
 const App = () => (
-    <div>
-      <header>
-        <Route exact path='/' component={HomeContainer} />
-        <Route exact path="/users/:userId" component={ProfileContainer}/>
-      </header>
-    </div>
+  <div>
+    <header>
+      <Route exact path="/" component={HomeContainer} />
+      <Route exact path="/users/:userId" component={ProfileContainer} />
+      <Route exact path="/users/:userId/friends" component={FriendsContainer} />
+    </header>
+  </div>
 );
 export default App;

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Friends from "./friends";
+import FriendsList from "./friends_list";
 
 const mapStateToProps = (state, ownProps) => {
   let friendIds;
@@ -22,5 +22,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Friends)
+  )(FriendsList)
 );
