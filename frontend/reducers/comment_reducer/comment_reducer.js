@@ -1,5 +1,5 @@
 import { merge, omit } from "lodash";
-import { RECEIVE_USER } from "../../actions/user_actions";
+import { RECEIVE_USER, RECEIVE_NEWSFEED } from "../../actions/user_actions";
 import { RECEIVE_COMMENT } from "../../actions/comment_actions";
 
 const CommentReducer = (state = {}, action) => {
@@ -13,6 +13,17 @@ const CommentReducer = (state = {}, action) => {
         Object.keys(posts).forEach(postKey => {
           newState[postKey] = action.posts[postKey].comments;
         });
+      }
+      return newState;
+    case RECEIVE_NEWSFEED:
+      debugger;
+      newState = merge({}, state);
+      posts = action.posts;
+      if (posts) {
+        for (let i = 0; i < posts.newsfeed.length; i++) {
+          let current = posts.newsfeed[i];
+          newState[current.id] = action.posts.newsfeed[i].comments;
+        }
       }
       return newState;
     case RECEIVE_COMMENT:
