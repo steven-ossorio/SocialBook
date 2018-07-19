@@ -41,7 +41,6 @@ const CommentReducer = (state = {}, action) => {
     case REMOVE_COMMENT:
       newState = merge({}, state);
       let comment = action.comment.comment;
-      debugger;
       for (let i = 0; i < newState[comment.postId].length; i++) {
         let current = newState[comment.postId][i];
         if (current.id === comment.id) {
