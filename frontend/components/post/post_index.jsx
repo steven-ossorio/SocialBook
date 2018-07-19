@@ -7,6 +7,7 @@ import CommentForm from "../comment/comment_form";
 import CommentList from "../comment/comment_list";
 import CommentContainer from "../comment/comment_container";
 import Like from "./like_post";
+import ReactDOM from "react-dom";
 
 class PostIndex extends Component {
   constructor(props) {

@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { RingLoader } from 'react-spinners';
-
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { RingLoader } from "react-spinners";
 
 class CommentForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       text: "",
@@ -25,11 +24,11 @@ class CommentForm extends Component {
 
   onSubmit(e) {
     const comment = Object.assign({}, this.state);
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       comment.post_id = this.props.postId;
 
       if (comment.text !== "") {
-        this.props.createComment(comment).then( () => {
+        this.props.createComment(comment).then(() => {
           this.setState({
             text: "",
             post_id: ""
@@ -39,15 +38,24 @@ class CommentForm extends Component {
     }
   }
 
-  render(){
+  render() {
     if (this.props.user) {
-      return(
+      return (
         <div>
           <form>
             <div className="comment-form-container">
               <div className="comment-inner-container">
-                <img className="comment-form-image" src={ this.props.user.image_url }></img>
-                <textarea onKeyPress={ this.onSubmit }className="comment-input-field" onChange={ this.update('text') } value={ this.state.text } placeholder="Write a comment..."></textarea>
+                <img
+                  className="comment-form-image"
+                  src={this.props.user.image_url}
+                />
+                <textarea
+                  onKeyPress={this.onSubmit}
+                  className="comment-input-field"
+                  onChange={this.update("text")}
+                  value={this.state.text}
+                  placeholder="Write a comment..."
+                />
               </div>
             </div>
           </form>
@@ -56,7 +64,7 @@ class CommentForm extends Component {
     } else {
       return (
         <div className="loading-spin">
-          <RingLoader size={100} color={'#0000FF'} />
+          <RingLoader size={100} color={"#0000FF"} />
         </div>
       );
     }

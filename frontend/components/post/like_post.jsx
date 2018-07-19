@@ -26,7 +26,7 @@ class Like extends Component {
       return (
         <div className="like-container">
           <div className="like" onClick={this.like.bind(this)}>
-            <i className="fa fa-thumbs-up" /> <span>Like</span>
+            <i className="fa fa-thumbs-o-up" /> <span>Like</span>
           </div>
         </div>
       );
