@@ -14,7 +14,6 @@ class CommentList extends Component {
     };
     this.renderComments = this.renderComments.bind(this);
     this.showMoreComments = this.showMoreComments.bind(this);
-    this.deleteComment = this.deleteComment.bind(this);
   }
 
   showMoreComments() {
@@ -27,10 +26,6 @@ class CommentList extends Component {
     this.setState({
       startIndex
     });
-  }
-
-  deleteComment(id) {
-    console.log(e);
   }
 
   componentWillReceiveProps(nextProps) {

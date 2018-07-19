@@ -7,7 +7,7 @@ import {
 } from "../../actions/post_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../../actions/like_actions";
 import { RECEIVE_USER } from "../../actions/user_actions";
-import { RECEIVE_COMMENT } from "../../actions/comment_actions";
+import { RECEIVE_COMMENT, REMOVE_COMMENT } from "../../actions/comment_actions";
 
 const PostReducer = (state = {}, action) => {
   let newState;
@@ -53,6 +53,16 @@ const PostReducer = (state = {}, action) => {
       let comments = post.comments;
       if (!comments.includes(action.comment.comment.id)) {
         newState[postId].comments.push(action.comment);
+      }
+      return newState;
+    case REMOVE_COMMENT:
+      newState = merge({}, state);
+      let comment = action.comment.comment;
+      for (let i = 0; i < newState[comment.postId].comments.length; i++) {
+        let current = newState[comment.postId].comments[i];
+        if (current.id === comment.id) {
+          newState[comment.postId].comments.splice(i, 1);
+        }
       }
       return newState;
     default:

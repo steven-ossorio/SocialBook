@@ -1,20 +1,20 @@
 export const fetchComments = () => {
   return $.ajax({
-    method: 'get',
+    method: "get",
     url: `api/comments`
   });
 };
 
 export const fetchComment = id => {
   return $.ajax({
-    method: 'get',
+    method: "get",
     url: `api/comments/${id}`
   });
 };
 
 export const createComment = comment => {
   return $.ajax({
-    method: 'post',
+    method: "post",
     url: `api/comments`,
     data: { comment }
   });
@@ -22,7 +22,7 @@ export const createComment = comment => {
 
 export const updateComment = comment => {
   return $.ajax({
-    method: 'patch',
+    method: "patch",
     url: `api/comments/${comment.id}`,
     data: { comment }
   });
@@ -30,7 +30,7 @@ export const updateComment = comment => {
 
 export const deleteComment = id => {
   return $.ajax({
-    method: 'delete',
+    method: "delete",
     url: `api/comments/${id}`
   });
 };
