@@ -6,7 +6,7 @@ const mapStateToProps = (state, ownProps) => {
   let friendIds;
 
   if (state.users[ownProps.match.params.userId] !== undefined) {
-    friendIds = state.users[ownProps.match.params.userId].friendIds.length;
+    friendIds = state.users[ownProps.match.params.userId];
   }
   return {
     friends: state.users.friends,
