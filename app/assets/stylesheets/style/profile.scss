@@ -682,14 +682,52 @@ html {
 
     .friends-list-item {
       width: 390px;
-      .friends-list-description {
-        .friends-list-image {
-          height: 100px;
-          width: 100px;
-          object-fit: cover;
-          object-position: center;
+      margin: 0 0 13px 13px;
+      border: 1px #dddfe2 solid;
+      position: relative;
+
+      .friends-list-item-image {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .friends-list-item-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0px;
+        left: 110px;
+        right: 10px;
+        bottom: 0px;
+
+        .friends-list-item-content-name {
+          font-size: 15px;
+          color: #395697;
+        }
+
+        .friends-list-item-content-button {
+          padding: 4px 10px 4px 9px;
+          background-color: #f6f7f9;
+          color: #4b4f56;
+          border: 1px solid #ced0d4;
         }
       }
     }
+  }
+}
+
+.profile-friends,
+.profile-timeline {
+  color: #3d5796;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 17px;
+
+  &:hover {
+    cursor: pointer;
   }
 }

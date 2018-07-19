@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default props => {
   if (props.friends) {
@@ -6,15 +7,23 @@ export default props => {
       let friend = props.friends[friendId];
       return (
         <div className="friends-list-item">
-          <div className="friends-list-description">
-            <img className="friends-list-image" src={friend.image} alt="" />
-            <span className="friends-list-name">
-              {friend.first_name} {friend.last_name}
-            </span>
-          </div>
-          <div className="friends-list-button">
-            <button>WE ARE FRIENDS</button>
-          </div>
+          <Link to={`/users/${friendId}`}>
+            <img
+              className="friends-list-item-image"
+              src={friend.image}
+              alt=""
+            />
+            <div className="friends-list-item-content">
+              <div className="friends-list-item-content-name">
+                {friend.first_name} {friend.last_name}
+              </div>
+              <button className="friends-list-item-content-button">
+                <i class="fa fa-check" aria-hidden="true">
+                  Friends
+                </i>
+              </button>
+            </div>
+          </Link>
         </div>
       );
     });
