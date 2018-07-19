@@ -1,9 +1,4 @@
 class Api::CommentsController < ApplicationController
-  def index
-  end
-
-  def new
-  end
 
   def create
     @comment = Comment.new(comment_params)
@@ -15,16 +10,9 @@ class Api::CommentsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def show
-  end
-
   def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
   end
 
   private

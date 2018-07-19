@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import CommentList from "./comment_list";
+import { createComment, deleteComment } from "../../actions/comment_actions";
 
 const mapStateToProps = state => {
   return {
@@ -9,7 +10,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    deleteComment: id => dispatch(deleteComment(id))
+  };
 };
 
 export default withRouter(

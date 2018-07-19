@@ -1,7 +1,7 @@
 import { fetchPosts, deletePost } from "../../actions/post_actions";
 import { fetchUser } from "../../actions/user_actions";
 import { like, unlike } from "../../actions/like_actions";
-import { createComment } from "../../actions/comment_actions";
+import { createComment, deleteComment } from "../../actions/comment_actions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import PostIndex from "./post_index";
@@ -30,6 +30,7 @@ const mapDispatchToProps = dispatch => {
     deletePost: id => dispatch(deletePost(id)),
     fetchUser: id => dispatch(fetchUser(id)),
     createComment: comment => dispatch(createComment(comment)),
+    deleteComment: id => dispatch(deleteComment(id)),
     like: data => dispatch(like(data)),
     unlike: id => dispatch(unlike(id))
   };

@@ -97,6 +97,7 @@ class PostIndex extends Component {
                   user={this.props.user}
                   postId={post.id}
                   createComment={this.props.createComment}
+                  deleteComment={this.props.deleteComment}
                 />
               </div>
             </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { RingLoader } from "react-spinners";
+import DeleteComment from "./delete_comment";
 
 class CommentList extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class CommentList extends Component {
     };
     this.renderComments = this.renderComments.bind(this);
     this.showMoreComments = this.showMoreComments.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
   }
 
   showMoreComments() {
@@ -25,6 +27,10 @@ class CommentList extends Component {
     this.setState({
       startIndex
     });
+  }
+
+  deleteComment(id) {
+    console.log(e);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -81,6 +87,12 @@ class CommentList extends Component {
               </Link>
               <span>{comment.text}</span>
             </div>
+            <span>
+              <DeleteComment
+                deleteComment={this.props.deleteComment}
+                comment={comment}
+              />
+            </span>
           </div>
         </div>
       );
