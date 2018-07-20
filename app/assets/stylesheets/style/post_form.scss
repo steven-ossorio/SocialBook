@@ -94,7 +94,7 @@
     top: -8px;
     right: 5px;
     width: 170px;
-    height: 20px;
+    height: 40px;
     z-index: 2;
     position: absolute;
     background-color: white;
@@ -107,6 +107,7 @@
 
     .selection-option {
       margin: -3px 0px;
+      padding: 2px 0px;
     }
 
     li:hover {

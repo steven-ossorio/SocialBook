@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Dropdown, DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
-import onClickOutside from 'react-onclickoutside';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownContent
+} from "react-simple-dropdown";
+import onClickOutside from "react-onclickoutside";
 
 class DropDown extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.state = {
@@ -32,25 +36,32 @@ class DropDown extends Component {
   }
 
   render() {
-      let menu;
-      if(this.state.menuActive) {
-        menu = <div className="post-dropdown-container">
-                  <ul className="post-dropdown">
-                    <div className="post-options">
-                      <li className="selection-option"><button onClick={ this.handleDelete } >Delete</button></li>
-                    </div>
-                  </ul>
-                </div>;
-      } else {
-        menu = "";
-      }
-      return (
-        <div id = "menu">
-          <i className = "fa fa-ellipsis-h" onClick = { this.toggleMenu }/>
-          {menu}
+    let menu;
+    if (this.state.menuActive) {
+      menu = (
+        <div className="post-dropdown-container">
+          <ul className="post-dropdown">
+            <div className="post-options">
+              <li className="selection-option">
+                <button>Edit</button>
+              </li>
+              <li className="selection-option">
+                <button onClick={this.handleDelete}>Delete</button>
+              </li>
+            </div>
+          </ul>
+        </div>
+      );
+    } else {
+      menu = "";
+    }
+    return (
+      <div id="menu">
+        <i className="fa fa-ellipsis-h" onClick={this.toggleMenu} />
+        {menu}
       </div>
     );
-    }
   }
+}
 
 export default onClickOutside(DropDown);

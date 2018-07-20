@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import onClickOutside from "react-onclickoutside";
 
 class DropDown extends Component {
   constructor(props) {
@@ -8,6 +9,12 @@ class DropDown extends Component {
       menuActive: false
     };
     this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleClickOutside() {
+    this.setState({
+      menuActive: false
+    });
   }
 
   toggleMenu() {
@@ -48,4 +55,4 @@ class DropDown extends Component {
   }
 }
 
-export default DropDown;
+export default onClickOutside(DropDown);
