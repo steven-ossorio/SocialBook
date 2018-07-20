@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DropDown from "./dropdown";
+import PostUpdate from "./post_update_modal";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { RingLoader } from "react-spinners";

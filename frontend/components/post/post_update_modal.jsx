@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
+import PostFormContainer from "./post_form_container";
+import onClickOutside from "react-onclickoutside";
 
 class PostUpdate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalIsOpen: false,
-      imageFile: null,
-      imageUrl: null
+      modalIsOpen: false
     };
 
     this.openModal = this.openModal.bind(this);
@@ -72,7 +72,7 @@ class PostUpdate extends Component {
       <div>
         <div onClick={this.openModal} className="upload-image-container">
           <div className="selection-option">
-            <button>Edit</button>
+            <button onClick={this.props.editClick}>Edit</button>
           </div>
         </div>
         <Modal
@@ -83,12 +83,7 @@ class PostUpdate extends Component {
           overlayClassName="modal-background"
           shouldCloseOnOverlayClick={false}
         >
-          <div className="modal-heading">
-            <h2>Update Profile Picture</h2>
-            <h2 className="modal-close-button" onClick={this.closeModal}>
-              X
-            </h2>
-          </div>
+          <div className="modal-heading" />
           <div className="modal-body-container">
             <div className="modal-body">
               <label htmlFor="profile-image" className="modal-body-label">

@@ -11,17 +11,21 @@ import PostUpdate from "./post_update_modal";
 class DropDown extends Component {
   constructor(props) {
     super(props);
-    this.toggleMenu = this.toggleMenu.bind(this);
     this.state = {
-      menuActive: false
+      menuActive: false,
+      editModal: false
     };
+    this.toggleMenu = this.toggleMenu.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.editClick = this.editClick.bind(this);
   }
 
   handleClickOutside() {
-    this.setState({
-      menuActive: false
-    });
+    if (!this.state.editModal) {
+      this.setState({
+        menuActive: false
+      });
+    }
   }
 
   toggleMenu() {
@@ -36,6 +40,10 @@ class DropDown extends Component {
     this.props.deletePost(this.props.post.id);
   }
 
+  editClick() {
+    this.setState({ editModal: true });
+  }
+
   render() {
     let menu;
     if (this.state.menuActive) {
@@ -44,7 +52,7 @@ class DropDown extends Component {
           <ul className="post-dropdown">
             <div className="post-options">
               <li className="selection-option">
-                <PostUpdate />
+                <PostUpdate editClick={this.editClick} />
               </li>
               <li className="selection-option">
                 <button onClick={this.handleDelete}>Delete</button>
