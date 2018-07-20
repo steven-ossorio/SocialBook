@@ -38,6 +38,7 @@ class PostIndex extends Component {
             post={post}
             currentUser={this.props.currentUser}
             user={this.props.user}
+            updatePost={this.props.updatePost}
           />
         </div>
       );

@@ -1,4 +1,4 @@
-import { fetchPosts, deletePost } from "../../actions/post_actions";
+import { fetchPosts, deletePost, updatePost } from "../../actions/post_actions";
 import { fetchUser } from "../../actions/user_actions";
 import { like, unlike } from "../../actions/like_actions";
 import { createComment, deleteComment } from "../../actions/comment_actions";
@@ -28,6 +28,7 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchPosts: () => dispatch(fetchPosts()),
     deletePost: id => dispatch(deletePost(id)),
+    updatePost: post => dispatch(updatePost(post)),
     fetchUser: id => dispatch(fetchUser(id)),
     createComment: comment => dispatch(createComment(comment)),
     like: data => dispatch(like(data)),

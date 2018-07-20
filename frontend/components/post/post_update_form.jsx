@@ -24,22 +24,9 @@ class PostUpdateForm extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const post = Object.assign({}, this.state);
-    if (
-      this.props.match.path !== "/" &&
-      Number(this.props.match.params.userId) !== this.props.currentUser.id
-    ) {
-      post.profile_id = this.props.match.params.userId;
-    } else {
-      post.profile_id = this.props.currentUser.id;
-    }
-    if (post.text !== "") {
-      this.props.createPost(post).then(() => {
-        this.setState({
-          text: ""
-        });
-      });
-    }
+    const post = Object.assign({}, this.state.post);
+    post.text = this.state.text;
+    this.props.updatePost(post);
   }
 
   render() {

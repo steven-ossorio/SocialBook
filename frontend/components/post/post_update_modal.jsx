@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
-import PostFormContainer from "./post_form_container";
-import onClickOutside from "react-onclickoutside";
 import PostUpdateForm from "./post_update_form";
 
 class PostUpdate extends Component {
@@ -102,6 +100,7 @@ class PostUpdate extends Component {
                 post={this.props.post}
                 currentUser={this.props.currentUser}
                 user={this.props.user}
+                updatePost={this.props.updatePost}
               />
             </div>
           </div>
