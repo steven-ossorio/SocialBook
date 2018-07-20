@@ -6,6 +6,7 @@ import {
   DropdownContent
 } from "react-simple-dropdown";
 import onClickOutside from "react-onclickoutside";
+import PostUpdate from "./post_update_modal";
 
 class DropDown extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class DropDown extends Component {
           <ul className="post-dropdown">
             <div className="post-options">
               <li className="selection-option">
-                <button>Edit</button>
+                <PostUpdate />
               </li>
               <li className="selection-option">
                 <button onClick={this.handleDelete}>Delete</button>

@@ -5,7 +5,6 @@ import FriendListItem from "./friend_list_item";
 
 export default class friends_list extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <ProfileNavContainer props={this.props} />

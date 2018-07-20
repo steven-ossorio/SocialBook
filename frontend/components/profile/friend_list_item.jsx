@@ -6,7 +6,7 @@ export default props => {
     let friends = Object.keys(props.friends).map(friendId => {
       let friend = props.friends[friendId];
       return (
-        <div className="friends-list-item">
+        <div key={friendId} className="friends-list-item">
           <Link to={`/users/${friendId}`}>
             <img
               className="friends-list-item-image"
@@ -18,7 +18,7 @@ export default props => {
                 {friend.first_name} {friend.last_name}
               </div>
               <button className="friends-list-item-content-button">
-                <i class="fa fa-check" aria-hidden="true">
+                <i className="fa fa-check" aria-hidden="true">
                   Friends
                 </i>
               </button>
