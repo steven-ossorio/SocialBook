@@ -80,14 +80,11 @@ class ProfileTopSection extends Component {
               </div>
               <div className="profile-pages-container">
                 <ul>
-                  <Link to={`/users/${this.props.currentUser.id}`}>
+                  <Link to={`/users/${this.props.user.id}`}>
                     <li className="profile-timeline">Timeline</li>
                   </Link>
                   <li className="profile-about hidden-element">About</li>
-                  <Link
-                    to={`/users/${this.props.currentUser.id}/friends`}
-                    replace
-                  >
+                  <Link to={`/users/${this.props.user.id}/friends`} replace>
                     <li className="profile-friends">Friends</li>
                   </Link>
                   <li className="profile-photos hidden-element">Photos</li>
