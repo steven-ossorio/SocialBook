@@ -29,11 +29,15 @@ export default props => {
     });
     return (
       <div className="friends-container">
-        <div className="friends-list-header">Friends</div>
+        <div className="friends-list-header">
+          <span className="friends-list-header-text">
+            <i className="fa fa-group" /> Friends
+          </span>
+        </div>
         <div className="friends-list-container">{friends}</div>
       </div>
     );
   } else {
-    return <div>DID NOT LOAD</div>;
+    return <div />;
   }
 };
