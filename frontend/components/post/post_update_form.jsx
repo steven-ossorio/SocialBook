@@ -54,15 +54,15 @@ class PostUpdateForm extends Component {
                   src={this.props.user.image_url}
                 />
                 <textarea
-                  className="post-input-field"
+                  className="edit-post-input-field"
                   onChange={this.update("text")}
                   value={this.state.text}
                   placeholder="What's on your mind?"
                 />
               </div>
-              <div className="post-form-button-container">
+              <div className="edit-post-form-button-container">
                 <button className="post-submit-button" onClick={this.onSubmit}>
-                  Post
+                  Save
                 </button>
               </div>
             </div>

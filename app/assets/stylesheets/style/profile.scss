@@ -479,7 +479,7 @@ html {
 .edit-modal {
   padding: 0px;
   width: 512px;
-  height: 257px;
+  height: 212px;
   background-color: white;
   margin: 0 auto;
   margin-top: 300px;
@@ -494,6 +494,38 @@ html {
   right: 0;
   bottom: 0;
   background-color: rgba(140, 141, 143, 0.4);
+}
+
+.edit-post-form-button-container {
+  height: 41px;
+  border-top: 1px solid #e5e5e5;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #f6f7f9;
+
+  button {
+    height: 100%;
+    background-color: #4368b1;
+    min-width: 60px;
+    color: white;
+  }
+}
+
+.edit-post-input-field {
+  resize: none;
+  min-height: 130px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 27.5px;
+  padding-bottom: 10px;
+  padding-right: 50px;
+
+  textarea {
+    font-size: 12px;
+    line-height: 15px;
+  }
 }
 
 .request-dropdown {
