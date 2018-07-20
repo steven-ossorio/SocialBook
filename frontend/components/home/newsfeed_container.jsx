@@ -8,6 +8,7 @@ import {
 import { deletePost } from "../../actions/post_actions";
 import { like, unlike } from "../../actions/like_actions";
 import { createComment } from "../../actions/comment_actions";
+import { updatePost } from "../../actions/post_actions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import NewsFeed from "./newsfeed";
@@ -42,8 +43,9 @@ const mapDispatchToProps = dispatch => {
     createFriendship: friend => dispatch(createFriendship(friend)),
     deleteFriendship: id => dispatch(deleteFriendship(id)),
     updateFriendship: id => dispatch(updateFriendship(id)),
-    deletePost: id => dispatch(deletePost(id)),
     createComment: comment => dispatch(createComment(comment)),
+    deletePost: id => dispatch(deletePost(id)),
+    updatePost: post => dispatch(updatePost(post)),
     like: data => dispatch(like(data)),
     unlike: id => dispatch(unlike(id))
   };

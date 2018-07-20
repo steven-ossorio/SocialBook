@@ -48,7 +48,13 @@ class NewsFeed extends Component {
     if (post.owner === this.props.currentUser.id) {
       return (
         <div>
-          <PostDropDown deletePost={this.props.deletePost} post={post} />
+          <PostDropDown
+            deletePost={this.props.deletePost}
+            post={post}
+            currentUser={this.props.currentUser}
+            user={this.props.user}
+            updatePost={this.props.updatePost}
+          />
         </div>
       );
     }

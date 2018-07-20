@@ -32,7 +32,15 @@ const UserReducer = (state = {}, action) => {
       if (state.newsfeed === undefined) {
         return newState;
       } else {
-        newState.newsfeed.unshift(action.post);
+        let found = false;
+        for (let i = 0; i < state.newsfeed.length; i++) {
+          let currentPost = state.newsfeed[i];
+          if (currentPost.id === action.post.id) {
+            currentPost.text = action.post.text;
+            found = true;
+          }
+        }
+        !found ? newState.newsfeed.unshift(action.post) : "";
       }
       return newState;
     case RECEIVE_COMMENT:
