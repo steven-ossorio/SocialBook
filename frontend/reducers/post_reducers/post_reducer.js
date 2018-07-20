@@ -3,7 +3,8 @@ import { merge, omit } from "lodash";
 import {
   RECEIVE_ALL_POSTS,
   RECEIVE_POST,
-  REMOVE_POST
+  REMOVE_POST,
+  UPDATE_POST
 } from "../../actions/post_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../../actions/like_actions";
 import { RECEIVE_USER } from "../../actions/user_actions";

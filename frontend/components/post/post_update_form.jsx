@@ -23,10 +23,11 @@ class PostUpdateForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
-    const post = Object.assign({}, this.state.post);
+    const post = this.props.post;
+    console.log(post);
     post.text = this.state.text;
     this.props.updatePost(post);
+    this.props.closeAllModal();
   }
 
   render() {

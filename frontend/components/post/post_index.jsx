@@ -29,7 +29,6 @@ class PostIndex extends Component {
   }
 
   postOwner(post) {
-    console.log(this.props);
     if (post.owner === this.props.currentUser.id) {
       return (
         <div>

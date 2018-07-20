@@ -58,6 +58,7 @@ class DropDown extends Component {
                   post={this.props.post}
                   currentUser={this.props.currentUser}
                   user={this.props.user}
+                  updatePost={this.props.updatePost}
                 />
               </li>
               <li className="selection-option">

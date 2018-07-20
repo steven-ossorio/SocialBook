@@ -101,6 +101,7 @@ class PostUpdate extends Component {
                 currentUser={this.props.currentUser}
                 user={this.props.user}
                 updatePost={this.props.updatePost}
+                closeAllModal={this.closeAllModal}
               />
             </div>
           </div>
