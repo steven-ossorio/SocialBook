@@ -52,7 +52,13 @@ class DropDown extends Component {
           <ul className="post-dropdown">
             <div className="post-options">
               <li className="selection-option">
-                <PostUpdate editClick={this.editClick} />
+                <PostUpdate
+                  editClick={this.editClick}
+                  toggleMenu={this.toggleMenu}
+                  post={this.props.post}
+                  currentUser={this.props.currentUser}
+                  user={this.props.user}
+                />
               </li>
               <li className="selection-option">
                 <button onClick={this.handleDelete}>Delete</button>

@@ -476,6 +476,26 @@ html {
   }
 }
 
+.edit-modal {
+  padding: 0px;
+  width: 512px;
+  height: 257px;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 300px;
+  z-index: 20;
+}
+
+.edit-modal-background {
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(140, 141, 143, 0.4);
+}
+
 .request-dropdown {
   width: 200px;
   position: absolute;
@@ -485,22 +505,6 @@ html {
   height: 20px;
   border-radius: 5px;
   z-index: 2;
-  //
-  // .logout-container {
-  //   text-align: center;
-  //   width: 200px;
-  //
-  //   li > a {
-  //     border-right: none;
-  //   }
-  //
-  //   li:hover {
-  //     background-color: #4367b2;
-  //     width: 100%;
-  //     border-radius: 5px;
-  //   }
-  //
-  // }
 
   button {
     border: none;

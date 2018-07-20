@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Modal from "react-modal";
 import PostFormContainer from "./post_form_container";
 import onClickOutside from "react-onclickoutside";
+import PostUpdateForm from "./post_update_form";
 
 class PostUpdate extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class PostUpdate extends Component {
     this.updatePost = this.updatePost.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.cancelUpload = this.cancelUpload.bind(this);
+    this.closeAllModal = this.closeAllModal.bind(this);
   }
 
   openModal() {
@@ -52,6 +54,11 @@ class PostUpdate extends Component {
     });
   }
 
+  closeAllModal() {
+    this.props.toggleMenu();
+    this.closeModal();
+  }
+
   onSubmit(e) {
     let file = this.state.imageFile;
     const formData = new FormData();
@@ -76,21 +83,26 @@ class PostUpdate extends Component {
           </div>
         </div>
         <Modal
-          className="modal"
+          className="edit-modal"
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           contentLabel="Example Modal"
-          overlayClassName="modal-background"
+          overlayClassName="edit-modal-background"
           shouldCloseOnOverlayClick={false}
         >
-          <div className="modal-heading" />
+          <div className="modal-heading">
+            <h2>Edit Post</h2>
+            <h2 className="modal-close-button" onClick={this.closeAllModal}>
+              X
+            </h2>
+          </div>
           <div className="modal-body-container">
             <div className="modal-body">
-              <label htmlFor="profile-image" className="modal-body-label">
-                <i className="fa fa-plus" />
-                <h1>Upload Photo</h1>
-              </label>
-              <input id="profile-image" type="file" />
+              <PostUpdateForm
+                post={this.props.post}
+                currentUser={this.props.currentUser}
+                user={this.props.user}
+              />
             </div>
           </div>
         </Modal>

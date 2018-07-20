@@ -29,10 +29,16 @@ class PostIndex extends Component {
   }
 
   postOwner(post) {
+    console.log(this.props);
     if (post.owner === this.props.currentUser.id) {
       return (
         <div>
-          <DropDown deletePost={this.props.deletePost} post={post} />
+          <DropDown
+            deletePost={this.props.deletePost}
+            post={post}
+            currentUser={this.props.currentUser}
+            user={this.props.user}
+          />
         </div>
       );
     }
