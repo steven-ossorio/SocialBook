@@ -13,7 +13,7 @@ class DropDown extends Component {
     super(props);
     this.state = {
       menuActive: false,
-      editModal: false
+      editClick: false
     };
     this.toggleMenu = this.toggleMenu.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -21,7 +21,7 @@ class DropDown extends Component {
   }
 
   handleClickOutside() {
-    if (!this.state.editModal) {
+    if (!this.state.editClick) {
       this.setState({
         menuActive: false
       });
@@ -41,7 +41,8 @@ class DropDown extends Component {
   }
 
   editClick() {
-    this.setState({ editModal: true });
+    let status = !this.state.editClick;
+    this.setState({ editClick: status });
   }
 
   render() {
