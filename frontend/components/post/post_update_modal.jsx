@@ -54,6 +54,7 @@ class PostUpdate extends Component {
 
   closeAllModal() {
     this.props.toggleMenu();
+    this.props.editClick();
     this.closeModal();
   }
 

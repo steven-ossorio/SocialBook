@@ -6,15 +6,26 @@ import {
   DropdownContent
 } from "react-simple-dropdown";
 import PostUpdate from "../post/post_update_modal";
+import onClickOutside from "react-onclickoutside";
 
 class DropDown extends Component {
   constructor(props) {
     super(props);
-    this.toggleMenu = this.toggleMenu.bind(this);
     this.state = {
-      menuActive: false
+      menuActive: false,
+      editClick: false
     };
+    this.toggleMenu = this.toggleMenu.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.editClick = this.editClick.bind(this);
+  }
+
+  handleClickOutside() {
+    if (!this.state.editClick) {
+      this.setState({
+        menuActive: false
+      });
+    }
   }
 
   toggleMenu() {
@@ -27,6 +38,11 @@ class DropDown extends Component {
   handleDelete(e) {
     e.preventDefault();
     this.props.deletePost(this.props.post.id);
+  }
+
+  editClick() {
+    let status = !this.state.editClick;
+    this.setState({ editClick: status });
   }
 
   render() {
@@ -65,4 +81,4 @@ class DropDown extends Component {
   }
 }
 
-export default DropDown;
+export default onClickOutside(DropDown);
