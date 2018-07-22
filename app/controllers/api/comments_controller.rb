@@ -10,6 +10,15 @@ class Api::CommentsController < ApplicationController
     end
   end
 
+  def update
+    @comment = current_user.comments.find(params[:comment][:id])
+    if @comment.update(comment_params)
+      render :show
+    else
+      render json: @comment.errors.messages
+    end
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy

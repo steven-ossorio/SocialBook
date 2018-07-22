@@ -29,7 +29,16 @@ const CommentReducer = (state = {}, action) => {
     case RECEIVE_COMMENT:
       newState = merge({}, state);
       let postId = action.comment.comment.postId;
-      newState[postId].push(action.comment.comment);
+      let found = false;
+      for (let i = 0; i < newState[postId].length; i++) {
+        let currentComment = newState[postId][i];
+        if (currentComment.id === action.comment.comment.id) {
+          currentComment.text = action.comment.comment.text;
+          found = true;
+        }
+      }
+      !found ? newState[postId].push(action.comment.comment) : "";
+
       return newState;
     case RECEIVE_POST:
       newState = merge({}, state);

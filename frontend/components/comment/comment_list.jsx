@@ -41,9 +41,9 @@ class CommentList extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if (
-      this.props.comments[this.props.postId].length <
+      this.props.comments[this.props.postId].length <=
         nextProps.comments[nextProps.postId].length ||
-      this.props.comments[this.props.postId].length >
+      this.props.comments[this.props.postId].length >=
         nextProps.comments[nextProps.postId].length
     ) {
       return true;
