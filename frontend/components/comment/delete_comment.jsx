@@ -1,20 +1,25 @@
 import React, { Component } from "react";
 import onClickOutside from "react-onclickoutside";
+import PostUpdate from "../post/post_update_modal";
 
 class DropDown extends Component {
   constructor(props) {
     super(props);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.state = {
-      menuActive: false
+      menuActive: false,
+      editClick: false
     };
     this.handleDelete = this.handleDelete.bind(this);
+    this.editClick = this.editClick.bind(this);
   }
 
   handleClickOutside() {
-    this.setState({
-      menuActive: false
-    });
+    if (!this.state.editClick) {
+      this.setState({
+        menuActive: false
+      });
+    }
   }
 
   toggleMenu() {
@@ -29,6 +34,11 @@ class DropDown extends Component {
     this.props.deleteComment(this.props.comment.id);
   }
 
+  editClick() {
+    let status = !this.state.editClick;
+    this.setState({ editClick: status });
+  }
+
   render() {
     let menu;
     if (this.state.menuActive) {
@@ -36,6 +46,16 @@ class DropDown extends Component {
         <div className="post-dropdown-container">
           <ul className="post-dropdown">
             <div className="post-options">
+              <li className="selection-option">
+                <PostUpdate
+                  editClick={this.editClick}
+                  toggleMenu={this.toggleMenu}
+                  post={this.props.comment}
+                  currentUser={this.props.currentUser}
+                  user={this.props.user}
+                  updatePost={this.props.updateComment}
+                />
+              </li>
               <li className="selection-option">
                 <button onClick={this.handleDelete}>Delete</button>
               </li>

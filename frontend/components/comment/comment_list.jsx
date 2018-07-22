@@ -87,7 +87,10 @@ class CommentList extends Component {
             <span>
               <DeleteComment
                 deleteComment={this.props.deleteComment}
+                updateComment={this.props.updateComment}
                 comment={comment}
+                currentUser={this.props.currentUser}
+                user={this.props.user}
               />
             </span>
           </div>
