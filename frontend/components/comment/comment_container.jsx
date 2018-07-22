@@ -6,6 +6,10 @@ import { updateComment, deleteComment } from "../../actions/comment_actions";
 const mapStateToProps = (state, ownProps) => {
   let user = state.users[ownProps.match.params.userId];
 
+  if (ownProps.match.path === "/") {
+    user = state.users[state.session.currentUser.id];
+  }
+
   return {
     currentUser: state.session.currentUser,
     user,

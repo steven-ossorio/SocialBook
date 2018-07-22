@@ -84,6 +84,7 @@ class NewsFeed extends Component {
   }
 
   render() {
+    this.props.user;
     if (this.props.newsfeed !== undefined) {
       let postsId = {};
       let excludeRepeat = this.props.newsfeed
