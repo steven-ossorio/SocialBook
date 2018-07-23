@@ -7,7 +7,7 @@ import {
   UPDATE_POST
 } from "../../actions/post_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../../actions/like_actions";
-import { RECEIVE_USER } from "../../actions/user_actions";
+import { RECEIVE_USER, RECEIVE_NEWSFEED } from "../../actions/user_actions";
 import { RECEIVE_COMMENT, REMOVE_COMMENT } from "../../actions/comment_actions";
 
 const PostReducer = (state = {}, action) => {
@@ -16,8 +16,14 @@ const PostReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_USER:
       return merge({}, state, action.posts);
-    case RECEIVE_ALL_POSTS:
-      return merge({}, action.posts);
+    case RECEIVE_NEWSFEED:
+      newState = merge({}, state);
+      for (let i = 0; i < action.posts.newsfeed.length; i++) {
+        let current = action.posts.newsfeed[i];
+        newState[current.id] = current;
+      }
+
+      return newState;
     case RECEIVE_POST:
       return merge({}, state, { [action.post.id]: action.post });
     case REMOVE_POST:

@@ -30,7 +30,6 @@ class PostUpdateForm extends Component {
   }
 
   render() {
-    debugger;
     if (this.props.currentUser && this.props.user) {
       return (
         <div>
