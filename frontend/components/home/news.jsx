@@ -12,7 +12,11 @@ class News extends Component {
 
     this.renderNews = this.renderNews.bind(this);
     this.changeStyle = this.changeStyle.bind(this);
+    this.fetchNews = this.fetchNews.bind(this);
     this.fetchBusinessNews = this.fetchBusinessNews.bind(this);
+    this.fetchScienceNews = this.fetchScienceNews.bind(this);
+    this.fetchSportNews = this.fetchSportNews.bind(this);
+    this.fetchTechnologyNews = this.fetchTechnologyNews.bind(this);
   }
   componentDidMount() {
     this.props.fetchNews();
@@ -25,17 +29,32 @@ class News extends Component {
     });
   }
 
+  fetchNews() {
+    this.props.fetchNews();
+  }
+
   fetchBusinessNews() {
     this.props.fetchBusinessNews();
   }
 
+  fetchScienceNews() {
+    this.props.fetchScienceNews();
+  }
+
+  fetchSportNews() {
+    this.props.fetchSportNews();
+  }
+
+  fetchTechnologyNews() {
+    this.props.fetchTechnologyNews();
+  }
+
   renderNews() {
     if (this.props.news) {
-      let news = this.props.news;
+      let news = this.props.news.splice(10, 10);
       return news.map((news, i) => {
         return (
           <div key={i} className="rss-feed-index-item">
-            <i className="fa fa-fire" />
             <div className="rss-feed-item-right-side">
               <a
                 className="rss-feed-item-anchor-tag"
@@ -43,15 +62,11 @@ class News extends Component {
                 target="_blank"
               >
                 <div className="rss-feed-item-title">{news.title}</div>
-                <div className="rss-feed-item-description" />
+                <div className="rss-feed-item-description">
+                  {news.description}
+                </div>
               </a>
             </div>
-            {/* <a href={news.url}>
-              <div className="news-title">
-                {news.title.slice(0, 50)}
-                <span>- {news.source.name}</span>
-              </div>
-            </a> */}
           </div>
         );
       });
@@ -70,14 +85,14 @@ class News extends Component {
         <div className="rss-feed-header">
           <div className="rss-feed-header-title">Trending</div>
           <div className="rss-feed-header-right">
-            <i className="fa fa-line-chart" />
-            <i className="fa fa-university" />
-            <i className="fa fa-flask" />
-            <i className="fa fa-futbol-o" />
-            <i className="fa fa-gamepad" />
+            <i onClick={this.fetchNews} className="fa fa-line-chart" />
+            <i onClick={this.fetchBusinessNews} className="fa fa-university" />
+            <i onClick={this.fetchScienceNews} className="fa fa-flask" />
+            <i onClick={this.fetchSportNews} className="fa fa-futbol-o" />
+            <i onClick={this.fetchTechnologyNews} className="fa fa-gamepad" />
           </div>
         </div>
-        {news}
+        {this.renderNews()}
         {/* <div
           style={{ maxHeight: this.state.newsSize }}
           className="news-list-container"

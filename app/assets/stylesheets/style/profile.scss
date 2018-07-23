@@ -29,6 +29,30 @@ html {
     }
   }
 
+  .about-me-list {
+    color: black;
+    margin-right: 12px;
+    display: flex;
+    width: 180px;
+    line-height: 28px;
+    font-size: 13px;
+    margin-top: 10px;
+
+    i {
+      margin: 5px 5px 0px 5px;
+      font-size: 20px;
+    }
+
+    span {
+      margin-top: 2px;
+    }
+
+    &:hover {
+      background-color: #f6f7f9;
+      cursor: pointer;
+    }
+  }
+
   .newsfeed-list {
     display: flex;
     font-size: 13px;
@@ -95,6 +119,55 @@ html {
     .rss-feed-header-right {
       i {
         margin-right: 8px;
+      }
+    }
+  }
+
+  .rss-feed-item-title {
+    font-size: 13px;
+    color: #3955a9;
+    font-weight: 550;
+    margin-bottom: 2px;
+  }
+
+  .rss-feed-item-description {
+    font-size: 12px;
+    color: black;
+    line-height: 1.2;
+  }
+
+  .rss-feed-index-item {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    height: 43px;
+    overflow: hidden;
+
+    .trending-arrow-icon {
+      height: 16px;
+      width: 16px;
+      box-sizing: border-box;
+    }
+
+    .rss-feed-index-right-side {
+      margin-left: 10px;
+      width: 100%;
+
+      .rss-feed-item-anchor-tag {
+        text-decoration: none;
+
+        .rss-feed-item-title {
+          font-size: 12px;
+          color: #3955a9;
+          font-weight: 550;
+          margin-bottom: 2px;
+        }
+
+        .rss-feed-item-description {
+          font-size: 12px;
+          color: black;
+          line-height: 1.2;
+        }
       }
     }
   }
