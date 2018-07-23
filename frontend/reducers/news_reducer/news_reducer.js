@@ -1,6 +1,6 @@
-import React from 'react';
-import { merge } from 'lodash';
-import { RECEIVE_NEWS } from '../../actions/news_actions';
+import React from "react";
+import { merge } from "lodash";
+import { RECEIVE_NEWS } from "../../actions/news_actions";
 
 const NewsReducer = (state = {}, action) => {
   Object.freeze(state);

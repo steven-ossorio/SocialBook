@@ -1,6 +1,12 @@
-import { connect } from 'react-redux';
-import { fetchNews } from '../../actions/news_actions';
-import News from './news';
+import { connect } from "react-redux";
+import {
+  fetchNews,
+  fetchTechnologyNews,
+  fetchBusinessNews,
+  fetchScienceNews,
+  fetchSportNews
+} from "../../actions/news_actions";
+import News from "./news";
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +16,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchNews: () => dispatch(fetchNews())
+    fetchNews: () => dispatch(fetchNews()),
+    fetchTechnologyNews: () => dispatch(fetchTechnologyNews()),
+    fetchBusinessNews: () => dispatch(fetchBusinessNews()),
+    fetchScienceNews: () => dispatch(fetchScienceNews()),
+    fetchSportNews: () => dispatch(fetchSportNews())
   };
 };
 

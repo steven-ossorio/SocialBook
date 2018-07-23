@@ -12,6 +12,7 @@ class News extends Component {
 
     this.renderNews = this.renderNews.bind(this);
     this.changeStyle = this.changeStyle.bind(this);
+    this.fetchBusinessNews = this.fetchBusinessNews.bind(this);
   }
   componentDidMount() {
     this.props.fetchNews();
@@ -24,20 +25,34 @@ class News extends Component {
     });
   }
 
+  fetchBusinessNews() {
+    this.props.fetchBusinessNews();
+  }
+
   renderNews() {
     if (this.props.news) {
       let news = this.props.news;
       return news.map((news, i) => {
         return (
-          <li key={i} className="article-container">
-            <a href={news.url}>
+          <div key={i} className="rss-feed-index-item">
+            <i className="fa fa-fire" />
+            <div className="rss-feed-item-right-side">
+              <a
+                className="rss-feed-item-anchor-tag"
+                href={news.url}
+                target="_blank"
+              >
+                <div className="rss-feed-item-title">{news.title}</div>
+                <div className="rss-feed-item-description" />
+              </a>
+            </div>
+            {/* <a href={news.url}>
               <div className="news-title">
-                <i className="fa fa-fire" />
                 {news.title.slice(0, 50)}
                 <span>- {news.source.name}</span>
               </div>
-            </a>
-          </li>
+            </a> */}
+          </div>
         );
       });
     } else {
@@ -51,9 +66,19 @@ class News extends Component {
 
   render() {
     return (
-      <div className="news-container">
-        <p>Trending</p>
-        <div
+      <div className="rss-feed-container">
+        <div className="rss-feed-header">
+          <div className="rss-feed-header-title">Trending</div>
+          <div className="rss-feed-header-right">
+            <i className="fa fa-line-chart" />
+            <i className="fa fa-university" />
+            <i className="fa fa-flask" />
+            <i className="fa fa-futbol-o" />
+            <i className="fa fa-gamepad" />
+          </div>
+        </div>
+        {news}
+        {/* <div
           style={{ maxHeight: this.state.newsSize }}
           className="news-list-container"
         >
@@ -65,7 +90,7 @@ class News extends Component {
           onClick={() => this.changeStyle()}
         >
           See More
-        </a>
+        </a> */}
       </div>
     );
   }

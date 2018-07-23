@@ -79,26 +79,46 @@ html {
     margin-top: 15px;
   }
 }
-
-.news-container {
-  color: black;
-  // position: absolute;
-  right: 138px;
-  top: 350px;
-  width: 310px;
+.rss-feed-container {
+  width: 308px;
   background-color: white;
+  padding: 12px;
   border: 1px solid #dddfe2;
-  border-radius: 3px;
-  padding: 10px;
+  border-radius: 5px;
 
-  .news-button {
-    font-size: 13px;
-    margin-top: 4px;
-    text-decoration: underline;
-    color: #365899;
-    margin-bottom: 5px;
-    cursor: pointer;
-    margin-left: 10px;
+  .rss-feed-header {
+    padding-bottom: 12px;
+    color: grey;
+    display: flex;
+    justify-content: space-between;
+
+    .rss-feed-header-right {
+      i {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  .news-container {
+    color: black;
+    // position: absolute;
+    right: 138px;
+    top: 350px;
+    width: 310px;
+    background-color: white;
+    border: 1px solid #dddfe2;
+    border-radius: 3px;
+    padding: 10px;
+
+    .news-button {
+      font-size: 13px;
+      margin-top: 4px;
+      text-decoration: underline;
+      color: #365899;
+      margin-bottom: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
   }
 
   .news-list-container {
