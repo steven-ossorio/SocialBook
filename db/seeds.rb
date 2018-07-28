@@ -170,7 +170,7 @@ end
 no_dublicates = {}
 status = ["Accepted", "Pending"]
 
-500.times do |friend|
+1000.times do |friend|
   logged_in_user = collection_of_created_users_id.sample
   added_user = collection_of_created_users_id.sample
 
@@ -198,7 +198,7 @@ end
 
 collection_of_created_post_id = [];
 
-1000.times do |post|
+2000.times do |post|
   owner = collection_of_created_users_id.sample
   profile_id = collection_of_created_users_id.sample
   quote = []
@@ -216,7 +216,7 @@ end
 
 collection_of_created_comment_id = [];
 
-1000.times do |comment|
+4000.times do |comment|
   owner_id = collection_of_created_users_id.sample
   post_id = collection_of_created_post_id.sample
   quote = []
@@ -232,7 +232,7 @@ collection_of_created_comment_id = [];
   collection_of_created_comment_id.push(comment.id)
 end
 
-1000.times do |like|
+4000.times do |like|
   owner_id = collection_of_created_users_id.sample
   post_id = collection_of_created_post_id.sample
 
