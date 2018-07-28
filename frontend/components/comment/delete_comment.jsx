@@ -40,6 +40,7 @@ class DropDown extends Component {
   }
 
   render() {
+    debugger;
     let menu;
     if (this.state.menuActive) {
       menu = (

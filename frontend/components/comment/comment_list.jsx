@@ -14,6 +14,7 @@ class CommentList extends Component {
     };
     this.renderComments = this.renderComments.bind(this);
     this.showMoreComments = this.showMoreComments.bind(this);
+    this.commentOwner = this.commentOwner.bind(this);
   }
 
   showMoreComments() {
@@ -63,6 +64,22 @@ class CommentList extends Component {
     return false;
   }
 
+  commentOwner(comment) {
+    if (comment.user.id === this.props.currentUser.id) {
+      return (
+        <span>
+          <DeleteComment
+            deleteComment={this.props.deleteComment}
+            updateComment={this.props.updateComment}
+            comment={comment}
+            currentUser={this.props.currentUser}
+            user={this.props.user}
+          />
+        </span>
+      );
+    }
+  }
+
   renderComments() {
     let loadMoreComments =
       this.props.comments[this.props.postId].length &&
@@ -93,15 +110,7 @@ class CommentList extends Component {
               </Link>
               <span>{comment.text}</span>
             </div>
-            <span>
-              <DeleteComment
-                deleteComment={this.props.deleteComment}
-                updateComment={this.props.updateComment}
-                comment={comment}
-                currentUser={this.props.currentUser}
-                user={this.props.user}
-              />
-            </span>
+            {this.commentOwner(comment)}
           </div>
         </div>
       );
