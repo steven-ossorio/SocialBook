@@ -17,6 +17,7 @@ const CommentReducer = (state = {}, action) => {
       }
       return newState;
     case RECEIVE_NEWSFEED:
+      debugger;
       newState = merge({}, state);
       posts = action.posts;
       if (posts) {
@@ -41,10 +42,11 @@ const CommentReducer = (state = {}, action) => {
 
       return newState;
     case RECEIVE_POST:
+      debugger;
       newState = merge({}, state);
       let post = action.post;
       if (post) {
-        newState[post.id] = post.comments;
+        newState[post.id] = post.comments.array;
       }
       return newState;
     case REMOVE_COMMENT:

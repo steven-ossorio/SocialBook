@@ -64,6 +64,7 @@ class CommentList extends Component {
       ) : (
         ""
       );
+    console.log(this.props.comments);
     let commentList = this.props.comments[this.props.postId].slice(
       this.state.startIndex,
       this.state.endIndex
