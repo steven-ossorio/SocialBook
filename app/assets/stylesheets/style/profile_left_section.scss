@@ -1,3 +1,7 @@
+button:hover {
+  cursor: pointer;
+}
+
 .profile-left-section {
   display: flex;
   flex-direction: column;
@@ -69,12 +73,11 @@
     p:nth-child(3) {
       i {
         margin-right: 3px;
-        font-size: 16px; 
+        font-size: 16px;
       }
     }
   }
 }
-
 
 .profile-friends-container {
   margin-top: 20px;
@@ -123,7 +126,7 @@
     color: white;
     right: 0;
     left: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, .7));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
     bottom: 0px;
 
     li {
