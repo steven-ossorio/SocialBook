@@ -11,6 +11,8 @@ require 'forgery'
 User.destroy_all
 Friend.destroy_all
 Post.destroy_all
+Comment.destroy_all
+Like.destroy_all
 
 sex = ["male", "female"]
 
@@ -126,6 +128,8 @@ cover_images = [
 ]
 
 collection_of_created_users_id = []
+collection_of_post_ids = []
+
 
 my_profile = User.create!(
   email: 'steven@steven.com',
@@ -166,13 +170,13 @@ end
 no_dublicates = {}
 status = ["Accepted", "Pending"]
 
-3000.times do |friend|
+500.times do |friend|
   logged_in_user = collection_of_created_users_id.sample
   added_user = collection_of_created_users_id.sample
 
   no_dublicates[logged_in_user] = [] unless no_dublicates[logged_in_user]
 
-  if no_dublicates[logged_in_user].count === 40
+  if no_dublicates[logged_in_user].count === 60
     logged_in_user = collection_of_created_users_id.sample
   end
 
@@ -192,6 +196,8 @@ status = ["Accepted", "Pending"]
   )
 end
 
+collection_of_created_post_id = [];
+
 1000.times do |post|
   owner = collection_of_created_users_id.sample
   profile_id = collection_of_created_users_id.sample
@@ -199,9 +205,39 @@ end
   quote.push(Faker::HarryPotter.quote)
   quote.push(Faker::RickAndMorty.quote)
 
-  Post.create!(
+  post = Post.create!(
     owner_id: owner,
     profile_id: profile_id,
     text: quote.sample
+  )
+
+  collection_of_created_post_id.push(post.id)
+end
+
+collection_of_created_comment_id = [];
+
+1000.times do |comment|
+  owner_id = collection_of_created_users_id.sample
+  post_id = collection_of_created_post_id.sample
+  quote = []
+  quote.push(Faker::HarryPotter.quote)
+  quote.push(Faker::RickAndMorty.quote)
+
+  comment = Comment.create!(
+    user_id:  owner_id,
+    post_id:  post_id,
+    text: quote.sample
+  )
+
+  collection_of_created_comment_id.push(comment.id)
+end
+
+1000.times do |like|
+  owner_id = collection_of_created_users_id.sample
+  post_id = collection_of_created_post_id.sample
+
+  Like.create!(
+    liker_id: owner_id,
+    liked_id: post_id
   )
 end
