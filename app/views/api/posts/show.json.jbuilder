@@ -5,7 +5,7 @@ json.created_at @post.created_at
 json.text @post.text
 json.profile_id @post.profile_id
 json.comments do
-  json.array @post.comments do |comment|
+  json.array! @post.comments do |comment|
       json.id comment.id
       json.text comment.text
       json.postId comment.post_id

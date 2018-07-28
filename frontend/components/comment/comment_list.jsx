@@ -9,8 +9,8 @@ class CommentList extends Component {
     super(props);
 
     this.state = {
-      startIndex: this.props.comments[this.props.postId].length - 3,
-      endIndex: this.props.comments[this.props.postId].length
+      startIndex: 0,
+      endIndex: 0
     };
     this.renderComments = this.renderComments.bind(this);
     this.showMoreComments = this.showMoreComments.bind(this);
@@ -26,6 +26,15 @@ class CommentList extends Component {
     this.setState({
       startIndex
     });
+  }
+
+  componentDidMount() {
+    if (this.props.comments) {
+      this.setState({
+        startIndex: this.props.comments[this.props.postId].length - 3,
+        endIndex: this.props.comments[this.props.postId].length
+      });
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -64,7 +73,6 @@ class CommentList extends Component {
       ) : (
         ""
       );
-    console.log(this.props.comments);
     let commentList = this.props.comments[this.props.postId].slice(
       this.state.startIndex,
       this.state.endIndex

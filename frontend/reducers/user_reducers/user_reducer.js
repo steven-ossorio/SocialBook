@@ -49,7 +49,10 @@ const UserReducer = (state = {}, action) => {
         for (let i = 0; i < newState.newsfeed.length; i++) {
           let currentPost = newState.newsfeed[i];
           if (currentPost.id === action.comment.comment.postId) {
-            currentPost.comments.push(action.comment.comment);
+            let commentArray = currentPost.comments.array
+              ? currentPost.comments.array
+              : currentPost.comments;
+            commentArray.push(action.comment.comment);
             break;
           }
         }

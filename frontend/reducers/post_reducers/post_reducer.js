@@ -57,9 +57,10 @@ const PostReducer = (state = {}, action) => {
       newState = merge({}, state);
       let postId = action.comment.comment.postId;
       let post = newState[postId];
-      let comments = post.comments;
+      let comments =
+        post.comments.array !== undefined ? post.comments.array : post.comments;
       if (!comments.includes(action.comment.comment.id)) {
-        newState[postId].comments.push(action.comment);
+        comments.push(action.comment);
       }
       return newState;
     case REMOVE_COMMENT:
