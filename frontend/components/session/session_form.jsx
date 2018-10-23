@@ -1,27 +1,31 @@
-import React, { Component} from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import Typed from 'typed.js';
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import Typed from "typed.js";
 
 class SessionForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: ""
-    };
-    this.update = this.update.bind(this);
-    this.submit = this.submit.bind(this);
-    this.guestLogin = this.guestLogin.bind(this);
-    this.errorsCredentials = this.errorsCredentials.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     email: "",
+  //     password: ""
+  //   };
+  //   this.update = this.update.bind(this);
+  //   this.submit = this.submit.bind(this);
+  //   this.guestLogin = this.guestLogin.bind(this);
+  //   this.errorsCredentials = this.errorsCredentials.bind(this);
+  // }
 
-  guestLogin(e) {
+  state = {
+    email: "",
+    password: ""
+  };
+
+  guestLogin = e => {
     e.preventDefault();
 
-
     let guestInfo = {
-      email: 'steven@steven.com',
-      password: 'steven'
+      email: "steven@steven.com",
+      password: "steven"
     };
 
     const userEmail = {
@@ -33,10 +37,10 @@ class SessionForm extends Component {
       typeSpeed: 100
     };
 
-    let typed =  new Typed(".login-email", userEmail);
+    let typed = new Typed(".login-email", userEmail);
 
     const loggedPassword = () => {
-      let typeded =  new Typed(".login-password", userPassword);
+      let typeded = new Typed(".login-password", userPassword);
     };
 
     const func = () => {
@@ -46,31 +50,31 @@ class SessionForm extends Component {
 
     setTimeout(loggedPassword, 2000);
     setTimeout(func, 3200);
+  };
 
-  }
-
-  update(field) {
+  update = field => {
     return e => {
       this.setState({
         [field]: e.target.value
       });
     };
-  }
+  };
 
-  submit(e) {
+  submit = e => {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.login(user);
-  }
+  };
 
-  errorsCredentials() {
-    if (this.props.errors.length > 0) {
-      return <div className="login-error">{ this.props.errors[0] }</div>;
+  errorsCredentials = () => {
+    const { errors } = this.props;
+
+    if (errors.length > 0) {
+      return <div className="login-error">{errors[0]}</div>;
     }
-  }
+  };
 
   render() {
-    const errors = this.props.errros;
     return (
       <div>
         <main className="nav-background">
@@ -78,18 +82,26 @@ class SessionForm extends Component {
             <h1 className="logo">Socialbook</h1>
             <div className="login-container">
               <form className="login-form">
-                { this.errorsCredentials() }
+                {this.errorsCredentials()}
                 <div>
                   <label className="login-email-label">Email</label>
-                  <input type="text" className="login-email" onChange={ this.update('email') } ></input>
+                  <input
+                    type="text"
+                    className="login-email"
+                    onChange={this.update("email")}
+                  />
                 </div>
                 <div>
                   <label className="login-password-label">Password</label>
-                  <input type="password" className="login-password" onChange={ this.update('password')}></input>
+                  <input
+                    type="password"
+                    className="login-password"
+                    onChange={this.update("password")}
+                  />
                 </div>
                 <div>
-                  <button onClick={ this.submit }>Log In</button>
-                  <button onClick={ this.guestLogin }>Guest</button>
+                  <button onClick={this.submit}>Log In</button>
+                  <button onClick={this.guestLogin}>Guest</button>
                 </div>
               </form>
             </div>
