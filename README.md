@@ -13,12 +13,12 @@ Socialbook is a Facebook clone that seeks to replicate some commonly used featur
 - AJAX
 - CSS
 - Sass/SCSS
-- Heroku (web hosting)
 - Node/NPM
 
 ### Backend
 
 - Ruby on Rails
+- Heroku (web hosting)
 - Amazon Web Services (S3)
 - PostgreSQL
 - ActiveRecord
@@ -28,10 +28,14 @@ Socialbook is a Facebook clone that seeks to replicate some commonly used featur
 A gif will be present below each description showing each feature in action.
 
 1. Custom Authentication
-2. Creating/Deleting a Post
-3. Uploading Image
-4. Adding/Deleting a Friend
-5. Newsfeed
+2. CRUD Post
+3. CRUD Comment
+4. Post Like
+5. Uploading Image
+6. Adding/Deleting a Friend
+7. Newsfeed
+8. Pending Friend Request
+9. News API
 
 ### Custom Authentication
 
@@ -43,19 +47,98 @@ Error handling was implemented in order to convey to the user what he/she is mis
 
 ### CRUD (Create, Read, Update, Delete) Post
 
-A user or rather the creator should have full right to whether a post gets updated or delete. The way we check if a user is the valid owner is by comparing the owner_id to the current_user_id. If both were to match, a drop down with both functionality of Edit and Delete are provided for the owner.
+A Logged in user will be able to Create a Post in two different locations. First would be on their Newsfeed and second is in their profile page. By creating one in either location, it'll show up in both of them. A user who didn't create the post will only be able to Read the post. Those with authority will be able to view a drop down button which will have both Edit/Delete functionality availble. The function which checks if a user has such functionality is as follow:
+
+```Javascript
+  postOwner(post) {
+    if (post.owner === this.props.currentUser.id) {
+      return (
+        <div>
+          <DropDown
+            deletePost={this.props.deletePost}
+            post={post}
+            currentUser={this.props.currentUser}
+            user={this.props.user}
+            updatePost={this.props.updatePost}
+          />
+        </div>
+      );
+    }
+  }
+```
+
+Here, the Post has a owner key which points to the creator ID. We compare it to the currentUser (Logged in user) ID and if a match was to appear then he/she may be able to edit or delete their post.
 
 <img src="docs/CRUD_POST.gif" width="600">
 
 ### CRUD (Create, Read, Update, Delete) Comment
 
-The functionality is similar to Post. A user who is the owner will be allowed to Edit or Delete a comment written within a post. If he/she wasn't the owner, only reading the comments is possible.
+A Comment is created in reponse to a Post created by either the current user or an individual he/she is friends with. Much similar to Post, a comment can only be Edited/Deleted by the individual who created it. This convention is much similar to CRUD Post although the difference is, a comment can't be created without having the Post Id present. When Posts are retrieved, a slice of state with comments is created where the Post Id (key) points to an array of comments.
+
+```Javascript
+  case RECEIVE_POST:
+    newState = merge({}, state);
+    let post = action.post;
+    if (post) {
+      newState[post.id] = post.comments.array
+        ? post.comments.array
+        : post.comments;
+    }
+    return newState;
+```
+
+By having the Post ID be the key that point to a collection of comments, we are able to look up the Post Id at o(1) time and pass in the collection of comments array to the Comment List component which will return a collection of converted data into <li> which we then place under the post.
+
+```JavaScript
+  commentList = commentList.map(comment => {
+    return (
+      <div className="comment-list" key={`${comment.id}`}>
+        <div className="comment-container">
+          <img src={comment.user.image} />
+          <div className="comment-content">
+            <Link
+              className="comment-owner-name"
+              to={`/users/${comment.user.id}`}
+              replace
+            >
+              {comment.user.first_name}
+            </Link>
+            <span>{comment.text}</span>
+          </div>
+          {this.commentOwner(comment)}
+        </div>
+      </div>
+    );
+  });
+```
 
 <img src="docs/CRUD_COMMENT.gif" width="600">
 
 ### Liking A Post
 
-A user is able to like a post. By checking if a user ID is present within the post/likes, we are able to check whether the user can either like (create) a post or unlike (delete) from the post.
+A user when logged in will have two options, they can either Like (create) or Unlike (delete) a Post. This functionality has always been important to Facebook as it gives users a way to express how they feel about a post created by other individuals they are either following or friends with. In order to know whether a user can like or dislike a post a check is done to see if the userId is present within the collection of users who has already liked the post.
+
+```JavaScript
+    if (this.props.likeIds.includes(this.props.userId)) {
+      return (
+        <div className="like-container">
+          <div className="liked" onClick={this.unlike.bind(this)}>
+            <i className="fa fa-thumbs-up" /> <span>Like</span>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="like-container">
+          <div className="like" onClick={this.like.bind(this)}>
+            <i className="fa fa-thumbs-o-up" /> <span>Like</span>
+          </div>
+        </div>
+      );
+    }
+```
+
+Currently, the search for a user is done in o(n) time which isn't bad but can be improved with minor modification to how information is being recieved. The search look up time can be further improved by saving the userId as a key. By uterlizing a Hash Table instead of an Array we can use it's o(1) look up speed to further optomize the application.
 
 <img src="docs/LIKE.gif" width="600">
 
@@ -110,6 +193,23 @@ Since the interaction between a "friend" can either be the initiator (in_friends
 ### Pending User Requests
 
 When another user decides to request permission to become friends, a request is send and turns to pending until the reciever decides to become mutual friends with the indiviaul. Such action can be seen on the bottom GIF, as a user checks the current pending requests and decides to add only an individual they know. Once added, the table will turn to "Accepted" from the default "Pending" and make a mutual connection between the two users.
+
+When a new request is created by an individual to become friends with another user, a table is created with a default "Pending" status. Should the other user approve of the request, it'll turn the created data status to "Accepted". Accepted is used in order to retrieve all users which are considered a friend to each individual. If they are yet to be a friend, the request method is run when a user logs in.
+
+```Ruby
+  def requests
+    @friend_requests ||= self.requestee.where(status: "Pending")
+    requesters = []
+
+    @friend_requests.each do |friend_request|
+      user = User.find(friend_request.friender_id)
+      requesters.push(user)
+    end
+    requesters
+  end
+```
+
+A user has pending request if his/her ID matches the requestee_id and status is "Pending". The collection of requested users are send to the front end and listed in the drop down box. Should a user accept, the user gets attended to the collection of friends and Pending Request dropdown gets updated with only users who has "Pending".
 
 <img src="docs/ADD_FRIENDS.gif" width="600">
 
