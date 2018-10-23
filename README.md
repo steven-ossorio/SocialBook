@@ -47,6 +47,12 @@ A user or rather the creator should have full right to whether a post gets updat
 
 <img src="docs/CRUD_POST.gif" width="600">
 
+### CRUD (Create, Read, Update, Delete) Comment
+
+The functionality is similar to Post. A user who is the owner will be allowed to Edit or Delete a comment written within a post. If he/she wasn't the owner, only reading the comments is possible.
+
+<img src="docs/CRUD_COMMENT.gif" width="600">
+
 ### Uploading image
 
 A user is able to update their profile image. The process is similar to Facebook where a user selects an image and it produces a preview before the user saves their image. If he/she were to cancel the image, it would disappear from the local state and they'll need to pick an image again.
