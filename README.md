@@ -53,6 +53,12 @@ The functionality is similar to Post. A user who is the owner will be allowed to
 
 <img src="docs/CRUD_COMMENT.gif" width="600">
 
+### Liking A Post
+
+A user is able to like a post. By checking if a user ID is present within the post/likes, we are able to check whether the user can either like (create) a post or unlike (delete) from the post.
+
+<img src="docs/LIKE.gif" width="600">
+
 ### Uploading image
 
 A user is able to update their profile image. The process is similar to Facebook where a user selects an image and it produces a preview before the user saves their image. If he/she were to cancel the image, it would disappear from the local state and they'll need to pick an image again.
@@ -143,10 +149,12 @@ React was created by the Facebook 2013, a library that has become popular in the
 
 ## Features in Development
 
-- Fix drop down regarding pending Users
-- Friends add state not updating and delete button
-- Implement Comment to Posts
-- Editing Posts and Comments
+- Fix drop down regarding pending Users - DONE
+- Friends add state not updating and delete button - DONE
+- Implement Comment to Posts - DONE
+- Editing Posts and Comments - DONE
 - Improved Newsfeed algorithm
 - Search for Users
 - Suggested Friends
+- Add like to Comments
+- Include Websockets
