@@ -1,18 +1,19 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
-import { merge } from "lodash";
 import PostFormContainer from "../post/post_form_container";
 import PostIndexContainer from "../post/post_index_container";
-import ProfileTopSection from "./profile_top_section";
 import ProfileTopContainer from "./profile_top_container";
-import Friends from "./friends";
 import IntroContainer from "./intro_container";
-import ProfileNav from "./profile_nav";
 import ProfileNavContainer from "./profile_nav_container";
 import FriendsContainer from "./friends_container";
 import { RingLoader } from "react-spinners";
+import { object, func } from "prop-types";
 
 class Profile extends Component {
+  static propType = {
+    currentUser: object.isRequired,
+    fetchUser: func.isRequired
+  };
+
   componentDidMount() {
     this.props.fetchUser(this.props.currentUser.id);
     this.props.fetchUser(this.props.match.params.userId);
