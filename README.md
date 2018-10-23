@@ -7,21 +7,24 @@ Socialbook is a Facebook clone that seeks to replicate some commonly used featur
 ## Technology
 
 ### Frontend
-  + React
-  + Redux
-  + AJAX
-  + CSS
-  + Sass/SCSS
-  + Heroku (web hosting)
-  + Node/NPM
+
+- React
+- Redux
+- AJAX
+- CSS
+- Sass/SCSS
+- Heroku (web hosting)
+- Node/NPM
 
 ### Backend
-  + Ruby on Rails
-  + Amazon Web Services (S3)
-  + PostgreSQL
-  + ActiveRecord
+
+- Ruby on Rails
+- Amazon Web Services (S3)
+- PostgreSQL
+- ActiveRecord
 
 ## Features
+
 A gif will be present below each description showing each feature in action.
 
 1. Custom Authentication
@@ -38,7 +41,6 @@ Error handling was implemented in order to convey to the user what he/she is mis
 
 <img src="docs/auth.gif" width="600">
 
-
 ### Creating/Deleting Posts
 
 A user is able to create a post on his/her own wall and their friends wall. The delete function is only available to posts created by the signed in user. The post is added/removed once an action fires. The action reaches the reducer which updates the store and causes the components to re-render.
@@ -50,7 +52,6 @@ A user is able to create a post on his/her own wall and their friends wall. The 
 A user is able to update their profile image. The process is similar to Facebook where a user selects an image and it produces a preview before the user saves their image. If he/she were to cancel the image, it would disappear from the local state and they'll need to pick an image again.
 
 <img src="docs/photo.gif" width="600">
-
 
 ### Adding/Deleting Friends
 
@@ -67,14 +68,16 @@ create_table "friends", force: :cascade do |t|
   t.index ["friender_id"], name: "index_friends_on_friender_id"
 end
 ```
+
 There were multiple ways a developer could have created a "friend" connection. An example would have been to create two models, a pending and friendship. Such role would have separated the task to it's respective model. I believe my approach kept things simpler since any negative actions such as "cancel of request" or "deleting a friend" would result in just removing that single initialized instance instead of possible two.
 
 <img src="docs/friendship.gif" width="600">
 
 ### Newsfeed
+
 The Newsfeed is one of Facebook's key feature. A NewsFeed is where a logged in user gets to see what their friends have posted and is able to make a post (which appears on their profile wall as well).
 
-``` Ruby
+```Ruby
 def newsfeed
   @friends ||= self.in_friends.where("friends.status = 'Accepted'").includes(:posts) + self.out_friends.where("friends.status = 'Accepted'").includes(:posts)
   @something = self.profile_posts
@@ -92,13 +95,16 @@ Since the interaction between a "friend" can either be the initiator (in_friends
 
 <img src="docs/newsfeed.gif" width="600">
 
+### News API
 
 ## Design Decisions
+
 #### Why React?
 
 React was created by the Facebook 2013, a library that has become popular in the last year. Question: why React was implemented over it's well known competitor Angular? Besides the most obvious point that Facebook uses it, React has a lot of good reasons why one may pick it over its competitors. First is its size. Being a small library and not a framework like Angular, it makes it faster for a user visiting a website to download the required files quicker. Another advantage is how quick React runs due to its use of a virtual DOM that updates depending on changes occurring in comparison to using views (Angular).
 
 ## Features in Development
+
 - Fix drop down regarding pending Users
 - Friends add state not updating and delete button
 - Implement Comment to Posts
