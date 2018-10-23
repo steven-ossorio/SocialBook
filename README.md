@@ -166,7 +166,7 @@ end
 
 There were multiple ways a developer could have created a "friend" connection. An example would have been to create two models, a pending and friendship. Such role would have separated the task to it's respective model. I believe my approach kept things simpler since any negative actions such as "cancel of request" or "deleting a friend" would result in just removing that single initialized instance instead of possible two.
 
-<img src="docs/friendship.gif" width="600">
+<img src="docs/ADDING_FRIEND.gif" width="600">
 
 ### Newsfeed
 
@@ -188,7 +188,7 @@ end
 
 Since the interaction between a "friend" can either be the initiator (in_friends/friender shown on top snippet) or the receiver (out_friends/friendee shown on top snippet), we needed to grab all the friends the current user is associated with while he/she is either a (friender/friendee) and with a "Accepted" status which means they are friends.
 
-<img src="docs/newsfeed.gif" width="600">
+<img src="docs/NEWSFEED.gif" width="600">
 
 ### Pending User Requests
 
