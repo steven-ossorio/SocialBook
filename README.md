@@ -97,6 +97,32 @@ Since the interaction between a "friend" can either be the initiator (in_friends
 
 ### News API
 
+The api picked for implementation was www.newsapi.com. Each tab within the news component fetches new data depending on the type of news an individual is searching for. The current options are General News, Science, Sport, Technology, and Business. The tabs each has a function assigned to it which gets called once an individual clicks on it. The action takes place as follows: User clicks Business icon which has fetchBusinessNews() function attached to it, it'll make an ajax call to the api server and return the news we require to populate the page. An example of the function and the news within the application is shown below.
+
+```Javascript
+  fetchNews() {
+    this.props.fetchNews();
+  }
+
+  fetchBusinessNews() {
+    this.props.fetchBusinessNews();
+  }
+
+  fetchScienceNews() {
+    this.props.fetchScienceNews();
+  }
+
+  fetchSportNews() {
+    this.props.fetchSportNews();
+  }
+
+  fetchTechnologyNews() {
+    this.props.fetchTechnologyNews();
+  }
+```
+
+<img src="docs/NEWS.gif" width="600">
+
 ## Design Decisions
 
 #### Why React?
