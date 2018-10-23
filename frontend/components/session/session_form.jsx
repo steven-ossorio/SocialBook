@@ -1,23 +1,16 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { func } from "prop-types";
 import Typed from "typed.js";
 
 class SessionForm extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     email: "",
-  //     password: ""
-  //   };
-  //   this.update = this.update.bind(this);
-  //   this.submit = this.submit.bind(this);
-  //   this.guestLogin = this.guestLogin.bind(this);
-  //   this.errorsCredentials = this.errorsCredentials.bind(this);
-  // }
-
   state = {
     email: "",
     password: ""
+  };
+
+  static propType = {
+    login: func.isRequired
   };
 
   guestLogin = e => {

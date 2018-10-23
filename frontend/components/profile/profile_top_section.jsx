@@ -6,10 +6,6 @@ import FriendDropDown from "./delete_friend_dropdown";
 import { RingLoader } from "react-spinners";
 
 class ProfileTopSection extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let addButton = "";
     if (this.props.currentUser !== null && this.props.user !== undefined) {

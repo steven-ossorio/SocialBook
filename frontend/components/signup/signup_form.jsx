@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { object, func } from "prop-types";
 
 class SignUpForm extends Component {
   state = {
@@ -13,6 +14,11 @@ class SignUpForm extends Component {
     year: new Date().getFullYear() - 18,
     sex: "",
     errors: Object.assign({}, this.props.errors)
+  };
+
+  static propTypes = {
+    signup: func.isRequired,
+    errors: object.isRequired
   };
 
   update = field => {
