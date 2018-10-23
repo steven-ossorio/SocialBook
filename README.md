@@ -87,7 +87,7 @@ A Comment is created in reponse to a Post created by either the current user or 
     return newState;
 ```
 
-By having the Post ID be the key that point to a collection of comments, we are able to look up the Post Id at o(1) time and pass in the collection of comments array to the Comment List component which will return a collection of converted data into <li> which we then place under the post.
+By having the Post ID be the key that point to a collection of comments, we are able to look up the Post Id at o(1) time and pass in the collection of comments array to the Comment List component which will return a collection of converted data into li html element which we then place under the post.
 
 ```JavaScript
   commentList = commentList.map(comment => {
