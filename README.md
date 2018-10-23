@@ -41,11 +41,11 @@ Error handling was implemented in order to convey to the user what he/she is mis
 
 <img src="docs/auth.gif" width="600">
 
-### Creating/Deleting Posts
+### CRUD (Create, Read, Update, Delete) Post
 
-A user is able to create a post on his/her own wall and their friends wall. The delete function is only available to posts created by the signed in user. The post is added/removed once an action fires. The action reaches the reducer which updates the store and causes the components to re-render.
+A user or rather the creator should have full right to whether a post gets updated or delete. The way we check if a user is the valid owner is by comparing the owner_id to the current_user_id. If both were to match, a drop down with both functionality of Edit and Delete are provided for the owner.
 
-<img src="docs/posting.gif" width="600">
+<img src="docs/CRUD_POST.gif" width="600">
 
 ### Uploading image
 
@@ -94,6 +94,12 @@ end
 Since the interaction between a "friend" can either be the initiator (in_friends/friender shown on top snippet) or the receiver (out_friends/friendee shown on top snippet), we needed to grab all the friends the current user is associated with while he/she is either a (friender/friendee) and with a "Accepted" status which means they are friends.
 
 <img src="docs/newsfeed.gif" width="600">
+
+### Pending User Requests
+
+When another user decides to request permission to become friends, a request is send and turns to pending until the reciever decides to become mutual friends with the indiviaul. Such action can be seen on the bottom GIF, as a user checks the current pending requests and decides to add only an individual they know. Once added, the table will turn to "Accepted" from the default "Pending" and make a mutual connection between the two users.
+
+<img src="docs/ADD_FRIENDS.gif" width="600">
 
 ### News API
 
