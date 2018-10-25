@@ -1,37 +1,57 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class About extends Component {
-  constructor(props){
-    super(props);
-
-  }
-
-  render(){
+  render() {
     if (this.props.currentUser) {
-      return(
+      return (
         <div className="profile-page-top">
           <main className="newsfeed-nav-container">
             <div className="newsfeed-nav-items">
-              <h1 className="logo"><Link to="/"><i className="fa fa-facebook-official"></i></Link></h1>
+              <h1 className="logo">
+                <Link to="/">
+                  <i className="fa fa-facebook-official" />
+                </Link>
+              </h1>
               <ul className="navbar-items">
                 <li>
-                  <img className="nav-profile-image" src={ this.props.currentUser.image_url }></img>
-                  <Link to={`/users/${ this.props.currentUser.id}` }>{ this.props.currentUser.firstName }</Link>
+                  <img
+                    className="nav-profile-image"
+                    src={this.props.currentUser.image_url}
+                  />
+                  <Link to={`/users/${this.props.currentUser.id}`}>
+                    {this.props.currentUser.firstName}
+                  </Link>
                 </li>
                 <li>Home</li>
-                <li><i className="fa fa-users"></i></li>
-                <li><i className="fa fa-comments"></i></li>
-                <li><i className="fa fa-globe"></i></li>
-                <li><i className="fa fa-question-circle"></i></li>
-                <li><i className="fa fa-arrow-circle-down"></i></li>
+                <li>
+                  <i className="fa fa-users" />
+                </li>
+                <li>
+                  <i className="fa fa-comments" />
+                </li>
+                <li>
+                  <i className="fa fa-globe" />
+                </li>
+                <li>
+                  <i className="fa fa-question-circle" />
+                </li>
+                <li>
+                  <i className="fa fa-arrow-circle-down" />
+                </li>
               </ul>
             </div>
           </main>
           <div className="top-profile-portion-container">
             <div className="top-profile-portion">
-              <img className="profile-cover-image" src={ this.props.currentUser.cover_image_url }></img>
-              <img className="profile-image" src={ this.props.currentUser.image_url }></img>
+              <img
+                className="profile-cover-image"
+                src={this.props.currentUser.cover_image_url}
+              />
+              <img
+                className="profile-image"
+                src={this.props.currentUser.image_url}
+              />
               <div className="profile-pages-container">
                 <ul className="profile-pages">
                   <li className="profile-timeline">Timeline</li>
@@ -43,14 +63,11 @@ class About extends Component {
               </div>
             </div>
           </div>
-          <button onClick={ this.props.logout }>Logout</button>
+          <button onClick={this.props.logout}>Logout</button>
         </div>
       );
     } else {
-      return (
-        <div>
-        </div>
-      );
+      return <div />;
     }
   }
 }
