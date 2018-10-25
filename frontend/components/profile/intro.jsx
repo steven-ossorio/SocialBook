@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { RingLoader } from "react-spinners";
+import { object } from "prop-types";
 
 class Intro extends Component {
-  constructor(props) {
-    super(props);
-  }
+  static PropTypes = {
+    user: object.isRequired
+  };
 
   render() {
     if (this.props.user) {
@@ -20,16 +20,16 @@ class Intro extends Component {
             </div>
             <div className="intro-description">
               <p>
-                <i className="fa fa-home" />Lives in{" "}
-                <span>{this.props.user.current_location}</span>
+                <i className="fa fa-home" />
+                Lives in <span>{this.props.user.current_location}</span>
               </p>
               <p>
-                <i className="fa fa-map-marker" />From{" "}
-                <span>{this.props.user.home_location}</span>
+                <i className="fa fa-map-marker" />
+                From <span>{this.props.user.home_location}</span>
               </p>
               <p>
-                <i className="fa fa-graduation-cap" />Studied{" "}
-                {this.props.user.major} at{" "}
+                <i className="fa fa-graduation-cap" />
+                Studied {this.props.user.major} at{" "}
                 <span> {this.props.user.school}</span>
               </p>
             </div>
