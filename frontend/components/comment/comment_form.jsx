@@ -3,26 +3,20 @@ import { Link } from "react-router-dom";
 import { RingLoader } from "react-spinners";
 
 class CommentForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: "",
-      post_id: ""
-    };
+  state = {
+    text: "",
+    post_id: ""
+  };
 
-    this.onSubmit = this.onSubmit.bind(this);
-    this.update = this.update.bind(this);
-  }
-
-  update(field) {
+  update = field => {
     return e => {
       this.setState({
         [field]: e.target.value
       });
     };
-  }
+  };
 
-  onSubmit(e) {
+  onSubmit = e => {
     const comment = Object.assign({}, this.state);
     if (e.key === "Enter") {
       comment.post_id = this.props.postId;
@@ -36,7 +30,7 @@ class CommentForm extends Component {
         });
       }
     }
-  }
+  };
 
   render() {
     if (this.props.user) {

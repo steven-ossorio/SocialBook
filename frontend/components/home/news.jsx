@@ -1,57 +1,48 @@
 import React, { Component } from "react";
 import { RingLoader } from "react-spinners";
-import { Link } from "react-router-dom";
 
 class News extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      newsSize: "150px",
-      visible: "visible"
-    };
+  state = {
+    newsSize: "150px",
+    visible: "visible"
+  };
 
-    this.renderNews = this.renderNews.bind(this);
-    this.changeStyle = this.changeStyle.bind(this);
-    this.fetchNews = this.fetchNews.bind(this);
-    this.fetchBusinessNews = this.fetchBusinessNews.bind(this);
-    this.fetchScienceNews = this.fetchScienceNews.bind(this);
-    this.fetchSportNews = this.fetchSportNews.bind(this);
-    this.fetchTechnologyNews = this.fetchTechnologyNews.bind(this);
-  }
   componentDidMount() {
     this.props.fetchNews();
   }
 
-  changeStyle() {
+  changeStyle = () => {
     this.setState({
       newsSize: "300px",
       visible: "hidden"
     });
-  }
+  };
 
-  fetchNews() {
+  fetchNews = () => {
     this.props.fetchNews();
-  }
+  };
 
-  fetchBusinessNews() {
+  fetchBusinessNews = () => {
     this.props.fetchBusinessNews();
-  }
+  };
 
-  fetchScienceNews() {
+  fetchScienceNews = () => {
     this.props.fetchScienceNews();
-  }
+  };
 
-  fetchSportNews() {
+  fetchSportNews = () => {
     this.props.fetchSportNews();
-  }
+  };
 
-  fetchTechnologyNews() {
+  fetchTechnologyNews = () => {
     this.props.fetchTechnologyNews();
-  }
+  };
 
-  renderNews() {
-    if (this.props.news) {
-      let news = this.props.news.splice(10, 10);
+  renderNews = () => {
+    const { news } = this.props;
+
+    if (news) {
+      let news = news.splice(10, 10);
       return news.map((news, i) => {
         return (
           <div key={i} className="rss-feed-index-item">
@@ -77,7 +68,7 @@ class News extends Component {
         </div>
       );
     }
-  }
+  };
 
   render() {
     return (
@@ -93,19 +84,6 @@ class News extends Component {
           </div>
         </div>
         {this.renderNews()}
-        {/* <div
-          style={{ maxHeight: this.state.newsSize }}
-          className="news-list-container"
-        >
-          {this.renderNews()}
-        </div>
-        <a
-          className="news-button"
-          style={{ visibility: this.state.visible }}
-          onClick={() => this.changeStyle()}
-        >
-          See More
-        </a> */}
       </div>
     );
   }

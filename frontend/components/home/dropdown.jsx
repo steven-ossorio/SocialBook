@@ -8,33 +8,26 @@ import {
 import onClickOutside from "react-onclickoutside";
 
 class DropDown extends Component {
-  constructor(props) {
-    super(props);
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.state = {
-      menuActive: false
-    };
+  state = {
+    menuActive: false
+  };
 
-    this.handleLogout = this.handleLogout.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
-  }
-
-  handleClickOutside() {
+  handleClickOutside = () => {
     this.setState({
       menuActive: false
     });
-  }
+  };
 
-  toggleMenu() {
+  toggleMenu = () => {
     let menuState = !this.state.menuActive;
     this.setState({
       menuActive: menuState
     });
-  }
+  };
 
-  handleLogout() {
+  handleLogout = () => {
     this.props.logout();
-  }
+  };
 
   render() {
     let menu;

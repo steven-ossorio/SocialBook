@@ -21,46 +21,48 @@ import NewsContainer from "./news_container";
 import ListSection from "./list";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
-    if (
-      (this.props.newsfeed === undefined || this.props.user === undefined) &&
-      this.props.currentUser
-    ) {
-      this.props.fetchNewsFeed();
-      this.props.fetchUser(this.props.currentUser.id);
+    const {
+      newsfeed,
+      user,
+      currentUser,
+      fetchNewsFeed,
+      fetchUser
+    } = this.props;
+
+    if ((newsfeed === undefined || user === undefined) && currentUser) {
+      fetchNewsFeed();
+      fetchUser(currentUser.id);
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!this.props.currentUser && nextProps.currentUser) {
-      this.props.fetchNewsFeed();
-      this.props.fetchUser(nextProps.currentUser.id);
+    const { currentUser, fetchNewsFeed, fetchUser } = this.props;
+
+    if (!currentUser && nextProps.currentUser) {
+      fetchNewsFeed();
+      fetchUser(nextProps.currentUser.id);
     }
   }
 
   render() {
-    if (this.props.currentUser === null) {
+    const { currentUser, user } = this.props;
+
+    if (currentUser === null) {
       return (
         <div>
           <SessionFormContainer />
           <SignUpFormContainer />
         </div>
       );
-    } else if (
-      this.props.currentUser !== undefined &&
-      this.props.user !== undefined
-    ) {
+    } else if (currentUser !== undefined && user !== undefined) {
       return (
         <div>
           <HomeNavContainer />
           <div className="newsfeed_container">
             <div className="landing-page-container">
               <div className="left-portion">
-                <ListSection user={this.props.user} />
+                <ListSection user={user} />
               </div>
               <div className="middle-portion">
                 <PostFormContainer />
@@ -73,7 +75,7 @@ class Home extends Component {
           </div>
         </div>
       );
-    } else if (this.props.currentUser && this.props.user === undefined) {
+    } else if (currentUser && user === undefined) {
       return (
         <div className="loading-spin">
           <RingLoader size={100} color={"#0000FF"} />

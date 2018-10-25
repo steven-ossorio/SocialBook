@@ -8,33 +8,28 @@ import CommentContainer from "../comment/comment_container";
 import Like from "../../components/post/like_post";
 
 class NewsFeed extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startIndex: 0,
-      endIndex: 10,
-      loading: false,
-      _isMounted: false
-    };
-    this.addMorePosts = this.addMorePosts.bind(this);
-    this.endOfPage = this.endOfPage.bind(this);
-    this.loading = this.loading.bind(this);
-    this._isMounted = null;
-  }
+  state = {
+    startIndex: 0,
+    endIndex: 10,
+    loading: false,
+    _isMounted: false
+  };
 
   componentWillUnmount() {
     this._isMounted = false;
   }
 
   componentDidMount() {
-    if (!this.props.user[this.props.currentUser.id]) {
-      this.props.fetchUser(this.props.currentUser.id);
+    const { user, currentUser, fetchUser } = this.props;
+
+    if (!user[currentUser.id]) {
+      fetchUser(currentUser.id);
     }
 
     this._isMounted = true;
   }
 
-  loading() {
+  loading = () => {
     if (this.state.loading) {
       return (
         <div className="newsfeed-loading-animation">
@@ -42,34 +37,36 @@ class NewsFeed extends Component {
         </div>
       );
     }
-  }
+  };
 
-  postOwner(post) {
-    if (post.owner === this.props.currentUser.id) {
+  postOwner = post => {
+    const { currentUser, deletePost, user, updatePost } = this.props;
+
+    if (post.owner === currentUser.id) {
       return (
         <div>
           <PostDropDown
-            deletePost={this.props.deletePost}
+            deletePost={deletePost}
             post={post}
-            currentUser={this.props.currentUser}
-            user={this.props.user}
-            updatePost={this.props.updatePost}
+            currentUser={currentUser}
+            user={user}
+            updatePost={updatePost}
           />
         </div>
       );
     }
-  }
+  };
 
-  addMorePosts() {
+  addMorePosts = () => {
     this.setState({
       endIndex: this.state.endIndex + 10,
       loading: false
     });
 
     this._isMounted = true;
-  }
+  };
 
-  endOfPage() {
+  endOfPage = () => {
     if (!this.state.loading) {
       $(window).scroll(() => {
         if (
@@ -81,13 +78,21 @@ class NewsFeed extends Component {
         }
       });
     }
-  }
+  };
 
   render() {
-    this.props.user;
-    if (this.props.newsfeed !== undefined) {
+    const {
+      newsfeed,
+      unlike,
+      like,
+      currentUser,
+      user,
+      createComment
+    } = this.props;
+
+    if (newsfeed !== undefined) {
       let postsId = {};
-      let excludeRepeat = this.props.newsfeed
+      let excludeRepeat = newsfeed
         .filter(post => {
           if (!postsId[post.id]) {
             postsId[post.id] = true;
@@ -117,10 +122,10 @@ class NewsFeed extends Component {
             </div>
             <p className="post-list-text">{post.text}</p>
             <Like
-              unlike={this.props.unlike}
-              like={this.props.like}
+              unlike={unlike}
+              like={like}
               postId={post.id}
-              userId={this.props.currentUser.id}
+              userId={currentUser.id}
               likeIds={post.likes[post.id].array}
             />
 
@@ -135,9 +140,9 @@ class NewsFeed extends Component {
               )}
               <CommentContainer postId={post.id} />
               <CommentForm
-                user={this.props.user}
+                user={user}
                 postId={post.id}
-                createComment={this.props.createComment}
+                createComment={createComment}
               />
             </div>
           </div>

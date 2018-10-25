@@ -5,19 +5,12 @@ import { RingLoader } from "react-spinners";
 import DeleteComment from "./delete_comment";
 
 class CommentList extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    startIndex: 0,
+    endIndex: 0
+  };
 
-    this.state = {
-      startIndex: 0,
-      endIndex: 0
-    };
-    this.renderComments = this.renderComments.bind(this);
-    this.showMoreComments = this.showMoreComments.bind(this);
-    this.commentOwner = this.commentOwner.bind(this);
-  }
-
-  showMoreComments() {
+  showMoreComments = () => {
     let startIndex;
     if (this.state.startIndex - 3 < 0) {
       startIndex = 0;
@@ -27,34 +20,35 @@ class CommentList extends Component {
     this.setState({
       startIndex
     });
-  }
+  };
 
   componentDidMount() {
-    if (this.props.comments) {
+    const { comments, postId } = this.props;
+
+    if (comments) {
       this.setState({
-        startIndex: this.props.comments[this.props.postId].length - 3,
-        endIndex: this.props.comments[this.props.postId].length
+        startIndex: comments[postId].length - 3,
+        endIndex: comments[postId].length
       });
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (
-      nextProps.comments[nextProps.postId].length >
-      this.props.comments[this.props.postId].length
-    ) {
+    const { postId, comments } = this.props;
+
+    if (nextProps.comments[nextProps.postId].length > comments[postId].length) {
       this.setState({
-        endIndex: nextProps.comments[this.props.postId].length
+        endIndex: nextProps.comments[postId].length
       });
     }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
+    const { comments, postId } = this.props;
+
     if (
-      this.props.comments[this.props.postId].length <=
-        nextProps.comments[nextProps.postId].length ||
-      this.props.comments[this.props.postId].length >=
-        nextProps.comments[nextProps.postId].length
+      comments[postId].length <= nextProps.comments[nextProps.postId].length ||
+      comments[postId].length >= nextProps.comments[nextProps.postId].length
     ) {
       return true;
     } else if (nextState.startIndex < this.state.startIndex) {
@@ -64,33 +58,36 @@ class CommentList extends Component {
     return false;
   }
 
-  commentOwner(comment) {
-    if (comment.user.id === this.props.currentUser.id) {
+  commentOwner = comment => {
+    const { currentUser, deleteComment, updateComment, user } = this.props;
+
+    if (comment.user.id === currentUser.id) {
       return (
         <span>
           <DeleteComment
-            deleteComment={this.props.deleteComment}
-            updateComment={this.props.updateComment}
+            deleteComment={deleteComment}
+            updateComment={updateComment}
             comment={comment}
-            currentUser={this.props.currentUser}
-            user={this.props.user}
+            currentUser={currentUser}
+            user={user}
           />
         </span>
       );
     }
-  }
+  };
 
-  renderComments() {
+  renderComments = () => {
+    const { comments, postId } = this.props;
+
     let loadMoreComments =
-      this.props.comments[this.props.postId].length &&
-      this.state.startIndex > 0 ? (
+      comments[postId].length && this.state.startIndex > 0 ? (
         <p className="loading-more-comments" onClick={this.showMoreComments}>
           View 3 more comments
         </p>
       ) : (
         ""
       );
-    let commentList = this.props.comments[this.props.postId].slice(
+    let commentList = comments[postId].slice(
       this.state.startIndex,
       this.state.endIndex
     );
@@ -116,7 +113,7 @@ class CommentList extends Component {
       );
     });
 
-    if (this.props.comments === null && this.props.comments.length > 0) {
+    if (comments === null && comments.length > 0) {
       return <div className="loading-spin" />;
     } else {
       return (
@@ -126,7 +123,7 @@ class CommentList extends Component {
         </div>
       );
     }
-  }
+  };
 
   render() {
     return <div className="list-of-post">{this.renderComments()}</div>;
