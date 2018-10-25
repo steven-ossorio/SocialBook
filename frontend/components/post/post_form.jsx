@@ -1,63 +1,54 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { RingLoader } from "react-spinners";
 
 class PostForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: ""
-    };
+  state = {
+    text: ""
+  };
 
-    this.onSubmit = this.onSubmit.bind(this);
-    this.update = this.update.bind(this);
-  }
-
-  update(field) {
+  update = field => {
     return e => {
       this.setState({
         [field]: e.target.value
       });
     };
-  }
+  };
 
-  onSubmit(e) {
+  onSubmit = e => {
     e.preventDefault();
+    const { currentUser, createPost, match } = this.props;
 
     const post = Object.assign({}, this.state);
-    if (
-      this.props.match.path !== "/" &&
-      Number(this.props.match.params.userId) !== this.props.currentUser.id
-    ) {
-      post.profile_id = this.props.match.params.userId;
+    if (match.path !== "/" && Number(match.params.userId) !== currentUser.id) {
+      post.profile_id = match.params.userId;
     } else {
-      post.profile_id = this.props.currentUser.id;
+      post.profile_id = currentUser.id;
     }
     if (post.text !== "") {
-      this.props.createPost(post).then(() => {
+      createPost(post).then(() => {
         this.setState({
           text: ""
         });
       });
     }
-  }
+  };
 
   render() {
-    if (this.props.currentUser && this.props.user) {
+    const { currentUser, user } = this.props;
+
+    if (currentUser && user) {
       return (
         <div>
           <form>
             <div className="post-form-container">
               <div className="post-form-option-container">
                 <p className="make-a-post">
-                  <i className="fa fa-pencil" aria-hidden="true" />Make Post
+                  <i className="fa fa-pencil" aria-hidden="true" />
+                  Make Post
                 </p>
               </div>
               <div className="post-inner-container">
-                <img
-                  className="post-form-image"
-                  src={this.props.user.image_url}
-                />
+                <img className="post-form-image" src={user.image_url} />
                 <textarea
                   className="post-input-field"
                   onChange={this.update("text")}

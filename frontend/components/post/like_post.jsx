@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 
 class Like extends Component {
-  like() {
+  like = () => {
     let data = {
       liked_id: this.props.postId,
       type: "POST"
     };
     this.props.like(data);
-  }
+  };
 
-  unlike() {
+  unlike = () => {
     this.props.unlike(this.props.postId);
-  }
+  };
 
   render() {
-    if (this.props.likeIds.includes(this.props.userId)) {
+    const { likeIds, userId } = this.props;
+    if (likeIds.includes(userId)) {
       return (
         <div className="like-container">
           <div className="liked" onClick={this.unlike.bind(this)}>

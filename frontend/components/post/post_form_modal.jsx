@@ -1,37 +1,27 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Modal from 'react-modal';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Modal from "react-modal";
 
 class PostFormModal extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      modalIsOpen: false,
-    };
+  state = {
+    modalIsOpen: false
+  };
 
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.updateFile = this.updateFile.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-    this.cancelUpload = this.cancelUpload.bind(this);
-  }
+  openModal = () => {
+    this.setState({ modalIsOpen: true });
+  };
 
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
+  };
 
-  openModal() {
-    this.setState({modalIsOpen: true});
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }
-
-  updateFile(e) {
+  updateFile = e => {
     let fileReader = new FileReader();
     let file = e.currentTarget.files[0];
     fileReader.onloadend = () => {
       this.setState({
         imageFile: file,
-        imageUrl: fileReader.result,
+        imageUrl: fileReader.result
       });
     };
 
@@ -43,26 +33,31 @@ class PostFormModal extends Component {
         imageFile: null
       });
     }
-  }
+  };
 
-  cancelUpload(){
+  cancelUpload = () => {
     this.setState({
       imageFile: null,
       imageUrl: null
     });
-  }
+  };
 
-  onSubmit(e){
+  onSubmit = e => {};
 
-  }
+  render() {
+    const { currentUser, match } = this.props;
 
-  render(){
-    if (this.props.currentUser.id === parseInt(this.props.match.params.userId) && this.state.imageFile === null) {
+    if (
+      currentUser.id === parseInt(match.params.userId) &&
+      this.state.imageFile === null
+    ) {
       return (
         <div>
-          <div onClick={ this.openModal } className="upload-image-container">
+          <div onClick={this.openModal} className="upload-image-container">
             <div className="upload-image-hover">
-              <span><i className="fa fa-camera"></i></span>
+              <span>
+                <i className="fa fa-camera" />
+              </span>
               <span>Update Profile Picture</span>
             </div>
           </div>
@@ -73,30 +68,40 @@ class PostFormModal extends Component {
             contentLabel="Example Modal"
             overlayClassName="modal-background"
             shouldCloseOnOverlayClick={false}
-            >
+          >
             <div className="modal-heading">
               <h2>Update Profile Picture</h2>
-              <h2 className="modal-close-button" onClick={ this.closeModal }>X</h2>
+              <h2 className="modal-close-button" onClick={this.closeModal}>
+                X
+              </h2>
             </div>
             <div className="modal-body-container">
               <div className="modal-body">
                 <label htmlFor="profile-image" className="modal-body-label">
-                  <i className="fa fa-plus"></i>
+                  <i className="fa fa-plus" />
                   <h1>Upload Photo</h1>
                 </label>
-                <input onChange={ this.updateFile } id="profile-image" type="file" />
+                <input
+                  onChange={this.updateFile}
+                  id="profile-image"
+                  type="file"
+                />
               </div>
             </div>
-
           </Modal>
         </div>
       );
-    } else if (this.props.currentUser.id === parseInt(this.props.match.params.userId) && this.state.imageFile !== null) {
+    } else if (
+      currentUser.id === parseInt(match.params.userId) &&
+      this.state.imageFile !== null
+    ) {
       return (
         <div>
-          <div onClick={ this.openModal } className="upload-image-container">
+          <div onClick={this.openModal} className="upload-image-container">
             <div className="upload-image-hover">
-              <span><i className="fa fa-camera"></i></span>
+              <span>
+                <i className="fa fa-camera" />
+              </span>
               <span>Update Profile Image</span>
             </div>
           </div>
@@ -107,31 +112,36 @@ class PostFormModal extends Component {
             shouldCloseOnOverlayClick={false}
             contentLabel="Example Modal"
             overlayClassName="modal-background"
-            >
+          >
             <div className="modal-heading">
               <h2>Create Profile Picture</h2>
-              <h2 className="modal-close-button" onClick={ this.closeModal }>X</h2>
+              <h2 className="modal-close-button" onClick={this.closeModal}>
+                X
+              </h2>
             </div>
             <div className="modal-image-container">
               <div className="modal-image-body">
-                <img className="modal-image-view" src={ this.state.imageUrl }></img>
+                <img className="modal-image-view" src={this.state.imageUrl} />
               </div>
             </div>
             <div className="modal-image-footer">
-              <button onClick={ this.cancelUpload } className="image-cancel-button">Cancel</button>
-              <button onClick={ this.onSubmit } className="image-save-button">Save</button>
+              <button
+                onClick={this.cancelUpload}
+                className="image-cancel-button"
+              >
+                Cancel
+              </button>
+              <button onClick={this.onSubmit} className="image-save-button">
+                Save
+              </button>
             </div>
-
           </Modal>
         </div>
       );
     } else {
-      return (
-        <div></div>
-      );
+      return <div />;
     }
   }
 }
-
 
 export default PostFormModal;

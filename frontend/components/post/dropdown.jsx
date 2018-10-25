@@ -9,43 +9,39 @@ import onClickOutside from "react-onclickoutside";
 import PostUpdate from "./post_update_modal";
 
 class DropDown extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      menuActive: false,
-      editClick: false
-    };
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.editClick = this.editClick.bind(this);
-  }
+  state = {
+    menuActive: false,
+    editClick: false
+  };
 
-  handleClickOutside() {
+  handleClickOutside = () => {
     if (!this.state.editClick) {
       this.setState({
         menuActive: false
       });
     }
-  }
+  };
 
-  toggleMenu() {
+  toggleMenu = () => {
     let menuState = !this.state.menuActive;
     this.setState({
       menuActive: menuState
     });
-  }
+  };
 
-  handleDelete(e) {
+  handleDelete = e => {
     e.preventDefault();
     this.props.deletePost(this.props.post.id);
-  }
+  };
 
-  editClick() {
+  editClick = () => {
     let status = !this.state.editClick;
     this.setState({ editClick: status });
-  }
+  };
 
   render() {
+    const { post, currentUser, user, updatePost } = this.props;
+
     let menu;
     if (this.state.menuActive) {
       menu = (
@@ -56,10 +52,10 @@ class DropDown extends Component {
                 <PostUpdate
                   editClick={this.editClick}
                   toggleMenu={this.toggleMenu}
-                  post={this.props.post}
-                  currentUser={this.props.currentUser}
-                  user={this.props.user}
-                  updatePost={this.props.updatePost}
+                  post={post}
+                  currentUser={currentUser}
+                  user={user}
+                  updatePost={updatePost}
                 />
               </li>
               <li className="selection-option">
