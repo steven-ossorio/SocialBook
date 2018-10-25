@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { RingLoader } from "react-spinners";
 
 class News extends Component {
@@ -42,8 +43,8 @@ class News extends Component {
     const { news } = this.props;
 
     if (news) {
-      let news = news.splice(10, 10);
-      return news.map((news, i) => {
+      let newsArr = news.splice(10, 10);
+      return newsArr.map((news, i) => {
         return (
           <div key={i} className="rss-feed-index-item">
             <div className="rss-feed-item-right-side">
@@ -88,5 +89,9 @@ class News extends Component {
     );
   }
 }
+
+News.propTypes = {
+  news: PropTypes.array.isRequired
+};
 
 export default News;

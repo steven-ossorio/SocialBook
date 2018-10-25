@@ -9,8 +9,9 @@ import {
 import News from "./news";
 
 const mapStateToProps = state => {
+  let news = state.news.articles ? state.news.articles : [];
   return {
-    news: state.news.articles
+    news
   };
 };
 

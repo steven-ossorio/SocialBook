@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { func } from "prop-types";
+import PropTypes from "prop-types";
 import Typed from "typed.js";
 
 class SessionForm extends Component {
   state = {
     email: "",
     password: ""
-  };
-
-  static propType = {
-    login: func.isRequired
   };
 
   guestLogin = e => {
@@ -104,5 +100,11 @@ class SessionForm extends Component {
     );
   }
 }
+
+SessionForm.propTypes = {
+  login: PropTypes.func.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+  errors: PropTypes.object.isRequired
+};
 
 export default withRouter(SessionForm);

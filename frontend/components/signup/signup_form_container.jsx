@@ -1,10 +1,11 @@
-import { signup } from '../../actions/session_actions';
-import { connect } from 'react-redux';
-import SignUpForm from './signup_form';
+import { signup } from "../../actions/session_actions";
+import { connect } from "react-redux";
+import SignUpForm from "./signup_form";
 
 const mapStateToProps = state => {
+  let errors = state.errors ? state.errors.session : {};
   return {
-    errors: state.errors.session
+    errors
   };
 };
 
@@ -15,6 +16,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
- mapStateToProps,
- mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(SignUpForm);
