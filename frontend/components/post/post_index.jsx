@@ -8,51 +8,57 @@ import CommentForm from "../comment/comment_form";
 import CommentList from "../comment/comment_list";
 import CommentContainer from "../comment/comment_container";
 import Like from "./like_post";
-import ReactDOM from "react-dom";
 
 class PostIndex extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      profilePostsId: this.props.profilePostsId
-    };
-    this.renderPosts = this.renderPosts.bind(this);
-    this.postOwner = this.postOwner.bind(this);
-  }
+  state = {
+    profilePostsId: this.props.profilePostsId
+  };
 
   componentWillReceiveProps(nextProps, nextState) {
-    if (
-      Object.keys(this.props.posts).length < Object.keys(nextProps.posts).length
-    ) {
-      this.props.fetchUser(nextProps.match.params.userId);
+    const { posts, fetchUser } = this.props;
+
+    if (Object.keys(posts).length < Object.keys(nextProps.posts).length) {
+      fetchUser(nextProps.match.params.userId);
     }
   }
 
-  postOwner(post) {
+  postOwner = post => {
+    const { deletePost, currentUser, updatePost, user } = this.props;
+
     if (post.owner === this.props.currentUser.id) {
       return (
         <div>
           <DropDown
-            deletePost={this.props.deletePost}
+            deletePost={deletePost}
             post={post}
-            currentUser={this.props.currentUser}
-            user={this.props.user}
-            updatePost={this.props.updatePost}
+            currentUser={currentUser}
+            user={user}
+            updatePost={updatePost}
           />
         </div>
       );
     }
-  }
+  };
 
-  renderPosts() {
-    if (this.props.profilePostsId === null) {
+  renderPosts = () => {
+    const {
+      profilePostsId,
+      unlike,
+      like,
+      currentUser,
+      user,
+      createComment,
+      deleteComment
+    } = this.props;
+
+    if (profilePostsId === null) {
       return (
         <div className="loading-spin">
           <RingLoader size={100} color={"#0000FF"} />
         </div>
       );
     } else {
-      let posts = this.props.profilePostsId
+      let posts = profilePostsId
         .sort((a, b) => a - b)
         .reverse()
         .map(id => {
@@ -85,10 +91,10 @@ class PostIndex extends Component {
               </div>
               <p className="post-list-text">{post.text}</p>
               <Like
-                unlike={this.props.unlike}
-                like={this.props.like}
+                unlike={unlike}
+                like={like}
                 postId={post.id}
-                userId={this.props.currentUser.id}
+                userId={currentUser.id}
                 likeIds={post.likes[post.id].array}
               />
               <div className="entire-comment-container">
@@ -102,10 +108,10 @@ class PostIndex extends Component {
                 )}
                 <CommentContainer postId={post.id} />
                 <CommentForm
-                  user={this.props.user}
+                  user={user}
                   postId={post.id}
-                  createComment={this.props.createComment}
-                  deleteComment={this.props.deleteComment}
+                  createComment={createComment}
+                  deleteComment={deleteComment}
                 />
               </div>
             </div>
@@ -113,7 +119,7 @@ class PostIndex extends Component {
         );
       });
     }
-  }
+  };
 
   render() {
     return <div className="list-of-post">{this.renderPosts()}</div>;
