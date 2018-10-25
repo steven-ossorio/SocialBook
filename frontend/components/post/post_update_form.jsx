@@ -3,43 +3,37 @@ import { Link } from "react-router-dom";
 import { RingLoader } from "react-spinners";
 
 class PostUpdateForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: this.props.post.text
-    };
+  state = {
+    text: this.props.post.text
+  };
 
-    this.onSubmit = this.onSubmit.bind(this);
-    this.update = this.update.bind(this);
-  }
-
-  update(field) {
+  update = field => {
     return e => {
       this.setState({
         [field]: e.target.value
       });
     };
-  }
+  };
 
-  onSubmit(e) {
+  onSubmit = e => {
+    const { post, updatePost, closeAllModal } = this.props;
+
     e.preventDefault();
-    const post = this.props.post;
     post.text = this.state.text;
-    this.props.updatePost(post);
-    this.props.closeAllModal();
-  }
+    updatePost(post);
+    closeAllModal();
+  };
 
   render() {
-    if (this.props.currentUser && this.props.user) {
+    const { currentUser, user } = this.props;
+
+    if (currentUser && user) {
       return (
         <div>
           <form>
             <div className="post-form-container">
               <div className="post-inner-container">
-                <img
-                  className="post-form-image"
-                  src={this.props.user.image_url}
-                />
+                <img className="post-form-image" src={user.image_url} />
                 <textarea
                   className="edit-post-input-field"
                   onChange={this.update("text")}

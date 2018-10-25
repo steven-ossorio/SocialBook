@@ -1,31 +1,30 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
 import PostUpdateForm from "./post_update_form";
+import { func, object } from "prop-types";
 
 class PostUpdate extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalIsOpen: false
-    };
+  state = {
+    modalIsOpen: false
+  };
 
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.updatePost = this.updatePost.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-    this.cancelUpload = this.cancelUpload.bind(this);
-    this.closeAllModal = this.closeAllModal.bind(this);
-  }
+  static PropTypes = {
+    post: object.isRequired,
+    currentUser: object.isRequired,
+    user: object.isRequired,
+    updatePost: func.isRequired,
+    editClick: func.isRequired
+  };
 
-  openModal() {
+  openModal = () => {
     this.setState({ modalIsOpen: true });
-  }
+  };
 
-  closeModal() {
+  closeModal = () => {
     this.setState({ modalIsOpen: false });
-  }
+  };
 
-  updatePost(e) {
+  updatePost = e => {
     let fileReader = new FileReader();
     let file = e.currentTarget.files[0];
     fileReader.onloadend = () => {
@@ -43,22 +42,22 @@ class PostUpdate extends Component {
         imageFile: null
       });
     }
-  }
+  };
 
-  cancelUpload() {
+  cancelUpload = () => {
     this.setState({
       imageFile: null,
       imageUrl: null
     });
-  }
+  };
 
-  closeAllModal() {
+  closeAllModal = () => {
     this.props.toggleMenu();
     this.props.editClick();
     this.closeModal();
-  }
+  };
 
-  onSubmit(e) {
+  onSubmit = e => {
     let file = this.state.imageFile;
     const formData = new FormData();
     if (file) {
@@ -71,14 +70,16 @@ class PostUpdate extends Component {
         imageUrl: null
       });
     });
-  }
+  };
 
   render() {
+    const { post, currentUser, user, updatePost, editClick } = this.props;
+
     return (
       <div>
         <div onClick={this.openModal} className="upload-image-container">
           <div className="selection-option">
-            <button onClick={this.props.editClick}>Edit</button>
+            <button onClick={editClick}>Edit</button>
           </div>
         </div>
         <Modal
@@ -98,10 +99,10 @@ class PostUpdate extends Component {
           <div className="modal-body-container">
             <div className="modal-body">
               <PostUpdateForm
-                post={this.props.post}
-                currentUser={this.props.currentUser}
-                user={this.props.user}
-                updatePost={this.props.updatePost}
+                post={post}
+                currentUser={currentUser}
+                user={user}
+                updatePost={updatePost}
                 closeAllModal={this.closeAllModal}
               />
             </div>
